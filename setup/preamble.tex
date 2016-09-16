@@ -27,13 +27,13 @@
 % your operating system and its default input
 % encoding. Typically, you should use
 %   Linux  : utf8 (most modern Linux distributions)
-%            latin1 
+%            latin1
 %   Windows: ansinew
 %            latin1 (works in most cases)
 %   Mac    : applemac
 % Notice that you can manually change the input
 % encoding of your files by selecting "save as"
-% an select the desired input encoding. 
+% an select the desired input encoding.
 \usepackage[utf8]{inputenc}
 % Make latex understand and use the typographic
 % rules of the language used in the document.
@@ -77,7 +77,7 @@
 % http://en.wikibooks.org/wiki/LaTeX/Mathematics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Defines new environments such as equation,
-% align and split 
+% align and split
 \usepackage{amsmath}
 % Adds new math symbols
 \usepackage{amssymb}
@@ -86,7 +86,7 @@
 % When using thmmarks, amsmath must be an option as well. Otherwise \eqref doesn't work anymore.
 \usepackage[framed,amsmath,thmmarks]{ntheorem}
 
-\setlength{\headheight}{110pt} 
+\setlength{\headheight}{110pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Page Layout
 % http://en.wikibooks.org/wiki/LaTeX/Page_Layout
@@ -116,7 +116,7 @@
 
 % Change the headers and footers
 \usepackage{fancyhdr}
-\pagestyle{fancy} 
+\pagestyle{fancy}
 \fancyhf{} %delete everything
 \renewcommand{\headrulewidth}{0pt} %remove the horizontal line in the header
 \fancyhead[RE]{\color{black}\small\nouppercase\leftmark} %even page - chapter
@@ -165,7 +165,7 @@
 % http://en.wikibooks.org/wiki/LaTeX/Hyperlinks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Enable hyperlinks and insert info into the pdf
-% file. Hypperref should be loaded as one of the 
+% file. Hypperref should be loaded as one of the
 % last packages
 \usepackage{hyperref}
 \hypersetup{%
@@ -209,7 +209,7 @@
   captionpos=b,                    % sets the caption-position to bottom
   commentstyle=\color{mygreen},    % comment style
   deletekeywords={...},            % if you want to delete keywords from the given language
-  keepspaces=true,                 % keeps spaces in text, useful for keeping  
+  keepspaces=true,                 % keeps spaces in text, useful for keeping
   columns=flexible,				  % indentation of code (possibly needs columns=flexible)
   language={Java},                 % the language of the code
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
@@ -229,6 +229,3 @@
   style=cswc,
   literate= {Å}{{\AA}}1 {å}{{\aa}}1
 }
-
-
-

@@ -17,3 +17,9 @@ pdflatex: P5.tex
 	rm -f $(OTHER) $(PS)
 clean:
 	rm -f $(OTHER) $(PS)
+
+nobib: P5.tex
+	pdflatex --synctex=1 P5.tex
+	pdflatex --synctex=1 P5.tex
+	pdflatex --synctex=1 P5.tex
+	rm -f $(OTHER) $(PS)
