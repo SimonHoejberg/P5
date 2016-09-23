@@ -1,42 +1,100 @@
 \section{Scenarios}
-\subsection{Scenario1 - Tracking}
+\subsection{Ideal scenario}
+An ideal scenario for the turret is presented:\nl
 
-Den bliver sat på en plan overflade og derefter tændt ved at trykke på en knap.
+The turret is able to turn 180 degrees.\nl
+The turret is able to adjust its firing angle 45 degrees.\nl 
+The turret has a max shooting range of 350 cm.\nl
+The turret is able to detect targets at a range of up to 500 cm.\nl
+The turret is able to track a target once detected, in order to collect data.\nl
+The turret is able to predict where a moving target will be in order to hit it,
+both when the target has constant speed and when the speed varies.\nl
+The turret is able to hit a moving a target traveling with a speed that
+requires it to adjust its cannon in order to hit the target.\nl
+The turret is able to prioritize and handle multiple targets.\nl
 
-Den begynder nu at langsomt at dreje 45 grader til hver side fra sit udgangs
-punkt. 
+The target has a size of 10cm x 10cm.\nl
+The target is able to move at a constant speed of up 2.5 m/s.\nl
+The target is able to accelerate and decelerate.\nl
+The target is traveling on an even plane.\nl
 
-Den ser bevægelse i baggrunden og begynder at følge målet som bevæger sig i en
-bue 2 meter uden om turreten. Målet bliver ved med at holde en vis
-distance til turreten.
+Insert a sketch.
 
-Turreten følger målet indtil det har bevæget sig mere end 60 grader væk fra
-nulpunkts vinklen. Turreten går da tilbage til nulpunkts vinklen.
+\subsection{Concrete scenario 1 - single target:}
+The turret is set down on an even floor and turned on. It then turn searches
+for a target by turning 45 degrees to the left. It then starts turning 90
+degrees to the right and repeats this by switching between left and right.\nl
 
-\subsection{scenario2 - Idle}
+The turret detects a target at a distance of 5m moving at a speed of 2 m/s, it
+then collects data concerning the targets speed, and predicts where when and
+where it will be within shooting range. It then turns to the appropriate angle
+and waits until it is able to hit the target with acceptable accuracy. The
+turret repeats firing, calculating and turning until the target can no longer
+be seen.\nl
 
-Den bliver sat på en plan overflade og derefter tændt ved at trykke på en knap.
+The turret then repeats returns to searching for a target.\nl
 
-Den begynder nu at langsomt at dreje 45 grader til hver side fra sit udgangs
-punkt.
 
-Den ser ingen bevægelse og forsætter med at dreje 45 grader til hver side.
 
-\subsection{scenario3 - Shooting}
+insert a sketch.
+\subsection{Concrete scenario 2 - multiple targets:}
 
-Den bliver sat på en plan overflade og derefter tændt ved at trykke på en knap.
+The turret is set down on an even floor and turned on. It then turn searches
+for a target by turning 45 degrees to the left. It then starts turning 90
+degrees to the right and repeats this by switching between left and right.\nl
 
-Den begynder nu langsomt at dreje 45 grader til hver side fra sit udgangspunkt.
+The turret detects a target T1 at distance of 5 meters to the right, moving at
+a speed of 1 m/s. It then tracks and collects data about T1’s position and
+speed.\nl
 
-Der ser bevægelse i baggrunden og begynder at følge målet. Den finder frem til
-at målet er kommet ind i dens killzone.
+The turret predicts whether or not the target will enter its firing distance,
+and calculates that it will indeed enter the firing-range.\nl
 
-Den begynder nu at observere og derefter forudsige hvor målet ved være om kort
-tid. 
+After predicting that T1 will enter the firing-rage, the turret will start
+calculating the “firing-position” in order to be able to hit the target. While
+calculating this position, the turret detects another incoming target T2, at a
+distance of 150cm travelling at a speed 1.6m/s due west. (The cannon should
+prioritize targets sequentially) insert a sketch.\nl
 
-Efter dette er beregnet stiller den sig op så den vil kunne ramme målet når den
-skyder.
 
-Den gentager nu dette indtil målet har bevæget sig uden for rækkevidde,
-hvorefter den stopper med at skyde. Hvis målet ikke bevæger sig videre,
-forsætter den med at følge målet. Ellers går den tilbage til at idle.
+% \subsection{Scenario1 - Tracking}
+% 
+% Den bliver sat på en plan overflade og derefter tændt ved at trykke på en knap.
+% 
+% Den begynder nu at langsomt at dreje 45 grader til hver side fra sit udgangs
+% punkt. 
+% 
+% Den ser bevægelse i baggrunden og begynder at følge målet som bevæger sig i en
+% bue 2 meter uden om turreten. Målet bliver ved med at holde en vis
+% distance til turreten.
+% 
+% Turreten følger målet indtil det har bevæget sig mere end 60 grader væk fra
+% nulpunkts vinklen. Turreten går da tilbage til nulpunkts vinklen.
+% 
+% \subsection{scenario2 - Idle}
+% 
+% Den bliver sat på en plan overflade og derefter tændt ved at trykke på en knap.
+% 
+% Den begynder nu at langsomt at dreje 45 grader til hver side fra sit udgangs
+% punkt.
+% 
+% Den ser ingen bevægelse og forsætter med at dreje 45 grader til hver side.
+% 
+% \subsection{scenario3 - Shooting}
+% 
+% Den bliver sat på en plan overflade og derefter tændt ved at trykke på en knap.
+% 
+% Den begynder nu langsomt at dreje 45 grader til hver side fra sit udgangspunkt.
+% 
+% Der ser bevægelse i baggrunden og begynder at følge målet. Den finder frem til
+% at målet er kommet ind i dens killzone.
+% 
+% Den begynder nu at observere og derefter forudsige hvor målet ved være om kort
+% tid. 
+% 
+% Efter dette er beregnet stiller den sig op så den vil kunne ramme målet når den
+% skyder.
+% 
+% Den gentager nu dette indtil målet har bevæget sig uden for rækkevidde,
+% hvorefter den stopper med at skyde. Hvis målet ikke bevæger sig videre,
+% forsætter den med at følge målet. Ellers går den tilbage til at idle.
