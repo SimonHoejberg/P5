@@ -1,46 +1,78 @@
-\chapter{Projektil-fysik}
-When fireing a projectile there some information is needed in order to hit a
-target. These informations consists of calculations and an understanding of the
-physics that go into fireing a projectile. This is necessary due to the fact
-that the canon has a limited amount of input that needs to be processed in order
-to hit the target.
-
-Based on this problem, this chapter will be used to explain the physics needed
-to fire the projectile. This will mainly be covered by presenting and explaining
-the equations used to calculate the projectile motion. These equations has been
-chosen du to tha fact that calculating the force and angle of the projectile is
-the most important part when fireing a projectile in order to hit a target.\nl
-
-
-\section{Kasteparabel}
-For at kunne udregne et projektils kasteparabel, skal man have adgang til et
-antal informationer. Disse informationer er:
-
-To be able to calculate the projectile motion, a number of informations i
-needed. These informations are:
+\section{Projectile Motion}
+When fireing a projectile it is possible to determine its exact trajectory by
+using the formula for projectile motion. This formula can be used to map the
+projectiles location over a given time frame. This is done using the following
+information:
 \begin{itemize}
-  \item Starting velocity $v_0$ ($m/s$)
-  \item Angle of fire $a$ ($degrees$)
-  \item Gravitational accelleration $g$ ($m/s^2$)
-  \item Height of fireing $y_0$ ($m$)
+  \item Starting Velocity $v_0$ ($m/s$)
+  \item Angle of Fire $a$ ($degrees$)
+  \item Gravitational Acceleration $g$ ($m/s^2$)
+  \item Height of Fireing $y_0$ ($m$)
   \item Distance $d$ ($m$)
-  \item Time in the air $t$ ($s$)
+  \item Time $t$ ($s$)
 \end{itemize}
 
-If air drag is excluded, a number of statements can be made based on these
-informations:\nl
-When the projectile is fires it is not affected by any external forces other
-than the gravity. This means that the velocity can be calculated as:
-$v_x = v_0 * cos(a)$\nl
+All of these variables can be deduced from two key pieces of information; the
+starting velocity, the angle of fire and the height of fireing. For the
+constructed turret the angle of fire varies from shot to shot, but the starting
+velocity would always be constant. As the angle of fire is easily observed, the
+only key piece of information needed is the starting velocity. In order to
+determine this velocity, a number of experiments were made. These are presented
+and explained in \autoref{}. The data from these experiments have resulted in
+the following initial velocity:\nl
+\begin{equation}
+v_0\ =\ 4.87\ m/s
+\end{equation}
 
-Dette udsagn passer også på\ldots \nl
+In addition to the initial velocity, the height of fireing needs to be
+determined. As the height of the cannon barrel changes based on the angle of
+fire, this can be calculated using trigonometry.
 
-Mere tekst\ldots \nl
+By using the value for $v_0$, and the equation for the height of fireing, the
+projectiles trajectory can be determined.
 
-Disse udregninger giver os så formlen:\nl
-$v_t = (\frac{v_0\ *\ cos(a)}{-g\ *\ t\ +\ v_0\ *\ sin(a)})$
 
-\subsection{Diskussion: Luftmodstand}
-Denne subsection vil blive brugt til at diskutere hvorfor luftmodstanden kan
-ignoreres for den valgte type af projektil.
+% When fireing a projectile there is a number of informations which are needed in
+% order to hit a target. This information consists of calculations and an
+% understanding of the physics that go into fireing a projectile. This is
+% necessary due to the fact that the canon has a limited amount of input that
+% needs to be processed in order to hit the target.
 
+% Based on this problem, this chapter will be used to explain the physics needed
+% to fire the projectile. This will mainly be covered by presenting and explaining
+% the equations used to calculate the projectile motion. These equations has been
+% chosen du to tha fact that calculating the force and angle of the projectile is
+% the most important part when fireing a projectile in order to hit a target.\nl
+% 
+% \section{Kasteparabel}
+% For at kunne udregne et projektils kasteparabel, skal man have adgang til et
+% antal informationer. Disse informationer er:
+% 
+% To be able to calculate the projectile motion, a number of informations i
+% needed. These informations are:
+% \begin{itemize}
+%   \item Starting velocity $v_0$ ($m/s$)
+%   \item Angle of fire $a$ ($degrees$)
+%   \item Gravitational accelleration $g$ ($m/s^2$)
+%   \item Height of fireing $y_0$ ($m$)
+%   \item Distance $d$ ($m$)
+%   \item Time in the air $t$ ($s$)
+% \end{itemize}
+% 
+% If air drag is excluded, a number of statements can be made based on these
+% informations:\nl
+% When the projectile is fires it is not affected by any external forces other
+% than the gravity. This means that the velocity can be calculated as:
+% $v_x = v_0 * cos(a)$\nl
+% 
+% Dette udsagn passer også på\ldots \nl
+% 
+% Mere tekst\ldots \nl
+% 
+% Disse udregninger giver os så formlen:\nl
+% $v_t = (\frac{v_0\ *\ cos(a)}{-g\ *\ t\ +\ v_0\ *\ sin(a)})$ 
+% 
+% \subsection{Diskussion: Luftmodstand}
+% Denne subsection vil blive brugt til at diskutere hvorfor luftmodstanden kan
+% ignoreres for den valgte type af projektil.
+% 
