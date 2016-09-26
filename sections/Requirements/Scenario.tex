@@ -1,3 +1,4 @@
+\chapter{Requirements}
 \section{Scenarios}
 \subsection{Ideal scenario}
 An ideal scenario for the turret is presented:\nl
@@ -18,11 +19,14 @@ The target is able to move at a constant speed of up 2.5 m/s.\nl
 The target is able to accelerate and decelerate.\nl
 The target is traveling on an even plane.\nl
 
-Insert a sketch.
+\figx{BaseScenario.png}{How the different aspects are seen - not final
+pic.}{}
+
+\todo{Pic is not final}
 
 \subsection{Concrete scenario 1 - single target:}
 The turret is set down on an even floor and turned on. It then turn searches
-for a target by turning 45 degrees to the left. It then starts turning 90
+for a target by turning 90 degrees to the left. It then starts turning 180
 degrees to the right and repeats this by switching between left and right.\nl
 
 The turret detects a target at a distance of 5m moving at a speed of 2 m/s, it
@@ -34,28 +38,40 @@ be seen.\nl
 
 The turret then repeats returns to searching for a target.\nl
 
+\figx{1Scenario.png}{How the different aspects are seen - not final
+pic.}{}
 
+\todo{Pic is not final}
 
 insert a sketch.
 \subsection{Concrete scenario 2 - multiple targets:}
 
 The turret is set down on an even floor and turned on. It then turn searches
-for a target by turning 45 degrees to the left. It then starts turning 90
+for a target by turning 90 degrees to the left. It then starts turning 180
 degrees to the right and repeats this by switching between left and right.\nl
 
 The turret detects a target T1 at distance of 5 meters to the right, moving at
-a speed of 1 m/s. It then tracks and collects data about T1’s position and
+a speed of 1 m/s. It then tracks and collects data about T1's position and
 speed.\nl
 
 The turret predicts whether or not the target will enter its firing distance,
 and calculates that it will indeed enter the firing-range.\nl
 
 After predicting that T1 will enter the firing-rage, the turret will start
-calculating the “firing-position” in order to be able to hit the target. While
+calculating the firing-position in order to be able to hit the target. While
 calculating this position, the turret detects another incoming target T2, at a
 distance of 150cm travelling at a speed 1.6m/s due west. (The cannon should
 prioritize targets sequentially) insert a sketch.\nl
 
+The cannon continues targeting T1, and moves to the calculated
+shooting-position, it then waits for T1 and shots when it has an acceptable
+chance of hitting the target. It then calculates a secondary position for T1
+and moves into a suitable position and fires when it is acceptable.\nl
+
+It then senses that T2 is still within shooting range and proceeds to calculate
+suitable shooting position, where upon it fires at the designated time. As T2
+leaves the shooting range the turret the turret begins to scan for targets
+again.\nl
 
 % \subsection{Scenario1 - Tracking}
 % 
