@@ -1,37 +1,70 @@
+længere forklaringer
 \section{Projectile Motion}
 When fireing a projectile it is possible to determine its exact trajectory by
 using the formula for projectile motion. This formula can be used to map the
 projectiles location over a given time frame. This is done using the following
 information:
 \begin{itemize}
-  \item Starting Velocity $v_0$ ($m/s$)
-  \item Angle of Fire $a$ ($degrees$)
-  \item Gravitational Acceleration $g$ ($m/s^2$)
-  \item Height of Fireing $y_0$ ($m$)
-  \item Distance $d$ ($m$)
-  \item Time $t$ ($s$)
+  \item $v_0$ ($m/s$) - Starting Velocity 
+  \item $a$ ($degrees$) - Angle of Fire 
+  \item $g$ ($m/s^2$) - Gravitational Acceleration 
+  \item $y_0$ ($m$) - Height of Fireing 
+  \item $y$ ($m$) - height
+  \item $x$ ($m$) - distance
+  \item $t$ ($s$) - Time
 \end{itemize}
 
-All of these variables can be deduced from two key pieces of information; the
-starting velocity, the angle of fire and the height of fireing. For the
-constructed turret the angle of fire varies from shot to shot, but the starting
-velocity would always be constant. As the angle of fire is easily observed, the
-only key piece of information needed is the starting velocity. In order to
-determine this velocity, a number of experiments were made. These are presented
-and explained in \autoref{}. The data from these experiments have resulted in
-the following initial velocity:\nl
-\begin{equation}
-v_0\ =\ 4.87\ m/s
+The equations used for determining the height and length of the shot at any
+given time are:
+\begin{equation}\label{slength}
+x=v_0*cos(a)*t
+\end{equation}
+\begin{equation}\label{sheight}
+y=v_0*sin(a)*t-\frac{1}{2}*g*t^2
 \end{equation}
 
-In addition to the initial velocity, the height of fireing needs to be
-determined. As the height of the cannon barrel changes based on the angle of
-fire, this can be calculated using trigonometry.
+\subsection{Calculating length}
+Using \autoref{sheight} it is possible to isolate \textbf{t}. This can then
+substitute t in \autoref{slength}. This gives the equation:
+\begin{equation}
+x\ =\ v*cos(a)*\frac{v*sin(a)+\sqrt{v^2*sin(a)^2-2*g*y}}{g}
+\end{equation}
 
-By using the value for $v_0$, and the equation for the height of fireing, the
-projectiles trajectory can be determined.
+This can then be used to calculate the maximum distance the projetile can
+travel.
+
+figur af turret og kasteparabel
+forklaring af hvordan ændring af hastighed og vinkel påvirker skuddet
+\subsection{tid}
+noget om tid
+\begin{equation}
+t=\frac{x}{v_0*cos(a)}
+\end{equation}
+%This gives the
+% equation:
+% \begin{equation}\label{time}
+% t=\frac{x}{v_0*cos(a)}
+% \end{equation}
 
 
+% All of these variables can be deduced from two key pieces of information; the
+% starting velocity, the angle of fire and the height of fireing. For the
+% constructed turret the angle of fire varies from shot to shot, but the starting
+% velocity would always be constant. As the angle of fire is easily observed, the
+% only key piece of information needed is the starting velocity. In order to
+% determine this velocity, a number of experiments were made. These are presented
+% and explained in \autoref{}. The data from these experiments have resulted in
+% the following initial velocity:\nl
+% \begin{equation}
+% v_0\ =\ 4.87\ m/s
+% % \end{equation}
+
+% In addition to the initial velocity, the height of fireing needs to be
+% determined. As the height of the cannon barrel changes based on the angle of
+% fire, this can be calculated using trigonometry. 
+% 
+% By using the value for $v_0$, and the equation for the height of fireing, the
+% projectiles trajectory can be determined. 
 % When fireing a projectile there is a number of informations which are needed in
 % order to hit a target. This information consists of calculations and an
 % understanding of the physics that go into fireing a projectile. This is
