@@ -10,6 +10,7 @@ TEX:=$(shell ls *.tex)
 OTHER = *~ *.aux *.dvi *.toc *.bbl *.blg *.gz *.out *.thm *.ps *.idx *.ilg *.ind
 
 pdflatex: P5.tex
+	rm -f P5.pdf
 	pdflatex --synctex=1 P5.tex
 	bibtex P5
 	pdflatex --synctex=1 P5.tex
