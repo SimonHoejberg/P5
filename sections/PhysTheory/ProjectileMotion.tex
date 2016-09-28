@@ -31,7 +31,7 @@ not take into accound any effect air resistance could have on the projectiles
 trajectory. The topic of air resistance and the relevance thereof is discussed
 in \autoref{AirResDisc}.
 
-\subsection{Calculating Distance}
+\subsection{Calculating Distance}\label{CalcDist}
 In order to calculate the distance at which the projectile will touch the groud
 we need to combine the expressions in order to express the height $\textbf{y}$
 as a function of the horizontal distance $\textbf{x}$. The first step is to take
@@ -59,18 +59,22 @@ coeffecients. The relation between fireing angle and travelled distance is
 exemplified in \autoref{ProjMot}.
 
 \figx[0.25]{ProjMot}{Distance relative to angle of fire.}
-% figur af turret og kasteparabel
-% forklaring af hvordan ændring af hastighed og vinkel påvirker skuddet
-% \subsection{tid}
-% noget om tid
-% \begin{equation}
-% t=\frac{x}{v_0*cos(a)}
-% \end{equation}
-%This gives the
-% equation:
-% \begin{equation}\label{time}
-% t=\frac{x}{v_0*cos(a)}
-% \end{equation}
+
+\subsection{Projectile Air Time}
+When it comes to hitting a target in motion we need another crucial information,
+namely how long a given projectile takes to reach its target.
+In \autoref{CalcDist} we determined a formula for calculating the distance at
+which the projectile would hit the ground. As we have already determined the
+distance, we can simply use the formula described in \autoref{slength}, namely:
+\begin{equation}
+x=v_0*cos(a)*t
+\end{equation}
+By isolating for the time in this formula, we can determine how long it takes
+for at given projectile to reach the target. This results in the following
+formula:
+\begin{equation}\label{TimeEq}
+t=\frac{x}{v_0*cos(a)}
+\end{equation}
 
 
 % All of these variables can be deduced from two key pieces of information; the
