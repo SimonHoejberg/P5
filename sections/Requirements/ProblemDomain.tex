@@ -1,11 +1,122 @@
-\section{Intro}
-Bla bla vi har delt det op i 3 faser - 
-\section{Detection}
-In order for our turret to be able to hit a target, it first needs to detect it.-Differentiate between background and targets?
--Have a zone it must protect
--know a way to normalize after firing
--Identify a target 
-\section{Tracking}
--Keep track of a target
--
-\section{Shooting}
+\chapter{Problem Domain}
+Fluff and red thread
+(Go indepth with the phases)
+
+\section{Ideal Scenario}
+Based on the initial problem it is now possible to describe how the turret is
+supposed to operate. An ideal scenario has been constructed in order to better
+visualize it, and serve as a basis for the requirements engineering. The ideal
+scenario involves two actors the ``Turret'' and the ``Target'' and how they
+interact with each other.
+
+\subsection{The Turret}
+
+The turret is set down on an even floor and turned on. It then turns searching
+for a target by turning left and right scanning an area for possible targets.
+
+If the turret detects a target, it should be able to predict the targets
+movement, in order to anticipate the targets position at any given time.
+
+The turret moves into a firing position based on the predicted position and
+then fires at the appropriate time, in order to hit the target at the predicted
+position. 
+
+If the turret stops sensing targets, it should start scanning the area again.
+
+\subsection{The Target}
+The target is moving on an even plane at a constant speed driving in a straight
+line(perpendicular?). The target moves at a speed such that the turret will miss
+if it fires when the target is directly in front of the turret.
+
+\section{Phases}
+Based on the ideal scenario, three distrinct phases were identified. The
+``Scanning'' phase where the turret searches for a target, The ``Tracking''
+phase where the turret collects and calculates a trajectory for the target and a
+``Shooting'' phase where the turret moves to a firing position and shoots at the
+correct time. These phases will now be examined in order to identify the
+problems in their respective domain.
+
+\subsection{Scanning}
+The turret needs to be able to monitor an area and detect if a target enters
+within range. In order to accomplish this, we need to diffentiate between two
+situations 
+-No target detected: The turret does not detect any targets and continuously
+scans for target 
+-target detected: a target has been identified within the firing-zone. The
+turret should then start the ``tracking'' phase.
+
+This presents us with the following problems:
+-How does the turret identify a target?
+
+% -A: through sensor input we monitor the area and if a change occurs in the 
+% 
+% In order for the turret to detect a target, it first needs to be in range.
+% 
+% In order for our turret to be able to hit a target, it first needs to detect
+% it.
+% -Differentiate between background and targets? 
+% -Have a zone it must protect
+% -know a way to normalize after firing
+% -Identify a target 
+\subsection{Tracking}
+If a target has been detected, the turret must track it to gather
+information in order to properly predict the targets movement and calculate a
+firing-position for the turret.
+
+ -What data is needed in order to properly
+calculate a trajectory and predicted positions of a target
+-What data is needed in order to properly calculate a firing-position and
+firing-time for the turret in order to hit the target.
+- How does the turret track the target?
+
+\subsection{Shooting}
+Once sufficient data is collected from the tracking-phase the turret needs to be
+able to move into a firing-position such that it is able to hit the target at
+the predicted position. It needs to be able to time the shot in order to take
+the travel time of the shot into consideration.
+
+Deadline questions:
+- What deadlines does the system need to have in order to hit a target?
+(Software deadlines and mechanical deadlines)
+Mechanical questions:
+- How does the turret move into a firing position?
+- How does turret shoot?
+- How does the turret hit a target a varying distances?
+
+\subsection{Target}
+-How big is the target?
+-how fast is the target?
+-What colout is the target?
+
+\section{Scenarions}
+Based on the on the 
+
+
+Based on the initial problem it is now possible to describe how the turret is
+supposed to operate. In order to better visualize it, two concrete scenarios
+have been created with the objective to illustrate it from different angles.
+
+\subsection{Concrete Scenario: Single Target}
+The turret is set down on an even floor and turned on. It then turn searches
+for a target by turning 90 degrees to the left. It then starts turning 180
+degrees to the right and repeats this by switching between left and right.\nl
+
+The turret detects a target at a distance of 5m moving at a speed of 2 m/s, it
+then collects data concerning the targets speed, and predicts where when and
+where it will be within shooting range. It then turns to the appropriate angle
+and waits until it is able to hit the target with acceptable accuracy. The
+turret repeats firing, calculating and turning until the target can no longer
+be seen.\nl
+
+The turret then repeats returns to searching for a target.\nl
+
+\figx{1Scenario.png}{How the different aspects are seen - not final
+pic.}{}
+
+\todo{Pic is not final}
+
+\subsection{Concrete Scenario: Multiple Targets}
+
+
+
+
