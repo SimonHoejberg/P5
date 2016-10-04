@@ -46,16 +46,16 @@ correct time. These phases will now be examined in order to identify the
 problems in their respective domain.
 
 \subsection{Scanning}
-The turret needs to be able to monitor an area and detect if a target enters
-within range. In order to accomplish this, we need to diffentiate between two
-situations 
--No target detected: The turret does not detect any targets and continuously
-scans for target 
--target detected: a target has been identified within the firing-zone. The
-turret should then start the ``tracking'' phase.
+The ``Scanning'' phase which is used when the turret is idle, monitors an
+area. This presents two different situations. The first situation is when no
+target is detected and it continuosly scans for a target. The second situation
+is when a target is detected and it switches to the ``Tracking'' phase.\nl
 
-This presents us with the following problems:
--How does the turret identify a target?
+This leads to the following problems:
+\begin{itemize}
+  \item How can an area for the turret to monitor be defined?
+  \item How does the turret identify a target?
+\end{itemize}
 
 % -A: through sensor input we monitor the area and if a change occurs in the 
 % 
@@ -67,65 +67,49 @@ This presents us with the following problems:
 % -Have a zone it must protect
 % -know a way to normalize after firing
 % -Identify a target 
-\subsection{Tracking}
-If a target has been detected, the turret must track it to gather
-information in order to properly predict the targets movement and calculate a
-firing-position for the turret.
 
- -What data is needed in order to properly
-calculate a trajectory and predicted positions of a target
--What data is needed in order to properly calculate a firing-position and
-firing-time for the turret in order to hit the target.
-- How does the turret track the target?
+\subsection{Tracking}
+The ``Tracking'' phase which occurs when a target is found, is used to follow a
+target and gather data about its movements. This information is then used to
+predict where the target will be at any given time as well as to calculate a
+shooting position.\nl
+
+This leads to the following problems:
+\begin{itemize}
+  \item How can the turret predict a targets movement?
+  \item How does the turret track the target?
+\end{itemize}
 
 \subsection{Shooting}
-Once sufficient data is collected from the tracking-phase the turret needs to be
-able to move into a firing-position such that it is able to hit the target at
-the predicted position. It needs to be able to time the shot in order to take
-the travel time of the shot into consideration.
+The ``Shooting'' phase occurs when it is determined where the target will be,
+when it will be there and how the turret will hit it. The turret then moves
+into the a shooting position and proceed to shoot at the correct.\nl
 
-Deadline questions:
-- What deadlines does the system need to have in order to hit a target?
-(Software deadlines and mechanical deadlines)
-Mechanical questions:
-- How does the turret move into a firing position?
-- How does turret shoot?
-- How does the turret hit a target a varying distances?
+This lead to the following problems:
+\begin{itemize}
+  \item How does the turret move into a shooting position?
+  \item How does the turret shoot?
+  \item How does the turret hit a target a varying distances?
+  \item What deadlines does the system need to have in order to hit a target?
+\end{itemize}
 
-\subsection{Target}
--How big is the target?
--how fast is the target?
--What colout is the target?
-
-\section{Scenarions}
-Based on the on the 
-
-
-Based on the initial problem it is now possible to describe how the turret is
-supposed to operate. In order to better visualize it, two concrete scenarios
-have been created with the objective to illustrate it from different angles.
-
-\subsection{Concrete Scenario: Single Target}
-The turret is set down on an even floor and turned on. It then turn searches
-for a target by turning 90 degrees to the left. It then starts turning 180
-degrees to the right and repeats this by switching between left and right.\nl
-
-The turret detects a target at a distance of 5m moving at a speed of 2 m/s, it
-then collects data concerning the targets speed, and predicts where when and
-where it will be within shooting range. It then turns to the appropriate angle
-and waits until it is able to hit the target with acceptable accuracy. The
-turret repeats firing, calculating and turning until the target can no longer
-be seen.\nl
-
-The turret then repeats returns to searching for a target.\nl
-
-\figx{1Scenario.png}{How the different aspects are seen - not final
-pic.}{}
-
-\todo{Pic is not final}
-
-\subsection{Concrete Scenario: Multiple Targets}
+\section{Summary}
+In conclusion, an ideal scenario was constructed based on the initial problem.
+Certain hard requirements can be determined already based on the semester topic
+\begin{enumerate}
+	\item The system must be embedded
+	\item The system must use techniques from either the MI or the RTS course, or both
+\end{enumerate}
 
 
-
+In addition several problems were identified in the problemdomain:
+\begin{itemize}
+	\item How will the cannon detect the target?
+	\item What information is needed to properly calculate and predict the trajectory of a target
+	\item What information is needed in order to calculate a firing-position and firing-time of the cannon in order to reliably hit the target
+	\item How does the turret move into firing position?
+	\item How does the turret shoot the target
+	\item How does the turret hit targets at varying distances
+\end{itemize}
+These questions will serve as the foundation for our analysis, and help to refine the initial problem into a problemstatement.
 
