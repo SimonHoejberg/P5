@@ -24,6 +24,15 @@ lid up. Since it did not light we concluded that the sensor was broken. \nl
 
 When trying to test the other sensor, first it did not give a reading so the
 same test was conducted using a camera to see if the sensor was broken. It was
-concluded that the sensor was not broken. It was then discovered that 
+concluded that the sensor was not broken. It was then discovered that it was a
+problem with the software, where the address for the reading the sensor on the
+I2C port was changed. This meant that it was not possible to get a proper
+reading. The readings were either 0 or a reading above 60.000 depending on which
+port was used. \nl
+
+Another issue with using the infrared sensor is the range, the medium range
+infrared sensor only has a range from 10 to 80 cm. Therefor, this sensor could
+become a very limiting factor as to how far the target can be placed from the
+cannon. 
 
 \subsection{Camera tracking}%Will most likely need a better name
