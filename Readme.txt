@@ -16,3 +16,17 @@ Example: \inputPA{introduction}
  
 This is an example of how to setup a source in the lib.bib
 Disclaimer, this file will be updated when new commands are added DO READ IT
+
+For inputting graphs use 
+\begin{tikzpicture}
+	\begin{axis}
+	[xlabel={$x$},
+	ylabel={$y$},
+	xmin = 0, xmax=255,
+	ymin = 0, ymax=255
+  	]
+    \addplot []{} 
+  \end{axis}
+\end{tikzpicture}
+For further reference check 
+http://pgfplots.sourceforge.net/pgfplots.pdf
