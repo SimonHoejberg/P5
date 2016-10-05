@@ -17,13 +17,9 @@ whether the sensor is shielded. The different object sizes was tested with a
 shielded sensor and a non shielded sensor. \nl
 
 % \begin{tikzpicture}
-%   \begin{axis}
-%   [xlabel={$x$},
-%   ylabel={$y$},
-%   xmin = 0, xmax=255,
-%   ymin = 0, ymax=255
-%   ]
-%     \addplot []{} 
+%   \begin{axis}[xlabel={$x$}, ylabel={$y$}, ylabel style={rotate=270}, xmin=0,
+%   ymin=0, minor tick num = 3, /pgfplots/grid = both, axis lines = left] \addplot
+%   table {graphData/test1.dat};
 %   \end{axis}
 % \end{tikzpicture}
 
@@ -61,4 +57,5 @@ on how large the object/objects being tracked are. It also has the ability to
 track up to 8 different objects. \nl
 
 The setup of the camera is quite simple and is done using a computer, here it is
-setup which color it is suposed to track. The 
+setup which color it is suposed to track. The process of choosing the color is
+done 
