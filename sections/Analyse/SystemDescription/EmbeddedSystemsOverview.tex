@@ -1,69 +1,186 @@
-\chapter{Embedded Systems}
-introduction - As most people are probably aware of, computers have become an integral part of our modern society,
-and rapidly changing the way we do things. When most people say computers, they talk about the class of computers
-known as desktops, laptops, servers and tablets. But there is an entire class of computers surrounding us in much greater numbers,
-although their presence is a lot more incognito. The computers are built into larger electronic devices.
-This class of computer systems is also known as Embedded Systems.
+\chapter{System Description}
+This chapter will be used to look at embedded systems as well as their
+limits, real-time systems concerning how scheduling and deadlines work and
+machine intelligence.\fix{}{Add more text}
 
-What is an embedded system?
+\section{Embedded Systems}
+An embedded system is a device with limited resources both in terms of computer
+power and how much memory it has. They are used everywhere to do small task and
+jobs. It is difficult to give an exact definition of what an embedded system is,
+but a crude definition\citep[ch.1.1]{vahid1999embedded} is:\nl
 
-Coming up with an exact definition of an embedded system is a hard task, but \citep{vahid1999embedded} gives a crude
-definition of a Embedded System as follows: \nl
+\textit{An  embedded  system  is  nearly  any computing system other than a desktop,
+laptop, or  mainframe  computer.}\nl
 
-An  embedded  system  is  nearly  any computing system other than a desktop, laptop, or  mainframe  computer.
-
-Although is definition is very crude, it at least gives a starting point from which embedded systems can be observed.
-By examining some common types of embedded systems we can try to further understand these systems.\nl
-
-So what are embedded systems. These can be found in a variety of different electronic devices such as
-\begin{itemize}
-\item Consumer electronics - One of the obvious categories in calculators, cellphones, digital cameras, camcorders, handheld gaming devices
-\item Home Appliances - Washing machine, tumbledryer, thermostats, home security systems, and lighting systems(device that controls lights in a home)
-\item Office automation equipment - Copymachine, printer, scanner, fax machine
-\item Business equipment - ATM's, cardreader systems, pagers,
-\item Automobiles - There is a lot of embedded systems in a typical car today - the ABS-brakes of a modern car is a very typical
-example of not only a embedded system, but also a Real-Time-System, which will be explained later. Other examples include cruise-control
-active suspension, fuel injection, transmission control etc.
-\end{itemize}
-\nl
-
-So, we are in fact surrounded by embedded systems of different types in our modern lives.
-
-Most embedded systems also share a couple of key characteristics:
+This means that embedded systems cover alot of different types of computers and
+that requirements can differ alot between systems. They do share some
+similarities, these characteristics are:
 
 \begin{enumerate}
-  \item Single-functioned - Most embedded systems have a single function ie. the same program that executes again and again, for example a Washing machine(although the program can have several subprograms such as wool, ecofriendly, etc)
-  On the other side of the spectrum we have desktop computers which can run a variety of programs, and allows the user to install and delete them as well.
-  \item Tightly constrained - All electronic devices have some form of constrain imposed on them, but for embedded systems these constraints can
-  are much more noticeable. Using cost, size, power and performance as a design-metric, the system can be balanced since tradeoffs are usually necessary. For example a washing machine might limit the size and cost of the system whereas you can slack a bit on the power consumption and performance.
-  \item Reactive and realtime - A lot of embedded systems also has to react and respond to certain input. If this input has a deadline, it is in fact a real-time system. Consider a ABS-brake in a car, it receives an input when the driver presses the brake.
-  It then must apply the correct amount of pressure to the brakes according to the speed of the wheels, by calculating these factors. It then needs to apply this to the brakes. And it all has to be within the deadline.
+  \item \textbf{Single-functioned}:  Most embedded systems only have a single
+  function which is executed repeatedly.
+  \item \textbf{Tightly constrained}: All systems have some limits, but embedded
+  systems due to their nature are much more tightly constrained when it comes to
+  cost, size, performance and power.
+  \item \textbf{Reactive and realtime}: A lot of embedded systems also has to
+  react and respond to certain input. If this input has a deadline, it is in
+  fact a real-time system.
 \end{enumerate}
-Intro - fluff
-What is a embedded system
-Types of ES - mission critical(Rts?)
-Typical Embedded SYstems - components, microprocessor???
-Reliability
-Limited Resources(memory, cpu, power consumption etc)
+
+The constaints embedded systems have in terms of cost, size, performance and
+power dictates what they are used for, see \autoref{ESConstraints}. The
+different features are linked to each other, if one is increased another should
+be decreased.
+
+\figx{ESConstraints}{How the constaint can depend on each
+other}{}
 
 
-This section will be used to give an give an overview of how machine
-intelligence and real-time systems will be used and what an embedded system
-is.\\
 
-A embedded system is a device with limited resources both in terms of computer
-power and how much memory it has \PS. They are used everywhere to do small task
-and jobs \PS.\\
 
-When working with a embedded system there are different problems to overcome
-when it comes to how the software needs to be programed and how to work with the
-limited resources of the system \PS.\\
+write about microcontroller?
 
-% small devices everywhere doing their very own job, having access to limited
-% memory and little computing power.
-% Comes with its own mix of software, hardware and mechanical parts.
-%
-%
-% problems with with ES(embedded systems)
-% noget MI
-% Noget RTS
+
+
+
+% 
+% 
+% Although is definition is very crude, it at least gives a starting point from
+% which embedded systems can be observed. By examining some common types of
+% embedded systems we can try to further understand these systems.\nl
+% 
+% So what are embedded systems. These can be found in a variety of different
+% electronic devices such as \begin{itemize}
+% \item Consumer electronics - One of the obvious categories in calculators,
+% cellphones, digital cameras, camcorders, handheld gaming devices
+% \item Home Appliances - Washing machine, tumbledryer, thermostats, home
+% security systems, and lighting systems(device that controls lights in a home)
+% \item Office automation equipment - Copymachine, printer, scanner, fax machine
+% \item Business equipment - ATM's, cardreader systems, pagers,
+% \item Automobiles - There is a lot of embedded systems in a typical car today -
+% the ABS-brakes of a modern car is a very typical example of not only a embedded
+% system, but also a Real-Time-System, which will be explained later. Other
+% examples include cruise-control active suspension, fuel injection, transmission
+% control etc.
+% \end{itemize}
+% \nl
+% 
+% So, we are in fact surrounded by embedded systems of different types in our
+% modern lives.
+% 
+% Most embedded systems also share a couple of key characteristics:
+% 
+% \begin{enumerate}
+%   \item Single-functioned - Most embedded systems have a single function ie.
+%   the same program that executes again and again, for example a Washing
+%   machine(although the program can have several subprograms such as wool,
+%   ecofriendly, etc) On the other side of the spectrum we have desktop computers
+%   which can run a variety of programs, and allows the user to install and
+%   delete them as well.
+%   \item Tightly constrained - All electronic devices have some form of
+%   constrain imposed on them, but for embedded systems these constraints can are
+%   much more noticeable. Using cost, size, power and performance as a
+%   design-metric, the system can be balanced since tradeoffs are usually
+%   necessary. For example a washing machine might limit the size and cost of the
+%   system whereas you can slack a bit on the power consumption and performance.
+%   \item Reactive and realtime - A lot of embedded systems also has to react and
+%   respond to certain input. If this input has a deadline, it is in fact a
+%   real-time system. Consider a ABS-brake in a car, it receives an input when
+%   the driver presses the brake.
+%   It then must apply the correct amount of pressure to the brakes according to
+%   the speed of the wheels, by calculating these factors. It then needs to apply
+%   this to the brakes. And it all has to be within the deadline.
+% \end{enumerate}
+% Intro - fluff
+% What is a embedded system
+% Types of ES - mission critical(Rts?)
+% Typical Embedded SYstems - components, microprocessor???
+% Reliability
+% Limited Resources(memory, cpu, power consumption etc)
+% 
+% 
+% 
+% 
+% 
+% 
+% Coming up with an exact definition of an embedded system is a hard task, but
+% \citep{vahid1999embedded} gives a crude definition of a Embedded System as
+% follows: \nl
+% 
+% An  embedded  system  is  nearly  any computing system other than a desktop,
+% laptop, or  mainframe  computer.
+% 
+% Although is definition is very crude, it at least gives a starting point from
+% which embedded systems can be observed. By examining some common types of
+% embedded systems we can try to further understand these systems.\nl
+% 
+% So what are embedded systems. These can be found in a variety of different
+% electronic devices such as \begin{itemize}
+% \item Consumer electronics - One of the obvious categories in calculators,
+% cellphones, digital cameras, camcorders, handheld gaming devices
+% \item Home Appliances - Washing machine, tumbledryer, thermostats, home
+% security systems, and lighting systems(device that controls lights in a home)
+% \item Office automation equipment - Copymachine, printer, scanner, fax machine
+% \item Business equipment - ATM's, cardreader systems, pagers,
+% \item Automobiles - There is a lot of embedded systems in a typical car today -
+% the ABS-brakes of a modern car is a very typical example of not only a embedded
+% system, but also a Real-Time-System, which will be explained later. Other
+% examples include cruise-control active suspension, fuel injection, transmission
+% control etc.
+% \end{itemize}
+% \nl
+% 
+% So, we are in fact surrounded by embedded systems of different types in our
+% modern lives.
+% 
+% Most embedded systems also share a couple of key characteristics:
+% 
+% \begin{enumerate}
+%   \item Single-functioned - Most embedded systems have a single function ie.
+%   the same program that executes again and again, for example a Washing
+%   machine(although the program can have several subprograms such as wool,
+%   ecofriendly, etc) On the other side of the spectrum we have desktop computers
+%   which can run a variety of programs, and allows the user to install and
+%   delete them as well.
+%   \item Tightly constrained - All electronic devices have some form of
+%   constrain imposed on them, but for embedded systems these constraints can are
+%   much more noticeable. Using cost, size, power and performance as a
+%   design-metric, the system can be balanced since tradeoffs are usually
+%   necessary. For example a washing machine might limit the size and cost of the
+%   system whereas you can slack a bit on the power consumption and performance.
+%   \item Reactive and realtime - A lot of embedded systems also has to react and
+%   respond to certain input. If this input has a deadline, it is in fact a
+%   real-time system. Consider a ABS-brake in a car, it receives an input when
+%   the driver presses the brake.
+%   It then must apply the correct amount of pressure to the brakes according to
+%   the speed of the wheels, by calculating these factors. It then needs to apply
+%   this to the brakes. And it all has to be within the deadline.
+% \end{enumerate}
+% Intro - fluff
+% What is a embedded system
+% Types of ES - mission critical(Rts?)
+% Typical Embedded SYstems - components, microprocessor???
+% Reliability
+% Limited Resources(memory, cpu, power consumption etc)
+% 
+% 
+% This section will be used to give an give an overview of how machine
+% intelligence and real-time systems will be used and what an embedded system
+% is.\\
+% 
+% A embedded system is a device with limited resources both in terms of computer
+% power and how much memory it has \PS. They are used everywhere to do small task
+% and jobs \PS.\\
+% 
+% When working with a embedded system there are different problems to overcome
+% when it comes to how the software needs to be programed and how to work with the
+% limited resources of the system \PS.\\
+% 
+% % small devices everywhere doing their very own job, having access to limited
+% % memory and little computing power.
+% % Comes with its own mix of software, hardware and mechanical parts.
+% %
+% %
+% % problems with with ES(embedded systems)
+% % noget MI
+% % Noget RTS
