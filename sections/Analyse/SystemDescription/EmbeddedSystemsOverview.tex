@@ -1,7 +1,7 @@
 \chapter{System Description}
-This chapter will be used to look at embedded systems as well as their
-limits, real-time systems concerning how scheduling and deadlines work and
-machine intelligence.\fix{}{Add more text}
+This chapter will be used to look at embedded systems and their limits,
+real-time systems concerning how scheduling and deadlines work and machine
+intelligence.\fix{}{Add more text}
 
 \section{Embedded Systems}
 An embedded system is a device with limited resources both in terms of computer
@@ -12,33 +12,28 @@ but a crude definition\citep[ch.1.1]{vahid1999embedded} is:\nl
 \textit{An  embedded  system  is  nearly  any computing system other than a desktop,
 laptop, or  mainframe  computer.}\nl
 
-This means that embedded systems cover alot of different types of computers and
-that requirements can differ alot between systems. They do share some
-similarities, these characteristics are:
+This means that embedded systems cover alot of different types of computers.
+Their requirements can therefore differ alot between systems, although they do
+share some characteristics:
 
 \begin{enumerate}
   \item \textbf{Single-functioned}:  Most embedded systems only have a single
   function which is executed repeatedly.
   \item \textbf{Tightly constrained}: All systems have some limits, but embedded
   systems due to their nature are much more tightly constrained when it comes to
-  cost, size, performance and power.
+  cost, size, performance and power. These constaints are linked in the sense
+  that an increase in one area directly affects the other areas, see
+  \autoref{ESConstraints}.
   \item \textbf{Reactive and realtime}: A lot of embedded systems also has to
   react and respond to certain input. If this input has a deadline, it is in
   fact a real-time system.
 \end{enumerate}
 
-The constaints embedded systems have in terms of cost, size, performance and
-power dictates what they are used for, see \autoref{ESConstraints}. The
-different features are linked to each other, if one is increased another should
-be decreased.
-
 \figx{ESConstraints}{How the constaint can depend on each
 other}{}
 
-
-
-
-write about microcontroller?
+\fix{write about microcontroller?}{Depending on whether or not it is necessary
+it may be dropped.}
 
 
 
