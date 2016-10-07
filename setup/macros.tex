@@ -247,8 +247,18 @@ rettes} \autopageref{retRefMacro}\\}
 \end{figure}
 }
 
-\newcommand{\graph}[4]{%
-\begin{figure}[H]
+\newcounter{Graph}
+\renewcommand{\theGraph}{Graph \arabic{Graph}}
+\newenvironment{graphEnv}{%
+\refstepcounter{Graph}%
+}%
+{}%
+\newfloat{graphFloat}{H}{gop}
+\floatname{graphFloat}{Graph}
+
+\newcommand{\graph}[5]{%
+\begin{graphEnv}
+\begin{graphFloat}
 \centering
 \begin{tikzpicture}
 	\begin{axis}[xlabel={$#1$}, ylabel={$#2$}, ylabel style={rotate=270}, xmin=0,
@@ -257,8 +267,11 @@ rettes} \autopageref{retRefMacro}\\}
 	\end{axis}
 \end{tikzpicture}
 \caption{#4}
-\end{figure}
+\end{graphFloat}
+\label{graph:#5}
+\end{graphEnv}
 }
+
 
 \newcommand{\ap}[1]{\addplot table {graphData/#1.dat};}
 
