@@ -1,3 +1,5 @@
+
 *.pdf
 *.log
 build/tmp
+*.project
