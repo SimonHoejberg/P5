@@ -1,8 +1,12 @@
 \section{Fireing Offset}
 As described in the requirements in \autoref{} the cannon needs to calculate an
 offset to be able to hit a target in motion. In order to calculate this we will
-need \ldots \nl
+need the air time for the projectile and the velocity of the target\nl
 
 
-This can be calculated using \autoref{FinEq} which was derived in
-\autoref{ProjMotion}.
+The offset can be calculated using \autoref{FinEq} and \autoref{TimeEq}which was
+derived in \autoref{ProjMotion}. By first using \autoref{FinEq} to calculate the
+distance to the target and then inputting that into \autoref{FinEq} to get the
+air time for the projectile, it is possible to calculate the distance the target
+has travelled in the time it takes the projectile to get to it, simply by
+multiplying the air time with the velocity of the target.
