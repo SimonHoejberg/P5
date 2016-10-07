@@ -247,18 +247,20 @@ rettes} \autopageref{retRefMacro}\\}
 \end{figure}
 }
 
-\newcommand{\graph}[4]{
-\begin{figure}
+\newcommand{\graph}[4]{%
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}
 	\begin{axis}[xlabel={$#1$}, ylabel={$#2$}, ylabel style={rotate=270}, xmin=0,
-	ymin=0, minor tick num = 3, /pgfplots/grid = both, axis lines = left] \addplot
-	table {graphData/#3.dat};
+	ymin=0, minor tick num = 3, /pgfplots/grid = both, axis lines = left] 
+	\forcsvlist{\ap}{#3}
 	\end{axis}
 \end{tikzpicture}
 \caption{#4}
 \end{figure}
 }
+
+\newcommand{\ap}[1]{\addplot table {graphData/#1.dat};}
 
 \newcounter{def}
 \renewcommand{\thedef}{definition \thechapter.\arabic{def}}
