@@ -1,9 +1,9 @@
 \section{Sensor Testing}
-To find out which sensors are the best to use, this chapter will be used to test
-the different sensors. The testing of the sensors will also be used to test how
-precise they are.\nl
+To find out which sensors are the optimal sensors for the project,
+this chapter will be used to test the different sensors. The testing of the
+sensors will also be used to find out how precise they are.\nl
 
-First the testing testing methodology will be explained, then this methodology
+First the testing methodology will be explained, then this methodology
 will be used to devise tests for the different sensors. 
 
 \subsection{Testing Methodology}
@@ -13,8 +13,8 @@ distance sensors and the second part is testing the camera.
 \subsection{Ultrasonic Sensor}
 The test of the ultrasonic sensor was divided into 4 different experiments, the
 difference between the experiments are the size of the object being tracked and
-whether the sensor is shielded. The different object sizes was tested with a
-shielded sensor and a non shielded sensor. \nl
+whether the sensor is shielded or not. The different object sizes was tested
+with a shielded sensor and a non shielded sensor. \nl
 
 % \begin{tikzpicture}
 %   \begin{axis}[xlabel={$x$}, ylabel={$y$}, ylabel style={rotate=270}, xmin=0,
@@ -28,8 +28,8 @@ how far the object can be from the canon.
 
 \subsection{Infrared}
 The test of the infrared sensor was not able to be conducted since there were
-some issues with the different sensors. The first sensor did not work at all,
-since it was an infrared sensor a camera was used to see whether the infrared
+some issues with the different sensors. The first sensor did not work at all.
+Since it was an infrared sensor, a camera was used to see if the infrared
 LED lid up. Since it did not light we concluded that the sensor was broken. \nl
 
 When trying to test the other sensor, first it did not give a reading so the
@@ -40,22 +40,22 @@ I2C port was changed. This meant that it was not possible to get a proper
 reading. The readings were either 0 or a reading above 60.000 depending on which
 port was used. \nl
 
-Another issue with using the infrared sensor is the range, the medium range
-infrared sensor only has a range from 10 to 80 cm. Therefor, this sensor could
-become a very limiting factor as to how far the target can be placed from the
-cannon. 
+Another issue with using the infrared sensor is the range. The medium range
+infrared sensor only has a range from 10 to 80 cm. Therefore this sensor could
+become a very limiting factor in regards to how far the target can be placed
+from the cannon. 
 
 \subsection{Camera tracking}%Will most likely need a better name
 Testing the camera will consist of several parts, these parts will heavily rely
-on the technical specifications of the camera. Therefor, the first part of this
+on the technical specifications of the camera. Therefore the first part of this
 section will be on the technical specifications of the camera and the needed
 software.\nl
 
-The camera runs at 30 fps and with a resolution of 88 x 144, this could
-potentialy become an issue since it is a very low resolution. But that depends
-on how large the object/objects being tracked are. It also has the ability to
-track up to 8 different objects. \nl
+The camera runs at 30 fps and with a resolution of 88 x 144. This could
+potentialy become an issue due to the fact that it is a very low resolution.
+Although this is a could be a problem, it depends on how large the
+object/objects being tracked are.
+The camera also has the ability to track up to 8 different objects. \nl
 
-The setup of the camera is quite simple and is done using a computer, here it is
-setup which color it is suposed to track. The process of choosing the color is
-done 
+The setup of the camera is quite simple and is done using a computer, to setup
+which color it is suposed to track. The process of choosing the color is done 

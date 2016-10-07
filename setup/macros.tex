@@ -138,7 +138,7 @@
  \autopageref{todoRefMacro}\\}
 
 \newcounter{PSCounter}
-\newcommand{\PS}{
+\newcommand{\Source}{
 \ifps
 	\label{psRefMacro}
 	\psfalse
@@ -244,6 +244,19 @@ rettes} \autopageref{retRefMacro}\\}
   \label{#2}
   \caption*{\textbf{Source:} #4}
 \end{center}
+\end{figure}
+}
+
+\newcommand{\graph}[4]{
+\begin{figure}
+\centering
+\begin{tikzpicture}
+	\begin{axis}[xlabel={$#1$}, ylabel={$#2$}, ylabel style={rotate=270}, xmin=0,
+	ymin=0, minor tick num = 3, /pgfplots/grid = both, axis lines = left] \addplot
+	table {graphData/#3.dat};
+	\end{axis}
+\end{tikzpicture}
+\caption{#4}
 \end{figure}
 }
 
