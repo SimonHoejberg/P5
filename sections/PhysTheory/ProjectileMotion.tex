@@ -1,9 +1,9 @@
 \section{Projectile Motion}\label{ProjMotion}
 When fireing a projectile it is possible to determine its exact trajectory by
-using the formula for projectile motion. This formula can be used to map the
-projectiles relative location to the turret over a given time frame. This
-formula is split into two parts for calculating the x- and y-coordinate
-respectively. The formulas are as follows:
+using the formula for projectile motion. This theorem is important to the
+project as it can be used to map the projectiles relative location to the turret
+over a given time frame. This formula is split into two parts for calculating
+the x- and y-coordinate respectively. The formulas are as follows:
 \begin{equation}\label{slength}
 x=v_0*cos(a)*t
 \end{equation}
@@ -15,7 +15,7 @@ The formulas use the following variables:
 \begin{itemize}
   \item $v_0$ ($m/s$) - Starting Velocity 
   \item $a$ ($degrees$) - Angle of Fire 
-  \item $g$ ($m/s^2$) - Gravitational Acceleration 
+  \item $g$ ($m/s^2$) - Gravitational Acceleration (Constant)
   \item $x$ ($m$) - distance
   \item $t$ ($s$) - Time
 \end{itemize}
@@ -25,27 +25,32 @@ In addition, the following variables are used in the following sections:
   \item $y$ ($m$) - height
 \end{itemize}
 
+By using this theorem, we can use the projectiles initial velocity, combined
+with the angle of fireing, to determine where the fired projectile will
+land.\nl
 It should be noted that the formulas \autoref{slength} and \autoref{sheight} do
 not take into accound any effect air resistance could have on the projectiles
 trajectory. The topic of air resistance and the relevance thereof is discussed
 in \autoref{AirResDisc}.
 
 \subsection{Calculating Distance}\label{CalcDist}
-In order to calculate the distance at which the projectile will touch the groud
-we need to combine the expressions in order to express the horisontal distance
-$\textbf{y}$ as a function of the height $\textbf{x}$. The first step is to take
-\autoref{sheight} and express the time $\textbf{t}$ as a function of the
-height $\textbf{y}$. This is done as the resulting expression can
-be substituted into \autoref{slength}. Doing this gives the equation:
+In order to calculate the distance at which the projectile will touch the ground
+we need to combine \autoref{slength} and \autoref{sheight}. This is done in
+order to express the horisontal distance $\mathbf{y}$ as a function of the
+height $\mathbf{x}$. To do this we need to take \autoref{sheight} and express
+the time $\mathbf{t}$ as a function of the height $\mathbf{y}$. This is done as the
+resulting expression can be substituted into \autoref{slength}. Doing this
+and substituting for $\mathbf{t}$ in \autoref{slength} gives the equation:
 \begin{equation}\label{FinEq}
-x\ =\ v*cos(a)*\frac{v*sin(a)+\sqrt{v^2*sin(a)^2-2*g*y}}{g}
+x\ =\ v_0*cos(a)*\frac{v_0*sin(a)+\sqrt{v_0^2*sin(a)^2-2*g*y_0}}{g}
 \end{equation}
 
-As such \autoref{FinEq} can be used to calculate the distance the projectile can
-travel on any given shot.
+Now, \autoref{FinEq} can be used to calculate the distance the projectile will
+travel given the initial velocity $\mathbf{v_0}$, the angle $\mathbf{a}$ and
+the turrets height $\mathbf{y_0}$.
 
 \subsection{Angle-Distance Relation}
-When fireing a projectile the turret has one primary variable it can use to aim
+When fireing the turret has one primary variable it can use to aim,
 namely the angle at which the projectile is fired. This variable is
 theoretically enough to accurately fire the turret, but it does present some
 problems when it comes to calculating the trajectory and the offset needed for
@@ -53,9 +58,13 @@ targets in motion.\nl
 
 Given a constant initial velocity of the projectile, the distance travelled and
 air time is proportional to the fireing angle. This relation is shown in
-\autoref{FinEq} where $\textbf{cos(a)}$ and $\textbf{sin(a)}$ are used as
-coeffecients. The relation between fireing angle and travelled distance is
-exemplified in \autoref{ProjMot}.
+\autoref{FinEq} where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as
+coeffecients. As such, the furthest possible shot would be achieved using
+$\mathbf{a=45\ degrees}$ such that $\mathbf{sin(45)\approx 0.71}$ and
+$\mathbf{cos(45)\approx 0.71}$.
+
+The relation between fireing angle and travelled distance is exemplified in
+\autoref{ProjMot}.
 
 \figx[0.25]{ProjMot}{Distance relative to angle of fire.}
 
