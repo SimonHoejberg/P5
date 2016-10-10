@@ -6,8 +6,8 @@ Fluff and red thread
 \section{Ideal Scenario}
 Based on the initial problem it is now possible to describe how the turret is
 supposed to operate. An ideal scenario is constructed in order to better
-visualize it, and to serve as a basis for the requirements engineering. The
-ideal scenario involves the two actors ``Turret'' and ``Target'' and
+visualize it and to serve as a basis for the requirements engineering. The
+ideal scenario involves the two actors a ``Turret'' and a ``Target'' and
 describes how they interact with each other.
 
 \begin{center}
@@ -15,21 +15,22 @@ describes how they interact with each other.
 \begin{minipage}{0.8\linewidth}
 \textbf{Ideal Scenario:}
 
-The turret is set down on an even floor and turned on. It then turns searching
-for a target by turning left and right scanning an area for possible targets.
-
-If the turret detects a target, it should be able to predict the targets
-movement, in order to anticipate the targets position at any given time.
+The turret is set down on an even floor and activated. It then turns searching
+for a target by turning left and right, scanning an area for possible
+targets.\nl
 
 The target is moving on an even plane at a constant speed driving in a straight
-line(perpendicular?). The target moves at a speed such that the turret will miss
-if it fires when the target is directly in front of the turret.
+line. The target moves at a speed such that the turret will miss if it fires
+when the target is directly in front of the turret.\nl
 
-The turret moves into a firing position based on the predicted position and
-then fires at the appropriate time, in order to hit the target at the predicted
-position. 
+The turret detects a target, it begins to predict the targets movements in
+order to anticipate the targets position at any given time.\nl
 
-If the turret stops sensing targets, it should start scanning the area again.
+The turret moves into a firing position based on the predicted position. It then
+fires at the appropriate time, in order to hit the target at the predicted
+position.\nl
+
+The turret stops sensing the target and start scanning the area again.
 
 \end{minipage}
 }
@@ -38,18 +39,18 @@ If the turret stops sensing targets, it should start scanning the area again.
 
 \section{Phases}
 Based on the ideal scenario three distrinct phases are identified,
-``Scanning'', ``Tracking'' and ``Shooting''. The ``Scanning'' phase was where
-the turret searched for a target by turning. The ``Tracking'' phase where the
+``Scanning'', ``Tracking'' and ``Shooting''. The ``Scanning'' phase is where
+the turret searches for a target by turning. The ``Tracking'' phase is where the
 turret collects data and calculates the trajectory for the target. The
-``Shooting'' phase where the turret moves to a firing position and shoots at the
-correct time. These phases will now be examined in order to identify the
+``Shooting'' phase is where the turret moves to a firing position and shoots at
+the correct time. These phases will now be examined in order to identify the
 problems in their respective domain.
 
 \subsection{Scanning}
-The ``Scanning'' phase which is used when the turret is idle, monitors an
-area. This presents two different situations. The first situation is when no
-target is detected and it continuosly scans for a target. The second situation
-is when a target is detected and it switches to the ``Tracking'' phase.\nl
+The ``Scanning'' phase where the turret monitors an area presents two different
+situations. The first situation is when no target is detected and it continuosly
+scans for a target. The second situation is when a target is detected and it
+switches to the ``Tracking'' phase.\nl
 
 This leads to the following problems:
 \begin{itemize}
@@ -81,35 +82,41 @@ This leads to the following problems:
 \end{itemize}
 
 \subsection{Shooting}
-The ``Shooting'' phase occurs when it is determined where the target will be,
-when it will be there and how the turret will hit it. The turret then moves
-into the a shooting position and proceed to shoot at the correct.\nl
+The ``Shooting'' phase occurs when the cannon has determined where the target
+will be, when it will be there and how the turret will hit it. The turret then moves
+into the a shooting position and proceeds to shoot at the correct.\nl
 
-This lead to the following problems:
+This leads to the following problems:
 \begin{itemize}
   \item How does the turret move into a shooting position?
   \item How does the turret shoot?
-  \item How does the turret hit a target a varying distances?
-  \item What deadlines does the system need to have in order to hit a target?
+  \item How does the turret hit a target at varying distances?
+  \item What deadlines does the system need in order to hit a target?
 \end{itemize}
 
 \section{Summary}
-In conclusion, an ideal scenario was constructed based on the initial problem.
-Certain hard requirements can be determined already based on the semester topic
+In conclusion, an ideal scenario is constructed based on the initial problem.
+Certain hard requirements are already determined based on the semester
+topic:
 \begin{enumerate}
 	\item The system must be embedded
 	\item The system must use techniques from either the MI or the RTS course, or both
 \end{enumerate}
 
-
 In addition several problems were identified in the problemdomain:
 \begin{itemize}
 	\item How will the cannon detect the target?
-	\item What information is needed to properly calculate and predict the trajectory of a target
-	\item What information is needed in order to calculate a firing-position and firing-time of the cannon in order to reliably hit the target
+	\item What information is needed to properly calculate and predict the
+	trajectory of a target?
+	\item What information is needed in order to calculate a firing-position and
+	firing-time of the cannon in order to reliably hit the target?
 	\item How does the turret move into firing position?
-	\item How does the turret shoot the target
-	\item How does the turret hit targets at varying distances
+	\item How does the turret shoot the target?
+	\item How does the turret hit targets at varying distances?
 \end{itemize}
-These questions will serve as the foundation for the analysis, and help to refine the initial problem into a problemstatement. In the next chapter the theory behind embedded systems will be explained in order to properly understand the constraints imposed by such a system. 
+
+These questions serve as the foundation for the analysis and help to
+refine the initial problem into a problem statement. In the next chapter the
+theory behind embedded systems will be explained in order to properly
+understand the constraints imposed by such a system.
 
