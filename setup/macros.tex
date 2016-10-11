@@ -272,6 +272,14 @@ rettes} \autopageref{retRefMacro}\\}
 \end{graphEnv}
 }
 
+\newcommand{\dataTable}[3]{%
+\begin{table}
+\pgfplotstabletypeset{data/#1.dat}
+\caption{#2}
+\label{table:#3}
+\end{table}
+}
+
 \newcommand{\graphL}[6]{%
 \begin{graphEnv}
 \begin{graphFloat}
@@ -290,7 +298,7 @@ rettes} \autopageref{retRefMacro}\\}
 \end{graphEnv}
 }
 
-\newcommand{\ap}[1]{\addplot table {graphData/#1.dat};}
+\newcommand{\ap}[1]{\addplot table {data/#1.dat};}
 \newcommand{\al}[1]{\addlegendentry{#1}}
 
 \newcounter{def}
