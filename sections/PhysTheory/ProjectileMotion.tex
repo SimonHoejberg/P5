@@ -45,9 +45,26 @@ and substituting for $\mathbf{t}$ in \autoref{slength} gives the equation:
 x\ =\ v_0*cos(a)*\frac{v_0*sin(a)+\sqrt{v_0^2*sin(a)^2-2*g*y_0}}{g}
 \end{equation}
 
-Now, \autoref{FinEq} can be used to calculate the distance the projectile will
-travel given the initial velocity $\mathbf{v_0}$, the angle $\mathbf{a}$ and
-the turrets height $\mathbf{y_0}$.
+Another important point is that the variable $\mathbf{y_0}$ changes dynamically
+based on angle of the turret. This is because the muzzle of the turret
+changes its veritcal position based on the angle. This can be seen in
+\autoref{TurretCalcY}.
+\figx[0.2]{TurretCalcY}{Turret marked with the variables A, r, p, h and $y_0$}
+
+In order to calculate $y_0$ for any given angle we can make use of the sine for
+the angle. Looking at \autoref{TurretCalcY} we can formulate the following
+formula: 
+\begin{equation}\label{Y0Eq}
+y_0\ =\ h\ +\ r\ *\ sin(a)
+\end{equation}
+Substituting this into \autoref{FinEq} gives the following formula:
+\begin{equation}\label{FinFinEq} 
+x\ =\ v_0*cos(a)*\frac{v_0*sin(a)+\sqrt{v_0^2*sin(a)^2-2*g*(h+r*sin(a))}}{g}
+\end{equation}
+Now, using \autoref{FinFinEq} it is possible to calculate the
+distance the projectile will travel given the initial velocity $\mathbf{v_0}$,
+the angle $\mathbf{a}$, the turrets height $\mathbf{h}$ and the length of the
+turret $\mathbf{r}$.
 
 \subsection{Angle-Distance Relation}
 When fireing the turret has one primary variable it can use to aim,
@@ -58,7 +75,7 @@ targets in motion.\nl
 
 Given a constant initial velocity of the projectile, the distance travelled and
 air time is proportional to the fireing angle. This relation is shown in
-\autoref{FinEq} where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as
+\autoref{FinFinEq} where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as
 coeffecients. As such, the furthest possible shot would be achieved using
 $\mathbf{a=45\ degrees}$ such that $\mathbf{sin(45)\approx 0.71}$ and
 $\mathbf{cos(45)\approx 0.71}$.
