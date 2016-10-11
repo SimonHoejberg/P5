@@ -273,8 +273,15 @@ rettes} \autopageref{retRefMacro}\\}
 }
 
 \newcommand{\dataTable}[3]{%
-\begin{table}
-\pgfplotstabletypeset{data/#1.dat}
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[every head row/.style={before row=\hline,after row=\hline\hline},
+every last row/.style={after row=\hline},
+every first column/.style={
+column type/.add={|}{}},
+every column/.style={
+column type/.add={}{|}
+}]{data/#1.dat}
 \caption{#2}
 \label{table:#3}
 \end{table}
