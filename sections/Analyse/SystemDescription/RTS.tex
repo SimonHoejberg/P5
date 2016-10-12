@@ -14,8 +14,8 @@ few milliseconds of input whereas scheduling of steamships requires responses me
  Real-time systems are usually considered to be those in which the response time is of order milliseconds; interactive systems are those with response times of order seconds and batch systems are those with response times of hours or days.
   Real-time systems may be subdivided into hard and soft, depending on the severity of failure to meet a deadline for output.}
 \subsection{Introduction}
-From the definition it is given that \textit{Any system in which the time at which output is produced is significant}. At its most basic RTS
-systems are just systems where the response time is a vital factor. Consider the example of an ABS-brake again - the system needs an input
+From the definition it is given that \textit{Any system in which the time at
+which output is produced is significant}. At its most basic, RTS systems are just systems where the response time is a vital factor. Consider the example of an ABS-brake again - the system needs an input
 ie. the sensor input from the wheels and calculate the correct amount of pressure to apply to the brakes in order to optimize the braking
 length of the vehicle, that is the output. The time it takes from receiving the input till it produces the output is critical,
 since if the output is produced too late, the car brakes too late. So in fact when talking about realtime-systems, the only concern is whether
@@ -36,6 +36,6 @@ A task is a subset of the program. For example a task in the ABS-brake system co
 the time to process all the different tasks is needed. This provides a overview of all the different tasks needed to complete the function and their
 respective runtime.
 \subsection{Scheduling}
-How do you ensure that the deadline \textbf{always} holds true? The answer is through scheduling. By explicit stating a schedule for the system to follow,
-a scheduling analysis can be conducted in order to ensure that the schedule does in fact always hold true and doesn't miss deadlines. The art of scheduling
+To ensure that the deadlines \textbf{always} holds true, scheduling is needed.
+By explicit stating a schedule for the system to follow, a scheduling analysis can be conducted in order to ensure that the schedule does in fact always hold true and doesn't miss deadlines. The art of scheduling
 is one of the fundamental concepts of RTS. But for scheduling to work, the time it takes to complete certain tasks is needed.
