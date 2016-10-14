@@ -19,9 +19,73 @@ suitable way that allows it to work it into a suitable solution.
 
 
 \section{Knowledge Representation}
+The general way of solving problems is by having a representation of the
+knowledge needed to solve the problem, then computing an output and interpret
+that output into a solution.\nl
 
-A knowledge base is a mixture of perception, reasoning and acting, and functions
-as representation of all the knowledge the agent has.
+The representation is part of a represntation scheme, which specifies the form
+of the knowledge. All the knowledge stored on the agent that is represented by
+this represntation scheme is the knowledge base. In the case of \namep this is
+the knowledge about the movement of the target, the vertical angle of the canon
+and the horisontal angle of the turret.\nl
+
+The knowledge base should include what makes up a solution to the problem. This
+means that we need to figure out wether it matters if the answer is incorrect or
+incomplete. To do this four categories of solutions is considered:
+
+\begin{itemize}
+  \item Optimal solution - The best solution to the problem
+  \item satisficing solution - A solution that is good enough according to the
+  description of the solution
+  \item Approximately optimal solution - A solution that is close to the optimal
+  solution
+  \item Probable solution - A solution that is likely to be a solution but is
+  not guaranteed to be.
+\end{itemize}
+
+The problem that \namep should be solving is hitting a moving target. This means
+that we want any solution where the tagtet is hit which is not necissarily the
+optimal solution. 
+
+
+% A knowledge base is a mixture of perception, reasoning and acting, and functions
+% as representation of all the knowledge the agent has.
+
+\section{complexity}
+Agents have diffenrent dimensions of complexity. These dimensions are:
+\begin{itemize}
+  \item  modularity
+  \item representation scheme
+  \item planning horizon 
+  \item sensing uncertainty
+  \item effect uncertainty
+  \item preference
+  \item number of agents
+  \item learning
+  \item computational limits
+\end{itemize}
+
+These nine dimensions are needed in order to build an intelligent agent.
+
+\subsection{modularity}
+modularity describes how the system can be be broken down into modules that
+interact with eachother. These modules can be structured in three ways flat,
+modular or hierarchical. If the struture is flat that means that there is only a
+single module for the whole system, Modular means that there is more than one
+module, where ech module can be understood seperatly and hierarchical means that
+each module can be broken down into smaller modules that each can be understood
+on their own. \namep is somewhat modular due to the fact that it has different
+tasks that can each be a module of its own. 
+
+\subsection{representation scheme}
+The representation scheme describes the world in terms of states. The agent uses
+these states to reason with. The states can also have features that each has a
+value. This decreases the amount of states needed to reason with. These features
+can depend on relations and individuals, where each possible relationship
+between individuals has a feature. This further decraeses the amount of states
+needed.
+
+
 
 
 
