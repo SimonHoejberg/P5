@@ -88,27 +88,16 @@ This leads to the following problems:
 \end{itemize}
 
 \section{Summary}
-In conclusion, an ideal scenario is constructed based on the initial problem.
-Certain hard requirements are already determined based on the semester
-topic:
+In conclusion, we construct an ideal scenario based on the initial problem. We
+already determined certain hard requirements based on the semester topic:
+
 \begin{enumerate}
 	\item The system must be embedded
 	\item The system must use techniques from either the MI or the RTS course, or both
 \end{enumerate}
 
-In addition several problems were identified in the problemdomain:
-\begin{itemize}
-	\item How will the cannon detect the target?
-	\item What information is needed to properly calculate and predict the
-	trajectory of a target?
-	\item What information is needed in order to calculate a firing-position and
-	firing-time of the cannon in order to reliably hit the target?
-	\item How does the turret move into firing position?
-	\item How does the turret shoot the target?
-	\item How does the turret hit targets at varying distances?
-\end{itemize}
-
-These questions serve as the foundation for the analysis and help to
-refine the initial problem into a problem statement. In the next chapter the
-theory behind embedded systems will be explained in order to properly
-understand the constraints imposed by such a system.
+Three distinct phases were identified, ``Scanning", ``Tracking'' and
+``Shooting''. Each phase was analysed in order to find the problems
+associated with it. These problems are then used as the foundtion for the
+analysis. The next chapter \fix{Need a red tread}{} will examine embedded
+systems to properly understand the constraints imposed by such a system.
