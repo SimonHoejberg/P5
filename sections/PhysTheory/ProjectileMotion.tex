@@ -1,9 +1,10 @@
 \section{Projectile Motion}\label{ProjMotion}
-When fireing a projectile it is possible to determine its exact trajectory by
-using the formula for projectile motion. This theorem is important to the
+When fireing a projectile it is possible to determine its theoretical trajectory
+by using the formula for projectile motion. This theorem is important to the
 project as it can be used to map the projectiles relative location to the turret
 over a given time frame. This formula is split into two parts for calculating
-the x- and y-coordinate respectively. The formulas are as follows:
+the x- and y-coordinate respectively. The formulas are presented in
+\citep[Ch. 6.2]{OrbitBA} and are as follows:
 \begin{equation}\label{slength}
 x=v_0*cos(a)*t
 \end{equation}
@@ -45,11 +46,12 @@ and substituting for $\mathbf{t}$ in \autoref{slength} gives the equation:
 x\ =\ v_0*cos(a)*\frac{v_0*sin(a)+\sqrt{v_0^2*sin(a)^2-2*g*y_0}}{g}
 \end{equation}
 
-Another important point is that the variable $\mathbf{y_0}$ changes dynamically
-based on angle of the turret. This is because the muzzle of the turret
-changes its veritcal position based on the angle. This can be seen in
-\autoref{TurretCalcY}.
-\figx[0.2]{TurretCalcY}{Turret marked with the variables A, r, p, h and $y_0$}
+Another important point is that the variables $\mathbf{y_0}$ and $\mathbf{x_0}$
+changes dynamically based on angle of the turret. This is because the muzzle of
+the turret changes its veritcal and horizontal position based on the angle. This
+can be seen in \autoref{TurretCalcY}.
+\figx[0.2]{FinalPhysTurret}{Turret marked with the variables a, r, h, $x_0$ and
+$y_0$}
 
 In order to calculate $y_0$ for any given angle we can make use of the sine for
 the angle. Looking at \autoref{TurretCalcY} we can formulate the following
