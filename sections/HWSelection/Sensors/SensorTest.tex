@@ -1,14 +1,19 @@
 \chapter{Sensor Testing} 
+In this chapter the different sensors will be tested, the reasoning for testing
+the sensors is that we need to find out how precise the sensors are and how far
+they can measure. There are two sensor which needs to be tested, one is an
+ultrasonic sensor which is used for measuring the distance. The other sensor
+which needs to be tested is a camera for tracking specific colours. We will then
+use the results from these test to utilize the full potential of the sensors. 
 
-\section{Sensor Testing} 
-To find out which sensors are the optimal sensors for the project,
-this chapter will be used to test the different sensors. The testing of the
+To find out which sensors are the optimal
+sensors for the project, this chapter will be used to test the different sensors. The testing of the
 sensors will also be used to find out how precise they are.\nl
 
 First the testing methodology will be explained, then this methodology
 will be used to devise tests for the different sensors. 
 
-\subsection{Testing Methodology}
+\section{Testing Methodology}
 The testing will be divided into to two parts, one part is testing the two
 distance sensors and the second part is testing the camera. 
 
@@ -36,8 +41,6 @@ Landscape}{Results with a shielded sensor and a A4 Paper}{shieldedTestPaper}
 [cm]}{unshieldedPaperStanding,unshieldedPaperLandscape}{Paper Standing, Paper
 Landscape}{Results with a unshielded sensor and a A4 Paper}{unshieldedTestPaper}
 
-This sensor has a range of 0 to 255 cm and will not be too limiting factor
-compared to how far the turret is able to shoot.\nl
 
 As seen in \autoref{graph:shieldedTestBox}, \autoref{graph:unshieldedTestBox},
 \autoref{graph:unshieldedTestPaper} and \autoref{graph:shieldedTestPaper} the
@@ -49,24 +52,24 @@ the unshielded, it can also be concluded that the placement of the object can
 have a big impact. This is due to the fact that the sensor does not have a very
 large field of view. Therefore, the object should be wider rather than taller. 
 
-\subsection{Infrared}
-The test of the infrared sensor was not able to be conducted since there were
-some issues with the different sensors. The first sensor did not work at all.
-Since it was an infrared sensor, a camera was used to see if the infrared
-LED lid up. Since it did not light we concluded that the sensor was broken. \nl
-
-When trying to test the other sensor, first it did not give a reading so the
-same test was conducted using a camera to see if the sensor was broken. It was
-concluded that the sensor was not broken. It was then discovered that it was a
-problem with the software, where the address for the reading the sensor on the
-I2C port was changed. This meant that it was not possible to get a proper
-reading. The readings were either 0 or a reading above 60.000 depending on which
-port was used. \nl
-
-Another issue with using the infrared sensor is the range. The medium range
-infrared sensor only has a range from 10 to 80 cm. Therefore this sensor could
-become a very limiting factor in regards to how far the target can be placed
-from the cannon. 
+% \subsection{Infrared}
+% The test of the infrared sensor was not able to be conducted since there were
+% some issues with the different sensors. The first sensor did not work at all.
+% Since it was an infrared sensor, a camera was used to see if the infrared
+% LED lid up. Since it did not light we concluded that the sensor was broken. \nl
+% 
+% When trying to test the other sensor, first it did not give a reading so the
+% same test was conducted using a camera to see if the sensor was broken. It was
+% concluded that the sensor was not broken. It was then discovered that it was a
+% problem with the software, where the address for the reading the sensor on the
+% I2C port was changed. This meant that it was not possible to get a proper
+% reading. The readings were either 0 or a reading above 60.000 depending on which
+% port was used. \nl
+% 
+% Another issue with using the infrared sensor is the range. The medium range
+% infrared sensor only has a range from 10 to 80 cm. Therefore this sensor could
+% become a very limiting factor in regards to how far the target can be placed
+% from the cannon. 
 
 \subsection{Camera tracking}%Will most likely need a better name
 Testing the camera will consist of several parts, these parts will heavily rely
