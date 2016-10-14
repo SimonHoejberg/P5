@@ -104,22 +104,24 @@ turret $\mathbf{r}$.
 
 \subsection{Angle-Distance Relation}
 When fireing the turret has one primary variable it can use to aim,
-namely the angle at which the projectile is fired. This variable is
-theoretically enough to accurately fire the turret, but it does present some
-problems when it comes to calculating the trajectory and the offset needed for
-targets in motion.\nl
+namely the angle at which the projectile is fired.
 
-Given a constant initial velocity of the projectile, the distance travelled and
-air time is proportional to the fireing angle. This relation is shown in
-\autoref{FinFinEq} where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as
+% This variable is
+% theoretically enough to accurately fire the turret, but it does present some
+% problems when it comes to calculating the trajectory and the offset needed for
+% targets in motion.\nl
+
+Given a constant initial velocity of the projectile, the travelled distance and
+air time is proportional to the fireing angle $\mathbf{a}$. This relation is
+shown in \autoref{FinEq2} where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as
 coeffecients. As such, the furthest possible shot would be achieved using
 $\mathbf{a=45\ degrees}$ such that $\mathbf{sin(45)\approx 0.71}$ and
-$\mathbf{cos(45)\approx 0.71}$.
+$\mathbf{cos(45)\approx 0.71}$. 
 
 The relation between fireing angle and travelled distance is exemplified in
 \autoref{ProjMot.png}.
 
-\figx[0.25]{ProjMot.png}{Distance relative to angle of fire.}
+\figx[0.35]{ProjMot2.png}{Distance relative to angle of fire.}
 
 \subsection{Projectile Air Time}
 When it comes to hitting a target in motion we need another crucial information,
