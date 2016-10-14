@@ -1,37 +1,76 @@
 \section{Requirements}
 
-\subsection{Need to have}
+Based on\ldots, we can determine the requirements for \namep. These requirements
+can further be divided into the groups ``Need to have'' and ``Nice to have''. 
 
+\subsection{Need to have}
+The following requirements have been deemed necessary for the system:
+
+\begin{itemize}
+  \item The turret needs to be an embedded system and incorparate elements from
+  the courses MI and RTS. This is necessary as it is required by the semester.
+
+  
+\end{itemize}
 
 \subsection{Nice to have}
+The following requirement have been deemed to be less important to the overall
+success of the project:
 
-k
 
 \subsection{Tempory Requirements}
-The turret needs to be able turn 180 degrees with precision of \fix{1}{find a
-good number} degree.
 
-The turret needs to be able to sense a target at a range of atleast 250cm.
+The turret needs to be able turn a minimum of 90 degrees. Since the turret
+should monitor an area and be able to hit a moving target, it needs to be able
+to turn. If it is not able to turn, line of sight as well as the timing in
+order to hit a target will be severely limited. In regards to how far it should
+be able to turn, a minimum is set to 90 degrees, as this will provide a decent
+sized area in front of the turret.
 
-The turret needs to have a firing range of up to 250cm.
-|--> The turret is able to adjust its firing angle 45 degrees.
+The turret needs to be able to sense a target at a range of atleast 250cm,
+since the \fix{current available sensors have a maximum range of 255cm}{Should
+be changed depending on max range of optical}, as long as the lighting is good
+and the target is suitable.
+
+
+The turret needs to be able to search for targets, as otherwise it would have
+to wait for a target to move into its line of sight. This would limit the
+window of time the turret has in order to hit the target.
+
+The turret needs to be able to track a target in order to collect information,
+such as the speed and direction of the target. This is necessary as the turret
+needs some information in order to determine when and where to fire at.
+
+The turret should have a maximum firing range of atleast 250cm. This number is
+determined by the maximum sensor range as well as the maximum of the design. It
+can be argued that it could be useful to shoot further than what the turret can
+see, as that would mean that the turret could
+
+The turret needs to be able to reliably hit a moving target with a
+constant speed atleast 60\% of the time. The turret needs to be able to hit a
+moving target, it is not enough to hit the target sometimes, the turret should
+be able to hit it reliably. The speed should be fast enough to cause the turret
+to miss it, if the turret fires once it is in front of it.
+
+The turret needs to be able to reliably hit a moving target with a
+variable speed atleast 60\% of the time. This requirement is more realistic, as
+it is much more likely for a living target to change its movement speed.
+The turret is able to reliably hit a target with a variable speed.
+
+The turret needs to be able to determine the direction, distance and speed of
+the target. 
+
+
 
 The turret needs to be able to determine the direction, distance and speed of a target.
 
 The turret needs to be able to predict where the target will be at a given point in time.
 
-The turret needs to be able to search for targets.
-
-The turret is able to track a target once detected, in order to collect data.
-
-The turret needs to be able to reliable hit a target with a constant speed.
-
-The turret needs to be able to reliable hit \fix{60\%}{need a number to aim for}
-a target.
-
 The turret is able to prioritize between several targets.
 
-The turret is able to reliably hit a target with a variable speed.
+
+
+
 
 The target is atleast 10cm x 10cm.\nl
 
