@@ -1,4 +1,4 @@
-\chapter{Distance Test} 
+\chapter{Distance Test}
 During development of the autonomous turret, tests have been made in order to
 determine how far the turret can shoot its projectiles. This appendix will be
 used to present these tests and its resulting conclusions.
@@ -35,7 +35,15 @@ realationship}{AngDistRelAVG}
 The data from these tests have been gathered imperically, but in order to
 determine their quality, or to identify any unknown variables, it is necessary
 to compare them to the theoretical results. This can be determined by using
-\autoref{FinFinEq} which was described in \autoref{CalcDist}.
+\autoref{FinEq2} which was described in \autoref{CalcDist}:
+\begin{equation}\label{FinEq2}
+x\ =\ \frac{v_0*cos(a)}{g}* \left(
+v_0*sin(a)+\sqrt{v_0^2*sin(a)^2+2*g*(h+r*sin(a))}\right)+r*cos(a)
+\end{equation}
+
+This results in the following data:
+\dataTable{DistanceTestTheoretical}{Theoretical Angle/Distance
+realationship}{AngDistTheo}
 
 \section{Conclusion}
 Based on the gathered data and the results thereof, we can 
