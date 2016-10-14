@@ -37,33 +37,64 @@ in \autoref{AirResDisc}.
 \subsection{Calculating Distance}\label{CalcDist}
 In order to calculate the distance at which the projectile will touch the ground
 we need to combine \autoref{slength} and \autoref{sheight}. This is done in
-order to express the horisontal distance $\mathbf{y}$ as a function of the
-height $\mathbf{x}$. To do this we need to take \autoref{sheight} and express
-the time $\mathbf{t}$ as a function of the height $\mathbf{y}$. This is done as the
-resulting expression can be substituted into \autoref{slength}. Doing this
-and substituting for $\mathbf{t}$ in \autoref{slength} gives the equation:
+order to express the horisontal distance $\mathbf{x}$ as a function of the
+height $\mathbf{y}$, as the height can then be set to zero in order to determine
+where the projectile will land. To do this we first need to take
+\autoref{sheight} and express the time $\mathbf{t}$ as a function of the height
+$\mathbf{y}$. As the intention is for $\mathbf{y=0}$, this is also assumed in
+the resulting formula:
+\begin{equation}\label{Eq1}
+0=y_0+v_0*t*sin(a)-\frac{1}{2}*g*t^2
+\end{equation}
+Now we can isolate for $\mathbf{t}$ in \autoref{Eq1}. Using the quadratic
+formula gives two results, but assuming a positive value for $\mathbf{a}$ we get
+the following expression:
+\begin{equation}\label{Eq2}
+t=\frac{v_0*sin(a)}{g}+\frac{\sqrt{v_0^2*sin^2(a)+2*g*y_0}}{g}
+\end{equation}
+
+Now we can substitute \autoref{Eq2} into \autoref{slength}. The resulting
+formula expresses the distance at which the projectile will land $\mathbf{x}$ as
+a function of the angle $\mathbf{a}$:
 \begin{equation}\label{FinEq}
-x\ =\ v_0*cos(a)*\frac{v_0*sin(a)+\sqrt{v_0^2*sin(a)^2-2*g*y_0}}{g}
+x\ =\ v_0*cos(a)* \left(\frac{v_0*sin(a)}{g} + \frac{
+\sqrt{v_0^2*sin(a)^2+2*g*y_0}}{g}\right)
+\end{equation}
+We can rewrite \autoref{FinEq} for simplicity. We also add $\mathbf{x_0}$ to
+the result in order to represent any displacement on the x-axis:
+\begin{equation}\label{FinEq2}
+x\ =\ \frac{v_0*cos(a)}{g}* \left(
+v_0*sin(a)+\sqrt{v_0^2*sin(a)^2+2*g*y_0}\right)+x_0
 \end{equation}
 
 Another important point is that the variables $\mathbf{y_0}$ and $\mathbf{x_0}$
 changes dynamically based on angle of the turret. This is because the muzzle of
 the turret changes its veritcal and horizontal position based on the angle. This
-can be seen in \autoref{TurretCalcY}.
+can be seen in \autoref{FinalPhysTurret}.
 \figx[0.2]{FinalPhysTurret}{Turret marked with the variables a, r, h, $x_0$ and
 $y_0$}
 
 In order to calculate $y_0$ for any given angle we can make use of the sine for
-the angle. Looking at \autoref{TurretCalcY} we can formulate the following
+the angle. Looking at \autoref{FinalPhysTurret} we can formulate the following
 formula: 
 \begin{equation}\label{Y0Eq}
 y_0\ =\ h\ +\ r\ *\ sin(a)
+\end{equation}\nl
+
+In order to calculate $x_0$ we can use the cosine for the angle to determine the
+distance. We can formulate the following formula:
+\begin{equation}\label{Y0Eq}
+x_0\ =\ r\ *\ cos(a)
 \end{equation}
-Substituting this into \autoref{FinEq} gives the following formula:
-\begin{equation}\label{FinFinEq} 
-x\ =\ v_0*cos(a)*\frac{v_0*sin(a)+\sqrt{v_0^2*sin(a)^2-2*g*(h+r*sin(a))}}{g}
+
+Substituting $y_0$ into \autoref{FinEq2} and adding $x_0$ gives
+us the following formula:
+\begin{equation}\label{FinEq2}
+x\ =\ \frac{v_0*cos(a)}{g}* \left(
+v_0*sin(a)+\sqrt{v_0^2*sin(a)^2+2*g*(h+r*sin(a))}\right)+r*cos(a)
 \end{equation}
-Now, using \autoref{FinFinEq} it is possible to calculate the
+
+Now, using \autoref{FinEq2} it is possible to calculate the
 distance the projectile will travel given the initial velocity $\mathbf{v_0}$,
 the angle $\mathbf{a}$, the turrets height $\mathbf{h}$ and the length of the
 turret $\mathbf{r}$.
