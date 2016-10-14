@@ -1,12 +1,26 @@
 \chapter{Platform Choice}
 
-In this chapter Lego NXT Mindstorms and Arduino will be presented. An
-analysis of the differences in the platforms will be conducted and in
-conclusion a platform will be selected for the system.
+In this chapter we will analyse the different hardware platforms available. Based
+on a set of criteria the platforms will be compared and in conclusion a platform for the
+project. The platforms to be examined are the Lego NXT Mindstorms and Arduino,
+due to the fact that these are the platforms offered by the university.
+\section{Criteria}
+Before we examine the platforms we will decide on a set of criteria to evaluate the platforms on.
+
+\begin{enumerate}
+  \item Require limited knowledge of RTS-systems, since the group doesn't have any members participating
+  in the course
+  \item The group wants to focus on the software aspect of the project. For this reason the platform should
+  be easy to build on, to minimize the time spent on the mechanical parts of the system
+  \item The platform should restrict us on processing power and memory in order to force us
+  to think about the implementation under constraints.
+  \item The platform should provide access to propietary or 3rd party modules such as sensors
+  necessary for the project.
+\end{enumerate}
 
 \section{Lego NXT Mindstorms}
 The Lego NXT Mindstorms is the successor to the first robotics-platform released
-by Lego the Robotics Invention System. Although the NXT line also contains 2
+by Lego the Robotics Invention System. \fix{Fix lige det der nxt 1.0 og 2.0 shiat}Although the NXT line also contains 2
 more recent platforms the NXT 2.0 and the EV3, in this project only the NXT 1.0
 will be considered since this is the platform being offered by the university
 \Source.\nl
@@ -69,12 +83,12 @@ in conclusion a platform will be selected:
   \item I/O ports - The Arduino wins again since not only does it far surpass
   the NXT in number of available ports, but it also allows flexibility in
   whether the ports are input or output and analog or digital.
-  \item Processing power - When talking about the brain power of the two
+  \item Processing power - When comparing the two
   platforms, the NXT is superior. Although one has to keep in mind that the
   Arduino offers a selection of boards with varying processors and memory,
   allowing us to select the arduino board that suits our needs best. In reality
-  if one of the more powerful arduino boards is chosen the difference in
-  processor-speed and memory would be neglible.
+  if one of the more powerful arduino boards is chosen ,the difference between the platforms
+  in processor-speed and memory would be neglible.
   \item Availability - The Arduino offers a far wider selection of extern
   peripherals than the NXT, although everything is produced by a 3rd party
   manufacturer.
@@ -84,7 +98,7 @@ in conclusion a platform will be selected:
   configured to be used with a Lego NXT brick, thus resulting in a much simpler
   and streamlined process, being almost plug-and-play. The Arduino often
   requires more work in regards to integrating the modules with the board.
-  \item Customization - Based on this criteria the Arduino is considered to be
+  \item Customization - Based on this criteria we consider the Arduino to be
   more flexible. Because of the more widespread use of Arduino's, the
   likelyhood of someone already having constructed what you need is big. There
   is also the option for tampering further with the modules with a breadboard
