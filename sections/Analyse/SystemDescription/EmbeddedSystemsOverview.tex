@@ -1,7 +1,16 @@
-\chapter{System Description} 
-This chapter is used to look at embedded systems and their limits,
+\chapter{System Description}
+This chapter examines embedded systems and their limits,
 real-time systems concerning how scheduling and deadlines work and machine
-intelligence.\fix{}{Add more text and better description of what will be done}
+intelligence.
+In this chapter we will provide a description of the different concepts within the
+three system categories
+This semesters requirements of implementing a embedded system that must use techniques
+from either the RTS or MI-course dictates that we need an understanding of these concepts,
+in order to fulfill them. So in this chapter an overview of the concepts of these categories
+is provided and in conclusion, certain requirements can be penned.
+
+\fix{}{Add more text and better description of what will be done}
+
 
 \section{Embedded Systems}
 An embedded system is a device with limited resources both in terms of computing
@@ -26,10 +35,12 @@ share some characteristics \Source:
   that an increase in one area directly affects the other areas, see
   \autoref{ESConstraints}.
   \item \textbf{Reactive and realtime}: A lot of embedded systems also has to
-  react and respond to certain input. If this input has a deadline, it is in
-  fact a real-time system.
+  react and respond to certain input from the physical world, for example via sensors.
+  This is what creates the concept of real-time systems, since the response may have a deadline
+  if it is based in the real world. Then in fact it is a real-time system, but embedded systems and
+  RTS have a lot of overlap.
 \end{enumerate}
-	
+
 \figxs{ESConstraints}{How the constraints depend on each
 other}{\Source}
 
