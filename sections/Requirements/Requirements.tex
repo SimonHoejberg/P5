@@ -1,7 +1,7 @@
 \section{Requirements}
 
 Based on\ldots, we can determine the requirements for \namep. These requirements
-can further be divided into the groups ``Need to have'' and ``Nice to have''. 
+can further be divided into the groups ``Need to have'' and ``Nice to have''.
 
 \subsection{Need to have}
 The following requirements have been deemed necessary for the system:
@@ -34,7 +34,7 @@ The following requirements have been deemed necessary for the system:
   constant speed atleast 60\% of the time. The turret needs to be able to hit a
   moving target, it is not enough to hit the target sometimes, the turret should
   be able to hit it reliably. The speed should be fast enough to cause the
-  turret to miss it, if the turret fires once it is in front of it.  
+  turret to miss it, if the turret fires once it is in front of it.
   \item The turret needs to be able to predict where the target will be at a given point
 in time. This is necessary as it would otherwise be very unlikely that the
 turret would be able to hit the target.
@@ -72,4 +72,21 @@ speed, 0.8m/s was chosen as the speed limit.
   \item The target needs to travel on an even plane.
 \end{itemize}
 
+\section{Michaels kravspec ;)}
+The turret needs to be able to observe an area
+The length of the area is 250 cm since this is the max range that our sensors function at
+The turret will be able to search an an angle of 180 degrees
 
+The turret needs to be able to detect a target entering the area
+
+The turret needs to be able to determine the speed and direction of a target
+Observing a target should yield information about the direction and speed of the target
+
+The turret needs to be able to predict the location of the target
+In order to predict the target, it will need information about the speed and direction of the target
+
+The turret needs to be able to shoot and hit a target in motion
+Be able to change position horizontally and vertically in order to adjust the trajectory of the projectile in order to hit a target at varying lengths and angles
+The turret should be able to hit anything withing its “area”
+
+The turret needs to be able to function autonomously, without input from an user
