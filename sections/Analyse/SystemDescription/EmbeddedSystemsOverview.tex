@@ -1,22 +1,18 @@
 \chapter{System Description}
-This chapter examines embedded systems and their limits,
-real-time systems concerning how scheduling and deadlines work and machine
-intelligence.
-In this chapter we will provide a description of the different concepts within the
-three system categories
-This semesters requirements of implementing a embedded system that must use techniques
-from either the RTS or MI-course dictates that we need an understanding of these concepts,
-in order to fulfill them. So in this chapter an overview of the concepts of these categories
-is provided and in conclusion, certain requirements can be penned.
 
-\fix{}{Add more text and better description of what will be done}
-
+This semesters requires that the product of the project is an embedded system
+that must use techniques from the RTS and/or MI course. This dictates that we
+need an understanding of these concepts in order to fulfill them. In this
+chapter we will describe what an embedded system is, how real-time systems
+incorporate deadlines and schedules and examine what elements from machine
+intelligence could be used by an autonomous turret.
 
 \section{Embedded Systems}
 An embedded system is a device with limited resources both in terms of computing
 power and how much memory it has available. They are used everywhere to do small task and
-jobs. It is difficult to give an exact definition of what an embedded system is,
-but a crude definition\citep[ch.1.1]{vahid1999embedded} is:\nl
+jobs. \fix{It is difficult to give an exact definition of what an embedded
+system is, but a crude definition\citep[ch.1.1]{vahid1999embedded} is}{We
+need a better definition}:\nl
 
 \textit{An  embedded  system  is  nearly  any computing system other than a desktop,
 laptop, or  mainframe  computer.}\nl
@@ -24,25 +20,17 @@ laptop, or  mainframe  computer.}\nl
 This means that embedded systems cover alot of different types of computers, for example
 the ABS-brakes in a modern car, the cash registers in retailstores, washing machines, etc.
 The requirements can therefore differ alot between systems, although they do
-share some characteristics \Source:
+share some characteristics\citep[ch.1.1]{vahid1999embedded}:
 
 \begin{enumerate}
   \item \textbf{Single-functioned}:  Most embedded systems only have a single
   function which is executed repeatedly.
-  \item \textbf{Tightly constrained}: All systems have some limits, but embedded
-  systems due to their nature are much more tightly constrained when it comes to
-  cost, size, performance and power. These constraints are linked in the sense
-  that an increase in one area directly affects the other areas, see
-  \autoref{ESConstraints}.
-  \item \textbf{Reactive and realtime}: A lot of embedded systems also has to
-  react and respond to certain input from the physical world, for example via sensors.
-  This is what creates the concept of real-time systems, since the response may have a deadline
-  based from the real world. Then in fact it is a real-time system, but embedded systems and
-  RTS have a lot of overlap.
+  \item \textbf{Tightly constrained}: All systems have some limits, but
+  embedded systems are much more tightly constrained when it comes to cost,
+  size, performance and power. These constraints are linked in the sense that
+  an increase in one area directly affects the other areas.
+  \item \textbf{Reactive and real-time}: An embedded system that has to react
+  and respond to physical input can be considered real-time when it has to make
+  sure that it responds within a given deadline. This deadline may be based on
+  other events happening around it.
 \end{enumerate}
-
-\figxs{ESConstraints}{How the constraints depend on each
-other}{\Source}
-
-\fix{write about microcontroller?}{Depending on whether or not it is necessary
-it may be dropped.}
