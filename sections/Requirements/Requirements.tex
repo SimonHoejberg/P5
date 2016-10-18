@@ -23,10 +23,10 @@ The following requirements have been deemed necessary for an autonomous turret:
   \item The turret needs to be able to search for targets, as otherwise it would
   have to wait for a target to move into its line of sight. This would limit
   the window of time the turret has in order to hit the target.
-  \item The turret needs to be able to track a target in order to collect
+  \item \fix{The turret needs to be able to track a target in order to collect
   information, such as the speed and direction of the target. This is necessary
   as the turret needs some information in order to determine when and where to
-  fire at.
+  fire at.}{Sounds alot like a other item in the list}
   \item The turret should have a maximum firing range of atleast 250cm. This
   number is determined by the maximum sensor range as well as the maximum of
   the design. It can be argued that it could be useful to shoot further than
@@ -39,9 +39,10 @@ The following requirements have been deemed necessary for an autonomous turret:
   \item The turret needs to be able to predict where the target will be at a given point
 in time. This is necessary as it would otherwise be very unlikely that the
 turret would be able to hit the target.
-  \item The turret needs to be able to determine the direction, distance and speed of
-the target. This requirement is necessary as it would otherwise be impossible to
-calculate and predict where the target will be.
+  \item \fix{The turret needs to be able to determine the direction, distance
+  and speed of the target. This requirement is necessary as it would otherwise be impossible to
+calculate and predict where the target will be.}{Sounds alot like a other item
+in the list}
   \item The target should be atleast \fix{10cm*10cm}{what is the optimal size?}, as it
 would otherwise be too small to be reliably seen by the turret sensors.
   \item The target is able to move at a constant speed of up to 0.8m/s. In order to
