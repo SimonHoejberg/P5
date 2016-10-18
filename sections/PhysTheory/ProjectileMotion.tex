@@ -1,9 +1,9 @@
 \section{Projectile Motion}\label{ProjMotion}
-When fireing a projectile it is possible to determine its theoretical trajectory
+When firing a projectile it is possible to determine its theoretical trajectory
 by using the formula for projectile motion. This theorem is important to the
 project as it can be used to map the projectiles relative location to the turret
 over a given time frame. This formula is split into two parts for calculating
-the x- and y-coordinate respectively. The formulas are presented in
+the x- and y-coordinate, representing the distance and height of the projectile respectively \fix{indskudt sætning}{ret plz}. The formulas are presented in
 \citep[Ch. 6.2]{OrbitBA} and are as follows:
 \begin{equation}\label{slength}
 x=v_0*cos(a)*t
@@ -14,20 +14,20 @@ y=v_0*sin(a)*t-\frac{1}{2}*g*t^2
 
 The formulas use the following variables:
 \begin{itemize}
-  \item $v_0$ ($m/s$) - Starting Velocity 
-  \item $a$ ($degrees$) - Angle of Fire 
+  \item $v_0$ ($m/s$) - Starting Velocity
+  \item $a$ ($degrees$) - Angle of Fire
   \item $g$ ($m/s^2$) - Gravitational Acceleration (Constant)
   \item $x$ ($m$) - distance
   \item $t$ ($s$) - Time
 \end{itemize}
 In addition, the following variables are used in the following sections:
 \begin{itemize}
-  \item $y_0$ ($m$) - Height of Fireing 
+  \item $y_0$ ($m$) - Height of firing
   \item $y$ ($m$) - height
 \end{itemize}
 
 By using this theorem, we can use the projectiles initial velocity, combined
-with the angle of fireing, to determine where the fired projectile will
+with the angle of firing, to determine where the fired projectile will
 land.\nl
 It should be noted that the formulas \autoref{slength} and \autoref{sheight} do
 not take into accound any effect air resistance could have on the projectiles
@@ -79,7 +79,7 @@ $y_0$}
 
 In order to calculate $y_0$ for any given angle we can make use of the sine for
 the angle. Looking at \autoref{FinalPhysTurret} we can formulate the following
-formula: 
+formula:
 \begin{equation}\label{Y0Eq}
 y_0\ =\ h\ +\ r\ *\ sin(a)
 \end{equation}\nl
@@ -103,7 +103,7 @@ the angle $\mathbf{a}$, the turrets height $\mathbf{h}$ and the length of the
 turret $\mathbf{r}$.
 
 \subsection{Angle-Distance Relation}
-When fireing the turret has one primary variable it can use to aim,
+When firing the turret has one primary variable it can use to aim,
 namely the angle at which the projectile is fired.
 
 % This variable is
@@ -112,13 +112,13 @@ namely the angle at which the projectile is fired.
 % targets in motion.\nl
 
 Given a constant initial velocity of the projectile, the travelled distance and
-air time is proportional to the fireing angle $\mathbf{a}$. This relation is
+air time is proportional to the firing angle $\mathbf{a}$. This relation is
 shown in \autoref{FinEq2} where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as
 coeffecients. As such, the furthest possible shot would be achieved using
 $\mathbf{a=45\ degrees}$ such that $\mathbf{sin(45)\approx 0.71}$ and
-$\mathbf{cos(45)\approx 0.71}$. 
+$\mathbf{cos(45)\approx 0.71}$.
 
-The relation between fireing angle and travelled distance is exemplified in
+The relation between firing angle and travelled distance is exemplified in
 \autoref{ProjMot.png}.
 
 \figx[0.35]{ProjMot2.png}{Distance relative to angle of fire.}
@@ -144,7 +144,7 @@ t=\frac{x}{v_0*cos(a)}
 For the purpose of calculating the trajectory of the projectile in \autoref{} a
 formula has been used which does not account for the effect of air resistance.
 This section will be used to discuss why this is the case, and to argue why the
-effect of air resistance is neglible in the case of fireing the chosen
+effect of air resistance is neglible in the case of firing the chosen
 projectile.\nl
 
 In cases where a projectile is fired at high speeds, and is travelling for a
@@ -163,7 +163,7 @@ more important than the unnecessary precision of factoring in air resistance.
 
 
 % All of these variables can be deduced from two key pieces of information; the
-% starting velocity, the angle of fire and the height of fireing. For the
+% starting velocity, the angle of fire and the height of firing. For the
 % constructed turret the angle of fire varies from shot to shot, but the starting
 % velocity would always be constant. As the angle of fire is easily observed, the
 % only key piece of information needed is the starting velocity. In order to
@@ -174,15 +174,15 @@ more important than the unnecessary precision of factoring in air resistance.
 % v_0\ =\ 4.87\ m/s
 % % \end{equation}
 
-% In addition to the initial velocity, the height of fireing needs to be
+% In addition to the initial velocity, the height of firing needs to be
 % determined. As the height of the cannon barrel changes based on the angle of
-% fire, this can be calculated using trigonometry. 
-% 
-% By using the value for $v_0$, and the equation for the height of fireing, the
-% projectiles trajectory can be determined. 
-% When fireing a projectile there is a number of informations which are needed in
+% fire, this can be calculated using trigonometry.
+%
+% By using the value for $v_0$, and the equation for the height of firing, the
+% projectiles trajectory can be determined.
+% When firing a projectile there is a number of informations which are needed in
 % order to hit a target. This information consists of calculations and an
-% understanding of the physics that go into fireing a projectile. This is
+% understanding of the physics that go into firing a projectile. This is
 % necessary due to the fact that the canon has a limited amount of input that
 % needs to be processed in order to hit the target.
 
@@ -190,37 +190,37 @@ more important than the unnecessary precision of factoring in air resistance.
 % to fire the projectile. This will mainly be covered by presenting and explaining
 % the equations used to calculate the projectile motion. These equations has been
 % chosen du to tha fact that calculating the force and angle of the projectile is
-% the most important part when fireing a projectile in order to hit a target.\nl
-% 
+% the most important part when firing a projectile in order to hit a target.\nl
+%
 % \section{Kasteparabel}
 % For at kunne udregne et projektils kasteparabel, skal man have adgang til et
 % antal informationer. Disse informationer er:
-% 
+%
 % To be able to calculate the projectile motion, a number of informations i
 % needed. These informations are:
 % \begin{itemize}
 %   \item Starting velocity $v_0$ ($m/s$)
 %   \item Angle of fire $a$ ($degrees$)
 %   \item Gravitational accelleration $g$ ($m/s^2$)
-%   \item Height of fireing $y_0$ ($m$)
+%   \item Height of firing $y_0$ ($m$)
 %   \item Distance $d$ ($m$)
 %   \item Time in the air $t$ ($s$)
 % \end{itemize}
-% 
+%
 % If air drag is excluded, a number of statements can be made based on these
 % informations:\nl
 % When the projectile is fires it is not affected by any external forces other
 % than the gravity. This means that the velocity can be calculated as:
 % $v_x = v_0 * cos(a)$\nl
-% 
+%
 % Dette udsagn passer også på\ldots \nl
-% 
+%
 % Mere tekst\ldots \nl
-% 
+%
 % Disse udregninger giver os så formlen:\nl
-% $v_t = (\frac{v_0\ *\ cos(a)}{-g\ *\ t\ +\ v_0\ *\ sin(a)})$ 
-% 
+% $v_t = (\frac{v_0\ *\ cos(a)}{-g\ *\ t\ +\ v_0\ *\ sin(a)})$
+%
 % \subsection{Diskussion: Luftmodstand}
 % Denne subsection vil blive brugt til at diskutere hvorfor luftmodstanden kan
 % ignoreres for den valgte type af projektil.
-% 
+%
