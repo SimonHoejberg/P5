@@ -3,7 +3,7 @@
 As \name is an autonomous turret and needs to be able to hit a moving target,
 it needs to have some intelligence in order to determine how best to hit the
 target. The turret can be considered intelligent when its decisions
-are explainable by computations and its intelligence can be judged by:
+are explainable by computations while its intelligence can be judged by:
 
 \begin{enumerate}
   \item If what it does is appropriate to its circumstances and goals.
@@ -14,45 +14,47 @@ are explainable by computations and its intelligence can be judged by:
 \end{enumerate}
 %See MI book, chapter 1.1 p.4
 
-In order to do this \name needs to be able to represent the knowledge in a
-suitable way that allows it to work it into a suitable solution.
 
+In order to be intelligent \name needs to be able to represent its knowledge in
+a suitable way that allows it to work it into a suitable solution.
 
-\section{Knowledge Representation}
-The general way of solving problems is by having a representation of the
-knowledge needed to solve the problem, then computing an output and interpret
-that output into a solution.\nl
+\subsection{Knowledge Representation}
+%See MI book chapter 1.4 p.12
+
+As \name is a turret it needs to be able to convert the problem of hitting a
+moving target into a suitable representation. The representation can then be
+computed into a suitable output, which can be interpreted as a solution.
+
+%(Consider using fig1.4 p12)
 
 The representation is part of a represntation scheme, which specifies the form
-of the knowledge. All the knowledge stored on the agent that is represented by
-this represntation scheme is the knowledge base. In the case of \name this is
-the knowledge about the movement of the target, the vertical angle of the canon
-and the horisontal angle of the turret.\nl
-
-The knowledge base should include what makes up a solution to the problem. This
-means that we need to figure out wether it matters if the answer is incorrect or
-incomplete. To do this four categories of solutions is considered:
+of the knowledge. In the case of \name, it would need to represent the knowledge
+about the movement of the target, the vertical angle of the canon and the
+horisontal angle of the turret in a way that makes it possible to compute
+output. Whether this output is a solution or not, depends on what a sufficient
+solution is. Generally there are 4 different categories of solutions:
 
 \begin{itemize}
-  \item Optimal solution - The best solution to the problem
-  \item satisficing solution - A solution that is good enough according to the
-  description of the solution
+  \item Optimal solution - The best possible solution to the problem.
+  \item Satisficing solution - A solution that is good enough according to the
+  description of the solution.
   \item Approximately optimal solution - A solution that is close to the optimal
-  solution
+  solution.
   \item Probable solution - A solution that is likely to be a solution but is
   not guaranteed to be.
 \end{itemize}
 
-The problem that \name should be solving is hitting a moving target. This means
-that we want any solution where the tagtet is hit which is not necissarily the
-optimal solution. 
+As \name is shooting on a moving target. The solution needs to be reliable able
+to hit the target, but as it is a real-time system there are certain limits to
+how much time can be spent searching and waiting for the optimal shot.
+\fix{Do we discuss which solution type we use?}{}
+
+\subsection{Design Space}
 
 
-% A knowledge base is a mixture of perception, reasoning and acting, and functions
-% as representation of all the knowledge the agent has.
 
-\section{complexity}
 Agents have diffenrent dimensions of complexity. These dimensions are:
+
 \begin{itemize}
   \item  modularity
   \item representation scheme
@@ -67,7 +69,7 @@ Agents have diffenrent dimensions of complexity. These dimensions are:
 
 These nine dimensions are needed in order to build an intelligent agent.
 
-\subsection{modularity}
+\subsubsection{modularity}
 modularity describes how the system can be be broken down into modules that
 interact with eachother. These modules can be structured in three ways flat,
 modular or hierarchical. If the struture is flat that means that there is only a
@@ -77,7 +79,7 @@ each module can be broken down into smaller modules that each can be understood
 on their own. \name is somewhat modular due to the fact that it has different
 tasks that can each be a module of its own. 
 
-\subsection{representation scheme}
+\subsubsection{representation scheme}
 The representation scheme describes the world in terms of states. The agent uses
 these states to reason with. The states can also have features that each has a
 value. This decreases the amount of states needed to reason with. These features
