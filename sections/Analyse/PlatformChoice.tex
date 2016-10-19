@@ -1,32 +1,31 @@
 \chapter{Platform Choice}
 
-In this chapter we will analyse the different hardware platforms available. Based
-on a set of criteria the platforms will be compared and in conclusion a platform for the
-project. The platforms to be examined are the Lego NXT Mindstorms and Arduino,
-due to the fact that these are the platforms offered by the university.
-\section{Criteria}
-Before we examine the platforms we will decide on a set of criteria to evaluate the platforms on.
+In this chapter we will analyse the different hardware platforms available.
+Based on a set of criteria the platforms will be compared and in conclusion a
+platform for the project will be chosen. The platforms to be examined are the
+Lego NXT Mindstorms and Arduino, due to the fact that these are the
+platforms offered by the university and that they are suited for an embedded
+system. Before we examine the platforms we will decide on a set of criteria to
+evaluate the platforms on:
 
 \begin{enumerate}
-  \item Require limited knowledge of RTS-systems, since the group doesn't have any members participating
-  in the course
-  \item The group wants to focus on the software aspect of the project. For this reason the platform should
-  be easy to build on, to minimize the time spent on the mechanical parts of the system
-  \item The platform should restrict us on processing power and memory in order to force us
-  to think about the implementation under constraints.
-  \item The platform should provide access to propietary or 3rd party modules such as sensors
-  necessary for the project.
+  \item How easy is the platform to build and code on?
+  \item How restricted is the platform in terms of processing power and memory?
+  \item How many 3rd party and propietary modules does the platform have access
+  to?
 \end{enumerate}
 
 \section{Lego NXT Mindstorms}
-The Lego NXT Mindstorms is the successor to the first robotics-platform released
-by Lego the Robotics Invention System. \fix{Fix lige det der nxt 1.0 og 2.0 shiat}Although the NXT line also contains 2
-more recent platforms the NXT 2.0 and the EV3, in this project only the NXT 1.0
-will be considered since this is the platform being offered by the university
-\Source.\nl
+The Lego NXT Mindstorms is the successor to the first robotics-platform
+released by Lego the Robotics Invention System. Although the NXT line also
+contains 2 other platforms the NXT 1.0 and the EV3, in this project only the
+NXT 2.0 will be considered since this is the platform being offered by the
+university.\nl
 
 The Lego NXT Mindstorms kit consists of the NXT brick and a set of
-compatible sensors and actuators. The NXT brick consists of: \Source
+compatible sensors and actuators. The NXT brick\citep[P.70]{NXTStats} consists
+of:
+
 \begin{itemize}
   \item ARM 32-bit processor running at 48MHz with 256KB Flash storage and 64KB RAM
   \item 8-bit AVR running at 8MHz with 4KB Flash and 512B RAM
@@ -37,30 +36,27 @@ compatible sensors and actuators. The NXT brick consists of: \Source
 \end{itemize}
 
 The Lego NXT comes with the NXT-G programming environment which is a visual
-programming language for use with the NXT platform. There exist a
-variety of unofficial programming languages for the NXT, so in practice it is
-possible to write programs in pretty much all the big programming
-languages\Source. As such the the Lego NXT has some advantages and disadvantages
-associated with it\Source:
+programming language for use with the NXT platform. There exist a variety of
+unofficial programming languages for the NXT, so in practice it is possible to
+write programs in pretty much all the big programming languages.
+
 \begin{itemize}
   \item The external peripherals come programmed and assembled - all the user
-  has to do is handle the data received by the NXT brick
+  has to do is handle the data received by the NXT brick.
   \item The NXT can be combined with Lego Technics to use as a building
-  platform. This makes construction much simpler since you have an already
-  existing blocks to compose a construction as opposed to having to manifacture
-  your own mechanical parts.
-  \item Very limited amount of I/O ports
-  \item Typically more expensive
+  platform. This makes construction simple, as it is not necessesary to
+  manifacture your own mechanical parts.
+  \item The NXT has a very limited amount of I/O ports.
 \end{itemize}
 
 \section{Arduino}
-The arduino was born as a tool for fast prototyping, aimed at people lacking a
+The Arduino was born as a tool for fast prototyping, aimed at people lacking a
 background in electronics and programming. Over the years the arduino has
 evolved from offering simple 8-bit boards to offering a variety of different
 boards suiting different needs such as memory available, processing power,
 number of ports on the platform, etc. The arduino comes with its own
 programming language and an IDE. A large number of modules are available for
-the arduino allowing the construction of diverse and complex systems.\Source
+the arduino allowing the construction of diverse and complex systems\Source.
 
 \begin{itemize}
 	\item Due to the popularity of the arduino platform a large variety of extern
@@ -77,58 +73,66 @@ Based on a set of criteria the two prototyping platforms will be evaluated, and
 in conclusion a platform will be selected:
 
 \begin{enumerate}
-  \item Cost - In this regard the Arduino wins since it is much cheaper on both
-  the platform and the peripherals. But since the Lego NXT is available from the
-  university, cost is not an issue.
-  \item I/O ports - The Arduino wins again since not only does it far surpass
-  the NXT in number of available ports, but it also allows flexibility in
+  \item I/O ports - The Arduino wins, since not only does it far surpass
+  the NXT in number of available ports, it also allows flexibility in
   whether the ports are input or output and analog or digital.
-  \item Processing power - When comparing the two
-  platforms, the NXT is superior. Although one has to keep in mind that the
-  Arduino offers a selection of boards with varying processors and memory,
-  allowing us to select the arduino board that suits our needs best. In reality
-  if one of the more powerful arduino boards is chosen ,the difference between the platforms
-  in processor-speed and memory would be neglible.
-  \item Availability - The Arduino offers a far wider selection of extern
-  peripherals than the NXT, although everything is produced by a 3rd party
-  manufacturer.
-  In reality, most of the modules needed for the project such as sensors is
+  \item Processing power - When comparing the two platforms, the NXT is
+  superior. Although the Arduino offers a selection of boards with varying
+  processors and memory, allowing us to select the arduino board that suits our
+  needs best. In reality if one of the more powerful arduino boards is chosen,
+  the difference between the platforms in processor-speed and memory would be
+  neglible.
+  \item Availability - The Arduino offers a far wider selection of peripherals
+  than the NXT, although everything is produced by a 3rd party manufacturer. In
+  reality, most of the modules needed for the project such as sensors are
   available for both platforms.
   \item Integration of modules - The Lego NXT peripherals are built and
   configured to be used with a Lego NXT brick, thus resulting in a much simpler
   and streamlined process, being almost plug-and-play. The Arduino often
   requires more work in regards to integrating the modules with the board.
   \item Customization - Based on this criteria we consider the Arduino to be
-  more flexible. Because of the more widespread use of Arduino's, the
+  more flexible. Because of the more widespread use of the Arduino, the
   likelyhood of someone already having constructed what you need is big. There
   is also the option for tampering further with the modules with a breadboard
   and the electrical components such as resistors, capacitors, etc.
   \item Building - In this regard the NXT wins big, since it can be combined
   with the entire Lego Technics system in constructing a technical platform.
   Constructing a turret with arduino would require us to manufacture the parts
-  necessary for the cannon. The Lego also has the advantage that the various
+  necessary for the cannon. The Lego NXT also has the advantage that the various
   pieces can be combined in a lot of ways, allowing change in the design
   without necessarily needing new parts.
 \end{enumerate}
 
-Since the university provides the platforms the cost aspect isn't deemed as a vital factor. As mentioned before the parts needed for the project
-are available for both platforms so this is not the deciding factor either. When choosing the platform the group focused on the following criteria:
+Since the university provides the platforms the cost aspect isn't deemed as a
+vital factor. As mentioned before the parts needed for the project are
+available for both platforms so this is not the deciding factor either. When
+choosing the platform the group focused on the following criteria:
 \begin{itemize}
-
-  \item Building - Since a physical turret will have to be constructed, in order to simplify the mechanical process and allowing further focus on the software aspect.
-  \item Integration of modules - As before, the group doesn't want to spend too much time on the physical aspect of construction so things like soldering and integration of modules
-is inconvenient.
-  \item I/O Ports - the number of available I/O Ports needs to be able to support a range of sensors and some motors. For this reason the NXT is a little limiting, compared to the arduino, although the use of a multiplexer can allow expansion of existing ports.
+  \item Building - Since a physical turret will have to be constructed, in
+  order to simplify the mechanical process and allowing further focus on the
+  software aspect.
+  \item Integration of modules - As before, the group doesn't want to spend too
+  much time on the physical aspect of construction so things like soldering and
+  integration of modules is inconvenient.
+  \item I/O Ports - the number of available I/O Ports needs to be able to
+  support a range of sensors and some motors. For this reason the NXT is a
+  little limiting, compared to the arduino, although the use of a multiplexer
+  can allow expansion of existing ports.
 \end{itemize}
 
-\fix{Overvej muligheden for at kombinere begge platforme. Hvorfor/Hvorfor ikke?}{}
+\fix{Overvej muligheden for at kombinere begge platforme. Hvorfor/Hvorfor
+ikke?}{}
 
-In conclusion the group has chosen the Lego NXT platform for use in the project based on the following criteria:
+In conclusion the group has chosen the Lego NXT platform for use in the project
+based on the following criteria:
 \begin{itemize}
   \item Easier to physically build a prototype with lego parts
-  \item Availability of the modules or cost of the platform isn't really a factor, since they both suit the needs of the project.
+  \item Availability of the modules or cost of the platform isn't really a
+  factor, since they both suit the needs of the project.
   \item Less time spend on module integration and more time on software
 \end{itemize}
 
-Now the platform choices have been analysed in regards to the project and a platform was selected. In the next chapter,
-the available sensors will be described, analysed and tested in order to select the most ideal sensor for the project.
+Now the platform choices have been analysed in regards to the project and a
+platform was selected. In the next chapter, the available sensors will be
+described, analysed and tested in order to select the most ideal sensor for the
+project.
