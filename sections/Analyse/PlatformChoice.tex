@@ -32,7 +32,7 @@ of:
   \item 100x60 pixel LCD display
   \item Four buttons
   \item Speaker that plays sound files with a sampling rate of 8kHz
-  \item 4 input ports and 3 output ports
+  \item 4 input ports compatible with the I2C standard and 3 output ports
 \end{itemize}
 
 The Lego NXT comes with the NXT-G programming environment which is a visual
@@ -59,10 +59,10 @@ programming language and an IDE. A large number of modules are available for
 the arduino allowing the construction of diverse and complex systems\Source.
 
 \begin{itemize}
-	\item Due to the popularity of the arduino platform a large variety of extern
-	peripherals are available for the platform
+	\item Due to the popularity of the arduino platform a large variety of 3rd
+	party peripherals are available for the platform
 	\item Due to the popularity of the platform, there is also a large amount of
-	prewritten libraries for use with the modules
+	libraries for use with the modules
 	\item If the library doesn't exist or contain the necesary functionality, it
 	will have to be written, thus time will have to be invested in order to make
 	it work
@@ -120,16 +120,20 @@ choosing the platform the group focused on the following criteria:
   can allow expansion of existing ports.
 \end{itemize}
 
-\fix{Overvej muligheden for at kombinere begge platforme. Hvorfor/Hvorfor
-ikke?}{}
+Another option would be to combine the two, this can be done by using an NXT
+shield for the NXT. This would allow to have the customizability of the arduino
+while still being able to use the proprietary sensors from the NXT. However the
+NXT shield is limited as it only supports up to two motors. Another issue with
+using the arduino is the ability to build it into the product, as it is not
+designed to be built into Lego as the NXT is.\nl
 
 In conclusion the group has chosen the Lego NXT platform for use in the project
 based on the following criteria:
 \begin{itemize}
-  \item Easier to physically build a prototype with lego parts
+  \item Easier to physically build a prototype with Lego parts
   \item Availability of the modules or cost of the platform isn't really a
   factor, since they both suit the needs of the project.
-  \item Less time spend on module integration and more time on software
+  \item Less time spent on module integration and more time on software
 \end{itemize}
 
 Now the platform choices have been analysed in regards to the project and a
