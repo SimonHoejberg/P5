@@ -28,7 +28,7 @@ computed into a suitable output, which can be interpreted as a solution.
 %(Consider using fig1.4 p12)
 
 The representation is part of a represntation scheme, which specifies the form
-of the knowledge. In the case of \name, it would need to represent the knowledge
+of the knowledge. In the case of \name it would need to represent the knowledge
 about the movement of the target, the vertical angle of the canon and the
 horisontal angle of the turret in a way that makes it possible to compute
 output. Whether this output is a solution or not, depends on what a sufficient
@@ -47,137 +47,141 @@ solution is. Generally there are 4 different categories of solutions:
 As \name is shooting on a moving target. The solution needs to be reliable able
 to hit the target, but as it is a real-time system there are certain limits to
 how much time can be spent searching and waiting for the optimal shot.
-\fix{Do we discuss which solution type we use?}{}
+\fix{Do we need to discuss which solution type we use?}{}
+
+
+
+
 
 \subsection{Design Space}
+More stuff to come concerning what thoughts need to be put into the
+turret\ldots
 
-
-
-Agents have diffenrent dimensions of complexity. These dimensions are:
-
-\begin{itemize}
-  \item  modularity
-  \item representation scheme
-  \item planning horizon 
-  \item sensing uncertainty
-  \item effect uncertainty
-  \item preference
-  \item number of agents
-  \item learning
-  \item computational limits
-\end{itemize}
-
-These nine dimensions are needed in order to build an intelligent agent.
-
-\subsubsection{modularity}
-modularity describes how the system can be be broken down into modules that
-interact with eachother. These modules can be structured in three ways flat,
-modular or hierarchical. If the struture is flat that means that there is only a
-single module for the whole system, Modular means that there is more than one
-module, where ech module can be understood seperatly and hierarchical means that
-each module can be broken down into smaller modules that each can be understood
-on their own. \name is somewhat modular due to the fact that it has different
-tasks that can each be a module of its own. 
-
-\subsubsection{representation scheme}
-The representation scheme describes the world in terms of states. The agent uses
-these states to reason with. The states can also have features that each has a
-value. This decreases the amount of states needed to reason with. These features
-can depend on relations and individuals, where each possible relationship
-between individuals has a feature. This further decraeses the amount of states
-needed.
-
-
-
-
-
-
--------something about states---------
-??? - maybe or maybe not
-
---------Knowledge base (s1.3)---------
-AI is about reasoning
-An agent is a coupling of perception, reasoning and acting.
-
-Its actions depend on:
-- prior knowledge about the agent and the environment
-- history of interaction with the environment, which is composed of:
-+ observation of the current environents
-+ past experiences of previous actions and observations or other data, from
-which it can learn
-- goals that it must try to achieve or preferences over states of the world
-- Abilites which are the primitive actions it is capable of carrying out
-(consider using fig1.3 p11)
-
-Problems do you usually not have clear solutions
-To solve a problem a designer must:
-- flesh out the task and determine what constitutes a solution
-- represent the problem in a language with which a computer can reason
-- use the computer to compute an output, which is an answer presented to a user
-or a sequence
-(Consider using fig1.4 p12)
-
-A knowledge base is the representation of all of the knowledge stored on the
-agent. A representation should be:
-- rich enough to express the knowledge needed to solve the problem
-- as close to the problem as possible
-- amenable to efficient computation
-- able to be acquired from people, data and past experience
-
-Questions needed to be considered when given a problem:
-- what is a solution, and how good must a solution be?
-- how can a problem be represented?
-- how can the agent compute an output that can be interpreted as a solution to
-the problem? what about worst and average cases?
-
-Much work in AI is motivated by commonsense reasoning
-
-there are 4 common classes of solutions, they are not exclusive:
-- optimal solutions
-- satisficing solution --> satisfying + sufficient
-- approximate optimal solutions
-- probable solution
-
- -------- Dimensions of complexity ---------
-Modularity:
-flat - modular - hierachical
-
-Representation scheme:
-States - features - relations -propositition
-
-Planning Horizon:
-non-planning - finite horizon - indefinite horizon - infinite horizon
-
-Uncertainty:
-- Sensing uncertainty:
-+ Fully observable
-+ Partially observable
-
-- Effect uncertainty:
-+ Deterministic
-+ Stochastic
-
-Preference:
-- goals are either achivement goals or maintenance goals
-- complex preferences, ordinal preference, cardinal preference
-
-Number of agents:
-- single agent
-- multiple agents
-
-Learning:
-- Knowledge is given
-- knowledge is learned
-
-Computational limits:
-- Perfect rationality
-- bounded rationality
-
-------- Reasoning under uncertainty (ch6)-------
-propability as a measure of belief is Bayesian propability/subjective
-propability.
-
-
+% Agents have diffenrent dimensions of complexity. These dimensions are:
+% 
+% \begin{itemize}
+%   \item  modularity
+%   \item representation scheme
+%   \item planning horizon 
+%   \item sensing uncertainty
+%   \item effect uncertainty
+%   \item preference
+%   \item number of agents
+%   \item learning
+%   \item computational limits
+% \end{itemize}
+% 
+% These nine dimensions are needed in order to build an intelligent agent.
+% 
+% \subsubsection{modularity}
+% modularity describes how the system can be be broken down into modules that
+% interact with eachother. These modules can be structured in three ways flat,
+% modular or hierarchical. If the struture is flat that means that there is only a
+% single module for the whole system, Modular means that there is more than one
+% module, where ech module can be understood seperatly and hierarchical means that
+% each module can be broken down into smaller modules that each can be understood
+% on their own. \name is somewhat modular due to the fact that it has different
+% tasks that can each be a module of its own. 
+% 
+% \subsubsection{representation scheme}
+% The representation scheme describes the world in terms of states. The agent uses
+% these states to reason with. The states can also have features that each has a
+% value. This decreases the amount of states needed to reason with. These features
+% can depend on relations and individuals, where each possible relationship
+% between individuals has a feature. This further decraeses the amount of states
+% needed.
+% 
+% 
+% 
+% 
+% 
+% 
+% -------something about states---------
+% ??? - maybe or maybe not
+% 
+% --------Knowledge base (s1.3)---------
+% AI is about reasoning
+% An agent is a coupling of perception, reasoning and acting.
+% 
+% Its actions depend on:
+% - prior knowledge about the agent and the environment
+% - history of interaction with the environment, which is composed of:
+% + observation of the current environents
+% + past experiences of previous actions and observations or other data, from
+% which it can learn
+% - goals that it must try to achieve or preferences over states of the world
+% - Abilites which are the primitive actions it is capable of carrying out
+% (consider using fig1.3 p11)
+% 
+% Problems do you usually not have clear solutions
+% To solve a problem a designer must:
+% - flesh out the task and determine what constitutes a solution
+% - represent the problem in a language with which a computer can reason
+% - use the computer to compute an output, which is an answer presented to a user
+% or a sequence
+% (Consider using fig1.4 p12)
+% 
+% A knowledge base is the representation of all of the knowledge stored on the
+% agent. A representation should be:
+% - rich enough to express the knowledge needed to solve the problem
+% - as close to the problem as possible
+% - amenable to efficient computation
+% - able to be acquired from people, data and past experience
+% 
+% Questions needed to be considered when given a problem:
+% - what is a solution, and how good must a solution be?
+% - how can a problem be represented?
+% - how can the agent compute an output that can be interpreted as a solution to
+% the problem? what about worst and average cases?
+% 
+% Much work in AI is motivated by commonsense reasoning
+% 
+% there are 4 common classes of solutions, they are not exclusive:
+% - optimal solutions
+% - satisficing solution --> satisfying + sufficient
+% - approximate optimal solutions
+% - probable solution
+% 
+%  -------- Dimensions of complexity ---------
+% Modularity:
+% flat - modular - hierachical
+% 
+% Representation scheme:
+% States - features - relations -propositition
+% 
+% Planning Horizon:
+% non-planning - finite horizon - indefinite horizon - infinite horizon
+% 
+% Uncertainty:
+% - Sensing uncertainty:
+% + Fully observable
+% + Partially observable
+% 
+% - Effect uncertainty:
+% + Deterministic
+% + Stochastic
+% 
+% Preference:
+% - goals are either achivement goals or maintenance goals
+% - complex preferences, ordinal preference, cardinal preference
+% 
+% Number of agents:
+% - single agent
+% - multiple agents
+% 
+% Learning:
+% - Knowledge is given
+% - knowledge is learned
+% 
+% Computational limits:
+% - Perfect rationality
+% - bounded rationality
+% 
+% ------- Reasoning under uncertainty (ch6)-------
+% propability as a measure of belief is Bayesian propability/subjective
+% propability.
+% 
+% 
 
 
 
