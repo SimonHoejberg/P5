@@ -14,11 +14,10 @@ are explainable by computations while its intelligence can be judged by:
 \end{enumerate}
 %See MI book, chapter 1.1 p.4
 
-
 In order to be intelligent \name needs to be able to represent its knowledge in
 a suitable way that allows it to work it into a suitable solution.
 
-\subsection{Knowledge Representation}
+\subsection{Knowledge Representation}\label{KR}
 %See MI book chapter 1.4 p.12
 
 As \name is a turret it needs to be able to convert the problem of hitting a
@@ -27,17 +26,17 @@ computed into a suitable output, which can be interpreted as a solution.
 
 %(Consider using fig1.4 p12)
 
-The representation is part of a represntation scheme, which specifies the form
+The representation is part of a representation scheme, which specifies the form
 of the knowledge. In the case of \name it would need to represent the knowledge
 about the movement of the target, the vertical angle of the canon and the
-horisontal angle of the turret in a way that makes it possible to compute
+horisontal angle of the turret in a way that makes it possible to compute an
 output. Whether this output is a solution or not, depends on what a sufficient
 solution is. Generally there are 4 different categories of solutions:
 
 \begin{itemize}
   \item Optimal solution - The best possible solution to the problem.
-  \item Satisficing solution - A solution that is good enough according to the
-  description of the solution.
+  \item Satisficing solution - A solution that is both satisfying and
+  sufficient.
   \item Approximately optimal solution - A solution that is close to the optimal
   solution.
   \item Probable solution - A solution that is likely to be a solution but is
@@ -50,52 +49,46 @@ how much time can be spent searching and waiting for the optimal shot.
 \fix{Do we need to discuss which solution type we use?}{}
 
 
-
-
-
 \subsection{Design Space}
-More stuff to come concerning what thoughts need to be put into the
-turret\ldots
+The design space is defined by a series of 8 factors, which are used to give an
+estimation of the system. These factors are:
 
-% Agents have diffenrent dimensions of complexity. These dimensions are:
-% 
-% \begin{itemize}
-%   \item  modularity
-%   \item representation scheme
-%   \item planning horizon 
-%   \item sensing uncertainty
-%   \item effect uncertainty
-%   \item preference
-%   \item number of agents
-%   \item learning
-%   \item computational limits
-% \end{itemize}
-% 
-% These nine dimensions are needed in order to build an intelligent agent.
-% 
-% \subsubsection{modularity}
-% modularity describes how the system can be be broken down into modules that
-% interact with eachother. These modules can be structured in three ways flat,
-% modular or hierarchical. If the struture is flat that means that there is only a
-% single module for the whole system, Modular means that there is more than one
-% module, where ech module can be understood seperatly and hierarchical means that
-% each module can be broken down into smaller modules that each can be understood
-% on their own. \name is somewhat modular due to the fact that it has different
-% tasks that can each be a module of its own. 
-% 
-% \subsubsection{representation scheme}
-% The representation scheme describes the world in terms of states. The agent uses
-% these states to reason with. The states can also have features that each has a
-% value. This decreases the amount of states needed to reason with. These features
-% can depend on relations and individuals, where each possible relationship
-% between individuals has a feature. This further decraeses the amount of states
-% needed.
-% 
-% 
-% 
-% 
-% 
-% 
+\begin{itemize}
+   \item Modularity
+   \item Representation scheme 
+   \item Planning horizon 
+   \item Uncertainty
+   \item Preference
+   \item Number of agents
+   \item Learning
+   \item Computational limits
+\end{itemize}
+
+\subsubsection{Modularity}
+Modularity describes how easily the system can be divided into modules, as well
+as how easy it is to understand these modules separately. Modularity has three
+different levels, flat, modular and hierachical. Flat means that everything is
+contained within a single module. Modular means that the system can be divided
+into several modules that can be understood separately from the system.
+Hierachical means that the modules can recursively have additional modules
+inside them. \name as an autonomous turret needs to have several separate
+functions that allows for it turn, aim and determine the position of a target.
+This means that \name should be somewhat modular due to the fact that it has
+different tasks that can each be a module of its own.
+
+\subsubsection{Representation Scheme}
+As mentioned in \autoref{KR} the representation scheme is how knowledge is
+represented. This knowledge is usually represented in terms of states which are
+combination of all the relevant values. This leads to alot of different states
+as the amount of possible values increases. Instead of reasoning using states it
+is possible to combine the relevant values into feature. This means that the
+state is determined by the value of the features and not the other way around.
+ 
+
+
+
+
+
 % -------something about states---------
 % ??? - maybe or maybe not
 % 
