@@ -55,8 +55,8 @@ estimation of the system. These factors are:
 
 \begin{itemize}
    \item Modularity
-   \item Representation scheme 
-   \item Planning horizon 
+   \item Representation scheme
+   \item Planning horizon
    \item Uncertainty
    \item Preference
    \item Number of agents
@@ -83,19 +83,38 @@ combination of all the relevant values. This leads to alot of different states
 as the amount of possible values increases. Instead of reasoning using states it
 is possible to combine the relevant values into feature. This means that the
 state is determined by the value of the features and not the other way around.
- 
 
+The planning horizon of an intelligent agent is the time it considers the consequenses of its actions.
+For example a little boy might only do something if the reward is somewhat
+immediate(you have to get good grades so you can get a good job in the future),
+ whereas an adult might have the foresight to do something, although the reward
+ is further down the future(if i do well now, i might get a promotion in a few
+ months). Thus we are talking about different planning horizons.
+
+There exist the following types of planning horizons
+\begin{itemize}
+	\item Non-planning - If the system doesn’t consider the future when making decisions, or if time isn’t involved a factor
+	\item Finite horizon - The agent considers the future for a fixed finite set of steps. If the agent only looks one step ahead, we call it a \textbf{greedy} or \textbf{myopic}
+	\item Indefinite horizon - The agent looks ahead in a finite but not fixed number of steps. Consider the Google Maps directions feature - It only knows the destination, but doesn’t know how many steps it will take to complete the route
+	\item Infinite horizon - The agent should run forever	
+\end{itemize}
+
+Considering our project of an autonomous turret, we can already rule out the non-planning horizon, since it will have to consider the future in order to make a decision.
+
+On the other hand since our turret is an embedded system with limited computational power and memory, an infinite horizon isn’t realistic since the resulting statespace would require far too much computational power.
+
+At this point in time it would be too early to predict what type of remaining horizon is most effective, however a finite horizon seems to accomplish what it is we’re trying to do.
 
 
 
 
 % -------something about states---------
 % ??? - maybe or maybe not
-% 
+%
 % --------Knowledge base (s1.3)---------
 % AI is about reasoning
 % An agent is a coupling of perception, reasoning and acting.
-% 
+%
 % Its actions depend on:
 % - prior knowledge about the agent and the environment
 % - history of interaction with the environment, which is composed of:
@@ -105,7 +124,7 @@ state is determined by the value of the features and not the other way around.
 % - goals that it must try to achieve or preferences over states of the world
 % - Abilites which are the primitive actions it is capable of carrying out
 % (consider using fig1.3 p11)
-% 
+%
 % Problems do you usually not have clear solutions
 % To solve a problem a designer must:
 % - flesh out the task and determine what constitutes a solution
@@ -113,73 +132,73 @@ state is determined by the value of the features and not the other way around.
 % - use the computer to compute an output, which is an answer presented to a user
 % or a sequence
 % (Consider using fig1.4 p12)
-% 
+%
 % A knowledge base is the representation of all of the knowledge stored on the
 % agent. A representation should be:
 % - rich enough to express the knowledge needed to solve the problem
 % - as close to the problem as possible
 % - amenable to efficient computation
 % - able to be acquired from people, data and past experience
-% 
+%
 % Questions needed to be considered when given a problem:
 % - what is a solution, and how good must a solution be?
 % - how can a problem be represented?
 % - how can the agent compute an output that can be interpreted as a solution to
 % the problem? what about worst and average cases?
-% 
+%
 % Much work in AI is motivated by commonsense reasoning
-% 
+%
 % there are 4 common classes of solutions, they are not exclusive:
 % - optimal solutions
 % - satisficing solution --> satisfying + sufficient
 % - approximate optimal solutions
 % - probable solution
-% 
+%
 %  -------- Dimensions of complexity ---------
 % Modularity:
 % flat - modular - hierachical
-% 
+%
 % Representation scheme:
 % States - features - relations -propositition
-% 
+%
 % Planning Horizon:
 % non-planning - finite horizon - indefinite horizon - infinite horizon
-% 
+%
 % Uncertainty:
 % - Sensing uncertainty:
 % + Fully observable
 % + Partially observable
-% 
+%
 % - Effect uncertainty:
 % + Deterministic
 % + Stochastic
-% 
+%
 % Preference:
 % - goals are either achivement goals or maintenance goals
 % - complex preferences, ordinal preference, cardinal preference
-% 
+%
 % Number of agents:
 % - single agent
 % - multiple agents
-% 
+%
 % Learning:
 % - Knowledge is given
 % - knowledge is learned
-% 
+%
 % Computational limits:
 % - Perfect rationality
 % - bounded rationality
-% 
+%
 % ------- Reasoning under uncertainty (ch6)-------
 % propability as a measure of belief is Bayesian propability/subjective
 % propability.
-% 
-% 
+%
+%
 
 
 
 % -------What is an agent (S1.1 p4) --------
-% 
+%
 % An agent is something that acts in an environment.
 % An agent acts intelligent when:
 % - what it does is appropriate for its circumstances and its goals
@@ -188,9 +207,3 @@ state is determined by the value of the features and not the other way around.
 % - it makes appropriate choices given its perceptual and computational
 % limitation. It typically cannot observe the state of the world and has finite
 % memory and limited time.
-
-
-
-
-
-
