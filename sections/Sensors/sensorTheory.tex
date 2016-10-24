@@ -12,24 +12,51 @@ make use of a specialized camera, which is capable of identifying coloured
 objects. In order to use the camera, the user specifies a colour of choice,
 which will then be searched for. When the camera registers an object of this
 colour, it will build a datalogical representation of the object consisting of a
-number of 
+number of rectangles. Such a representation can be seen in \autoref{}.
 
-Below are the technical specifications for the camera.
+%figx
+
+For each identified rectangle, the camera will output the coordinates for that
+rectangle's sides, top, bottom and colour. 
+
+Below are the technical specifications\citep[p. 1]{NXTCam} for the camera.
+\begin{itemize}
+  \item Tracks up to 8 targets
+  \item Analyzes at 30 frames per second
+  \item Uses a resolution of 88x144 pixels
+  \item Uses a standard NXT sensor port
+  \item Gathers information about: number of objects, color of objects and
+  bounding box coordinates
+\end{itemize}
 
 \subsection{Ultrasonic Sensor}
-The ultrasonic sensor works by producing sound waves from one of the two
-frontal holes. The sound wave is then bounced back by an object and received by
-the second hole. The delay between producing and receiving the sound wave
-determines how far away the object is.
+For the purpose of measuring the distance to the chosen target, the turret will
+make use of two ultrasonic sensors. These sensors work by producing sound waves
+from one of two frontal holes, which is then bounced back by an object and
+received by the second hole. An image of this sensor can be seen in \autoref{}.
+The delay between producing and receiving the sound wave is used to determine
+the distance to a given object.
 
-The ultrasonic sensor described in this section is an ultrasonic sensor from
-Lego NXT. The product description says that it has a maximum range of 2.5m with
-a precision of +/- 3cm \citep{Ultrasonic_sensor}\KT. In actuality the product
-that was used begins loose precision after anything further away than 1.5m.
+\figx[0.4]{UltrasoundPic.jpg}{The two ultrasonic sensors and the camera mounted
+on the turret.}
 
-There is a delay of 25ms at how often it can be used to determine the distance
-to an object. Anything faster than that and the results become very imprecise
-\Source.
+The described sensor is a standardized ultrasonic sensor from Lego NXT. The
+sensor's technical specifications\citep{Ultrasonic_sensor} can be found below.
+\begin{itemize}
+  \item Has a max range of 2.5m
+  \item Has a precision of +/- 3cm
+  \item Looses precision after 1.5m
+  \item Has a 25ms delay between readings
+  \item Works best with large, hard-sized objects
+\end{itemize}
+
+% The product description says that it has a maximum range of 2.5m with
+% a precision of +/- 3cm \citep{Ultrasonic_sensor}\KT. In actuality the product
+% that was used begins loose precision after anything further away than 1.5m.
+% 
+% There is a delay of 25ms at how often it can be used to determine the distance
+% to an object. Anything faster than that and the results become very imprecise
+% \Source.
 
 % \section{Infrared Sensor}
 % The infrare sensor works on the same basic prinicple as the ultrasonic sensor,
