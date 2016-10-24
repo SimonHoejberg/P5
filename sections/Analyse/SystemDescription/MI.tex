@@ -84,26 +84,40 @@ as the amount of possible values increases. Instead of reasoning using states it
 is possible to combine the relevant values into feature. This means that the
 state is determined by the value of the features and not the other way around.
 
-The planning horizon of an intelligent agent is the time it considers the consequenses of its actions.
-For example a little boy might only do something if the reward is somewhat
-immediate(you have to get good grades so you can get a good job in the future),
- whereas an adult might have the foresight to do something, although the reward
- is further down the future(if i do well now, i might get a promotion in a few
- months). Thus we are talking about different planning horizons.
+\subsubsection{Planning Horizon}
+The planning horizon of an intelligent agent is the time it considers the
+consequenses of its actions. For example a little boy might only do something if
+the reward is somewhat immediate(you have to get good grades so you can get a
+good job in the future), whereas an adult might have the foresight to do
+something, although the rewad is further down the future(if i do well now, i
+might get a promotion in a few months). Thus we are talking about different
+planning horizons.
 
-There exist the following types of planning horizons
+There exist the following types of planning horizons:
 \begin{itemize}
-	\item Non-planning - If the system doesn’t consider the future when making decisions, or if time isn’t involved a factor
-	\item Finite horizon - The agent considers the future for a fixed finite set of steps. If the agent only looks one step ahead, we call it a \textbf{greedy} or \textbf{myopic}
-	\item Indefinite horizon - The agent looks ahead in a finite but not fixed number of steps. Consider the Google Maps directions feature - It only knows the destination, but doesn’t know how many steps it will take to complete the route
+	\item Non-planning - If the system does not consider the future when making
+	decisions, or if time is not involved a factor
+	\item Finite horizon - The agent considers the future for a fixed finite set
+	of steps. If the agent only looks one step ahead, we call it a \textbf{greedy}
+	or \textbf{myopic} 
+	\item Indefinite horizon - The agent looks ahead in a finite but not fixed
+	number of steps. Consider the Google Maps directions feature - It only knows
+	the destination, but does not know how many steps it will take to complete
+	the route
 	\item Infinite horizon - The agent should run forever	
 \end{itemize}
 
-Considering our project of an autonomous turret, we can already rule out the non-planning horizon, since it will have to consider the future in order to make a decision.
+Considering our project of an autonomous turret, we can already rule out the
+non-planning horizon, since it will have to consider the future in order to
+make a decision.
 
-On the other hand since our turret is an embedded system with limited computational power and memory, an infinite horizon isn’t realistic since the resulting statespace would require far too much computational power.
+On the other hand since our turret is an embedded system with limited
+computational power and memory, an infinite horizon isn’t realistic since the
+resulting statespace would require far too much computational power.
 
-At this point in time it would be too early to predict what type of remaining horizon is most effective, however a finite horizon seems to accomplish what it is we’re trying to do.
+At this point in time it would be too early to predict what type of
+remaining horizon is most effective, however a finite horizon seems to
+accomplish what it is we are trying to do.
 
 
 
