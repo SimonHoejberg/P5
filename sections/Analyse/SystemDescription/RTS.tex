@@ -1,41 +1,68 @@
 \section{Real-Time Systems}
-Although the project group doesn't have any members following the RTS course, the project
-still incorporates certain elements from RTS. In this section a quick overview of the elements will be described
-in order to provide a basic understanding in relation to the project.
-\subsection{definition}
-In order to give a proper foundation of the core concepts in the field of RTS, a proper definition will be given.
-The Oxford Dictionary of Computing\citep{daintith2008dictionary} defines a real-time system as such
-\say{Any system in which the time at which output is produced is significant. This is
- usually because the input corresponds to some movement in the physical world,
-  and the output has to relate to that same movement. The lag from input time to
-   output time must be sufficiently small for acceptable timeliness. Timeliness
-   is a function of the total system: missile guidance requires output within a
-few milliseconds of input whereas scheduling of steamships requires responses measured in days.
- Real-time systems are usually considered to be those in which the response time is of order milliseconds; interactive systems are those with response times of order seconds and batch systems are those with response times of hours or days.
-  Real-time systems may be subdivided into hard and soft, depending on the severity of failure to meet a deadline for output.}
+Although the project group doesn't have any members following the RTS course,
+the project still incorporates certain elements from RTS. In this section a
+quick overview of the elements will be described in order to provide a basic
+understanding in relation to the project.
+
+\subsection{Definition}
+In order to give a proper foundation of the core concepts in the field of RTS, a
+proper definition will be given.
+The Oxford Dictionary of Computing \citep{daintith2008dictionary} defines a
+real-time system as follows \say{Any system in which the time at which output is
+produced is significant. This is usually because the input corresponds to some
+movement in the physical world, and the output has to relate to that same
+movement. The lag from input time to output time must be sufficiently small for
+acceptable timeliness. Timeliness is a function of the total system: missile
+guidance requires output within a few milliseconds of input whereas scheduling
+of steamships requires responses measured in days. Real-time systems are usually
+considered to be those in which the response time is of order milliseconds;
+interactive systems are those with response times of order seconds and batch
+systems are those with response times of hours or days. Real-time systems may be
+subdivided into hard and soft, depending on the severity of failure to meet a
+deadline for output.}
+
 \subsection{Introduction}
-From the definition it is given that \textit{Any system in which the time at
-which output is produced is significant}. At its most basic, RTS systems are just systems where the response time is a vital factor. Consider the example of an ABS-brake again - the system needs an input
-ie. the sensor input from the wheels and calculate the correct amount of pressure to apply to the brakes in order to optimize the braking
-length of the vehicle, that is the output. The time it takes from receiving the input till it produces the output is critical,
-since if the output is produced too late, the car brakes too late. So in fact when talking about realtime-systems, the only concern is whether
-or not the deadlines hold up.
+From the definition it is given that \say{Any system in which the time at
+which output is produced is significant}. At its most basic, RTS systems are
+just systems where the timing of specific parts are a vital factor. Consider
+the example of an ABS-brake again - the system needs an input i.e. a sensor
+input from the wheels. This information is then used to calculate the correct
+amount of pressure to apply to the brakes in order to optimize  the braking
+length of the vehicle, that is the output. The time it takes from receiving 
+the input till it produces the output is critical. This is due to the fact that
+the brakes needs to be on instantly. So in fact when talking about
+realtime-systems, the only concern is whether or not the deadlines are met.
+
 \subsection{Timeliness}
-The definition mentions the concept of timeliness as such: \textit{Timeliness
-is a function of the total system: missile guidance requires output within a
-few milliseconds of input whereas scheduling of steamships requires responses measured in days}. This means that for all realtime-systems the
-concept of timeliness is relative to the project - which makes sense since the only thing to care about is whether or not the deadlines hold.
-\subsection{deadlines}
-As mentioned in the given definition, realtime systems are concerned about deadlines in a system.
-The realtime system gets classified depending on the consequenses of breaking a deadline. If the result of a failed deadline
-is catastrophic, the system gets classified as a hard real-time system - examples of such are control systems for airplanes, nuclear power plants, etc.
-If an occasional deadline is missed, or the system doesn't shut down if a deadline is missed, it might be a soft realtime system, for example video-conferencing software
-the result of a missed deadline might simply be pixelation of some sort. Annoying, sure - but not critical.
-\subsection{tasks}
-A task is a subset of the program. For example a task in the ABS-brake system could be ReadVelocity(). In order to construct a schedule first
-the time to process all the different tasks is needed. This provides a overview of all the different tasks needed to complete the function and their
-respective runtime.
+The definition mentions the concept of timeliness as the following:
+\say{Timeliness is a function of the total system: missile guidance requires
+output within a few milliseconds of input whereas scheduling of steamships requires responses
+measured in days}. This means that for all realtime-systems the concept of
+timeliness is relative to the project - which makes sense since the only thing
+to care about is whether or not the deadlines are met.
+
+\subsection{Deadlines}
+As mentioned in the given definition, realtime systems are concerned about
+deadlines in a system.
+The realtime system gets classified depending on the consequences of not
+meeting a deadline. If the result of a failed deadline is catastrophic, the
+system gets classified as a hard real-time system - examples of such are control
+systems for airplanes, nuclear power plants, etc.
+If an occasional deadline is missed, or the system doesn't shut down if a
+deadline is missed, it might be a soft realtime system, for example
+video-conferencing software the result of a missed deadline might be droped
+frames but nothing critical.
+
+\subsection{Tasks}
+A task is a subset of the program. For example a task in the ABS-brake system
+could be ReadVelocity(). In order to construct a schedule first the time to
+process all the different tasks is needed. This provides a overview of all the
+different tasks needed to complete the function and their respective runtime.
+
 \subsection{Scheduling}
 To ensure that the deadlines \textbf{always} holds true, scheduling is needed.
-By explicit stating a schedule for the system to follow, a scheduling analysis can be conducted in order to ensure that the schedule does in fact always hold true and doesn't miss deadlines. The art of scheduling
-is one of the fundamental concepts of RTS. But for scheduling to work, the time it takes to complete certain tasks is needed.
+By explicitly stating a schedule for the system to follow, a scheduling analysis
+can be conducted in order to ensure that the schedule does in fact always hold
+true and no deadlines are missed. Scheduling is one of the
+fundamental concepts of RTS. But for scheduling to work, knowledge is needed
+about how long tasks takes. 
