@@ -99,12 +99,12 @@ There exist the following types of planning horizons:
 	decisions, or if time is not involved a factor
 	\item Finite horizon - The agent considers the future for a fixed finite set
 	of steps. If the agent only looks one step ahead, we call it a \textbf{greedy}
-	or \textbf{myopic} 
+	or \textbf{myopic}
 	\item Indefinite horizon - The agent looks ahead in a finite but not fixed
 	number of steps. Consider the Google Maps directions feature - It only knows
 	the destination, but does not know how many steps it will take to complete
 	the route
-	\item Infinite horizon - The agent should run forever	
+	\item Infinite horizon - The agent should run forever
 \end{itemize}
 
 Considering our project of an autonomous turret, we can already rule out the
@@ -119,7 +119,31 @@ At this point in time it would be too early to predict what type of
 remaining horizon is most effective, however a finite horizon seems to
 accomplish what it is we are trying to do.
 
+\subsection{Preferences}
 
+For an agent to be able to make good decisions it is necessary to provide an
+idea of the goals we are trying to accomplish. Furthermore there are certain
+preferences concerning the trade-off between different solutions. In \autoref(KR)
+it categorizes two forms of preferences:
+\begin{itemize}
+  \item Goals - these can either be considered achievement goals and maintenance
+  goals. Maintenance goals must be achieved at all states, and achievement goals
+  should hold true for the final state. For example an example of an achievement goal
+  could be that Leeroy wants coffee, and a maintenance goal could be that coffee
+  must not be spilled.
+  \item Complex preferences - allows us to describe and model more complex features
+  such as desirability. In this category 2 distinct types are identified. \textbf{Ordinal}
+  preferences describe preferences where only the order of the preferences indicate importance.
+  \textbf{Cardinal} preferences are those that are prioritized according to their value.
+\end{itemize}
+
+For this project, first and foremost an achievement goal is needed in order to describe
+the goal for the agent. This is simply the combined state of features that allows us to
+hit a target in motion.
+
+The complex preferences of the project is limited by the scope of the project.
+For example one could imagine the prioritizing of different targets according to a
+complex preference
 
 
 % -------something about states---------
