@@ -86,162 +86,76 @@ state is determined by the value of the features and not the other way around.
 
 \subsubsection{Planning Horizon}
 The planning horizon of an intelligent agent is the time it considers the
-consequenses of its actions. For example a little boy might only do something if
-the reward is somewhat immediate(you have to get good grades so you can get a
-good job in the future), whereas an adult might have the foresight to do
-something, although the rewad is further down the future(if i do well now, i
-might get a promotion in a few months). Thus we are talking about different
-planning horizons.
-
-There exist the following types of planning horizons:
+consequenses of its actions. For example a child might only do something if
+there is an immediate, whereas an adult might have the foresight to do something
+for a reward thats some time off. There exist the following types of planning
+horizons:
 \begin{itemize}
-	\item Non-planning - If the system does not consider the future when making
-	decisions, or if time is not involved a factor
+	\item Non-planning - The agent does not consider the future when making
+	decisions, or time is not involved as a factor.
 	\item Finite horizon - The agent considers the future for a fixed finite set
-	of steps. If the agent only looks one step ahead, we call it a \textbf{greedy}
-	or \textbf{myopic}
-	\item Indefinite horizon - The agent looks ahead in a finite but not fixed
-	number of steps. Consider the Google Maps directions feature - It only knows
-	the destination, but does not know how many steps it will take to complete
-	the route
-	\item Infinite horizon - The agent should run forever
+	of steps. 
+	\item Indefinite horizon - The agent looks ahead for finite but not fixed
+	number of steps.
+	\item Infinite horizon - The agent should run forever.	
 \end{itemize}
 
-Considering our project of an autonomous turret, we can already rule out the
+Considering \name is an autonomous turret, we can already rule out the
 non-planning horizon, since it will have to consider the future in order to
-make a decision.
+make a decision. Additionally the turret is an embedded system with limited
+computational power and memory, an infinite horizon is thus not a realistic
+option since the resulting statespace would require far too much computational
+power.
 
-On the other hand since our turret is an embedded system with limited
-computational power and memory, an infinite horizon isn’t realistic since the
-resulting statespace would require far too much computational power.
+\subsubsection{Uncertainty}
 
-At this point in time it would be too early to predict what type of
-remaining horizon is most effective, however a finite horizon seems to
-accomplish what it is we are trying to do.
+There are two parts to uncertainty. The first part is sensing uncertainty while
+the second is effect uncertainty. Sensing uncertainty concerns what the agent
+can determine based on its observations. There are two possibilities:
+\begin{itemize}
+  \item Fully observable - The agent can determine the state based on
+  the observations.
+  \item Partially observable - The agent can not directly observe the state.
+  This can be caused by noisy observations or when multiple states result in the
+  same observations.
+\end{itemize}
+
+
+We can already determine that \name will only be able to partially observe the
+state, as the way we observe the state is through sensors which provide noisy
+observations.\nl
+
+Effect uncertainty concerns how accuratly the agent can determine the resulting
+state based on an action in its current state. There are two possibilities:
+\begin{itemize}
+  \item Deterministic - 
+  \item Stochastic - 
+\end{itemize}
+ 
 
 \subsection{Preferences}
-
 For an agent to be able to make good decisions it is necessary to provide an
 idea of the goals we are trying to accomplish. Furthermore there are certain
-preferences concerning the trade-off between different solutions. In \autoref(KR)
-it categorizes two forms of preferences:
+preferences concerning the trade-off between different solutions. In
+\autoref(KR) it categorizes two forms of preferences:
 \begin{itemize}
-  \item Goals - these can either be considered achievement goals and maintenance
-  goals. Maintenance goals must be achieved at all states, and achievement goals
-  should hold true for the final state. For example an example of an achievement goal
-  could be that Leeroy wants coffee, and a maintenance goal could be that coffee
-  must not be spilled.
-  \item Complex preferences - allows us to describe and model more complex features
-  such as desirability. In this category 2 distinct types are identified. \textbf{Ordinal}
-  preferences describe preferences where only the order of the preferences indicate importance.
-  \textbf{Cardinal} preferences are those that are prioritized according to their value.
+  \item Goals - these can either be considered achievement goals and
+  maintenance goals. Maintenance goals must be achieved at all states, and
+  achievement goals should hold true for the final state. For example an
+  example of an achievement goal could be that Leeroy wants coffee, and a
+  maintenance goal could be that coffee must not be spilled.
+  \item Complex preferences - allows us to describe and model more complex
+  features such as desirability. In this category 2 distinct types are
+  identified. \textbf{Ordinal} preferences describe preferences where only the
+  order of the preferences indicate importance.
+  \textbf{Cardinal} preferences are those that are prioritized according to
+  their value.
 \end{itemize}
 
-For this project, first and foremost an achievement goal is needed in order to describe
-the goal for the agent. This is simply the combined state of features that allows us to
-hit a target in motion.
-
-The complex preferences of the project is limited by the scope of the project.
-For example one could imagine the prioritizing of different targets according to a
-complex preference
+For this project, first and foremost an achievement goal is needed in order to
+describe the goal for the agent. This is simply the combined state of features
+that allows us to hit a target in motion. The complex preferences of the
+project is limited by the scope of the project. For example one could imagine
+the prioritizing of different targets according to a complex preference
 
 
-% -------something about states---------
-% ??? - maybe or maybe not
-%
-% --------Knowledge base (s1.3)---------
-% AI is about reasoning
-% An agent is a coupling of perception, reasoning and acting.
-%
-% Its actions depend on:
-% - prior knowledge about the agent and the environment
-% - history of interaction with the environment, which is composed of:
-% + observation of the current environents
-% + past experiences of previous actions and observations or other data, from
-% which it can learn
-% - goals that it must try to achieve or preferences over states of the world
-% - Abilites which are the primitive actions it is capable of carrying out
-% (consider using fig1.3 p11)
-%
-% Problems do you usually not have clear solutions
-% To solve a problem a designer must:
-% - flesh out the task and determine what constitutes a solution
-% - represent the problem in a language with which a computer can reason
-% - use the computer to compute an output, which is an answer presented to a user
-% or a sequence
-% (Consider using fig1.4 p12)
-%
-% A knowledge base is the representation of all of the knowledge stored on the
-% agent. A representation should be:
-% - rich enough to express the knowledge needed to solve the problem
-% - as close to the problem as possible
-% - amenable to efficient computation
-% - able to be acquired from people, data and past experience
-%
-% Questions needed to be considered when given a problem:
-% - what is a solution, and how good must a solution be?
-% - how can a problem be represented?
-% - how can the agent compute an output that can be interpreted as a solution to
-% the problem? what about worst and average cases?
-%
-% Much work in AI is motivated by commonsense reasoning
-%
-% there are 4 common classes of solutions, they are not exclusive:
-% - optimal solutions
-% - satisficing solution --> satisfying + sufficient
-% - approximate optimal solutions
-% - probable solution
-%
-%  -------- Dimensions of complexity ---------
-% Modularity:
-% flat - modular - hierachical
-%
-% Representation scheme:
-% States - features - relations -propositition
-%
-% Planning Horizon:
-% non-planning - finite horizon - indefinite horizon - infinite horizon
-%
-% Uncertainty:
-% - Sensing uncertainty:
-% + Fully observable
-% + Partially observable
-%
-% - Effect uncertainty:
-% + Deterministic
-% + Stochastic
-%
-% Preference:
-% - goals are either achivement goals or maintenance goals
-% - complex preferences, ordinal preference, cardinal preference
-%
-% Number of agents:
-% - single agent
-% - multiple agents
-%
-% Learning:
-% - Knowledge is given
-% - knowledge is learned
-%
-% Computational limits:
-% - Perfect rationality
-% - bounded rationality
-%
-% ------- Reasoning under uncertainty (ch6)-------
-% propability as a measure of belief is Bayesian propability/subjective
-% propability.
-%
-%
-
-
-
-% -------What is an agent (S1.1 p4) --------
-%
-% An agent is something that acts in an environment.
-% An agent acts intelligent when:
-% - what it does is appropriate for its circumstances and its goals
-% - it is flexible to changing environments and changing goals
-% - it learns from experience
-% - it makes appropriate choices given its perceptual and computational
-% limitation. It typically cannot observe the state of the world and has finite
-% memory and limited time.
