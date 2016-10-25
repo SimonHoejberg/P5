@@ -1,0 +1,6 @@
+-       Red  Blue  Green  Orange  Yellow
+MinArea 0	 0     266    342     266		
+MaxArea 0	 0     414    342     391
+Diff    0    0     148    0       125
+AvgArea	0	 0     326    342     326
+Quality Null Null  Bad    Ok      Bad
