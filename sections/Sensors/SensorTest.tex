@@ -29,7 +29,7 @@ used to identify a target, and how the resulting data can be accurately used.
 % The testing will be divided into to two parts, one part is testing the two
 % distance sensors and the second part is testing the camera. 
 
-\subsection{Ultrasonic Sensor}\label{UltraTest}
+\subsection{Ultrasonic Sensor Test}\label{UltraTest}
 The test of the ultrasonic sensor was divided into 4 different experiments, the
 difference between the experiments are the size of the object being tracked and
 whether the sensor is shielded or not. The different object sizes was tested
@@ -83,9 +83,56 @@ large field of view. Therefore, the object should be wider rather than taller.
 % become a very limiting factor in regards to how far the target can be placed
 % from the cannon. 
 
-\subsection{Camera tracking}\label{CamTest}%Will most likely need a better
-% name
-Testing the camera will consist of several parts, these parts will heavily rely
+\subsection{Camera Sensor Test}\label{CamTest}%Will most likely need a better
+Testing the camera will consist of trying to answer two main questions. Namely
+what colours can be easily recognized, and at what distance can the target be
+identified. As such, this subsection will consist of a test setup, the resulting
+data and the conclusions which can be drawn from this data.
+
+\subsubsection{Camera Test - Setup}
+The setup for testing the camera consists of placing the turret at one end of a
+long table, pointing towards a target at the other end. The table is marked with
+a number of lines each representing a distance of 25cm from the turret's
+location. The target for this test is a rectangular cardboard cutout, which is
+used to hold a sheet of coloured paper which is folded around it. Behind the
+coloured paper is a dark background which is used in some, but not all tests.
+This setup can be seen in \autoref{SensorCamSetup.JPG}.
+
+\figx[0.15]{SensorCamSetup.JPG}{Setup for the camera test (With Background).}
+
+\subsubsection{Camera Test Results - Colours}
+In order to determine what colour can best be detected, the target wrapped with
+a piece of coloured paper, and is then placed at a distance of 2m from the
+turret. The camera is then used to search for the specified colour. As explained
+in \autoref{SensTheoCam} this data consists of rectangular segments of the
+identified colour, and these segments sizes and colours. The quality of the
+individual colours is determined by looking at two factors. The first factor is
+the consistancy of the recorded data, which is determined by the variance in the
+data. The second factor is the cameras ability to correctly   
+
+
+ The results from this test can be seen in
+\autoref{SensorCamTest1}. 
+
+\dataTable{SensorCamTest1}{test}{test}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+several parts, these parts will heavily rely
 on the technical specifications of the camera. Therefore the first part of this
 section will be on the technical specifications of the camera and the needed
 software.\nl
