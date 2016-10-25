@@ -98,11 +98,7 @@ used to hold a sheet of coloured paper which is folded around it. Behind the
 coloured paper is a dark background which is used in some, but not all tests.
 This setup can be seen in \autoref{SensorCamSetup.JPG}.
 
-<<<<<<< .mine
 \figx[0.1]{SensorCamSetup.JPG}{Setup for the camera test (With Background).}
-=======
-\figx[0.13]{SensorCamSetup.JPG}{Setup for the camera test (With Background).}
->>>>>>> .r253
 
 \subsubsection{Camera Test Results - Colours}\label{CamTestColours}
 In order to determine what colour can best be detected, the target wrapped with
@@ -124,11 +120,11 @@ These ratings are: Ok (~70-100\%), bad (~40-69\%), very bad (~20-39\%) and Null
 observed through the NXTCam calibration software, and that the data points have
 been manually observed and written down. The test was done twice, once with a
 background of a contrasting colour, and one without. The results from the first
-test can be seen in \autoref{CamTest1}.
+test can be seen in \autoref{table:CamTest1}.
 
 \dataTable{SensorCamTest1}{Data from test 1. (With background)}{CamTest1}
 
-From the data presented in \autoref{CamTest1} we can conclude the
+From the data presented in \autoref{table:CamTest1} we can conclude the
 following:
 \begin{itemize}
   \item The blue and yellow colours can not be recognized
@@ -142,11 +138,11 @@ following:
 Based on these conclusions we can determine that the best colours would be
 either red or orange. In order to verify this assumption the test is repeated
 without the contrasting background. The results from the second test can be seen
-in \autoref{CamTest2}.
+in \autoref{table:CamTest2}.
 
 \dataTable{SensorCamTest2}{Data from test 2. (Without background)}{CamTest2}
 
-From the data presented in \autoref{CamTest2} we can conclude the
+From the data presented in \autoref{table:CamTest2} we can conclude the
 following:
 \begin{itemize}
   \item For some colours the contrasting background gives worse data
@@ -167,11 +163,11 @@ colour can be used at different distances. For this purpose, the target will be
 placed at various distances from the target, as noted in \autoref{CamTestSetup}.
 The measurements will use the same ratings 'ok', 'bad', 'very bad' and 'null',
 as described in \autoref{CamTestColours}. The resulting data from this test can be
-seen in \autoref{CamTest3}. 
+seen in \autoref{table:CamTest3}. 
 
 \dataTable{SensorCamTest3}{Quality of data at different distances.}{CamTest3}
 
-The data presented in \autoref{CamTest3} represents the camera's ability
+The data presented in \autoref{table:CamTest3} represents the camera's ability
 to recognize the target at different distances, but during the testing a major
 flaw was identified. It was found that the the measured colour of the target
 changes based on its distance from the target, and the light levels at its
