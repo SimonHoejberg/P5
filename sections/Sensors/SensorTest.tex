@@ -89,7 +89,7 @@ what colours can be easily recognized, and at what distance can the target be
 identified. As such, this subsection will consist of a test setup, the resulting
 data and the conclusions which can be drawn from this data.
 
-\subsubsection{Camera Test - Setup}
+\subsubsection{Camera Test - Setup}\label{CamTestSetup}
 The setup for testing the camera consists of placing the turret at one end of a
 long table, pointing towards a target at the other end. The table is marked with
 a number of lines each representing a distance of 25cm from the turret's
@@ -98,9 +98,13 @@ used to hold a sheet of coloured paper which is folded around it. Behind the
 coloured paper is a dark background which is used in some, but not all tests.
 This setup can be seen in \autoref{SensorCamSetup.JPG}.
 
+<<<<<<< .mine
+\figx[0.1]{SensorCamSetup.JPG}{Setup for the camera test (With Background).}
+=======
 \figx[0.13]{SensorCamSetup.JPG}{Setup for the camera test (With Background).}
+>>>>>>> .r253
 
-\subsubsection{Camera Test Results - Colours}
+\subsubsection{Camera Test Results - Colours}\label{CamTestColours}
 In order to determine what colour can best be detected, the target wrapped with
 a piece of coloured paper, and is then placed at a distance of 2m from the
 turret. The camera is then used to search for the specified colour. As explained
@@ -108,21 +112,123 @@ in \autoref{SensTheoCam} this data consists of rectangular segments of the
 identified colour, and these segments sizes and colours. The quality of the
 individual colours is determined by looking at two factors. The first factor is
 the consistancy of the recorded data, which is determined by the variance in the
-data. The second factor is the cameras ability to correctly   
+data. The second factor is the cameras ability to keep recognizing the target
+at different distances.\nl
 
+The first test looks at the consistancy of the recorded data. To do this we look
+at three main points. The maximum and minimum measured areas, the difference
+between these points, and the average measured area. In addition each colour is
+given a rating based on the amount of frames where a colour was recognized.
+These ratings are: Ok (~70-100\%), bad (~40-69\%), very bad (~20-39\%) and Null
+(No data). It should also be noted that the results from this test have been
+observed through the NXTCam calibration software, and that the data points have
+been manually observed and written down. The test was done twice, once with a
+background of a contrasting colour, and one without. The results from the first
+test can be seen in \autoref{CamTest1}.
 
- The results from this test can be seen in
-\autoref{SensorCamTest1}. 
+\dataTable{SensorCamTest1}{Data from test 1. (With background)}{CamTest1}
 
-\dataTable{SensorCamTest1}{test}{test}
+From the data presented in \autoref{CamTest1} we can conclude the
+following:
+\begin{itemize}
+  \item The blue and yellow colours can not be recognized
+  \item The green colour has the hightest variance of 163 pixels
+  \item The green colour has a low amount of frames with recognition
+  \item The red colour has the lowest variance of 19 pixels
+  \item Of the 'ok' colours, orange and red, orange has the largest measured
+  average area.
+\end{itemize} 
 
+Based on these conclusions we can determine that the best colours would be
+either red or orange. In order to verify this assumption the test is repeated
+without the contrasting background. The results from the second test can be seen
+in \autoref{CamTest2}.
 
+\dataTable{SensorCamTest2}{Data from test 2. (Without background)}{CamTest2}
 
+From the data presented in \autoref{CamTest2} we can conclude the
+following:
+\begin{itemize}
+  \item For some colours the contrasting background gives worse data
+  \item Given no contrasting background 'yellow' can be seen, but the data is
+  'bad'
+  \item Given no contrasting background 'red' can no longer be recognized
+  \item Given no contrasting background 'orange' has no variance in data
+\end{itemize} 
 
+Based on these conclusions we can determine that orange would be colour of
+choice, as the camera is capable of recognizing the colour without any variance
+in the recorded data.
 
+\subsubsection{Camera Test Results - Distance}\label{CamTestDistance}
+Based on the choice made in \autoref{CamTestColours} to use orange as the colour
+of the target, this section will be used to further determine how well this
+colour can be used at different distances. For this purpose, the target will be
+placed at various distances from the target, as noted in \autoref{CamTestSetup}.
+The measurements will use the same ratings 'ok', 'bad', 'very bad' and 'null',
+as described in \autoref{CamTestColours}. The resulting data from this test can be
+seen in \autoref{CamTest3}. 
 
+\dataTable{SensorCamTest3}{Quality of data at different distances.}{CamTest3}
 
+The data presented in \autoref{CamTest3} represents the camera's ability
+to recognize the target at different distances, but during the testing a major
+flaw was identified. It was found that the the measured colour of the target
+changes based on its distance from the target, and the light levels at its
+current location. In effect this means that no single colour can be used to
+recognize the target at all distances, but instead multiple colours need to be
+recognized based on the distance of the target. This problem has two identified
+solutions, either the camera is programmed to recognize a number of different
+shades of orange, or the turret will be limited to only operate in well and
+consistently lit areas. The solution to this problem will be further explained
+as part of the final implementation in \autoref{}.
 
+<<<<<<< .mine
+% several parts, these parts will heavily rely
+% on the technical specifications of the camera. Therefore the first part of this
+% section will be on the technical specifications of the camera and the needed
+% software.\nl
+% 
+% The camera runs at 30 fps and with a resolution of 88 x 144. This could
+% potentialy become an issue due to the fact that it is a very low resolution.
+% Although this is a could be a problem, it depends on how large the
+% object/objects being tracked are.
+% The camera also has the ability to track up to 8 different objects
+% \fix{\Source}{Kan vi refere til de tekniske specfikationer i user guide}. \nl
+% 
+% The setup of the camera is quite simple and is done using a computer, to setup
+% which color it is suposed to track. The process of choosing the color is done
+% using some software that comes with the camera, here a colormap is made which
+% tells the preprocessor on the camera which colors to track. 
+% 
+% There are three different test that can be done, the first to 
+% determine which colour the camera best sees, the second to see how
+% far the camera can track an object and the third to determine if lighting up the
+% object changed the cameras abillity to track the colour \/ object.\nl
+% 
+% The first test is to determine what colour the camera best can see, to do this
+% a square of paper with the same size will be used to make sure that the only
+% diffence is the colour of the paper. The setup of the test is that the camera
+% should stay at the same place so that the lighting condition stays the same,
+% then the paper square is place at a certain distance to the camera. The result
+% of each test is how many blobs of the tracking was the recordnised and how
+% consisten the size of the coloured blob is.\nl
+% 
+% The second test, to test how far the camera can track objects is to do this the
+% turret it setup in the same manner as the test before, here the object which is
+% the paper is moved further and further away, optional could the colours of the
+% paper be changed to see how well the different colours can be seen from a
+% distance. The results of this test is the distance that the camera can see each
+% colour and again how consisten it is.\nl
+% 
+% The third test, to test weather lighting up the object with an flashlight
+% improves how well the camera sees the object, again this test needs to bed setup
+% in the same manner at the two other test with the turret in the same place
+% thoughout the test and then the test pocedes as test 2 with observering how far
+% away it can see the object and as a result determine if the flashlight is
+% nessery and what colour works best with it.
+% 
+=======
 
 
 
@@ -173,3 +279,4 @@ thoughout the test and then the test pocedes as test 2 with observering how far
 away it can see the object and as a result determine if the flashlight is
 nessery and what colour works best with it.
 
+>>>>>>> .r253
