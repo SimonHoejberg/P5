@@ -63,30 +63,48 @@ amount of targets hit.
   more realistic scenario, the target should be able to speed up and slow down.
 \end{itemize}
 
-\section{Another version of the requirements}
-Dette er en hurtig sketch af en anden maade at skrive kravene ned paa. Der var
-delte meninger om hvordan vi burde skrive vores kravspec. Saa her er en
-anden version der er mere hvad er der og mindre hvorfor:\nl
+\section{Requirements and Features}
+
+Based on\ldots, we can determine the requirements and features for an autonomous
+turret. These can further be divided into the groups ``Need to have'' and ``Nice
+to have'' in order to prioritize between them.
+
+\subsection{Need to Have}
+The following requirements have been deemed necessary for an autonomous turret:
+
+Features:                       Requirementss:
+Embedded systems                ---> Use nxt
+
+Hit moving targets              ---> Turn
+                                ---> Firing offset
+                                ---> Sensor
+                                ---> Accuracy
+
+Target requires firing offset   ---> Target specs
 
 
-The turret needs to be able to observe an area. The length of the area is 250cm
-since this is the max range that our sensors function at. The turret will be
-able to search an an angle of 180 degrees.\nl
+\subsubsection{Requirements}
+\begin{itemize}
+  \item The turret needs to be an embedded system and incorparate elements from
+the fields of machine intelligence and real-time systems. This is necessary as
+it is required by the semester.
+  \item The Turret needs to be able to hit a moving target. This requirement is
+taken from straight from the project proposal and can be considered vital to the
+success of the project.
+\item The target needs to move fast enough such that the turret is unable to
+hit it, without calculating a firing offset. This requirement is also a taken
+straight from the project proposal.
+\end{itemize}
 
-The turret needs to be able to detect a target entering the area.\nl
-
-The turret needs to be able to determine the speed and direction of a target
-Observing a target should yield information about the direction and speed of
-the target.\nl
-
-The turret needs to be able to predict the location of the target. In order to
-predict the target, it will need information about the speed and direction of
-the target.\nl
-
-The turret needs to be able to shoot and hit a target in motion. Be able to
-change position horizontally and vertically in order to adjust the trajectory
-of the projectile in order to hit a target at varying lengths and angles The
-turret should be able to hit anything withing its ``area''.\nl
-
-The turret needs to be able to function autonomously, without input from an
-user.\nl
+\subsubsection{Features}
+\begin{itemize}
+  \item The turret needs to be able turn a minimum of 90 degrees. Since the
+turret should monitor an area and be able to hit a moving target, it needs to
+be able to turn. If it is not able to turn, line of sight as well as the
+timing in order to hit a target will be severely limited. In regards to how
+far it should be able to turn, a minimum is set to 90 degrees, as this will
+provide a decent sized area in front of the turret.
+\item Firing range
+\item Sensing range
+\item Accuracy
+\end{itemize}
