@@ -23,9 +23,10 @@ The turret is set down on an even floor and activated. It then turns searching
 for a target by turning left and right, scanning an area for possible
 targets.\nl
 
-The target is moving on an even plane at a constant speed driving in a straight
-line. The target moves at a speed such that the turret will miss if it fires
-when the target is directly in front of the turret.\nl
+The target is moving on an even plane at a constant but unknown speed driving
+in a straight line, but entering the firing zone from an unknown angle. The
+target moves at a speed such that the turret will miss if it fires when the
+target is directly in front of the turret.\nl
 
 The turret detects a target, it begins to predict the targets movements in
 order to anticipate the targets position at any given time.\nl
@@ -35,7 +36,6 @@ fires at the appropriate time, in order to hit the target at the predicted
 position.\nl
 
 The turret stops sensing the target and start scanning the area again.
-
 \end{minipage}
 }
 \end{center}
@@ -94,7 +94,8 @@ topic:
 
 \begin{enumerate}
 	\item The system must be embedded
-	\item The system must use techniques from either the MI or the RTS course, or both
+	\item The system must use techniques from either the machine intelligence or
+	real-time systems fields or both
 \end{enumerate}
 
 Three distinct phases were identified, ``Scanning", ``Tracking'' and
