@@ -119,37 +119,47 @@ can determine based on its observations. There are two possibilities:
   This can be caused by noisy observations or when multiple states result in the
   same observations.
 \end{itemize}
-
-
-We can already determine that \name will only be able to partially observe the
-state, as the way we observe the state is through sensors which provide noisy
-observations.\nl
+In order have knowledge of the target, \name will need to observe it through
+sensors. Since the properties of the target are not known by \name beforehand,
+it will need to observe the target and calculate the properties. This results
+in uncertainty as we not only need to predict the position of the target, the
+sensors may receive noisy observations. We can thus already determine that \name
+will only be able to partially observe the state.\nl
 
 Effect uncertainty concerns how accuratly the agent can determine the resulting
 state based on an action in its current state. There are two possibilities:
 \begin{itemize}
-  \item Deterministic - 
-  \item Stochastic - 
+  \item Deterministic - The resulting state can be determined based on an action
+  in the current state.
+  \item Stochastic - The resulting state is the result of a probability
+  distribution.
 \end{itemize}
- 
 
-\subsection{Preferences}
+While \name needs to hit a moving target and this produces some
+
+
+
+Once the properties of the target are predicted, \name should have a
+deterministic way of predicting the targets future positions.
+
+For \name there are
+While \name needs to hit a moving target and this pre 
+\fix{needs some more thought}{}
+ 
+\subsubsection{Preferences}
 For an agent to be able to make good decisions it is necessary to provide an
 idea of the goals we are trying to accomplish. Furthermore there are certain
-preferences concerning the trade-off between different solutions. In
-\autoref(KR) it categorizes two forms of preferences:
+preferences concerning the trade-off between different solutions.
+
 \begin{itemize}
-  \item Goals - these can either be considered achievement goals and
-  maintenance goals. Maintenance goals must be achieved at all states, and
-  achievement goals should hold true for the final state. For example an
-  example of an achievement goal could be that Leeroy wants coffee, and a
-  maintenance goal could be that coffee must not be spilled.
-  \item Complex preferences - allows us to describe and model more complex
-  features such as desirability. In this category 2 distinct types are
-  identified. \textbf{Ordinal} preferences describe preferences where only the
-  order of the preferences indicate importance.
-  \textbf{Cardinal} preferences are those that are prioritized according to
-  their value.
+  \item Goals - These can either be considered achievement goals or
+  maintenance goals. Maintenance goals must be achieved in all the states
+  it visits. Achievement goals should hold true for the final state.
+  \item Complex preferences - Allows us to describe and model more complex
+  features such as desirability. In this category there are 2 distinct types.
+  \textbf{Ordinal preferences} describe preferences where only the order of the
+  preferences indicate importance. \textbf{Cardinal preferences} are those that
+  are prioritized according to their value.
 \end{itemize}
 
 For this project, first and foremost an achievement goal is needed in order to
@@ -158,4 +168,17 @@ that allows us to hit a target in motion. The complex preferences of the
 project is limited by the scope of the project. For example one could imagine
 the prioritizing of different targets according to a complex preference
 
+\subsubsection{Number of Agents}
 
+
+\subsubsection{Learning}
+
+
+\subsubsection{Computational Limits}
+
+
+
+\begin{itemize}
+  \item Perfect rationality - The agent tries to find 
+  \item Bounded rationality -
+\end{itemize}
