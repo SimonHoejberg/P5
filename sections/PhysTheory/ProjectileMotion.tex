@@ -2,9 +2,11 @@
 When firing a projectile it is possible to determine its theoretical trajectory
 by using the formula for projectile motion. This theorem is important to the
 project as it can be used to map the projectiles relative location to the turret
-over a given time frame. This formula is split into two parts for calculating
-the x- and y-coordinate, representing the distance and height of the projectile respectively \fix{indskudt sætning}{ret plz}. The formulas are presented in
-\citep[Ch. 6.2]{OrbitBA} and are as follows:
+over a given time frame. This formula is split into two parts, one for
+calculating the x coordinate and one for the y coordinate. The coordinates are
+used to represent distance and height of the projectile. The formulas are
+presented in \citep[Ch. 6.2]{OrbitBA} and are as follows:
+
 \begin{equation}\label{slength}
 x=v_0*cos(a)*t
 \end{equation}
@@ -14,25 +16,24 @@ y=v_0*sin(a)*t-\frac{1}{2}*g*t^2
 
 The formulas use the following variables:
 \begin{itemize}
-  \item $v_0$ ($m/s$) - Starting Velocity
-  \item $a$ ($degrees$) - Angle of Fire
-  \item $g$ ($m/s^2$) - Gravitational Acceleration (Constant)
-  \item $x$ ($m$) - distance
-  \item $t$ ($s$) - Time
+  \item $v_0\ (m/s)$ - Starting Velocity
+  \item $a\ (degrees)$ - Angle of Fire
+  \item $g\ (m/s^2)$ - Gravitational Acceleration (Constant)
+  \item $x\ (m)$ - distance
+  \item $t\ (s)$ - Time
 \end{itemize}
 In addition, the following variables are used in the following sections:
 \begin{itemize}
-  \item $y_0$ ($m$) - Height of firing
-  \item $y$ ($m$) - height
+  \item $y_0\ (m)$ - Height of firing
+  \item $y\ (m)$ - height
 \end{itemize}
 
 By using this theorem, we can use the projectiles initial velocity, combined
-with the angle of firing, to determine where the fired projectile will
-land.\nl
+with the angle of firing, to determine how far the object will fly.\nl
+
 It should be noted that the formulas \autoref{slength} and \autoref{sheight} do
-not take into accound any effect air resistance could have on the projectiles
-trajectory. The topic of air resistance and the relevance thereof is discussed
-in \autoref{AirResDisc}.
+not take the effect of air resistance on the projectile into account. The topic
+of air resistance and the relevance thereof is discussed in \autoref{AirResDisc}.
 
 \subsection{Calculating Distance}\label{CalcDist}
 In order to calculate the distance at which the projectile will touch the ground
@@ -144,13 +145,13 @@ t=\frac{x}{v_0*cos(a)}
 For the purpose of calculating the trajectory of the projectile in \autoref{} a
 formula has been used which does not account for the effect of air resistance.
 This section will be used to discuss why this is the case, and to argue why the
-effect of air resistance is neglible in the case of firing the chosen
+effect of air resistance is negligible in the case of firing the chosen
 projectile.\nl
 
 In cases where a projectile is fired at high speeds, and is travelling for a
 longer period of time it is important to factor in the effect of air resistance,
-as this can have a significant effect on the trajectory of te projectile. On the
-other hand when we have relatively slow moving projectiles which are only mid
+as this can have a significant effect on the trajectory of the projectile. On
+the other hand when we have relatively slow moving projectiles which are only mid
 air for a short duration, the effect of air resistance becomes much less
 important.\nl
 
