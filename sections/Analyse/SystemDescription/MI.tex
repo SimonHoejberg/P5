@@ -3,7 +3,8 @@
 As \name is an autonomous turret and needs to be able to hit a moving target,
 it needs to have some intelligence in order to determine how best to hit the
 target. The turret can be considered intelligent when its decisions
-are explainable by computations while its intelligence can be judged by:
+are explainable by computations while its intelligence can be judged
+by\cite{MIBook}:
 
 \begin{enumerate}
   \item If what it does is appropriate to its circumstances and goals.
@@ -26,10 +27,12 @@ computed into a suitable output, which can be interpreted as a solution.
 
 %(Consider using fig1.4 p12)
 
-The representation is part of a representation scheme, which specifies the form
-of the knowledge. In the case of \name it would need to represent the knowledge
-about the movement of the target, the vertical angle of the canon and the
-horisontal angle of the turret in a way that makes it possible to compute an
+The representation of a peice of knowledge is the internal representation of the
+knowledge, and is part of the knowledge base, which is all the knowledge stored
+in the agent. The form of this knowledge is represented in a representation
+scheme\cite{MIBook}. An example of the knowledge that \name should have is 
+knowledge about the movement of the target, the vertical angle of the canon and
+the horisontal angle of the turret in a way that makes it possible to compute an
 output. Whether this output is a solution or not, depends on what a sufficient
 solution is. Generally there are 4 different categories of solutions:
 
