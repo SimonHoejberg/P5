@@ -63,11 +63,43 @@ amount of targets hit.
   more realistic scenario, the target should be able to speed up and slow down.
 \end{itemize}
 
-\section{Requirements and Features}
+\section{Features and Requirements v2}
 
-Based on\ldots, we can determine the requirements and features for an autonomous
-turret. These can further be divided into the groups ``Need to have'' and ``Nice
-to have'' in order to prioritize between them.
+Based on\ldots, we can determine the features and requirements for an autonomous
+turret. These can further be divided into the groups ``Need to have'' and
+``Nice to have'' in order to prioritize between them.
+
+\subsection{}
+The following features and requirements are necessary for an autonomous turret:
+\begin{itemize}
+  \item The turret needs to be an embedded system and incorparate elements from
+the fields of machine intelligence and real-time systems. This leads to the
+following requirement:
+\begin{itemize}
+  \item The system needs to use to Lego Nxt 2.0 as the embedded system.
+\end{itemize}
+  \item The Turret needs to be able to hit a moving target. This leads to the
+  following requirements:
+  \begin{itemize}
+    \item In order to allow the turret to easier hit a moving target, it needs
+    to be able to turn. 
+    \item The turret needs to be able turn a minimum of 90 degrees. Since the
+    turret should monitor an area and be able to hit a moving target, it needs
+    to be able to turn. If it is not able to turn, line of sight as well as the
+    timing in order to hit a target will be severely limited. In regards to how
+    far it should be able to turn, a minimum is set to 90 degrees, as this will
+    provide a decent sized area in front of the turret.
+    \item The turret needs to be able to sense a target at a range of atleast
+    250cm, since the \fix{current available sensors have a maximum range of
+    255cm}{Should be changed depending on max range of optical}, as long as the
+    lighting is good and the target is suitable.
+    \item The turret needs to be able to search for targets, as otherwise it
+    would have to wait for a target to move into its line of sight. This would
+    limit the window of time the turret has in order to hit the target.
+  \end{itemize}  
+\item The target needs to move fast enough such that the turret is unable to
+hit it, without calculating a firing offset.
+\end{itemize}
 
 \subsection{Need to Have}
 The following requirements have been deemed necessary for an autonomous turret:
