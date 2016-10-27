@@ -173,6 +173,38 @@ the prioritizing of different targets according to a complex preference
 
 \subsubsection{Number of Agents}
 
+\subsubsection{Hidden Markov model}
+A markov chain is a special belief network that represents sequences of values.
+In a markov chain at state $S_t$ the future is conditionally independent from
+the past given the present. This gives that if the transition probabilities are
+the same for each time point. To specify a Markov chain two conditional
+probabilities must be specified:
+\begin{itemize}
+  \item $p(S_0)$ - species the initial condition
+  \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t
+  \geq 0$
+\end{itemize}
+
+These kinds of chains are of interrest due to the fact that the stationary
+assumption is a natural model because the dynamics of the world ussually does
+not change. The network can also extend indefinetly which means that with a
+small number of parameters the network can be infinite.\nl
+
+The Markov chain can be augmented to include observations which makes it a
+Hidden Markov model. Like the state transitions from a Markov chain the Hidden
+Markov model also includes observations about the states. If more than one state
+maps to the same observation it is partial and if the same state maps to
+different observations at different times it is noisy. The observations are
+modeled using $O_t$ for each time t whose domain is the set of possible
+observations. A Hidden Markov model needs three conditional proballity
+distributions
+\begin{itemize}
+  \item $P(S_0)$ - species the initial condition
+  \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t
+  \geq 0$
+  \item $P(O_t|S_t)$ - specifies the sensor model
+\end{itemize}
+
 
 \subsubsection{Learning}
 
