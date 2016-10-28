@@ -173,7 +173,9 @@ the prioritizing of different targets according to a complex preference
 
 \subsubsection{Number of Agents}
 
-\subsubsection{Hidden Markov model}
+\subsubsection{Belief Network}
+A belief network is an acyclic directed graph consisting of random variables and
+a set of conditional probalility distributions.
 A markov chain is a special belief network that represents sequences of values.
 In a markov chain at state $S_t$ the future is conditionally independent from
 the past given the present. This gives that if the transition probabilities are
@@ -223,12 +225,16 @@ observations given the position and ation at time t.
 
 
 \subsubsection{Learning}
-when it comes to learning it is the ability to improve behavior based on
-experience. A way to do this is with supervised learning where a set of input
-features and target features are given together with a set of traing examples,
-where the values for both input and output are given and a set of test examples
-where only input is given. The goal is to predict the target features for the
-test set as future examples. 
+There are two ways of handling knowledge: knowledge is given and knwledge is
+learned. If knowledge is given the agent does has all the information it needs
+from the get-go.\nl 
+
+when it comes to learning it is the ability to improve
+behavior based on experience. A way to do this is with supervised learning where
+a set of input features and target features are given together with a set of
+traing examples, where the values for both input and output are given and a set
+of test examples where only input is given. The goal is to predict the target
+features for the test set as future examples.
 
 
 \subsubsection{Computational Limits}
