@@ -1,71 +1,9 @@
 \section{Requirements}
-See version 2 down below
-Based on\ldots, we can determine the requirements for an autonomous
-turret.
-These requirements can further be divided into the groups ``Need to have'' and
-``Nice to have'' in order to prioritize between them.
 
-\subsection{Need to have}
-The following requirements have been deemed necessary for an autonomous turret:
-\begin{itemize}
-  \item The turret needs to be an embedded system and incorparate elements from
-  the courses MI and RTS. This is necessary as it is required by the semester.
-  \item The turret needs to be able turn a minimum of 90 degrees. Since the
-  turret should monitor an area and be able to hit a moving target, it needs to
-  be able to turn. If it is not able to turn, line of sight as well as the
-  timing in order to hit a target will be severely limited. In regards to how
-  far it should be able to turn, a minimum is set to 90 degrees, as this will
-  provide a decent sized area in front of the turret.
-  \item The turret needs to be able to sense a target at a range of atleast
-  250cm, since the \fix{current available sensors have a maximum range of
-  255cm}{Should be changed depending on max range of optical}, as long as the
-  lighting is good and the target is suitable.
-  \item The turret needs to be able to search for targets, as otherwise it would
-  have to wait for a target to move into its line of sight. This would limit
-  the window of time the turret has in order to hit the target.
-  \item The turret should have a maximum firing range of atleast 250cm. This
-  number is determined by the maximum sensor range as well as the maximum of
-  the design. It can be argued that it could be useful to shoot further than
-  what the turret can see, but this is not a necessary feature.
-  \item The turret needs to be able to reliably hit a moving target with a
-  constant speed atleast 60\% of the time. The turret needs to be able to hit a
-  moving target, it is not enough to hit the target sometimes, the turret should
-  be able to hit it reliably. The speed should be fast enough to cause the
-  turret to miss it, if the turret fires once it is in front of it.
-  \item The turret needs to be able to predict where the target will be at a given point
-in time. This is necessary as it would otherwise be very unlikely that the
-turret would be able to hit the target.
-  \item The turret needs to be able to determine the direction, distance
-  and speed of the target. This requirement is necessary as it would otherwise be impossible to
-calculate and predict where the target will be.
-  \item The target should be atleast \fix{10cm*10cm}{what is the optimal size?}, as it
-would otherwise be too small to be reliably seen by the turret sensors.
-  \item The target is able to move at a constant speed of up to 0.8m/s. In order to
-have a suitable ratio between the turrets maximum range and the targets
-speed, 0.8m/s was chosen as the speed limit.
-  \item The target needs to travel on an even plane.
-\end{itemize}
-
-\subsection{Nice to have}
-The following requirement have been deemed to be less important to the overall
-success of the project:
-\begin{itemize}
-  \item The turret needs to be able to reliably hit a moving target with a
-variable speed atleast 60\% of the time. This requirement is for a
-more realistic scenario, as it is much more likely for a living target to
-change its movement speed. The turret is able to reliably hit a target with a
-variable speed.
-  \item The turret is able to prioritize between several targets. In a realistic
-scenario it would be possible for more than one target to be present. This would
-then lead to a need to prioritize the targets, in order to maximize the
-amount of targets hit.
-  \item The target is able to accelerate and decelerate. In order to make for a
-  more realistic scenario, the target should be able to speed up and slow down.
-\end{itemize}
 
 \section{Features and Requirements}
 
-Based on the previous analysis, we can determine the features and requirements
+Based on the analysis, we can determine the features and requirements
 for an autonomous turret.\fix{needs some sort of intro}{}
 
 The following features and requirements are necessary for an autonomous turret:
@@ -98,17 +36,19 @@ The following features and requirements are necessary for an autonomous turret:
     the design. It can be argued that it could be useful to shoot further than
     what the turret can see, but this is not a necessary feature.}{Needs to be
     updated/changed to the above.}
-    \item As turret needs to be able to hit a moving target, it is not enough
-    to hit the target sometimes, the turret should be able to hit it reliably.
-    It should be able to hit a moving target atleast 80\% of the time.
   \end{itemize}  
   \item The target needs to move fast enough such that the turret is unable to
   hit it, without calculating a firing offset. This leads to the following
   requirements:
   \begin{itemize}
-    \item target specification
-    \item In order to hit a moving a target
-    \item Turret needs to be able to predict the position of the target in order
-    to c
+    \item In addition to the target moving fast enough to require a firing
+    offset, the target also needs to move on an even plane and with constant
+    speed. These two additional requirements are needed to ensure that there are
+    as few factors as possible that are not accounted for in the scenario.
+    \item The turret needs to be able to calculate the firing offset to ensure
+    a high accuracy. It is not enough to hit the target sometimes, the turret
+    should be able to hit it reliably. It should be able to hit a moving target
+    atleast 80\% of the time.
+  
   \end{itemize}
   \end{itemize}
