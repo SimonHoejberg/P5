@@ -205,10 +205,30 @@ distributions
   \item $P(O_t|S_t)$ - specifies the sensor model
 \end{itemize}
 
-This kind of model could be useful for \name in the sense that it makes it
-possible to say something about future states. 
+This model makes it possible to determine the current state based on previous
+and current observations. This is useful when tracking the target in order to
+adjust \namep accordingly. This is done by having a belief network with 3
+variables $Loc_i$, $Obs_i$ and $Act_i$ see \autoref{BeliefNetwork}. $Loc_i$ for
+each time i represents \name's poition at time i, $Obs_i$ for each time i reprensts the observation
+made at time i and for each time i $act_i$ represents the action taken at time
+i. The model assumes the that at time i \namep is in position $Loc_i$, it
+observes $Obs_i$ and acts, it observes $Act_i$ and time progresses to i+1 where
+\namep is in position $Loc_{i+1}$. This means that at any given time t the
+observation is only dependent on the state and at time t+1 the position is
+dependent on the position and action at time t. This gives that the position
+at time t+1 is conditionally independent from previous positions, actions and
+observations given the position and ation at time t. 
+
+\figx{BeliefNetwork}{A belief network for position of \name}
+
 
 \subsubsection{Learning}
+when it comes to learning it is the ability to improve behavior based on
+experience. A way to do this is with supervised learning where a set of input
+features and target features are given together with a set of traing examples,
+where the values for both input and output are given and a set of test examples
+where only input is given. The goal is to predict the target features for the
+test set as future examples. 
 
 
 \subsubsection{Computational Limits}
