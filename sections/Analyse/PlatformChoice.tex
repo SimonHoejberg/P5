@@ -1,15 +1,18 @@
-\chapter{Platform Choice}
+\chapter{Platform Choice}\label{PlatformC}
 
-In this chapter we will analyse the different hardware platforms available.
-Based on a set of criteria the platforms will be compared and in conclusion a
-platform for the project will be chosen. The platforms to be examined are the
+The purpose of this chapter will be to analyse the different hardware platforms available
+and ultimately select one for the project. The platforms to be examined are the
 Lego NXT Mindstorms and Arduino, due to the fact that these are the
 platforms offered by the university and that they are suited for an embedded
-system. Before we examine the platforms we will decide on a set of criteria to
-evaluate the platforms on:
+system.
+First a brief description of the platform is provided. Based on a number of criteria
+ we have set up, the platforms will be compared, and in conclusion a
+platform for the project will be chosen.
+
+\section{Evaluation Criteria}
 
 \begin{enumerate}
-  \item How easy is the platform to build and code on?
+  \item How suitable is the platform for building an embedded system?
   \item How restricted is the platform in terms of processing power and memory?
   \item How many 3rd party and propietary modules does the platform have access
   to?
@@ -17,10 +20,12 @@ evaluate the platforms on:
 
 \section{Lego NXT Mindstorms}
 The Lego NXT Mindstorms is the successor to the first robotics-platform
-released by Lego the Robotics Invention System. Although the NXT line also
-contains 2 other platforms the NXT 1.0 and the EV3, in this project only the
-NXT 2.0 will be considered since this is the platform being offered by the
-university.\nl
+released by Lego the Robotics Invention System. Although the NXT product-line contains
+the NXT 1.0, 2.0 and the newer EV3 brick, in this project the
+EV3 will be disregarded since this is the platform being offered by the
+university. Regarding the NXT 1.0 and 2.0 brick, they are in fact identical from a
+hardware perspective and so we will consider them the same in the scope of this project\nl
+\subsection{NXT Hardware specs}
 
 The Lego NXT Mindstorms kit consists of the NXT brick and a set of
 compatible sensors and actuators. The NXT brick\citep[P.70]{NXTStats} consists
@@ -29,16 +34,13 @@ of:
 \begin{itemize}
   \item ARM 32-bit processor running at 48MHz with 256KB Flash storage and 64KB RAM
   \item 8-bit AVR running at 8MHz with 4KB Flash and 512B RAM
-  \item 100x60 pixel LCD display
-  \item Four buttons
-  \item Speaker that plays sound files with a sampling rate of 8kHz
   \item 4 input ports compatible with the I2C standard and 3 output ports
 \end{itemize}
 
 The Lego NXT comes with the NXT-G programming environment which is a visual
 programming language for use with the NXT platform. There exist a variety of
-unofficial programming languages for the NXT which makes it possible to use the
-write programs using the more popular programming languages.
+unofficial programming languages for the NXT, such as michael{leJOS(Java), RobotC(C), nxt-Python(Python-duhh)}
+which makes it possible to write programs using the more popular programming languages.
 
 \begin{itemize}
   \item The external peripherals come programmed and assembled - all the user
@@ -56,7 +58,16 @@ evolved from offering simple 8-bit boards to offering a variety of different
 boards suiting different needs such as memory available, processing power,
 number of ports on the platform, etc. The arduino comes with its own
 programming language and an IDE. A large number of modules are available for
-the arduino allowing the construction of diverse and complex systems\Source.
+the arduino allowing the construction of diverse and complex systems\Source. For the sake
+of comparison we will use the Arduino Uno, since this is the board being offered by
+the university.
+
+\subsection{Arduino Uno specification}
+\begin{itemize}
+  \item ATmega328P processor 16 MHz clockfrequency
+  \item 32 kB Flash storage
+  \item 2 kB SRAM
+\end{itemize}
 
 \begin{itemize}
 	\item Due to the popularity of the arduino platform a large variety of 3rd
@@ -67,6 +78,21 @@ the arduino allowing the construction of diverse and complex systems\Source.
 	will have to be written, thus time will have to be invested in order to make
 	it work
 \end{itemize}
+
+\section{Combination of platforms}
+
+Another option would be to combine the two platforms. There are two ways to achieve this.
+One option is to connect the platforms using the I2C protocol. This can be achieved relatively
+simple using a breadboard, a resistor and 2 cables for each platform. The advantage of this
+approach is the fact that we can combine the two platforms and their respective modules as we please.
+The drawback would be
+The second option is to use one platform with modules made for the other platform.
+This can be achieved by using a by using a special shield which  an NXT
+shield for the NXT. This would allow to have the customizability of the arduino
+while still being able to use the proprietary sensors from the NXT. However the
+NXT shield is limited as it only supports up to two motors. Another issue with
+using the arduino is the ability to build it into the product, as it is not
+designed to be built into Lego as the NXT is.\nl
 
 \section{Platform comparison}
 Based on a set of criteria the two prototyping platforms will be evaluated, and
@@ -119,14 +145,6 @@ choosing the platform the group focused on the following criteria:
   little limiting, compared to the arduino, although the use of a multiplexer
   can allow expansion of existing ports.
 \end{itemize}
-
-Another option would be to combine the two, this can be done by using an NXT
-shield for the NXT. This would allow to have the customizability of the arduino
-while still being able to use the proprietary sensors from the NXT. However the
-NXT shield is limited as it only supports up to two motors. Another issue with
-using the arduino is the ability to build it into the product, as it is not
-designed to be built into Lego as the NXT is.\nl
-
 In conclusion the group has chosen the Lego NXT platform for use in the project
 based on the following criteria:
 \begin{itemize}
