@@ -179,6 +179,41 @@ agents if their behavior is not impacted by what the agent does.
 \namep uses only a single agent due to the fact that their only is a single
 agent so it does not need to take any other agents into account.
 
+
+
+
+\subsubsection{Learning}
+There are two ways of handling knowledge: knowledge is given and knwledge is
+learned. If knowledge is given the agent does has all the information it needs
+from the get-go.\nl 
+
+when it comes to learning it is the ability to improve
+behavior based on experience. A way to do this is with supervised learning where
+a set of input features and target features are given together with a set of
+traing examples, where the values for both input and output are given and a set
+of test examples where only input is given. The goal is to predict the target
+features for the test set as future examples.
+
+
+\subsubsection{Computational Limits}
+An angent may not always be able to cumpute the best action to a problem fast
+enough. This is due to memory limitations that prevent it from from computing
+fast enough. This means that the agent must trade off the time to compute the
+solution with how good the solution is. This limit determines wether the agent
+has:
+
+\begin{itemize}
+  \item Perfect rationality - The agent tries to find the best action without
+  taking into account the limited resources.
+  \item Bounded rationality - the agent decides the best ation given the
+  computational limits.
+\end{itemize}
+
+\namep has bounded rationality due to the fat that the nxt does not have
+unlimited resources. This means that in some situations, like deciding when
+to shoot, it will have to determine the best course of action in the moment
+instead of spending a lot of time computing the best solution. 
+
 \subsubsection{Belief Network}
 A belief network is an acyclic directed graph consisting of random variables and
 a set of conditional probalility distributions. This an be used to model a
@@ -230,36 +265,3 @@ at time t+1 is conditionally independent from previous positions, actions and
 observations given the position and ation at time t. 
 
 \figx{BeliefNetwork}{A belief network for position of \name}
-
-
-\subsubsection{Learning}
-There are two ways of handling knowledge: knowledge is given and knwledge is
-learned. If knowledge is given the agent does has all the information it needs
-from the get-go.\nl 
-
-when it comes to learning it is the ability to improve
-behavior based on experience. A way to do this is with supervised learning where
-a set of input features and target features are given together with a set of
-traing examples, where the values for both input and output are given and a set
-of test examples where only input is given. The goal is to predict the target
-features for the test set as future examples.
-
-
-\subsubsection{Computational Limits}
-An angent may not always be able to cumpute the best action to a problem fast
-enough. This is due to memory limitations that prevent it from from computing
-fast enough. This means that the agent must trade off the time to compute the
-solution with how good the solution is. This limit determines wether the agent
-has:
-
-\begin{itemize}
-  \item Perfect rationality - The agent tries to find the best action without
-  taking into account the limited resources.
-  \item Bounded rationality - the agent decides the best ation given the
-  computational limits.
-\end{itemize}
-
-\namep has bounded rationality due to the fat that the nxt does not have
-unlimited resources. This means that in some situations, like deciding when
-to shoot, it will have to determine the best course of action in the moment
-instead of spending a lot of time computing the best solution. 
