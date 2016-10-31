@@ -23,8 +23,9 @@ a suitable way that allows it to work it into a suitable solution.
 
 As \name is a turret it needs to be able to convert the problem of hitting a
 moving target into a suitable representation. The representation can then be
-computed into a suitable output, which can be interpreted as a solution,
-presuma.
+computed into a suitable output.The output can then be interpreted as
+a solution, presumably whether or not the target is hit. This can be seen in
+\autoref{MIRep}.
 
 \figx[0.8]{MIRep}{An illustration of how a problem is converted into a solution
 \citep[Chap. 1.4]{MIBook}}
@@ -54,10 +55,11 @@ to hit the target, but as it is a real-time system there are certain limits to
 how much time can be spent searching and waiting for the optimal shot.
 
 \subsection{Design Space}
-The design space is defined by a series of 8 factors, which are used to give an
-estimation of the system. These factors are: modularity, representation scheme,
-planning horizon, uncertainty, preference, number of agents, learning and
-computational limits.
+The design space of an intelligent agent can be considered a series of 8
+factors, which are used to give an estimation of the system \citep[Chap
+1.5]{MIBook}. These factors are: modularity, representation scheme, planning
+horizon, uncertainty, preference, number of agents, learning and computational
+limits.
 
 \subsubsection{Modularity}
 Modularity describes how easily the system can be divided into modules, as well
