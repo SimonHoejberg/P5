@@ -1,11 +1,24 @@
-\section{Sensor Testing}\label{SensorTest}
-The two sensors used on the turret both have datasheets with technical
-documentation, but in order to verify this information, and to gain a
-deeper understanding of how to use these sensors, this section will be used to
-test their individual features. The first test in \autoref{UltraTest} will be
-used to determine the accuracy and limitations of the ultrasonic sensor. The second
-test in \autoref{CamTest} will be used to determine how the camera can best be
-used to identify a target, and how the resulting data can be accurately used. 
+\section{Ultrasonic Sensor Testing}\label{SensorTest}
+The first sensor we need to test is the ultrasonic distance sensor. These tests
+will be used to verify the contents of the technical specification, and
+to gain a deeper understanding of how the sensor operates and what
+problems could occur when using it. As such, the tests will consist of
+clarifying the following points:
+\begin{itemize}
+  \item Where and how is the sensor best placed on the turret?
+  \item What is the sensors maximum distance?
+  \item At what distance is the data no longer accurate?
+  \item How wide is the sensors 'cone of vision'? 
+\end{itemize}
+
+% 
+% The two sensors used on the turret both have datasheets with technical
+% documentation, but in order to verify this information, and to gain a
+% deeper understanding of how to use these sensors, this section will be used to
+% test their individual features. The first test in \autoref{UltraTest} will be
+% used to determine the accuracy and limitations of the ultrasonic sensor. The second
+% test in \autoref{CamTest} will be used to determine how the camera can best be
+% used to identify a target, and how the resulting data can be accurately used. 
 
 % First the
 % testing methodology will be explained for each test, and then this methodology
@@ -27,13 +40,46 @@ used to identify a target, and how the resulting data can be accurately used.
 
 % \subsection{Testing Methodology}
 % The testing will be divided into to two parts, one part is testing the two
-% distance sensors and the second part is testing the camera. 
+% distance sensors and the second part is testing the camera.
 
-\subsection{Ultrasonic Sensor Test}\label{UltraTest}
-The test of the ultrasonic sensor was divided into 4 different experiments, the
-difference between the experiments are the size of the object being tracked and
-whether the sensor is shielded or not. The different object sizes was tested
-with a shielded sensor and a non shielded sensor. \nl
+\subsection{Ultrasonic Sensor Test - Setup}
+The setup for testing the ultrasonic sensor consists of placing the turret on
+the floor along a wall, and pointing towards a target at varying distances along
+the wall. This wall is marked with a number of lines each representing a
+distance of 10cm from the turret's location. The target for this test is a
+rectangular cardboard cutout, which is used to hold a sheet of coloured paper
+which is folded around it. This setup can be seen in
+\autoref{SensorUltraSetup.JPG}.
+
+\figx[0.1]{SensorUltraSetup.JPG}{The test setup for testing the ultrasonic
+distance sensor.}
+
+\subsection{Ultrasonic Sensor Test - Placement}\label{UltraTestPlacement}
+The first test consists of determining where on the turret the sensor should be
+placed. The purpose of this test is to optimize the quality of the data which
+the sensor collects, and to help determine some design choices for the
+turret.\nl
+
+% This test was concucted by placing the ultrasonic sensor at different places on
+% the turret, and then testing the sensors maximum distance. As the test was done
+% as a part of the initial turret design, it does not include any formalized data
+% sets. As such, these were the conclusions which could be drawn:\nl
+
+\subsubsection{Using Blinders}
+At first when testing the ultrasonic sensors, it was determined that the
+sensor's ability to accurately measure the distance was subject to interferance
+by the surroundings. In effect this vastly reduced the maximum distace of the
+sensor, and as such, a lot of different attempts were made in order to solve
+this problem. As this was done as a part of the initial design phase, the
+different turret designs were not recorded. These tests resulted in the
+following conclusion:\nl
+
+\textit{\textbf{The ultrasonic sensors can use blinders to increase their
+maximum sensing distance.}}\nl
+
+In order to determine the importance of using blinders, this subsection will be
+used to present data which compares the distance tests of the ultrasonic sensor,
+both with and without blinders.
 
 \graphL{Actual distance [cm]}{Measured distance
 [cm]}{shieldedBoxStanding,shieldedBoxLandscape}{Box Standing, Box
@@ -63,6 +109,30 @@ It can then be concluded that the shielded sensor performed a lot better than
 the unshielded, it can also be concluded that the placement of the object can
 have a big impact. This is due to the fact that the sensor does not have a very
 large field of view. Therefore, the object should be wider rather than taller. 
+
+\subsubsection{Additional Design notes}
+These tests also found the following conclusion:\nl
+
+\textbf{The sensor should not be placed close to the ground}\nl
+
+While testing it was determined that the sensor should not be placed close to
+the ground, as this resulted in a vast degredation of the data. Compared to the
+technical specification which stated that the maximum range is 255cm, this
+design resulted in a maximum distance of ~100cm.\nl
+
+\subsection{Ultrasonic Sensor Test - Distance}
+The data has been collected, but there is nothing here yet!
+
+\subsection{Ultrasonic Sensor Test - Cone of Vision}
+The data has been collected, but there is nothing here yet!
+
+
+% The test of the ultrasonic sensor was divided into 4 different experiments, the
+% difference between the experiments are the size of the object being tracked and
+% whether the sensor is shielded or not. The different object sizes was tested
+% with a shielded sensor and a non shielded sensor. \nl
+
+
 
 % \subsection{Infrared}
 % The test of the infrared sensor was not able to be conducted since there were
