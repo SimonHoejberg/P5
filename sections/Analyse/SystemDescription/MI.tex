@@ -175,8 +175,10 @@ the prioritizing of different targets according to a complex preference
 
 \subsubsection{Belief Network}
 A belief network is an acyclic directed graph consisting of random variables and
-a set of conditional probalility distributions.
-A markov chain is a special belief network that represents sequences of values.
+a set of conditional probalility distributions. This an be used to model a
+dynamic system by treating a feature at a given time as a random variable, which
+is the idea behind Markov chains. A markov chain is a special belief network
+that represents sequences of values.
 In a markov chain at state $S_t$ the future is conditionally independent from
 the past given the present. This gives that if the transition probabilities are
 the same for each time point. To specify a Markov chain two conditional
@@ -238,10 +240,21 @@ features for the test set as future examples.
 
 
 \subsubsection{Computational Limits}
-
+An angent may not always be able to cumpute the best action to a problem fast
+enough. This is due to memory limitations that prevent it from from computing
+fast enough. This means that the agent must trade off the time to compute the
+solution with how good the solution is. This limit determines wether the agent
+has:
 
 
 \begin{itemize}
-  \item Perfect rationality - The agent tries to find 
-  \item Bounded rationality -
+  \item Perfect rationality - The agent tries to find the best action without
+  taking into account the limited resources.
+  \item Bounded rationality - the agent decides the best ation given the
+  computational limits.
 \end{itemize}
+
+\namep has bounded rationality due to the fat that the nxt does not have
+unlimited resources. This means that in some situations, like deciding when
+to shoot, it will have to determine the best course of action in the moment
+instead of spending a lot of time computing the best solution. 
