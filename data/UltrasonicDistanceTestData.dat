@@ -1,4 +1,4 @@
-Distance	{AVG Measurement 1}	{AVG Measurement 2}
+{Distance (cm)}	{AVG Measurement 1 (cm)}	{AVG Measurement 2 (cm)}
 25	27	28
 50	52	53
 75	78	78
