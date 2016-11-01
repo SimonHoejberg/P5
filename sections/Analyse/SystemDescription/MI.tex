@@ -68,22 +68,27 @@ different levels, flat, modular and hierachical. Flat means that everything is
 contained within a single module. Modular means that the system can be divided
 into several modules that can be understood separately from the system.
 Hierachical means that the modules can recursively have additional modules
-inside them. \name as an autonomous turret needs to have several separate
-functions that allows for it turn, aim and determine the position of a target.
+inside them. \name as an autonomous turret needs to have several functions, for
+example it needs to be able to turn, aim and determine the position of a target.
 This means that \name should be somewhat modular due to the fact that it has
-different tasks that can each be a module of its own.
+different tasks, that can each be considred a module of its own.
 
 \subsubsection{Representation Scheme}
-As mentioned in \autoref{KR} the representation scheme is how knowledge is
-represented. This knowledge is usually represented in terms of states which are
-combination of all the relevant values. This leads to alot of different states
-as the amount of possible values increases. Instead of reasoning using states it
-is possible to combine the relevant values into feature. This means that the
-state is determined by the value of the features and not the other way around.
+As mentioned in \autoref{KR} the representation scheme used to house the various
+knowledge the agent could need to perform. This knowledge is usually
+represented in terms of states. A state is a specific combination of
+the knowledge. For example a turret with the ability to turn 180 degrees and
+tilt its cannon 45 degrees would have $180 * 45$ states, a specific state
+would have the turret turned 90 degrees and the cannon tilted at an angle of 42
+degrees. This leads to alot of different states as the amount of possible values
+increases. Instead of reasoning using states it is possible to combine the
+relevant values into feature. This means that the state is determined by the
+value of the features, such as a feature, Tilt, could cover how tilted the
+cannon is and have the values covering 0 to 45.
 
 \subsubsection{Planning Horizon}
 The planning horizon of an intelligent agent is the time it considers the
-consequenses of its actions. For example a child might only do something if
+consequences of its actions. For example a child might only do something if
 there is an immediate, whereas an adult might have the foresight to do something
 for a reward thats some time off. There exist the following types of planning
 horizons:
@@ -94,54 +99,45 @@ horizons:
 	of steps. 
 	\item Indefinite horizon - The agent looks ahead for finite but not fixed
 	number of steps.
-	\item Infinite horizon - The agent should run forever.	
+	\item Infinite horizon - The agent plans on running forever.	
 \end{itemize}
 
-Considering \name is an autonomous turret, we can already rule out the
-non-planning horizon, since it will have to consider the future in order to
-make a decision. Additionally the turret is an embedded system with limited
-computational power and memory, an infinite horizon is thus not a realistic
-option since the resulting statespace would require far too much computational
-power.
+Considering \name is an autonomous turret, non-planning can already be ruled
+out as that would that would result in a naive approach for the turret where it
+would fire when it sees a target.
 
 \subsubsection{Uncertainty}
 
 There are two parts to uncertainty. The first part is sensing uncertainty while
 the second is effect uncertainty. Sensing uncertainty concerns what the agent
-can determine based on its observations. There are two possibilities:
+can determine based on its observations. There are two possibilities concerning
+what it can sense:
 \begin{itemize}
-  \item Fully observable - The agent can determine the state based on
-  the observations.
-  \item Partially observable - The agent can not directly observe the state.
-  This can be caused by noisy observations or when multiple states result in the
-  same observations.
+  \item Fully observable - The agent can determine the current state based on
+  observations.
+  \item Partially observable - The agent can not directly observe the
+  current state. This can be caused by noisy observations or when multiple
+  states result in the same observations.
 \end{itemize}
-In order have knowledge of the target, \name will need to observe it through
-sensors. Since the properties of the target are not known by \name beforehand,
-it will need to observe the target and calculate the properties. This results
-in uncertainty as we not only need to predict the position of the target, the
-sensors may receive noisy observations. We can thus already determine that \name
-will only be able to partially observe the state.\nl
+
+In order have knowledge of the target, \name will need to observe since the
+properties of the target are not known by \name beforehand. This results in
+uncertainty as we not only need to predict the future position of the target,
+the sensors may provide noisy observations. We can thus already determine that
+\name will only be able to partially observe the state.\nl
 
 Effect uncertainty concerns how accuratly the agent can determine the resulting
 state based on an action in its current state. There are two possibilities:
 \begin{itemize}
   \item Deterministic - The resulting state can be determined based on an action
-  in the current state.
+  and the current state.
   \item Stochastic - The resulting state is the result of a probability
   distribution.
 \end{itemize}
 
-While \name needs to hit a moving target and this produces some
-
-
-
-Once the properties of the target are predicted, \name should have a
-deterministic way of predicting the targets future positions.
-
-For \name there are
-While \name needs to hit a moving target and this pre 
-\fix{needs some more thought}{}
+There are certain deterministic aspects in \name as it is able to reach a
+firing state when it has received information about the target, without
+resorting to probability.
  
 \subsubsection{Preferences}
 For an agent to be able to make good decisions it is necessary to provide an
