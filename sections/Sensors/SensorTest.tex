@@ -8,33 +8,33 @@ clarifying the following points:
   \item Where and how is the sensor best placed on the turret?
   \item What is the sensors maximum distance?
   \item At what distance is the data no longer accurate?
-  \item How wide is the sensors 'cone of vision'? 
+  \item How wide is the sensors 'cone of vision'?
 \end{itemize}
- 
-% 
+
+%
 % The two sensors used on the turret both have datasheets with technical
 % documentation, but in order to verify this information, and to gain a
 % deeper understanding of how to use these sensors, this section will be used to
 % test their individual features. The first test in \autoref{UltraTest} will be
 % used to determine the accuracy and limitations of the ultrasonic sensor. The second
 % test in \autoref{CamTest} will be used to determine how the camera can best be
-% used to identify a target, and how the resulting data can be accurately used. 
+% used to identify a target, and how the resulting data can be accurately used.
 
 % First the
 % testing methodology will be explained for each test, and then this methodology
-% will be used to devise tests for the two sensors. 
-% 
+% will be used to devise tests for the two sensors.
+%
 % In this chapter the different sensors will be tested, the reasoning for testing
 % the sensors is that we need to find out how precise the sensors are and how far
 % they can measure. There are two sensor which needs to be tested, one is an
 % ultrasonic sensor which is used for measuring the distance. The other sensor
 % which needs to be tested is a camera for tracking specific colours. We will then
-% use the results from these test to utilize the full potential of the sensors. 
- 
+% use the results from these test to utilize the full potential of the sensors.
+
 % To find out which sensors are the optimal
 % sensors for the project, this chapter will be used to test the different sensors. The testing of the
 % sensors will also be used to find out how precise they are.\nl
-% % 
+% %
 % First the testing methodology will be explained, then this methodology
 % will be used to devise tests for the different sensors.
 
@@ -108,7 +108,7 @@ shielded and the object was in the landscape position. \nl
 It can then be concluded that the shielded sensor performed a lot better than
 the unshielded, it can also be concluded that the placement of the object can
 have a big impact. This is due to the fact that the sensor does not have a very
-large field of view. Therefore, the object should be wider rather than taller. 
+large field of view. Therefore, the object should be wider rather than taller.
 
 \subsubsection{Additional Design notes}
 These tests also found the following conclusion:\nl
@@ -126,10 +126,10 @@ was conducted using test setup explained in \autoref{UltraTestSetup} using the
 two ultrasonic sensors. The measurements were done at varying distances with an
 interval of 25cm, and were measured 5 times at each distance. The results from
 this test is presented below in \autoref{table:UltDistTestDat}. The complete
-data sets can be found in \autoref{UltraDistTestData}. 
+data sets can be found in \autoref{UltraDistTestData}.
 
 \dataTable{UltrasonicDistanceTestData}{Average measured distance compared to
-the actual distance.}{UltDistTestDat} 
+the actual distance.}{UltDistTestDat}
 
 
 \subsection{Ultrasonic Sensor Test - Cone of Vision}
@@ -139,7 +139,7 @@ by the sensor. This test was conducted by placing the target at varying
 distances, and then moving the target off to the side ultil it could no longer
 be registered by any of the two sensors. The results from
 this test is presented below in \autoref{table:UltConeTestDat}. The complete
-data sets can be found in \autoref{UltraConeTestData}. 
+data sets can be found in \autoref{UltraConeTestData}.
 
 \dataTable{UltrasonicConeTestData}{Width of sensing for
 the ultrasonic sensors.}{UltConeTestDat}
@@ -156,7 +156,7 @@ the ultrasonic sensors.}{UltConeTestDat}
 % some issues with the different sensors. The first sensor did not work at all.
 % Since it was an infrared sensor, a camera was used to see if the infrared
 % LED lid up. Since it did not light we concluded that the sensor was broken. \nl
-% 
+%
 % When trying to test the other sensor, first it did not give a reading so the
 % same test was conducted using a camera to see if the sensor was broken. It was
 % concluded that the sensor was not broken. It was then discovered that it was a
@@ -164,11 +164,11 @@ the ultrasonic sensors.}{UltConeTestDat}
 % I2C port was changed. This meant that it was not possible to get a proper
 % reading. The readings were either 0 or a reading above 60.000 depending on which
 % port was used. \nl
-% 
+%
 % Another issue with using the infrared sensor is the range. The medium range
 % infrared sensor only has a range from 10 to 80 cm. Therefore this sensor could
 % become a very limiting factor in regards to how far the target can be placed
-% from the cannon. 
+% from the cannon.
 
 \subsection{Camera Sensor Test}\label{CamTest}%Will most likely need a better
 Testing the camera will consist of trying to answer two main questions. Namely
@@ -198,7 +198,7 @@ the consistancy of the recorded data, which is determined by the variance in the
 data. The second factor is the cameras ability to keep recognizing the target
 at different distances.\nl
 
-The first test looks at the consistancy of the recorded data. To do this we look
+The first test looks at the consistency of the recorded data. To do this we look
 at three main points. The maximum and minimum measured areas, the difference
 between these points, and the average measured area. In addition each colour is
 given a rating based on the amount of frames where a colour was recognized.
@@ -220,7 +220,7 @@ following:
   \item The red colour has the lowest variance of 19 pixels
   \item Of the 'ok' colours, orange and red, orange has the largest measured
   average area.
-\end{itemize} 
+\end{itemize}
 
 Based on these conclusions we can determine that the best colours would be
 either red or orange. In order to verify this assumption the test is repeated
@@ -232,12 +232,12 @@ in \autoref{table:CamTest2}.
 From the data presented in \autoref{table:CamTest2} we can conclude the
 following:
 \begin{itemize}
-  \item For some colours the contrasting background gives worse data
+  \item For some colours the contrasting background results in worse data
   \item Given no contrasting background 'yellow' can be seen, but the data is
   'bad'
   \item Given no contrasting background 'red' can no longer be recognized
   \item Given no contrasting background 'orange' has no variance in data
-\end{itemize} 
+\end{itemize}
 
 Based on these conclusions we can determine that orange would be colour of
 choice, as the camera is capable of recognizing the colour without any variance
@@ -250,7 +250,7 @@ colour can be used at different distances. For this purpose, the target will be
 placed at various distances from the target, as noted in \autoref{CamTestSetup}.
 The measurements will use the same ratings 'ok', 'bad', 'very bad' and 'null',
 as described in \autoref{CamTestColours}. The resulting data from this test can be
-seen in \autoref{table:CamTest3}. 
+seen in \autoref{table:CamTest3}.
 
 \dataTable{SensorCamTest3}{Quality of data at different distances.}{CamTest3}
 
@@ -270,24 +270,24 @@ as part of the final implementation in \autoref{}.
 % on the technical specifications of the camera. Therefore the first part of this
 % section will be on the technical specifications of the camera and the needed
 % software.\nl
-% 
+%
 % The camera runs at 30 fps and with a resolution of 88 x 144. This could
 % potentialy become an issue due to the fact that it is a very low resolution.
 % Although this is a could be a problem, it depends on how large the
 % object/objects being tracked are.
 % The camera also has the ability to track up to 8 different objects
 % \fix{\Source}{Kan vi refere til de tekniske specfikationer i user guide}. \nl
-% 
+%
 % The setup of the camera is quite simple and is done using a computer, to setup
 % which color it is suposed to track. The process of choosing the color is done
 % using some software that comes with the camera, here a colormap is made which
-% tells the preprocessor on the camera which colors to track. 
-% 
-% There are three different test that can be done, the first to 
+% tells the preprocessor on the camera which colors to track.
+%
+% There are three different test that can be done, the first to
 % determine which colour the camera best sees, the second to see how
 % far the camera can track an object and the third to determine if lighting up the
 % object changed the cameras abillity to track the colour \/ object.\nl
-% 
+%
 % The first test is to determine what colour the camera best can see, to do this
 % a square of paper with the same size will be used to make sure that the only
 % diffence is the colour of the paper. The setup of the test is that the camera
@@ -295,18 +295,18 @@ as part of the final implementation in \autoref{}.
 % then the paper square is place at a certain distance to the camera. The result
 % of each test is how many blobs of the tracking was the recordnised and how
 % consisten the size of the coloured blob is.\nl
-% 
+%
 % The second test, to test how far the camera can track objects is to do this the
 % turret it setup in the same manner as the test before, here the object which is
 % the paper is moved further and further away, optional could the colours of the
 % paper be changed to see how well the different colours can be seen from a
 % distance. The results of this test is the distance that the camera can see each
 % colour and again how consisten it is.\nl
-% 
+%
 % The third test, to test weather lighting up the object with an flashlight
 % improves how well the camera sees the object, again this test needs to bed setup
 % in the same manner at the two other test with the turret in the same place
 % thoughout the test and then the test pocedes as test 2 with observering how far
 % away it can see the object and as a result determine if the flashlight is
 % nessery and what colour works best with it.
-% 
+%
