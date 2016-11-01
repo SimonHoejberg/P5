@@ -84,15 +84,18 @@ the university.
 \section{Combination of platforms}
 Another option would be to combine the two platforms. There are two ways to achieve this.
 One option is to connect the platforms using the I2C protocol. This can be achieved relatively
-simple using a breadboard, a resistor and 2 cables for each platform \Source. The
-advantage of this approach is the fact that we can combine the two platforms and their respective modules as we please.
-\fix{The drawback would be}{Missing sentence?}
-The second option is to use one platform with modules made for the other platform.
-This can be achieved by using a special shield for the NXT. This would allow to
-have the customizability of the arduino while still being able to use the proprietary sensors from the NXT. 
-However the NXT shield is limited as it only supports up to two motors \Source.
-Another issue with using the arduino is the ability to build it into the product, as it is not
-designed to be built into Lego as the NXT is.\nl
+simple using a breadboard, a resistor and 2 cables for each platform. The advantage of this
+approach is the fact that we can combine the two platforms and their respective modules as we please.
+The drawback would be that the setup is quite clumsy since they are connected by cables to a breadboard,
+and might limit the mobility of the turret. It will also require more effort on our side, to ensure proper
+compatibility between the platforms.
+The second option is to use the arduino platform with modules made for the NXT.
+This can be achieved by using a by using a special shield, that extends the arduino with
+ports that are compatible with the NXT modules. This would allow us to have the customizability of the arduino
+while still being able to use the proprietary sensors from the NXT. However the
+NXT shield is limited as it only supports up to two motors. Another issue with
+using the arduino is the ability to build it into the product, as it is not
+designed to be built into Lego the same way the NXT is.\nl
 
 \section{Platform comparison}
 Based on a set of criteria the two prototyping platforms will be evaluated, and
