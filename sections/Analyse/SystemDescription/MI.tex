@@ -50,7 +50,7 @@ is. Generally there are 4 different categories of solutions:
   not guaranteed to be.
 \end{itemize}
 
-As \name is shooting on a moving target. The solution needs to be reliable able
+As \name is shooting on a moving target. The solution needs to be reliably able
 to hit the target, but as it is a real-time system there are certain limits to
 how much time can be spent searching and waiting for the optimal shot.
 
@@ -74,23 +74,23 @@ This means that \name should be somewhat modular due to the fact that it has
 different tasks, that can each be considred a module of its own.
 
 \subsubsection{Representation Scheme}
-As mentioned in \autoref{KR} the representation scheme used to house the various
-knowledge the agent could need to perform. This knowledge is usually
+As mentioned in \autoref{KR} the representation scheme is used to house the
+various knowledge the agent could need to perform. This knowledge is usually
 represented in terms of states. A state is a specific combination of
 the knowledge. For example a turret with the ability to turn 180 degrees and
 tilt its cannon 45 degrees would have $180 * 45$ states, a specific state
 would have the turret turned 90 degrees and the cannon tilted at an angle of 42
 degrees. This leads to alot of different states as the amount of possible values
 increases. Instead of reasoning using states it is possible to combine the
-relevant values into feature. This means that the state is determined by the
+relevant values into features. This means that the state is determined by the
 value of the features, such as a feature, Tilt, could cover how tilted the
 cannon is and have the values covering 0 to 45.
 
 \subsubsection{Planning Horizon}
 The planning horizon of an intelligent agent is the time it considers the
 consequences of its actions. For example a child might only do something if
-there is an immediate, whereas an adult might have the foresight to do something
-for a reward thats some time off. There exist the following types of planning
+there is an immediate reward, whereas an adult might have the foresight to do
+something for a reward thats some time off. There exist the following types of planning
 horizons:
 \begin{itemize}
 	\item Non-planning - The agent does not consider the future when making
