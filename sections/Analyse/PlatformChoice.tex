@@ -10,12 +10,16 @@ platform for the project will be chosen.
 
 \section{Evaluation Criteria}
 
-\begin{enumerate}
-  \item How suitable is the platform for building an embedded system?
-  \item How restricted is the platform in terms of processing power and memory?
-  \item How many 3rd party and propietary modules does the platform have access
-  to?
-\end{enumerate}
+\begin{itemize}
+  \item Building - Since a physical turret will have to be constructed, in
+  order to simplify the mechanical process and allowing further focus on the
+  software aspect, the ease of building the platform is considered an important factor.
+  \item Integration of modules - As mentioned before, the group doesn't want to spend too
+  much time on the physical aspect of construction, so the platform should try to minimize
+  the time spent on things like soldering and integration of modules.
+  \item I/O Ports - the number of available I/O Ports needs to be able to
+  support a range of sensors and some motors.
+\end{itemize}
 
 \section{Lego NXT Mindstorms}
 \fix{The Lego NXT Mindstorms is the successor to the first robotics-platform
@@ -24,7 +28,7 @@ if needed, needs a source} Although the NXT product-line contains the NXT 1.0,
 2.0 and the newer EV3 brick, in this project the EV3 will be disregarded since this is the platform being offered by the
 university. Regarding the NXT 1.0 and 2.0 brick, they are in fact identical from a
 hardware perspective and so we will consider them the same in the scope of this
-project \Source \nl
+project \citep{NXTversions}\nl
 
 \subsection{NXT Hardware specs}
 The Lego NXT Mindstorms kit consists of the NXT brick and a set of
@@ -54,17 +58,16 @@ languages \Source.
 
 \section{Arduino}
 The Arduino was born as a tool for fast prototyping, aimed at people lacking a
-background in electronics and programming \Source. Over the years the arduino has
+background in electronics and programming . Over the years the arduino has
 evolved from offering simple 8-bit boards to offering a variety of different
 boards suiting different needs such as memory available, processing power,
-number of ports on the platform, etc \Source. The arduino comes with its
-own programming language and an IDE. A large number of modules are available for
-the arduino allowing the construction of diverse and complex systems \Source.
+number of ports on the platform, etc . The arduino comes with its
+own programming language and an IDE \citep{ArduinoIntro}. A large number of modules are available for
+the arduino provided by 3rd party vendors, allowing the construction of diverse and complex systems \Source.
 For the sake of comparison we will use the Arduino Uno, since this is the board being offered by
 the university.
 
-\subsection{Arduino Uno specification}
-\Source
+\subsection{Arduino Uno specification}\citep{UNOSpecs}
 \begin{itemize}
   \item ATmega328P processor 16 MHz clockfrequency
   \item 32 kB Flash storage
@@ -74,8 +77,8 @@ the university.
 \begin{itemize}
 	\item Due to the popularity of the arduino platform a large variety of 3rd
 	party peripherals are available for the platform \Source
-	\item Due to the popularity of the platform, there is also a large amount of
-	libraries for use with the modules \Source
+	\item Due to the popularity of the platform, there is a large community surrounding it,
+  providing a large amount of libraries for use with the modules \Source
 	\item If the library doesn't exist or contain the necesary functionality, it
 	will have to be written, thus time will have to be invested in order to make
 	it work
@@ -84,7 +87,7 @@ the university.
 \section{Combination of platforms}
 Another option would be to combine the two platforms. There are two ways to achieve this.
 One option is to connect the platforms using the I2C protocol. This can be achieved relatively
-simple using a breadboard, a resistor and 2 cables for each platform. The advantage of this
+simple using a breadboard, a resistor and 2 cables for each platform \citep{ArduinoNXT}. The advantage of this
 approach is the fact that we can combine the two platforms and their respective modules as we please.
 The drawback would be that the setup is quite clumsy since they are connected by cables to a breadboard,
 and might limit the mobility of the turret. It will also require more effort on our side, to ensure proper
@@ -93,7 +96,7 @@ The second option is to use the arduino platform with modules made for the NXT.
 This can be achieved by using a by using a special shield, that extends the arduino with
 ports that are compatible with the NXT modules. This would allow us to have the customizability of the arduino
 while still being able to use the proprietary sensors from the NXT. However the
-NXT shield is limited as it only supports up to two motors. Another issue with
+NXT shield is limited as it only supports up to two motors \citep{NXTShield}. Another issue with
 using the arduino is the ability to build it into the product, as it is not
 designed to be built into Lego the same way the NXT is.\nl
 
@@ -104,14 +107,9 @@ in conclusion a platform will be selected:
 \begin{enumerate}
   \item I/O ports - The Arduino wins, since not only does it far surpass
   the NXT in number of available ports, it also allows flexibility in
-  whether the ports are input or output and analog or digital \Source.
+  whether the ports are input or output and analog or digital.
   \item Processing power - When comparing the two platforms, the NXT is
-  superior. \fix{Although the Arduino offers a selection of boards with varying
-  processors and memory, allowing us to select the arduino board that suits our
-  needs best. In reality if one of the more powerful arduino boards is chosen,
-  the difference between the platforms in processor-speed and memory would be
-  neglible.}{Men vi har kun uno til rådighed og derfor kigger vi kun på den som
-  vi skriver længere oppe }
+  superior, both in terms of clockspeed and memory.
   \item Availability - The Arduino offers a far wider selection of peripherals
   than the NXT, although everything is produced by a 3rd party manufacturer. In
   reality, most of the modules needed for the project such as sensors are
@@ -135,24 +133,10 @@ in conclusion a platform will be selected:
 
 Since the university provides the platforms the cost aspect isn't deemed as a
 vital factor. As mentioned before the parts needed for the project are
-available for both platforms so this is not the deciding factor either. When
-choosing the platform the group focused on the following criteria:
-
-\begin{itemize}
-  \item Building - Since a physical turret will have to be constructed, in
-  order to simplify the mechanical process and allowing further focus on the
-  software aspect.
-  \item Integration of modules - As before, the group doesn't want to spend too
-  much time on the physical aspect of construction so things like soldering and
-  integration of modules is inconvenient.
-  \item I/O Ports - the number of available I/O Ports needs to be able to
-  support a range of sensors and some motors. For this reason the NXT is a
-  little limiting, compared to the arduino, although the use of a
-  \fix{multiplexer}{What is it?} can allow expansion of existing ports.
-\end{itemize}
+available for both platforms so this is not the deciding factor either.
 
 In conclusion the group has chosen the Lego NXT platform for use in the project
-based on the following criteria:
+based on the following reasons:
 \begin{itemize}
   \item Easier to physically build a prototype with Lego parts
   \item Availability of the modules or cost of the platform isn't really a
@@ -161,6 +145,6 @@ based on the following criteria:
 \end{itemize}
 
 Now the platform choices have been analysed in regards to the project and a
-platform was selected. In the next chapter, the available sensors will be
+platform has been selected. In the next chapter, the available sensors will be
 described, analysed and tested in order to select the most ideal sensor for the
 project.
