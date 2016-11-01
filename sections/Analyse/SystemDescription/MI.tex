@@ -33,7 +33,7 @@ a solution, presumably whether or not the target is hit. This can be seen in
 The representation is a piece of specific knowledge from the representation
 scheme. The representation scheme is used to make sure the individual
 representations are detailed and close to the problem, such that the necessary
-knowledge can be used to solve the problem\citep{MIBook}. Some examples of the
+knowledge can be used to solve the problem \citep{MIBook}. Some examples of the
 knowledge that \name should have is: Knnowledge of the targets speed and
 direction and knowledge of what direction it is facing. This knowledge, along
 with more, should be used in a way that makes it possible to compute an output.
@@ -41,13 +41,13 @@ Whether this output is a solution or not, depends on what a sufficient solution
 is. Generally there are 4 different categories of solutions:
 
 \begin{itemize}
-  \item Optimal solution - The best possible solution to the problem.
-  \item Satisficing solution - A solution that is both satisfying and
+  \item \textbf{Optimal solution} - The best possible solution to the problem.
+  \item \textbf{Satisficing solution} - A solution that is both satisfying and
   sufficient.
-  \item Approximately optimal solution - A solution that is close to the optimal
-  solution.
-  \item Probable solution - A solution that is likely to be a solution but is
-  not guaranteed to be.
+  \item \textbf{Approximately optimal solution} - A solution that is close to
+  the optimal solution.
+  \item \textbf{Probable solution} - A solution that is likely to be a solution
+  but is not guaranteed to be.
 \end{itemize}
 
 As \name is shooting on a moving target. The solution needs to be reliably able
@@ -93,13 +93,13 @@ there is an immediate reward, whereas an adult might have the foresight to do
 something for a reward thats some time off. There exist the following types of planning
 horizons:
 \begin{itemize}
-	\item Non-planning - The agent does not consider the future when making
-	decisions, or time is not involved as a factor.
-	\item Finite horizon - The agent considers the future for a fixed finite set
-	of steps. 
-	\item Indefinite horizon - The agent looks ahead for finite but not fixed
-	number of steps.
-	\item Infinite horizon - The agent plans on running forever.	
+	\item \textbf{Non-planning} - The agent does not consider the future when
+	making decisions, or time is not involved as a factor.
+	\item \textbf{Finite horizon} - The agent considers the future for a fixed
+	finite set of steps. 
+	\item \textbf{Indefinite horizon} - The agent looks ahead for finite but not
+	fixed number of steps.
+	\item \textbf{Infinite horizon} - The agent plans on running forever.	
 \end{itemize}
 
 Considering \name is an autonomous turret, non-planning can already be ruled
@@ -113,9 +113,9 @@ the second is effect uncertainty. Sensing uncertainty concerns what the agent
 can determine based on its observations. There are two possibilities concerning
 what it can sense:
 \begin{itemize}
-  \item Fully observable - The agent can determine the current state based on
-  observations.
-  \item Partially observable - The agent can not directly observe the
+  \item \textbf{Fully observable} - The agent can determine the current state
+  based on observations.
+  \item \textbf{Partially observable} - The agent can not directly observe the
   current state. This can be caused by noisy observations or when multiple
   states result in the same observations.
 \end{itemize}
@@ -129,9 +129,9 @@ the sensors may provide noisy observations. We can thus already determine that
 Effect uncertainty concerns how accuratly the agent can determine the resulting
 state based on an action in its current state. There are two possibilities:
 \begin{itemize}
-  \item Deterministic - The resulting state can be determined based on an action
-  and the current state.
-  \item Stochastic - The resulting state is the result of a probability
+  \item \textbf{Deterministic} - The resulting state can be determined based on
+  an action and the current state.
+  \item \textbf{Stochastic} - The resulting state is the result of a probability
   distribution.
 \end{itemize}
 
@@ -145,52 +145,70 @@ idea of the goals we are trying to accomplish. Furthermore there are certain
 preferences concerning the trade-off between different solutions.
 
 \begin{itemize}
-  \item Goals - These can either be considered achievement goals or
-  maintenance goals. Maintenance goals must be achieved in all the states
-  it visits. Achievement goals should hold true for the final state.
-  \item Complex preferences - Allows us to describe and model more complex
-  features such as desirability. In this category there are 2 distinct types.
-  \textbf{Ordinal preferences} describe preferences where only the order of the
-  preferences indicate importance. \textbf{Cardinal preferences} are those that
-  are prioritized according to their value.
+  \item \textbf{Goals} - There are two types of goals, achievement goals and
+  maintenance goals. Maintenance goals must be achieved in all the states it
+  visits. Achievement goals should hold true for the final state. 
+  \item \textbf{Complex preferences} - There are two types of preferences,
+  ordinal preferences and cardinal preferences. Ordinal preferences describe
+  preferences where only the order of the preferences indicate importance.
+  Cardinal preferences are those that are prioritized according to their value,
+  such that more value is better.
 \end{itemize}
 
 For this project, first and foremost an achievement goal is needed in order to
 describe the goal for the agent. This is simply the combined state of features
-that allows us to hit a target in motion. The complex preferences of the
-project is limited by the scope of the project. For example one could imagine
-the prioritizing of different targets according to a complex preference
+that allows us to hit a target in motion. 
 
 \subsubsection{Number of Agents}
-Reasoning with multiple agents can be hard. This is due to the fact that an
-agent must take into account the other agents goals and preferences and reason
-strategically about these. It can also be advantageous to ignore the other
-agents if their behavior is not impacted by what the agent does.
-\namep uses only a single agent due to the fact that their only is a single
-agent so it does not need to take any other agents into account.
+Depending on what an agent needs to accomplish, it might need to take the
+reasoning of other agents into account. This leads to two types of reasoning:
+\begin{itemize}
+  \item \textbf{Single agent reasoning} - The agent does not take other
+  agents into account and assumes they are part of the environment.
+  \item \textbf{Multiple agent reasoning} - The agent takes the reasoning of
+  other agents into account.
+\end{itemize}
 
+In regards to \namep, it needs to take the reasoning of the target into
+consideration in order to actually hit it.
 
-
+% Reasoning with multiple agents can be hard. This is due to the fact that an
+% agent must take into account the other agents goals and preferences and reason
+% strategically about these. It can also be advantageous to ignore the other
+% agents if their behavior is not impacted by what the agent does.
+% \namep uses only a single agent due to the fact that their only is a single
+% agent so it does not need to take any other agents into account.
 
 \subsubsection{Learning}
-There are two ways of handling knowledge: knowledge is given and knwledge is
-learned. If knowledge is given the agent does has all the information it needs
-from the get-go.\nl 
 
-when it comes to learning it is the ability to improve
-behavior based on experience. A way to do this is with supervised learning where
-a set of input features and target features are given together with a set of
-traing examples, where the values for both input and output are given and a set
-of test examples where only input is given. The goal is to predict the target
-features for the test set as future examples.
+There are two ways of handling knowledge: Either knowledge is given or
+it is learned. 
+\begin{itemize}
+  \item \textbf{Knowledge is given} - The agent possesses a model which the
+designer thinks is suitable for the task.
+  \item \textbf{Knowledge is learned} - The agent can use data or past
+  experiences to find a model that fits the data.
+\end{itemize}
+
+\name should make use of a given model, as it easy to determine and
+calculate the various parts needed for projectile motion, see
+\autoref{ProjMotion}.
+
+
+% when it comes to learning it is the ability to improve
+% behavior based on experience. A way to do this is with supervised learning where
+% a set of input features and target features are given together with a set of
+% traing examples, where the values for both input and output are given and a set
+% of test examples where only input is given. The goal is to predict the target
+% features for the test set as future examples.
 
 
 \subsubsection{Computational Limits}
-An angent may not always be able to cumpute the best action to a problem fast
-enough. This is due to memory limitations that prevent it from from computing
-fast enough. This means that the agent must trade off the time to compute the
-solution with how good the solution is. This limit determines wether the agent
-has:
+An angent may not always be able to compute the best action to a problem fast
+enough, which could be due to memory limitation or just the sheer size of the
+problem. This means that the agent may need to trade off the time it needs to
+compute a solution with how good the solution is. This limit determines whether
+the agent has:
 
 \begin{itemize}
   \item Perfect rationality - The agent tries to find the best action without
@@ -199,10 +217,10 @@ has:
   computational limits.
 \end{itemize}
 
-\namep has bounded rationality due to the fat that the nxt does not have
-unlimited resources. This means that in some situations, like deciding when
-to shoot, it will have to determine the best course of action in the moment
-instead of spending a lot of time computing the best solution. 
+\namep has bounded rationality due to the fact that the NXT does not have
+unlimited resources or time. This means that in some situations, like deciding
+when to shoot, it will have to determine the best course of action at the
+moment instead of spending a lot of time computing the best solution.
 
 \subsubsection{Belief Network}
 A belief network is an acyclic directed graph consisting of random variables and
