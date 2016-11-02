@@ -17,7 +17,7 @@ number of rectangles. Such a representation can be seen in
 
 \figx[0.70]{TwoBlobs2.PNG}{Visual representation of what the camera senses.}
 
-For each identified rectangle, the camera will output the coordinates for that
+For each identified rectangle, the camera outputs the coordinates for that
 rectangle's sides, top, bottom and colour. 
 
 Below are the technical specifications \citep[p. 1]{NXTCam} for the camera.
@@ -31,13 +31,12 @@ Below are the technical specifications \citep[p. 1]{NXTCam} for the camera.
 \end{itemize}
 
 \subsection{Ultrasonic Sensor}\label{SensTheoUltra}
-For the purpose of measuring the distance to the chosen target, the turret will
-make use of two ultrasonic sensors. These sensors work by producing sound waves
-from one of two frontal holes, which is then bounced back by an object and
-received by the second hole. An image of this sensor can be seen in
-\autoref{UltrasoundPic}.
-The delay between producing and receiving the sound wave is used to determine
-the distance to a given object.
+For the purpose of measuring the distance to the chosen target, the turret makes
+use of two ultrasonic sensors. These sensors work by producing sound waves from
+one of two frontal holes, which is then bounced back by an object and received
+by the second hole. An image of this sensor can be seen in
+\autoref{UltrasoundPic}. The delay between producing and receiving the sound
+wave is used to determine the distance to a given object.
 
 \figx[0.2]{UltrasoundPic}{The two ultrasonic sensors and the camera mounted
 on the turret.}
@@ -50,7 +49,8 @@ sensor's technical specifications \citep{Ultrasonic_sensor} can be found below.
   \item Looses precision after 1.5m
   \item Has a 25ms delay between readings
   \item Works best with large, hard-sized objects
-  \item Each measurement outputs a single integer
+  \item Each measurement outputs the distance in the form of a single integer
+  with a value between 0 and 255cm
 \end{itemize}
 
 % The product description says that it has a maximum range of 2.5m with
