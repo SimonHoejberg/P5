@@ -1,11 +1,11 @@
-Distance   Rating
-25         Ok
-50         Ok
-75         Ok
-100        Ok
-125        Ok
-150        Ok
-175        Ok
-200        Ok
-225        {Very bad}
-250        Null
+Distance(cm)  Rating
+25         	  Ok
+50            Ok
+75            Ok
+100           Ok
+125           Ok
+150           Ok
+175           Ok
+200           Ok
+225           {Very bad}
+250           Null
