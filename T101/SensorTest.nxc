@@ -1,0 +1,81 @@
+bool first = true;
+int count = 1;
+int count2 = 1;
+task search(){
+  while(true){
+    OnFwd(OUT_A, 100);
+  }
+}
+task distance(){
+  int dis1;
+  int dis2;
+  int dis11;
+  int dis12;
+  int tmp;
+  int tmp2;
+  while(true){
+    SetSensorUltrasonic(S2);
+    WriteI2CRegister(S2, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    if(first){
+      dis1 = SensorUS(S2);
+      dis2 = dis1;
+    }
+    else if(count % 2 == 0){
+      tmp = SensorUS(S2);
+      if(tmp != 255){
+        if(tmp - dis2 < 10 || tmp - dis2 > -10){
+          dis1 = tmp;
+          count++;
+        }
+      }
+    }
+    else {
+      tmp = SensorUS(S2);
+      if(tmp != 255){
+        if(tmp - dis1 < 10 || tmp - dis1 > -10){
+          dis2 = tmp;
+          count++;
+        }
+      }
+    }
+    ClearLine(LCD_LINE1);
+    NumOut(0, LCD_LINE1, (dis1 + dis2)/2);
+    
+    WriteI2CRegister(S2, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+    SetSensorUltrasonic(S3);
+    WriteI2CRegister(S3, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+
+    if(first){
+      dis11 = SensorUS(S3);
+      dis12 = dis11;
+      first = false;
+    }
+    else if(count2 % 2 == 0){
+      tmp2 = SensorUS(S3);
+      if(tmp2 != 255){
+        if(tmp2 - dis12 < 10 || tmp2 - dis12 > -10){
+          dis11 = tmp2;
+          count2++;
+        }
+      }
+    }
+    else {
+      tmp2 = SensorUS(S3);
+      if(tmp2 != 255){
+        if(tmp2 - dis11 < 10 || tmp2 - dis11 > -10){
+          dis12 = tmp2;
+          count2++;
+        }
+      }
+    }
+    ClearLine(LCD_LINE2);
+    NumOut(0, LCD_LINE2, (dis11 + dis12)/2);
+    
+    WriteI2CRegister(S3, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+  }
+}
+
+task main(){
+  StartTask(distance);
+}

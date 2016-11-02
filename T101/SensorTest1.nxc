@@ -1,0 +1,45 @@
+int med1;
+int med2;
+task search(){
+  while(true){
+    OnFwd(OUT_A, 100);
+  }
+}
+task distance(){
+  while(true){
+    WriteI2CRegister(S2, I2C_ADDR_DEFAULT, I2C_REG_CMD, 0x03);
+    string msg;
+    int res[9];
+    int tmp[9];
+
+    for(int i = 0; i < 9; i++){
+      res[i] = SensorUS(S2);
+    }
+    ArraySort(tmp, res, NA, NA);
+    med1 = tmp[4];
+    WriteI2CRegister(S2, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+    WriteI2CRegister(S3, I2C_ADDR_DEFAULT, I2C_REG_CMD, 0x03);
+    int res2[9];
+    int tmp2[9];
+
+    for(int i = 0; i < 9; i++){
+      res2[i] = SensorUS(S3);
+    }
+    ArraySort(tmp, res, NA, NA);
+    WriteI2CRegister(S3, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+    if(res[4] != 255 || res2[4] != 255){
+      StopTask(search);
+      Off(OUT_A);
+    }
+    else if(res[4] == 255 && res2[4] == 255){
+      StartTask(search);
+    }
+  }
+}
+
+task main(){
+  StartTask(distance);
+  while(true){}
+}

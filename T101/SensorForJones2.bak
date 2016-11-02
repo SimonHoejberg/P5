@@ -1,0 +1,38 @@
+#define setSize 8
+
+task main(){
+  SetSensorUltrasonic(S2);
+  SetSensorUltrasonic(S3);
+  while(true){
+    if(ButtonPressed(BTNCENTER,false)){
+      ClearScreen();
+      WriteI2CRegister(S2, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+      int res[setSize];
+      int des[setSize];
+      for(int i = 0; i < setSize; i++){
+        res[i] = SensorUS(S2);
+      }
+      ArraySort(des, res, NA, NA);
+      ClearScreen();
+      
+      for(int i = 0; i < setSize; i++){
+        NumOut(0, i*8, des[i]);
+      }
+      
+      WriteI2CRegister(S2, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+      WriteI2CRegister(S3, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+      int res2[setSize];
+      int des2[setSize];
+      for(int i = 0; i < setSize; i++){
+        res2[i] = SensorUS(S2);
+      }
+      ArraySort(des2, res2, NA, NA);
+      for(int i = 0; i < setSize; i++){
+        NumOut(30, i*8, des2[i]);
+      }
+      
+      WriteI2CRegister(S3, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+    }
+  }
+}

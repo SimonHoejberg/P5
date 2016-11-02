@@ -1,0 +1,508 @@
+#SYMBOLS
+Index	Identifier	Type	Flag	Data	Size	RefCount
+0	__CLSRMutex1	9	0	0	4	2
+1	__CLSCSMutex2	9	0	4	4	4
+2	__CLSWMutex1	9	0	8	4	2
+3	__RLSBmutex2	9	0	12	4	2
+4	__CLSCSMutex3	9	0	16	4	2
+5	__CLSRMutex2	9	0	20	4	2
+6	__RLSBmutex1	9	0	24	4	2
+7	__CLSWMutex2	9	0	28	4	2
+8	__WDSCmutex	9	0	32	4	8
+9	__D0search	6	1	36	4	4
+10	__D0main	6	1	40	4	2
+11	__signed_stack_002distance	6	1	44	4	8
+12	__signed_stack_001distance	6	1	48	4	22
+13	__D0distance	6	1	52	4	32
+14	__CLSCSMutex1	9	0	56	4	4
+15	__CLSCSMutex0	9	0	60	4	2
+16	__distance_7qG2_i_7qG2_002	4	1	64	2	10
+17	__ArrHelper__distance_73_0	4	1	66	2	9
+18	__WDSC_LSStatus	2	1	68	1	6
+19	__WDSC_SensorRegister	1	1	69	1	5
+20	__constVal9	2	0	70	1	3
+21	____MSWriteBytesSub_return	1	1	71	1	6
+22	__WDSC_Port	1	1	72	1	6
+23	__constVal2	2	0	73	1	6
+24	__WDSC_SensorAddress	1	1	74	1	5
+25	__constVal63	2	0	75	1	2
+26	__constVal1	2	0	76	1	6
+27	__zfsearch	1	1	77	1	2
+28	__constVal96	2	0	78	1	2
+29	__constVal32	2	0	79	1	6
+30	__constVal3	2	0	80	1	4
+31	__zfdistance	1	1	81	1	22
+32	__constVal0	2	1	82	1	16
+33	__zfmain	1	1	83	1	2
+34	__RLSBResult1	2	1	84	1	7
+35	____ReadLSBytes1_return	1	1	85	1	3
+36	____ReadLSBytes2_return	1	1	86	1	3
+37	__RLSBIterations1	1	1	87	1	4
+38	__RLSBytesCount1	1	1	88	1	7
+39	__RLSBytesCount2	1	1	89	1	7
+40	__RLSBIterations2	1	1	90	1	4
+41	__RLSBResult2	2	1	91	1	7
+42	____initialize_global_data_return	1	1	92	1	3
+43	__CLSRArgs2	8	0	4	12	5
+44	__CLSRArgs2.Result	2	1	96	1	5
+45	__CLSRArgs2.Port	1	1	97	1	5
+46	__CLSRArgs2.Buffer	7	0	98	4	5
+47	__CLSRArgs2.Buffer.Buffer_type	1	0	0	1	0
+48	__CLSRArgs2.BufferLen	1	1	100	1	5
+49	__CLSWArgs2	8	0	4	12	5
+50	__CLSWArgs2.Result	2	1	104	1	5
+51	__CLSWArgs2.Port	1	1	105	1	5
+52	__CLSWArgs2.Buffer	7	0	106	4	5
+53	__CLSWArgs2.Buffer.Buffer_type	1	0	0	1	0
+54	__CLSWArgs2.ReturnLen	1	1	108	1	5
+55	__CLSCSArgs0	8	0	3	4	3
+56	__CLSCSArgs0.Result	2	1	112	1	3
+57	__CLSCSArgs0.Port	1	1	113	1	3
+58	__CLSCSArgs0.BytesReady	1	1	114	1	3
+59	__CLSRArgs1	8	0	4	12	5
+60	__CLSRArgs1.Result	2	1	116	1	5
+61	__CLSRArgs1.Port	1	1	117	1	5
+62	__CLSRArgs1.Buffer	7	0	118	4	5
+63	__CLSRArgs1.Buffer.Buffer_type	1	0	0	1	0
+64	__CLSRArgs1.BufferLen	1	1	120	1	5
+65	__WDSC_lswArgs	8	0	4	12	4
+66	__WDSC_lswArgs.Result	2	1	124	1	4
+67	__WDSC_lswArgs.Port	1	1	125	1	4
+68	__WDSC_lswArgs.Buffer	7	0	126	4	4
+69	__WDSC_lswArgs.Buffer.Buffer_type	1	0	0	1	0
+70	__WDSC_lswArgs.ReturnLen	1	1	128	1	4
+71	__CLSWArgs1	8	0	4	12	5
+72	__CLSWArgs1.Result	2	1	132	1	5
+73	__CLSWArgs1.Port	1	1	133	1	5
+74	__CLSWArgs1.Buffer	7	0	134	4	5
+75	__CLSWArgs1.Buffer.Buffer_type	1	0	0	1	0
+76	__CLSWArgs1.ReturnLen	1	1	136	1	5
+77	__CLSCSArgs1	8	0	3	4	4
+78	__CLSCSArgs1.Result	2	1	140	1	4
+79	__CLSCSArgs1.Port	1	1	141	1	4
+80	__CLSCSArgs1.BytesReady	1	1	142	1	4
+81	__CLSCSArgs2	8	0	3	4	4
+82	__CLSCSArgs2.Result	2	1	144	1	4
+83	__CLSCSArgs2.Port	1	1	145	1	4
+84	__CLSCSArgs2.BytesReady	1	1	146	1	4
+85	__distance_7qG2_res_7qG2_001	7	0	148	4	7
+86	__distance_7qG2_res_7qG2_001.__distance_7qG2_res_7qG2_001_type	4	0	0	2	0
+87	__distance_7qG2_tmp_7qG2_001	7	0	150	4	4
+88	__distance_7qG2_tmp_7qG2_001.__distance_7qG2_tmp_7qG2_001_type	4	0	0	2	0
+89	__distance_7qG2_res2_7qG2_001	7	0	152	4	5
+90	__distance_7qG2_res2_7qG2_001.__distance_7qG2_res2_7qG2_001_type	4	0	0	2	0
+91	__RLSReadBuf1	7	0	154	4	8
+92	__RLSReadBuf1.__RLSReadBuf1_type	1	0	0	1	0
+93	__RLSLastGoodRead1	7	0	156	4	2
+94	__RLSLastGoodRead1.__RLSLastGoodRead1_type	1	0	0	1	0
+95	__RLSBbufLSWrite1	7	0	158	4	2
+96	__RLSBbufLSWrite1.__RLSBbufLSWrite1_type	1	0	0	1	0
+97	__WDSC_WriteBytes	7	0	160	4	5
+98	__WDSC_WriteBytes.__WDSC_WriteBytes_type	1	0	0	1	0
+99	__RLSReadBuf2	7	0	162	4	8
+100	__RLSReadBuf2.__RLSReadBuf2_type	1	0	0	1	0
+101	__RLSLastGoodRead2	7	0	164	4	2
+102	__RLSLastGoodRead2.__RLSLastGoodRead2_type	1	0	0	1	0
+#SOURCES
+Clump	Line	PC	Source
+0	42	0	#line 42 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	43	0		subcall __initialize_global_data, ____initialize_global_data_return
+0	42	2	#line 42 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	43	2	#line 43 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	44	2		start distance
+0	43	4	#line 43 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	43	4	#line 43 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	44	4		set __D0main, 1
+0	43	7	#line 43 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	44	7		tst 5, __zfmain, __D0main
+0	43	10	#line 43 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	44	10		brtst 4, __NXC_Label_659, __zfmain
+0	46	13	#line 46 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	47	13		jmp __NXC_Label_658
+0	46	15	#line 46 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+0	47	15		exit -1, -1
+1	5710	0	#pragma macro 25
+1	5710	0		acquire __CLSWMutex1
+1	5710	1		set __CLSWArgs1.Port, 1
+1	5710	4		mov __CLSWArgs1.ReturnLen, __RLSBytesCount1
+1	5710	6		mov __CLSWArgs1.Buffer, __RLSReadBuf1
+1	5710	8		syscall 21, __CLSWArgs1
+1	5710	11		mov __RLSBResult1, __CLSWArgs1.Result
+1	5710	13		release __CLSWMutex1
+1	5710	14	#line 5710 "NXTDefs.h"
+1	5711	14		brtst 4, __RLSBReturn1, __RLSBytesCount1
+1	5712	17		arrinit __RLSReadBuf1, __constVal0, __RLSBytesCount1
+1	5713	21		brtst 5, __RLSBError1, __RLSBResult1
+1	5714	24		set __RLSBIterations1, 4
+1	5716	27	#pragma macro 23
+1	5716	27		acquire __CLSCSMutex1
+1	5716	28		set __CLSCSArgs1.Port, 1
+1	5716	31		syscall 23, __CLSCSArgs1
+1	5716	34		mov __RLSBytesCount1, __CLSCSArgs1.BytesReady
+1	5716	36		mov __RLSBResult1, __CLSCSArgs1.Result
+1	5716	38		release __CLSCSMutex1
+1	5716	39	#line 5716 "NXTDefs.h"
+1	5717	39		sub __RLSBIterations1, __RLSBIterations1, __constVal1
+1	5718	43		brtst 2, __RLSBError1, __RLSBIterations1
+1	5719	46		brtst 0, __RLSBError1, __RLSBResult1
+1	5720	49		brtst 4, __RLSBReadyToRead1, __RLSBResult1
+1	5722	52		wait 15
+1	5723	54		jmp __RLSBDoCheckStatus1
+1	5726	56	#pragma macro 25
+1	5726	56		acquire __CLSRMutex1
+1	5726	57		set __CLSRArgs1.Port, 1
+1	5726	60		mov __CLSRArgs1.BufferLen, __RLSBytesCount1
+1	5726	62		syscall 22, __CLSRArgs1
+1	5726	65		mov __RLSReadBuf1, __CLSRArgs1.Buffer
+1	5726	67		mov __RLSBResult1, __CLSRArgs1.Result
+1	5726	69		release __CLSRMutex1
+1	5726	70	#line 5726 "NXTDefs.h"
+1	5727	70		brtst 5, __RLSBError1, __RLSBResult1
+1	5728	73		mov __RLSLastGoodRead1, __RLSReadBuf1
+1	5729	75		jmp __RLSBDone1
+1	5731	77		mov __RLSReadBuf1, __RLSLastGoodRead1
+1	5733	79		arrsize __RLSBytesCount1, __RLSReadBuf1
+1	5735	82		subret ____ReadLSBytes1_return
+2	5747	0	#pragma macro 25
+2	5747	0		acquire __CLSWMutex2
+2	5747	1		set __CLSWArgs2.Port, 2
+2	5747	4		mov __CLSWArgs2.ReturnLen, __RLSBytesCount2
+2	5747	6		mov __CLSWArgs2.Buffer, __RLSReadBuf2
+2	5747	8		syscall 21, __CLSWArgs2
+2	5747	11		mov __RLSBResult2, __CLSWArgs2.Result
+2	5747	13		release __CLSWMutex2
+2	5747	14	#line 5747 "NXTDefs.h"
+2	5748	14		brtst 4, __RLSBReturn2, __RLSBytesCount2
+2	5749	17		arrinit __RLSReadBuf2, __constVal0, __RLSBytesCount2
+2	5750	21		brtst 5, __RLSBError2, __RLSBResult2
+2	5751	24		set __RLSBIterations2, 4
+2	5753	27	#pragma macro 23
+2	5753	27		acquire __CLSCSMutex2
+2	5753	28		set __CLSCSArgs2.Port, 2
+2	5753	31		syscall 23, __CLSCSArgs2
+2	5753	34		mov __RLSBytesCount2, __CLSCSArgs2.BytesReady
+2	5753	36		mov __RLSBResult2, __CLSCSArgs2.Result
+2	5753	38		release __CLSCSMutex2
+2	5753	39	#line 5753 "NXTDefs.h"
+2	5754	39		sub __RLSBIterations2, __RLSBIterations2, __constVal1
+2	5755	43		brtst 2, __RLSBError2, __RLSBIterations2
+2	5756	46		brtst 0, __RLSBError2, __RLSBResult2
+2	5757	49		brtst 4, __RLSBReadyToRead2, __RLSBResult2
+2	5759	52		wait 15
+2	5760	54		jmp __RLSBDoCheckStatus2
+2	5763	56	#pragma macro 25
+2	5763	56		acquire __CLSRMutex2
+2	5763	57		set __CLSRArgs2.Port, 2
+2	5763	60		mov __CLSRArgs2.BufferLen, __RLSBytesCount2
+2	5763	62		syscall 22, __CLSRArgs2
+2	5763	65		mov __RLSReadBuf2, __CLSRArgs2.Buffer
+2	5763	67		mov __RLSBResult2, __CLSRArgs2.Result
+2	5763	69		release __CLSRMutex2
+2	5763	70	#line 5763 "NXTDefs.h"
+2	5764	70		brtst 5, __RLSBError2, __RLSBResult2
+2	5765	73		mov __RLSLastGoodRead2, __RLSReadBuf2
+2	5766	75		jmp __RLSBDone2
+2	5768	77		mov __RLSReadBuf2, __RLSLastGoodRead2
+2	5770	79		arrsize __RLSBytesCount2, __RLSReadBuf2
+2	5772	82		subret ____ReadLSBytes2_return
+3	11554	0		mov __WDSC_lswArgs.Port, __WDSC_Port
+3	11555	2		arrbuild __WDSC_lswArgs.Buffer, __WDSC_SensorAddress, __WDSC_SensorRegister, __WDSC_WriteBytes
+3	11556	8		set __WDSC_lswArgs.ReturnLen, 0
+3	11557	11		syscall 21, __WDSC_lswArgs
+3	11559	14	#pragma macro 21
+3	11559	14		acquire __CLSCSMutex0
+3	11559	15		acquire __CLSCSMutex1
+3	11559	16		acquire __CLSCSMutex2
+3	11559	17		acquire __CLSCSMutex3
+3	11559	18		mov __CLSCSArgs0.Port, __WDSC_Port
+3	11559	20		syscall 23, __CLSCSArgs0
+3	11559	23		mov __WDSC_LSStatus, __CLSCSArgs0.Result
+3	11559	25		release __CLSCSMutex0
+3	11559	26		release __CLSCSMutex1
+3	11559	27		release __CLSCSMutex2
+3	11559	28		release __CLSCSMutex3
+3	11559	29	#line 11559 "NXTDefs.h"
+3	11560	29		brtst 1, __WDSC_StatusLoop, __WDSC_LSStatus
+3	11561	32		subret ____MSWriteBytesSub_return
+4	3	0	#line 3 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	4	0		set __D0search, 1
+4	4	3	#line 4 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	5	3		tst 5, __zfsearch, __D0search
+4	4	6	#line 4 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	5	6		brtst 4, __NXC_Label_605, __zfsearch
+4	4	9	#line 4 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	5	9		set __D0search, 100
+4	5	12	#line 5 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	6	12	#pragma macro 7
+4	6	12		setout __constVal0, 2, __D0search, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+4	5883	35	#line 5883 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	5	35	#line 5 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	7	35	#line 7 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	8	35		jmp __NXC_Label_604
+4	7	37	#line 7 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+4	8	37		exit -1, -1
+5	8	0	#line 8 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	9	0		set __D0distance, 1
+5	9	3	#line 9 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	10	3		tst 5, __zfdistance, __D0distance
+5	9	6	#line 9 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	10	6		brtst 4, __NXC_Label_611, __zfdistance
+5	9	9	#line 9 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	10	9	#pragma macro 8
+5	10	9		acquire __WDSCmutex
+5	10	10		mov __WDSC_Port, __constVal1
+5	10	12		mov __WDSC_SensorAddress, __constVal2
+5	10	14		set __WDSC_SensorRegister, 65
+5	10	17		arrbuild __WDSC_WriteBytes, __constVal3
+5	10	21		subcall __MSWriteBytesSub, ____MSWriteBytesSub_return
+5	10	23		mov __D0distance, __WDSC_LSStatus
+5	10	25		release __WDSCmutex
+5	5902	26	#line 5902 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	9	26	#line 9 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	9	26	#line 9 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	12	26	#line 12 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	13	26		arrinit __distance_7qG2_res_7qG2_001, __constVal0, __constVal9
+5	14	30	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	30		arrinit __distance_7qG2_tmp_7qG2_001, __constVal0, __constVal9
+5	14	34	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	34		set __distance_7qG2_i_7qG2_002, 0
+5	14	37	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	14	37	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	37		mov __signed_stack_001distance, __distance_7qG2_i_7qG2_002
+5	14	39	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	14	39	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	39		set __D0distance, 9
+5	14	42	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	42		cmp 0, __zfdistance, __signed_stack_001distance, __D0distance
+5	14	46	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	46		mov __D0distance, __zfdistance
+5	14	48	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	48		brtst 4, __NXC_Label_615, __zfdistance
+5	14	51	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	51		jmp __NXC_Label_616
+5	14	53	#line 14 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	53		add __distance_7qG2_i_7qG2_002, __distance_7qG2_i_7qG2_002, __constVal1
+5	15	57	#line 15 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	16	57		jmp __NXC_Label_614
+5	15	59	#line 15 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	16	59		mov __signed_stack_001distance, __distance_7qG2_i_7qG2_002
+5	15	61	#line 15 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	61	#line 15 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	16	61	#pragma macro 26
+5	16	61		acquire __RLSBmutex1
+5	16	62		mov __RLSReadBuf1, __RLSBbufLSWrite1
+5	16	64		set __RLSBytesCount1, 1
+5	16	67		wait 15
+5	16	69		subcall __ReadLSBytes1, ____ReadLSBytes1_return
+5	16	71		index __D0distance, __RLSReadBuf1, 65535
+5	16	75		release __RLSBmutex1
+5	5961	76	#line 5961 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	76	#line 15 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	16	76		replace __distance_7qG2_res_7qG2_001, __distance_7qG2_res_7qG2_001, __signed_stack_001distance, __D0distance
+5	15	81	#line 15 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	15	81	#line 15 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	17	81	#line 17 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	18	81		jmp __NXC_Label_617
+5	17	83	#line 17 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	17	83	#line 17 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	18	83		arrop 6, __distance_7qG2_tmp_7qG2_001, __distance_7qG2_res_7qG2_001, 65535, 65535
+5	17	89	#line 17 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	17	89	#line 17 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	18	89	#line 18 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	19	89		set __signed_stack_001distance, 4
+5	18	92	#line 18 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	18	92	#line 18 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	19	92		index __ArrHelper__distance_73_0, __distance_7qG2_tmp_7qG2_001, __signed_stack_001distance
+5	18	96	#line 18 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	19	96	#line 19 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	19	96	#line 19 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	19	96	#line 19 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	20	96	#pragma macro 8
+5	20	96		acquire __WDSCmutex
+5	20	97		mov __WDSC_Port, __constVal1
+5	20	99		mov __WDSC_SensorAddress, __constVal2
+5	20	101		set __WDSC_SensorRegister, 65
+5	20	104		arrbuild __WDSC_WriteBytes, __constVal0
+5	20	108		subcall __MSWriteBytesSub, ____MSWriteBytesSub_return
+5	20	110		mov __D0distance, __WDSC_LSStatus
+5	20	112		release __WDSCmutex
+5	5992	113	#line 5992 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	19	113	#line 19 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	19	113	#line 19 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	21	113	#line 21 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	22	113	#pragma macro 8
+5	22	113		acquire __WDSCmutex
+5	22	114		mov __WDSC_Port, __constVal2
+5	22	116		mov __WDSC_SensorAddress, __constVal2
+5	22	118		set __WDSC_SensorRegister, 65
+5	22	121		arrbuild __WDSC_WriteBytes, __constVal3
+5	22	125		subcall __MSWriteBytesSub, ____MSWriteBytesSub_return
+5	22	127		mov __D0distance, __WDSC_LSStatus
+5	22	129		release __WDSCmutex
+5	5996	130	#line 5996 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	21	130	#line 21 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	21	130	#line 21 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	23	130	#line 23 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	24	130		arrinit __distance_7qG2_res2_7qG2_001, __constVal0, __constVal9
+5	25	134	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	25	134	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	134		set __distance_7qG2_i_7qG2_002, 0
+5	25	137	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	25	137	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	137		mov __signed_stack_001distance, __distance_7qG2_i_7qG2_002
+5	25	139	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	25	139	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	139		set __D0distance, 9
+5	25	142	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	142		cmp 0, __zfdistance, __signed_stack_001distance, __D0distance
+5	25	146	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	146		mov __D0distance, __zfdistance
+5	25	148	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	148		brtst 4, __NXC_Label_631, __zfdistance
+5	25	151	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	151		jmp __NXC_Label_632
+5	25	153	#line 25 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	153		add __distance_7qG2_i_7qG2_002, __distance_7qG2_i_7qG2_002, __constVal1
+5	26	157	#line 26 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	27	157		jmp __NXC_Label_630
+5	26	159	#line 26 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	27	159		mov __signed_stack_001distance, __distance_7qG2_i_7qG2_002
+5	26	161	#line 26 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	161	#line 26 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	27	161	#pragma macro 26
+5	27	161		acquire __RLSBmutex2
+5	27	162		mov __RLSReadBuf2, __RLSBbufLSWrite1
+5	27	164		set __RLSBytesCount2, 1
+5	27	167		wait 15
+5	27	169		subcall __ReadLSBytes2, ____ReadLSBytes2_return
+5	27	171		index __D0distance, __RLSReadBuf2, 65535
+5	27	175		release __RLSBmutex2
+5	6047	176	#line 6047 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	176	#line 26 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	27	176		replace __distance_7qG2_res2_7qG2_001, __distance_7qG2_res2_7qG2_001, __signed_stack_001distance, __D0distance
+5	26	181	#line 26 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	26	181	#line 26 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	28	181	#line 28 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	29	181		jmp __NXC_Label_633
+5	28	183	#line 28 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	28	183	#line 28 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	29	183		arrop 6, __distance_7qG2_tmp_7qG2_001, __distance_7qG2_res_7qG2_001, 65535, 65535
+5	28	189	#line 28 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	28	189	#line 28 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	29	189	#line 29 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	30	189	#pragma macro 8
+5	30	189		acquire __WDSCmutex
+5	30	190		mov __WDSC_Port, __constVal2
+5	30	192		mov __WDSC_SensorAddress, __constVal2
+5	30	194		set __WDSC_SensorRegister, 65
+5	30	197		arrbuild __WDSC_WriteBytes, __constVal0
+5	30	201		subcall __MSWriteBytesSub, ____MSWriteBytesSub_return
+5	30	203		mov __D0distance, __WDSC_LSStatus
+5	30	205		release __WDSCmutex
+5	6063	206	#line 6063 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	29	206	#line 29 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	29	206	#line 29 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	31	206	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	206		set __signed_stack_001distance, 4
+5	31	209	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	31	209	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	209		index __ArrHelper__distance_73_0, __distance_7qG2_res_7qG2_001, __signed_stack_001distance
+5	31	213	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	213		mov __signed_stack_001distance, __ArrHelper__distance_73_0
+5	31	215	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	31	215	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	215		set __D0distance, 255
+5	31	218	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	218		cmp 5, __zfdistance, __signed_stack_001distance, __D0distance
+5	31	222	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	222		mov __D0distance, __zfdistance
+5	31	224	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	224		brtst 5, __NXC_Label_642, __zfdistance
+5	31	227	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	227		mov __signed_stack_001distance, __D0distance
+5	31	229	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	229		set __signed_stack_002distance, 4
+5	31	232	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	31	232	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	232		index __ArrHelper__distance_73_0, __distance_7qG2_res2_7qG2_001, __signed_stack_002distance
+5	31	236	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	236		mov __signed_stack_002distance, __ArrHelper__distance_73_0
+5	31	238	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	31	238	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	238		set __D0distance, 255
+5	31	241	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	241		cmp 5, __zfdistance, __signed_stack_002distance, __D0distance
+5	31	245	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	31	245	#line 31 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	32	245		or __D0distance, __signed_stack_001distance, __zfdistance
+5	32	249	#line 32 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	33	249		tst 5, __zfdistance, __D0distance
+5	32	252	#line 32 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	33	252		brtst 4, __NXC_Label_649, __zfdistance
+5	33	255	#line 33 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	34	255		stopthread search
+5	33	257	#line 33 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	34	257	#line 34 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	35	257	#pragma macro 7
+5	35	257		setout __constVal0, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+5	6119	280	#line 6119 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	34	280	#line 34 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	35	280	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	280		jmp __NXC_Label_650
+5	35	282	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	282		set __signed_stack_001distance, 4
+5	35	285	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	35	285	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	285		index __ArrHelper__distance_73_0, __distance_7qG2_res_7qG2_001, __signed_stack_001distance
+5	35	289	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	289		mov __signed_stack_001distance, __ArrHelper__distance_73_0
+5	35	291	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	35	291	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	291		set __D0distance, 255
+5	35	294	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	294		cmp 4, __zfdistance, __signed_stack_001distance, __D0distance
+5	35	298	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	298		mov __D0distance, __zfdistance
+5	35	300	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	300		brtst 4, __NXC_Label_652, __zfdistance
+5	35	303	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	303		mov __signed_stack_001distance, __D0distance
+5	35	305	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	305		set __signed_stack_002distance, 4
+5	35	308	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	35	308	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	308		index __ArrHelper__distance_73_0, __distance_7qG2_res2_7qG2_001, __signed_stack_002distance
+5	35	312	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	312		mov __signed_stack_002distance, __ArrHelper__distance_73_0
+5	35	314	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	35	314	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	314		set __D0distance, 255
+5	35	317	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	317		cmp 4, __zfdistance, __signed_stack_002distance, __D0distance
+5	35	321	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	35	321	#line 35 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	36	321		and __D0distance, __signed_stack_001distance, __zfdistance
+5	36	325	#line 36 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	37	325		tst 5, __zfdistance, __D0distance
+5	36	328	#line 36 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	37	328		brtst 4, __NXC_Label_657, __zfdistance
+5	37	331	#line 37 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	38	331		start search
+5	37	333	#line 37 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	39	333	#line 39 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	39	333	#line 39 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	41	333	#line 41 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	42	333		jmp __NXC_Label_610
+5	41	335	#line 41 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+5	42	335		exit -1, -1
+6	47	0	#line 47 "C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc"
+6	48	0		subret ____initialize_global_data_return
+#CLUMPS
+Clump	Name	Offset	File
+0	main	0	C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc
+1	__ReadLSBytes1	18	NXTDefs.h
+2	__ReadLSBytes2	102	NXTDefs.h
+3	__MSWriteBytesSub	186	NXTDefs.h
+4	search	220	C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc
+5	distance	260	C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc
+6	__initialize_global_data	598	C:\Users\Bruger\Google Drev\P5\Project\Turret101\SensorTest1.nxc

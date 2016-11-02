@@ -1,0 +1,49 @@
+const byte camPort = IN_4;
+const byte sensorLeft = S3;
+const byte sensorRight = S2;
+const byte angleMotor = OUT_C;
+const byte rotateMotor = OUT_A;
+const byte fireMotor = OUT_B;
+
+
+void Left(int power, int angle){
+  RotateMotor(rotateMotor, power, angle);
+}
+
+void Right(int power, int angle){
+  RotateMotor(rotateMotor, power, angle);
+}
+
+void Angle(int angle){
+  int pos = 5 * angle;
+  PosRegSetAngle(angleMotor, -pos);
+}
+
+void LoadRound(){
+  RotateMotor(fireMotor, 100, -90);
+}
+
+void Fire(){
+  RotateMotor(fireMotor, 100, 90);
+}
+
+int GetAngle(int distance){
+  float dis = distance/100;
+  int res = 6.5593*(dis*dis)-(0.9564*dis)+0.0607;
+  return res;
+}
+
+int CheckLength(int right, int left){
+  if(right == left && right != 255){
+    return 0;
+  }
+  else if(right == 255){
+    return 1;
+  }
+  else if(left == 255){
+    return 0;
+  }
+  else{
+    return 3;
+  }
+}

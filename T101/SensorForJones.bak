@@ -1,0 +1,26 @@
+task main(){
+  SetSensorUltrasonic(S2);
+  SetSensorUltrasonic(S3);
+  
+  WriteI2CRegister(S2, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+  int res[8];
+  int des[8];
+  for(int i = 0; i < 9; i++){
+    res[i] = SensorUS(S2);
+  }
+  ArraySort(des, res, NA, NA);
+  NumOut(0, LCD_LINE1, des[4]);
+
+  WriteI2CRegister(S2, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+  WriteI2CRegister(S3, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+  int res2[8];
+  int des2[8];
+  for(int i = 0; i < 9; i++){
+    res2[i] = SensorUS(S2);
+  }
+  ArraySort(des2, res2, NA, NA);
+  NumOut(0, LCD_LINE2, des2[4]);
+  WriteI2CRegister(S3, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+}

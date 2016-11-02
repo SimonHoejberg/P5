@@ -1,0 +1,6 @@
+task main(){
+    OnFwd(OUT_A,80);
+    Wait(2000);
+    OnRev(OUT_A,80);
+    Wait(2000);
+}

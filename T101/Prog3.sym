@@ -1,0 +1,2581 @@
+#SYMBOLS
+Index	Identifier	Type	Flag	Data	Size	RefCount
+0	__D0i2cReadString	6	1	0	4	7
+1	__D0LoadRound	6	1	4	4	2
+2	__D0MakeBlob	6	1	8	4	17
+3	__SPTArgsMutex	9	0	12	4	4
+4	__D0FilterBlobs	6	1	16	4	18
+5	__D0Fire	6	1	20	4	2
+6	__D0NXTCam_Init	6	1	24	4	45
+7	__D0NXTCam_SendCommand	6	1	28	4	13
+8	__D0search	6	1	32	4	15
+9	__DF0MakeBlob	10	1	36	4	4
+10	__D0NXTCam_Flush	6	1	40	4	17
+11	__D0NXTCam_GetBlobs	6	1	44	4	90
+12	__CLSRMutex2	9	0	48	4	10
+13	__CLSCSMutex3	9	0	52	4	28
+14	__CLSWMutex3	9	0	56	4	8
+15	__CLSRMutex1	9	0	60	4	10
+16	__CLSCSMutex2	9	0	64	4	28
+17	__CLSWMutex2	9	0	68	4	8
+18	__RLSBmutex1	9	0	72	4	4
+19	__RLSBmutex2	9	0	76	4	4
+20	__RLSBmutex3	9	0	80	4	4
+21	__CLSRMutex3	9	0	84	4	10
+22	__TextOutMutex	9	0	88	4	10
+23	__RLSBmutex0	9	0	92	4	4
+24	__D0Track	6	1	96	4	18
+25	__signed_stack_003NXTCam_Init	6	1	100	4	4
+26	__unsigned_stack_001NXTCam_Init	5	1	104	4	4
+27	__signed_stack_001NXTCam_SendCommand	6	1	108	4	4
+28	__signed_stack_002NXTCam_GetBlobs	6	1	112	4	12
+29	__signed_stack_001NXTCam_Init	6	1	116	4	24
+30	__signed_stack_002NXTCam_Init	6	1	120	4	16
+31	diff	10	0	124	4	1
+32	__Wait_7qG2_ms_7qG2_000_inline_NXTCam_Init	5	1	128	4	3
+33	__constValf0P1	10	0	132	4	1
+34	__signed_stack_001search	6	1	136	4	6
+35	__signed_stack_002search	6	1	140	4	2
+36	__signed_stack_001Track	6	1	144	4	8
+37	__DU0SetSensorLowspeed_inline_SetSensorUltrasonic	5	1	148	4	4
+38	__D0StopAllTasks_inline_NXTCam_Init	6	1	152	4	2
+39	__signed_stack_001FilterBlobs	6	1	156	4	26
+40	__D0SetSensorLowspeed_inline_NXTCam_Init	6	1	160	4	3
+41	__DU0SetSensorLowspeed_inline_NXTCam_Init	5	1	164	4	2
+42	__D0SetSensorLowspeed_inline_SetSensorUltrasonic	6	1	168	4	6
+43	__signed_stack_001MakeBlob	6	1	172	4	16
+44	__signed_stack_001NXTCam_Flush	6	1	176	4	6
+45	__signed_stack_001NXTCam_GetBlobs	6	1	180	4	52
+46	__signed_stack_001Fire	6	1	184	4	2
+47	__signed_stack_001i2cReadString	6	1	188	4	2
+48	__signed_stack_001LoadRound	6	1	192	4	2
+49	__CLSWMutex1	9	0	196	4	8
+50	__rotateMutex0	9	0	200	4	4
+51	__OnRevMutex	9	0	204	4	4
+52	__ResetSensorMutex	9	0	208	4	6
+53	__rotateMutex1	9	0	212	4	4
+54	__rotate_theAngle6	5	1	216	4	2
+55	__rotate_angle6	6	1	220	4	5
+56	__rotateMutex2	9	0	224	4	4
+57	__CLSWMutex0	9	0	228	4	8
+58	__CLSCSMutex0	9	0	232	4	28
+59	__CLSCSMutex1	9	0	236	4	28
+60	__CLSRMutex0	9	0	240	4	10
+61	__MakeBlob_7qG2_bl_7qG2_000	4	1	244	2	2
+62	__MakeBlob_7qG2_br_7qG2_000	4	1	246	2	2
+63	nblobs	4	1	248	2	4
+64	histLoc	4	1	250	2	5
+65	__rotate_RotCount6	4	1	252	2	4
+66	__ArrHelper__FilterBlobs_73_0	4	1	254	2	16
+67	__MakeBlob_7qG2_combined_7qG2_000	4	1	256	2	4
+68	__Track_7qG2_left_7qG2_000	4	1	258	2	3
+69	__ArrHelper__MakeBlob_73_0	4	1	260	2	4
+70	__NXTCam_GetBlobs_7qG2_i_7qG2_000	4	1	262	2	19
+71	__NXTCam_GetBlobs_7qG2_n_7qG2_000	4	1	264	2	4
+72	__NXTCam_SendCommand_7qG2_status_7qG2_000	4	1	266	2	3
+73	__MakeBlob_7qG2_i_7qG2_001	4	1	268	2	6
+74	__NXTCam_GetBlobs_7qG2_x_7qG2_000	4	1	270	2	2
+75	__MakeBlob_7qG2_n_7qG2_000	4	1	272	2	4
+76	turn	4	1	274	2	5
+77	__NXTCam_GetBlobs_7qG2_nblobs_7qG2_000	4	1	276	2	7
+78	__NXTCam_Init_7qG2_i_7qG2_000	4	1	278	2	5
+79	__FilterBlobs_7qG2_right_7qG2_000	4	1	280	2	4
+80	__FilterBlobs_7qG2_top_7qG2_000	4	1	282	2	3
+81	__FilterBlobs_7qG2_leftOut_7qG2_000	4	1	284	2	3
+82	__FilterBlobs_7qG2_left_7qG2_000	4	1	286	2	5
+83	__i2cReadString_7qG2_n_7qG2_000	4	1	288	2	3
+84	__MakeBlob_7qG2_avg_7qG2_000	4	1	290	2	3
+85	__FilterBlobs_7qG2_bottom_7qG2_000	4	1	292	2	3
+86	__FilterBlobs_7qG2_i_7qG2_001	4	1	294	2	12
+87	__FilterBlobs_7qG2_nblobs_7qG2_000	4	1	296	2	2
+88	__rotate_OldRotCount6	4	1	298	2	2
+89	__constVal255	4	0	300	2	6
+90	__NXTCam_Init_7qG2_n_7qG2_000	4	1	302	2	3
+91	__Track_7qG2_width_7qG2_000	4	1	304	2	4
+92	__MakeBlob_7qG2_tempWidth_7qG2_000	4	1	306	2	5
+93	__NXTCam_Flush_7qG2_n_7qG2_000	4	1	308	2	3
+94	__SetSensorLowspeed_7qG2_port_7qG2_000_inline_NXTCam_Init	1	1	310	1	4
+95	__NXTCam_Init_7qG2_cnt_7qG2_000	1	1	311	1	3
+96	__NXTCam_Init_7qG2_nByteReady_7qG2_000	1	1	312	1	2
+97	__NXTCam_Init_7qG2_camAddr_7qG2_000	1	1	313	1	4
+98	__NXTCam_Init_return	1	1	314	1	5
+99	__NXTCam_Init_7qG2_camPort_7qG2_000	1	1	315	1	6
+100	__NXTCam_Flush_7qG2_nByteReady_7qG2_000	1	1	316	1	3
+101	__NXTCam_SendCommand_7qG2_camPort_7qG2_000	1	1	317	1	6
+102	__NXTCam_Flush_return	1	1	318	1	3
+103	__i2cReadString_7qG2_nByteReady_7qG2_000	1	1	319	1	2
+104	__NXTCam_Flush_7qG2_camPort_7qG2_000	1	1	320	1	5
+105	__NXTCam_SendCommand_7qG2_nByteReady_7qG2_000	1	1	321	1	2
+106	__constVal65	2	0	322	1	1
+107	__NXTCam_SendCommand_return	1	1	323	1	4
+108	__NXTCam_SendCommand_7qG2_camAddr_7qG2_000	1	1	324	1	3
+109	__NXTCam_SendCommand_7qG2_cmd_7qG2_000	1	1	325	1	3
+110	__SetSensorLowspeed_7qG2_bIsPowered_7qG2_000_inline_NXTCam_Init	1	1	326	1	2
+111	__SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main	1	1	327	1	8
+112	__SetSensorLowspeed_7qG2_bIsPowered_7qG2_000_inline_SetSensorUltrasonic_inline_main	1	1	328	1	4
+113	__SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main	1	1	329	1	4
+114	__Fire_return	1	1	330	1	3
+115	____initialize_global_data_return	1	1	331	1	3
+116	__SetSensorUltrasonic_7qG2_port_7qG2_000_inline_main	1	1	332	1	2
+117	__SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main	1	1	333	1	4
+118	__constVal63	2	0	334	1	9
+119	__FilterBlobs_return	1	1	335	1	4
+120	__MakeBlob_return	1	1	336	1	6
+121	__SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main	1	1	337	1	4
+122	__SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main	1	1	338	1	4
+123	__ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main	1	1	339	1	4
+124	__SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init	1	1	340	1	2
+125	__ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init	1	1	341	1	2
+126	__NXTCam_GetBlobs_7qG2_port_7qG2_000	1	1	342	1	12
+127	__SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init	1	1	343	1	2
+128	__SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init	1	1	344	1	2
+129	__SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init	1	1	345	1	2
+130	__NXTCam_GetBlobs_7qG2_camAddr_7qG2_000	1	1	346	1	3
+131	fireMotor	1	0	347	1	2
+132	__constVal96	2	0	348	1	11
+133	__LoadRound_return	1	1	349	1	3
+134	__NXTCam_GetBlobs_return	1	1	350	1	7
+135	__NXTCam_GetBlobs_7qG2_nByteReady_7qG2_000	1	1	351	1	7
+136	rotateMotor	1	1	352	1	9
+137	__i2cReadString_return	1	1	353	1	4
+138	__constVal0	2	1	354	1	53
+139	____RotateMotor6_return	1	1	355	1	3
+140	__constVal1	2	0	356	1	22
+141	__zfMakeBlob	1	1	357	1	15
+142	__constVal3	2	0	358	1	12
+143	__zfFilterBlobs	1	1	359	1	15
+144	__zfi2cReadString	1	1	360	1	5
+145	____RotateMotorVar_return	1	1	361	1	4
+146	__constVal32	2	0	362	1	32
+147	__rotate_thePower6	2	1	363	1	4
+148	__tmpsbyteNXTCam_SendCommand	2	1	364	1	2
+149	__zfsearch	1	1	365	1	10
+150	__zfNXTCam_SendCommand	1	1	366	1	6
+151	__rotate_theTurnPct6	2	1	367	1	4
+152	__zfNXTCam_Flush	1	1	368	1	9
+153	__zfNXTCam_Init	1	1	369	1	17
+154	__zfNXTCam_GetBlobs	1	1	370	1	43
+155	____ReadLSBytesVar_return	1	1	371	1	4
+156	__constVal5	2	0	372	1	4
+157	__RLSBytesCountVar	1	1	373	1	10
+158	__RLSBResultVar	2	1	374	1	9
+159	__ResetSensorTmp	1	1	375	1	2
+160	____ResetSensorSubroutine_return	1	1	376	1	5
+161	__constVal2	2	0	377	1	3
+162	__ResetSensorPort	1	1	378	1	5
+163	__RLSBIterationsVar	1	1	379	1	4
+164	__ArrHelper__NXTCam_Init_98_0	1	1	380	1	4
+165	__constVal4	2	0	381	1	1
+166	__constVal6	2	0	382	1	1
+167	__ArrHelper__NXTCam_GetBlobs_98_0	1	1	383	1	12
+168	__constVal10	2	0	384	1	7
+169	__RLSReadPort	1	1	385	1	5
+170	__constVal66	2	0	386	1	1
+171	__constVal20	2	0	387	1	1
+172	__zfTrack	1	1	388	1	14
+173	__rotate_theUF6	1	1	389	1	6
+174	__rotate_theOM6	1	1	390	1	7
+175	__rotate_stop6	1	1	391	1	3
+176	__rotate_turnpct6	2	1	392	1	4
+177	__zfSetSensorLowspeed_inline_SetSensorUltrasonic	1	1	393	1	4
+178	__rotate_theRVP6	1	1	394	1	3
+179	__rotate_theRM6	1	1	395	1	4
+180	__rotate_theRS6	1	1	396	1	3
+181	__i2cReadString_7qG2_adr_7qG2_000	1	1	397	1	2
+182	__i2cReadString_7qG2_prt_7qG2_000	1	1	398	1	3
+183	__i2cReadString_7qG2_cnt_7qG2_000	1	1	399	1	3
+184	__i2cReadString_7qG2_reg_7qG2_000	1	1	400	1	2
+185	__rotate_firstPort6	1	1	401	1	5
+186	__rotate_sync6	1	1	402	1	3
+187	__OnRev_Tmp	2	1	403	1	4
+188	__rotate_power6	1	1	404	1	5
+189	__rotate_theRVD6	1	1	405	1	3
+190	__rotate_rs6	1	1	406	1	10
+191	__zfSetSensorLowspeed_inline_NXTCam_Init	1	1	407	1	2
+192	__rotate_theRVI6	1	1	408	1	3
+193	__CLSWArgs0	8	0	4	12	20
+194	__CLSWArgs0.Result	2	1	412	1	20
+195	__CLSWArgs0.Port	1	1	413	1	20
+196	__CLSWArgs0.Buffer	7	0	414	4	20
+197	__CLSWArgs0.Buffer.Buffer_type	1	0	0	1	0
+198	__CLSWArgs0.ReturnLen	1	1	416	1	20
+199	__TextOutArgs	8	0	4	16	30
+200	__TextOutArgs.Result	2	1	420	1	30
+201	__TextOutArgs.Location	8	0	2	4	30
+202	__TextOutArgs.Location.X	4	1	424	2	30
+203	__TextOutArgs.Location.Y	4	1	426	2	30
+204	__TextOutArgs.Text	7	0	428	4	30
+205	__TextOutArgs.Text.Text_type	1	0	0	1	0
+206	__TextOutArgs.Options	5	1	432	4	30
+207	__CLSRArgs0	8	0	4	12	25
+208	__CLSRArgs0.Result	2	1	436	1	25
+209	__CLSRArgs0.Port	1	1	437	1	25
+210	__CLSRArgs0.Buffer	7	0	438	4	25
+211	__CLSRArgs0.Buffer.Buffer_type	1	0	0	1	0
+212	__CLSRArgs0.BufferLen	1	1	440	1	25
+213	__RBtnArgs	8	0	5	8	5
+214	__RBtnArgs.Result	2	1	444	1	5
+215	__RBtnArgs.Index	1	1	445	1	5
+216	__RBtnArgs.Pressed	1	1	446	1	5
+217	__RBtnArgs.Count	1	1	447	1	5
+218	__RBtnArgs.Reset	1	1	448	1	5
+219	__SPTArgs	8	0	5	8	12
+220	__SPTArgs.Result	2	1	452	1	12
+221	__SPTArgs.Frequency	3	1	454	2	12
+222	__SPTArgs.Duration	3	1	456	2	12
+223	__SPTArgs.Loop	1	1	458	1	12
+224	__SPTArgs.Volume	1	1	459	1	12
+225	__CLSCSArgs0	8	0	3	4	56
+226	__CLSCSArgs0.Result	2	1	460	1	56
+227	__CLSCSArgs0.Port	1	1	461	1	56
+228	__CLSCSArgs0.BytesReady	1	1	462	1	56
+229	__RLSReadBufVar	7	0	464	4	10
+230	__RLSReadBufVar.__RLSReadBufVar_type	1	0	0	1	0
+231	__Track_7qG2_bl_7qG2_000	7	0	466	4	4
+232	__Track_7qG2_bl_7qG2_000.__Track_7qG2_bl_7qG2_000_type	4	0	0	2	0
+233	__OUT_AC	7	0	468	4	1
+234	__OUT_AC.__OUT_AC_type	1	0	0	1	0
+235	__constStr0010	7	0	470	4	1
+236	__constStr0010.__constStr0010_type	1	1	0	1	0
+237	__FilterBlobs_7qG2_bb_7qG2_000	7	0	472	4	2
+238	__FilterBlobs_7qG2_bb_7qG2_000.__FilterBlobs_7qG2_bb_7qG2_000_type	4	0	0	2	0
+239	__Track_7qG2_bt_7qG2_000	7	0	474	4	4
+240	__Track_7qG2_bt_7qG2_000.__Track_7qG2_bt_7qG2_000_type	4	0	0	2	0
+241	__FilterBlobs_7qG2_bl_7qG2_000	7	0	476	4	3
+242	__FilterBlobs_7qG2_bl_7qG2_000.__FilterBlobs_7qG2_bl_7qG2_000_type	4	0	0	2	0
+243	__FilterBlobs_7qG2_br_7qG2_000	7	0	478	4	4
+244	__FilterBlobs_7qG2_br_7qG2_000.__FilterBlobs_7qG2_br_7qG2_000_type	4	0	0	2	0
+245	__FilterBlobs_7qG2_bt_7qG2_000	7	0	480	4	3
+246	__FilterBlobs_7qG2_bt_7qG2_000.__FilterBlobs_7qG2_bt_7qG2_000_type	4	0	0	2	0
+247	__ByteArrayToStr_7qG2_data_7qG2_000_inline_i2cReadString	7	0	482	4	2
+248	__ByteArrayToStr_7qG2_data_7qG2_000_inline_i2cReadString.__ByteArrayToStr_7qG2_data_7qG2_000_inline_i2cReadString_type	1	0	0	1	0
+249	__i2cReadString_7qG2_temp_7qG2_000	7	0	484	4	3
+250	__i2cReadString_7qG2_temp_7qG2_000.__i2cReadString_7qG2_temp_7qG2_000_type	1	0	0	1	0
+251	__constStr0009	7	0	486	4	2
+252	__constStr0009.__constStr0009_type	1	1	0	1	0
+253	__i2cReadString_7qG2_outbuf_7qG2_000	7	0	488	4	2
+254	__i2cReadString_7qG2_outbuf_7qG2_000.__i2cReadString_7qG2_outbuf_7qG2_000_type	1	0	0	1	0
+255	__i2cReadString_7qG2_cmdbuf_7qG2_000	7	0	490	4	2
+256	__i2cReadString_7qG2_cmdbuf_7qG2_000.__i2cReadString_7qG2_cmdbuf_7qG2_000_type	1	0	0	1	0
+257	__Track_7qG2_br_7qG2_000	7	0	492	4	4
+258	__Track_7qG2_br_7qG2_000.__Track_7qG2_br_7qG2_000_type	4	0	0	2	0
+259	__Track_7qG2_bc_7qG2_000	7	0	494	4	3
+260	__Track_7qG2_bc_7qG2_000.__Track_7qG2_bc_7qG2_000_type	4	0	0	2	0
+261	__RLSLastGoodReadVar	7	0	496	4	2
+262	__RLSLastGoodReadVar.__RLSLastGoodReadVar_type	1	0	0	1	0
+263	__Track_7qG2_bb_7qG2_000	7	0	498	4	4
+264	__Track_7qG2_bb_7qG2_000.__Track_7qG2_bb_7qG2_000_type	4	0	0	2	0
+265	__OUT_AB	7	0	500	4	1
+266	__OUT_AB.__OUT_AB_type	1	0	0	1	0
+267	__strbufByteArrayToStr_inline_i2cReadString	7	0	502	4	2
+268	__strbufByteArrayToStr_inline_i2cReadString.__strbufByteArrayToStr_inline_i2cReadString_type	1	0	0	1	0
+269	__NXTCam_GetBlobs_7qG2_top_7qG2_000	7	0	504	4	6
+270	__NXTCam_GetBlobs_7qG2_top_7qG2_000.__NXTCam_GetBlobs_7qG2_top_7qG2_000_type	4	0	0	2	0
+271	__NXTCam_GetBlobs_7qG2_buf_7qG2_000	7	0	506	4	9
+272	__NXTCam_GetBlobs_7qG2_buf_7qG2_000.__NXTCam_GetBlobs_7qG2_buf_7qG2_000_type	1	0	0	1	0
+273	__NXTCam_GetBlobs_7qG2_color_7qG2_000	7	0	508	4	6
+274	__NXTCam_GetBlobs_7qG2_color_7qG2_000.__NXTCam_GetBlobs_7qG2_color_7qG2_000_type	4	0	0	2	0
+275	__NXTCam_GetBlobs_7qG2_left_7qG2_000	7	0	510	4	6
+276	__NXTCam_GetBlobs_7qG2_left_7qG2_000.__NXTCam_GetBlobs_7qG2_left_7qG2_000_type	4	0	0	2	0
+277	__NXTCam_Init_7qG2_s_7qG2_000	7	0	512	4	3
+278	__NXTCam_Init_7qG2_s_7qG2_000.__NXTCam_Init_7qG2_s_7qG2_000_type	1	0	0	1	0
+279	__NXTCam_GetBlobs_7qG2_msg_7qG2_000	7	0	514	4	5
+280	__NXTCam_GetBlobs_7qG2_msg_7qG2_000.__NXTCam_GetBlobs_7qG2_msg_7qG2_000_type	1	0	0	1	0
+281	__NXTCam_GetBlobs_7qG2_bottom_7qG2_000	7	0	516	4	6
+282	__NXTCam_GetBlobs_7qG2_bottom_7qG2_000.__NXTCam_GetBlobs_7qG2_bottom_7qG2_000_type	4	0	0	2	0
+283	__strbufNXTCam_Init	7	0	518	4	14
+284	__strbufNXTCam_Init.__strbufNXTCam_Init_type	1	0	0	1	0
+285	__NXTCam_Init_7qG2_outbuf_7qG2_000	7	0	520	4	2
+286	__NXTCam_Init_7qG2_outbuf_7qG2_000.__NXTCam_Init_7qG2_outbuf_7qG2_000_type	1	0	0	1	0
+287	__NXTCam_Init_7qG2_cmdbuf_7qG2_000	7	0	522	4	2
+288	__NXTCam_Init_7qG2_cmdbuf_7qG2_000.__NXTCam_Init_7qG2_cmdbuf_7qG2_000_type	1	0	0	1	0
+289	__NXTCam_GetBlobs_7qG2_right_7qG2_000	7	0	524	4	6
+290	__NXTCam_GetBlobs_7qG2_right_7qG2_000.__NXTCam_GetBlobs_7qG2_right_7qG2_000_type	4	0	0	2	0
+291	__strretvali2cReadString	7	0	526	4	2
+292	__strretvali2cReadString.__strretvali2cReadString_type	1	0	0	1	0
+293	__constStr0011	7	0	528	4	1
+294	__constStr0011.__constStr0011_type	1	1	0	1	0
+295	__constStr0012	7	0	530	4	1
+296	__constStr0012.__constStr0012_type	1	1	0	1	0
+297	__rotate_ports6	7	0	532	4	13
+298	__rotate_ports6.__rotate_ports6_type	1	0	0	1	0
+299	__OUT_BC	7	0	534	4	1
+300	__OUT_BC.__OUT_BC_type	1	0	0	1	0
+301	__OUT_ABC	7	0	536	4	1
+302	__OUT_ABC.__OUT_ABC_type	1	0	0	1	0
+303	__NXTCam_Flush_7qG2_buf_7qG2_000	7	0	538	4	3
+304	__NXTCam_Flush_7qG2_buf_7qG2_000.__NXTCam_Flush_7qG2_buf_7qG2_000_type	1	0	0	1	0
+305	__strretvalNXTCam_Init	7	0	540	4	2
+306	__strretvalNXTCam_Init.__strretvalNXTCam_Init_type	1	0	0	1	0
+307	hist	7	0	542	4	5
+308	hist.hist_type	4	0	0	2	0
+309	__strbufi2cReadString	7	0	544	4	6
+310	__strbufi2cReadString.__strbufi2cReadString_type	1	0	0	1	0
+311	__constStr0013	7	0	546	4	1
+312	__constStr0013.__constStr0013_type	1	1	0	1	0
+313	__NXTCam_SendCommand_7qG2_cmdBuf_7qG2_000	7	0	548	4	2
+314	__NXTCam_SendCommand_7qG2_cmdBuf_7qG2_000.__NXTCam_SendCommand_7qG2_cmdBuf_7qG2_000_type	1	0	0	1	0
+315	__constStr0014	7	0	550	4	1
+316	__constStr0014.__constStr0014_type	1	1	0	1	0
+#SOURCES
+Clump	Line	PC	Source
+0	21	0	#line 21 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	22	0		subcall __initialize_global_data, ____initialize_global_data_return
+0	21	2	#line 21 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	22	2	#line 22 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	23	2		set __SetSensorUltrasonic_7qG2_port_7qG2_000_inline_main, 2
+0	22	5	#line 22 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	3768	5	#line 3768 "NXCDefs.h"
+0	3769	5		mov __SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main, __constVal2
+0	3768	7	#line 3768 "NXCDefs.h"
+0	3768	7	#line 3768 "NXCDefs.h"
+0	3769	7		mov __SetSensorLowspeed_7qG2_bIsPowered_7qG2_000_inline_SetSensorUltrasonic_inline_main, __constVal1
+0	3758	9	#line 3758 "NXCDefs.h"
+0	3759	9		mov __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main
+0	3758	11	#line 3758 "NXCDefs.h"
+0	3758	11	#line 3758 "NXCDefs.h"
+0	3759	11		mov __DU0SetSensorLowspeed_inline_SetSensorUltrasonic, __SetSensorLowspeed_7qG2_bIsPowered_7qG2_000_inline_SetSensorUltrasonic_inline_main
+0	3758	13	#line 3758 "NXCDefs.h"
+0	3759	13		tst 5, __zfSetSensorLowspeed_inline_SetSensorUltrasonic, __DU0SetSensorLowspeed_inline_SetSensorUltrasonic
+0	3758	16	#line 3758 "NXCDefs.h"
+0	3759	16		brtst 4, __001__001__NXC_Label_36, __zfSetSensorLowspeed_inline_SetSensorUltrasonic
+0	3758	19	#line 3758 "NXCDefs.h"
+0	3759	19		set __D0SetSensorLowspeed_inline_SetSensorUltrasonic, 11
+0	3758	22	#line 3758 "NXCDefs.h"
+0	3759	22		jmp __001__001__NXC_Label_37
+0	3758	24	#line 3758 "NXCDefs.h"
+0	3759	24		set __D0SetSensorLowspeed_inline_SetSensorUltrasonic, 10
+0	3758	27	#line 3758 "NXCDefs.h"
+0	3759	27		mov __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __D0SetSensorLowspeed_inline_SetSensorUltrasonic
+0	3663	29	#line 3663 "NXCDefs.h"
+0	3664	29		setin __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, 0
+0	3663	33	#line 3663 "NXCDefs.h"
+0	3759	33	#line 3759 "NXCDefs.h"
+0	3759	33	#line 3759 "NXCDefs.h"
+0	3760	33		mov __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main
+0	3759	35	#line 3759 "NXCDefs.h"
+0	3759	35	#line 3759 "NXCDefs.h"
+0	3760	35		set __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, 0
+0	3759	38	#line 3759 "NXCDefs.h"
+0	3676	38	#line 3676 "NXCDefs.h"
+0	3677	38		setin __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, 1
+0	3676	42	#line 3676 "NXCDefs.h"
+0	3760	42	#line 3760 "NXCDefs.h"
+0	3760	42	#line 3760 "NXCDefs.h"
+0	3761	42		mov __ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main
+0	3760	44	#line 3760 "NXCDefs.h"
+0	3694	44	#line 3694 "NXCDefs.h"
+0	3695	44	#pragma macro 4
+0	3695	44		acquire __ResetSensorMutex
+0	3695	45		mov __ResetSensorPort, __ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main
+0	3695	47		subcall __ResetSensorSubroutine, ____ResetSensorSubroutine_return
+0	3695	50		release __ResetSensorMutex
+0	13466	51	#line 13466 "NXCDefs.h"
+0	3694	51	#line 3694 "NXCDefs.h"
+0	3761	51	#line 3761 "NXCDefs.h"
+0	3768	51	#line 3768 "NXCDefs.h"
+0	23	51	#line 23 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	23	51	#line 23 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	24	51		set __SetSensorUltrasonic_7qG2_port_7qG2_000_inline_main, 1
+0	23	54	#line 23 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	3768	54	#line 3768 "NXCDefs.h"
+0	3769	54		mov __SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main, __constVal1
+0	3768	56	#line 3768 "NXCDefs.h"
+0	3768	56	#line 3768 "NXCDefs.h"
+0	3769	56		mov __SetSensorLowspeed_7qG2_bIsPowered_7qG2_000_inline_SetSensorUltrasonic_inline_main, __constVal1
+0	3758	58	#line 3758 "NXCDefs.h"
+0	3759	58		mov __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main
+0	3758	60	#line 3758 "NXCDefs.h"
+0	3758	60	#line 3758 "NXCDefs.h"
+0	3759	60		mov __DU0SetSensorLowspeed_inline_SetSensorUltrasonic, __SetSensorLowspeed_7qG2_bIsPowered_7qG2_000_inline_SetSensorUltrasonic_inline_main
+0	3758	62	#line 3758 "NXCDefs.h"
+0	3759	62		tst 5, __zfSetSensorLowspeed_inline_SetSensorUltrasonic, __DU0SetSensorLowspeed_inline_SetSensorUltrasonic
+0	3758	65	#line 3758 "NXCDefs.h"
+0	3759	65		brtst 4, __001__002__NXC_Label_36, __zfSetSensorLowspeed_inline_SetSensorUltrasonic
+0	3758	68	#line 3758 "NXCDefs.h"
+0	3759	68		set __D0SetSensorLowspeed_inline_SetSensorUltrasonic, 11
+0	3758	71	#line 3758 "NXCDefs.h"
+0	3759	71		jmp __001__002__NXC_Label_37
+0	3758	73	#line 3758 "NXCDefs.h"
+0	3759	73		set __D0SetSensorLowspeed_inline_SetSensorUltrasonic, 10
+0	3758	76	#line 3758 "NXCDefs.h"
+0	3759	76		mov __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __D0SetSensorLowspeed_inline_SetSensorUltrasonic
+0	3663	78	#line 3663 "NXCDefs.h"
+0	3664	78		setin __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, 0
+0	3663	82	#line 3663 "NXCDefs.h"
+0	3759	82	#line 3759 "NXCDefs.h"
+0	3759	82	#line 3759 "NXCDefs.h"
+0	3760	82		mov __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main
+0	3759	84	#line 3759 "NXCDefs.h"
+0	3759	84	#line 3759 "NXCDefs.h"
+0	3760	84		set __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, 0
+0	3759	87	#line 3759 "NXCDefs.h"
+0	3676	87	#line 3676 "NXCDefs.h"
+0	3677	87		setin __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, 1
+0	3676	91	#line 3676 "NXCDefs.h"
+0	3760	91	#line 3760 "NXCDefs.h"
+0	3760	91	#line 3760 "NXCDefs.h"
+0	3761	91		mov __ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_SetSensorUltrasonic_inline_main
+0	3760	93	#line 3760 "NXCDefs.h"
+0	3694	93	#line 3694 "NXCDefs.h"
+0	3695	93	#pragma macro 4
+0	3695	93		acquire __ResetSensorMutex
+0	3695	94		mov __ResetSensorPort, __ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_SetSensorUltrasonic_inline_main
+0	3695	96		subcall __ResetSensorSubroutine, ____ResetSensorSubroutine_return
+0	3695	99		release __ResetSensorMutex
+0	13540	100	#line 13540 "NXCDefs.h"
+0	3694	100	#line 3694 "NXCDefs.h"
+0	3761	100	#line 3761 "NXCDefs.h"
+0	3768	100	#line 3768 "NXCDefs.h"
+0	25	100	#line 25 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	25	100	#line 25 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	26	100		set __NXTCam_Init_7qG2_camPort_7qG2_000, 0
+0	25	103	#line 25 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	25	103	#line 25 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	26	103		set __NXTCam_Init_7qG2_camAddr_7qG2_000, 2
+0	25	106	#line 25 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	26	106	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	27	106		subcall NXTCam_Init, __NXTCam_Init_return
+0	26	108	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	26	108	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	26	108	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	26	108	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	27	108		set __NXTCam_SendCommand_7qG2_camPort_7qG2_000, 0
+0	26	111	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	26	111	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	27	111		set __NXTCam_SendCommand_7qG2_camAddr_7qG2_000, 2
+0	26	114	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	26	114	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	27	114		set __NXTCam_SendCommand_7qG2_cmd_7qG2_000, 69
+0	26	117	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	28	117	#line 28 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	29	117		subcall NXTCam_SendCommand, __NXTCam_SendCommand_return
+0	28	119	#line 28 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	29	119	#line 29 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	29	119	#line 29 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+0	30	119		exit 0, 0
+1	4794	0		brtst 4, __rotate_Done6, __rotate_angle6
+1	4795	3		sign __rotate_thePower6, __rotate_angle6
+1	4796	6		abs __rotate_theAngle6, __rotate_angle6
+1	4797	9		mul __rotate_thePower6, __rotate_thePower6, __rotate_power6
+1	4799	13		set __rotate_theUF6, 23
+1	4800	16		brtst 4, __rotate_NoSync6, __rotate_sync6
+1	4801	19		set __rotate_theOM6, 7
+1	4802	22		set __rotate_theRM6, 2
+1	4803	25		mov __rotate_theTurnPct6, __rotate_turnpct6
+1	4804	27		brtst 4, __rotate_Start6, __rotate_theTurnPct6
+1	4805	30		add __rotate_theUF6, __rotate_theUF6, __constVal32
+1	4806	34		jmp __rotate_Start6
+1	4808	36		set __rotate_theOM6, 3
+1	4809	39		set __rotate_theRM6, 0
+1	4810	42		set __rotate_theTurnPct6, 0
+1	4812	45		set __rotate_theRS6, 32
+1	4813	48		setout __rotate_ports6, 1, __rotate_theOM6, 8, __rotate_theRM6, 5, __rotate_theAngle6, 6, __rotate_theRS6, 10, __rotate_theRVP6, 11, __rotate_theRVI6, 12, __rotate_theRVD6, 2, __rotate_thePower6, 7, __rotate_turnpct6, 0, __rotate_theUF6
+1	4816	71		index __rotate_firstPort6, __rotate_ports6, 65535
+1	4818	75		getout __rotate_power6, __rotate_firstPort6, 2
+1	4819	79		brtst 4, __rotate_doneRunning6, __rotate_power6
+1	4820	82		getout __rotate_rs6, __rotate_firstPort6, 6
+1	4821	86		brcmp 4, __rotate_Running6, __rotate_rs6, __constVal32
+1	4823	90		brtst 4, __rotate_Reset6, __rotate_stop6
+1	4825	93		set __rotate_theOM6, 7
+1	4826	96		set __rotate_theUF6, 7
+1	4827	99		setout __rotate_ports6, 1, __rotate_theOM6, 8, __constVal1, 6, __rotate_theRS6, 2, __constVal0, 5, __constVal0, 0, __rotate_theUF6
+1	4829	114		getout __rotate_RotCount6, __rotate_firstPort6, 14
+1	4831	118		mov __rotate_OldRotCount6, __rotate_RotCount6
+1	4832	120		wait 50
+1	4834	122		getout __rotate_RotCount6, __rotate_firstPort6, 14
+1	4835	126		brcmp 5, __rotate_Stabilize6, __rotate_OldRotCount6, __rotate_RotCount6
+1	4836	130		set __rotate_theOM6, 4
+1	4837	133		setout __rotate_ports6, 8, __rotate_theRM6, 6, __constVal0, 1, __rotate_theOM6, 0, __constVal1
+1	4840	144		brtst 4, __rotate_Done6, __rotate_theTurnPct6
+1	4841	147		setout __rotate_ports6, 0, __constVal32
+1	4843	152		subret ____RotateMotor6_return
+2	4854	0		arrsize __rotate_rs6, __rotate_ports6
+2	4855	3		brcmp 1, __rmvCallSub, __rotate_rs6, __constVal1
+2	4857	7		index __rotate_rs6, __rotate_ports6, 65535
+2	4858	11		brcmp 0, __rmvCallSub, __rotate_rs6, __constVal3
+2	4859	15		brcmp 1, __rmvExit, __rotate_rs6, __constVal6
+2	4861	19		mov __rotate_ports6, __OUT_AB
+2	4862	21		brcmp 4, __rmvCallSub, __rotate_rs6, __constVal3
+2	4863	25		mov __rotate_ports6, __OUT_AC
+2	4864	27		brcmp 4, __rmvCallSub, __rotate_rs6, __constVal4
+2	4865	31		mov __rotate_ports6, __OUT_BC
+2	4866	33		brcmp 4, __rmvCallSub, __rotate_rs6, __constVal5
+2	4867	37		mov __rotate_ports6, __OUT_ABC
+2	4869	39		subcall __RotateMotor6, ____RotateMotor6_return
+2	4871	42		subret ____RotateMotorVar_return
+3	4885	0		setin __constVal1, __ResetSensorPort, 5
+3	4887	4		getin __ResetSensorTmp, __ResetSensorPort, 5
+3	4888	8		brtst 5, __SensorStillInvalid, __ResetSensorTmp
+3	4889	11		subret ____ResetSensorSubroutine_return
+4	5821	0	#pragma macro 25
+4	5821	0		acquire __CLSWMutex0
+4	5821	1		acquire __CLSWMutex1
+4	5821	2		acquire __CLSWMutex2
+4	5821	3		acquire __CLSWMutex3
+4	5821	4		mov __CLSWArgs0.Port, __RLSReadPort
+4	5821	6		mov __CLSWArgs0.ReturnLen, __RLSBytesCountVar
+4	5821	8		mov __CLSWArgs0.Buffer, __RLSReadBufVar
+4	5821	10		syscall 21, __CLSWArgs0
+4	5821	13		mov __RLSBResultVar, __CLSWArgs0.Result
+4	5821	15		release __CLSWMutex0
+4	5821	16		release __CLSWMutex1
+4	5821	17		release __CLSWMutex2
+4	5821	18		release __CLSWMutex3
+4	5821	19	#line 5821 "NXTDefs.h"
+4	5822	19		brtst 4, __RLSBReturnVar, __RLSBytesCountVar
+4	5823	22		arrinit __RLSReadBufVar, __constVal0, __RLSBytesCountVar
+4	5824	26		brtst 5, __RLSBErrorVar, __RLSBResultVar
+4	5825	29		set __RLSBIterationsVar, 4
+4	5827	32	#pragma macro 23
+4	5827	32		acquire __CLSCSMutex0
+4	5827	33		acquire __CLSCSMutex1
+4	5827	34		acquire __CLSCSMutex2
+4	5827	35		acquire __CLSCSMutex3
+4	5827	36		mov __CLSCSArgs0.Port, __RLSReadPort
+4	5827	38		syscall 23, __CLSCSArgs0
+4	5827	41		mov __RLSBytesCountVar, __CLSCSArgs0.BytesReady
+4	5827	43		mov __RLSBResultVar, __CLSCSArgs0.Result
+4	5827	45		release __CLSCSMutex0
+4	5827	46		release __CLSCSMutex1
+4	5827	47		release __CLSCSMutex2
+4	5827	48		release __CLSCSMutex3
+4	5827	49	#line 5827 "NXTDefs.h"
+4	5828	49		sub __RLSBIterationsVar, __RLSBIterationsVar, __constVal1
+4	5829	53		brtst 2, __RLSBErrorVar, __RLSBIterationsVar
+4	5830	56		brtst 0, __RLSBErrorVar, __RLSBResultVar
+4	5831	59		brtst 4, __RLSBReadyToReadVar, __RLSBResultVar
+4	5833	62		wait 15
+4	5834	64		jmp __RLSBDoCheckStatusVar
+4	5837	66	#pragma macro 25
+4	5837	66		acquire __CLSRMutex0
+4	5837	67		acquire __CLSRMutex1
+4	5837	68		acquire __CLSRMutex2
+4	5837	69		acquire __CLSRMutex3
+4	5837	70		mov __CLSRArgs0.Port, __RLSReadPort
+4	5837	72		mov __CLSRArgs0.BufferLen, __RLSBytesCountVar
+4	5837	74		syscall 22, __CLSRArgs0
+4	5837	77		mov __RLSReadBufVar, __CLSRArgs0.Buffer
+4	5837	79		mov __RLSBResultVar, __CLSRArgs0.Result
+4	5837	81		release __CLSRMutex0
+4	5837	82		release __CLSRMutex1
+4	5837	83		release __CLSRMutex2
+4	5837	84		release __CLSRMutex3
+4	5837	85	#line 5837 "NXTDefs.h"
+4	5838	85		brtst 5, __RLSBErrorVar, __RLSBResultVar
+4	5839	88		mov __RLSLastGoodReadVar, __RLSReadBufVar
+4	5840	90		jmp __RLSBDoneVar
+4	5842	92		mov __RLSReadBufVar, __RLSLastGoodReadVar
+4	5844	94		arrsize __RLSBytesCountVar, __RLSReadBufVar
+4	5846	97		subret ____ReadLSBytesVar_return
+5	76	0	#line 76 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	77	0		strcat __strbufi2cReadString, __constStr0009
+5	76	4	#line 76 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	77	4		mov __i2cReadString_7qG2_temp_7qG2_000, __strbufi2cReadString
+5	78	6	#line 78 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	79	6		arrbuild __i2cReadString_7qG2_cmdbuf_7qG2_000, __i2cReadString_7qG2_adr_7qG2_000, __i2cReadString_7qG2_reg_7qG2_000
+5	78	11	#line 78 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	78	11	#line 78 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	81	11	#line 81 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	82	11		set __i2cReadString_7qG2_nByteReady_7qG2_000, 0
+5	81	14	#line 81 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	82	14	#line 82 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	83	14		set __i2cReadString_7qG2_n_7qG2_000, 32
+5	82	17	#line 82 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	82	17	#line 82 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	82	17	#line 82 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	83	17		mov __signed_stack_001i2cReadString, __i2cReadString_7qG2_n_7qG2_000
+5	82	19	#line 82 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	82	19	#line 82 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	83	19		set __D0i2cReadString, 32
+5	82	22	#line 82 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	83	22		cmp 4, __zfi2cReadString, __signed_stack_001i2cReadString, __D0i2cReadString
+5	82	26	#line 82 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	83	26		mov __D0i2cReadString, __zfi2cReadString
+5	83	29	#line 83 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	84	29		brtst 4, __NXC_Label_635, __zfi2cReadString
+5	83	32	#line 83 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	84	32	#pragma macro 23
+5	84	32		acquire __CLSCSMutex0
+5	84	33		acquire __CLSCSMutex1
+5	84	34		acquire __CLSCSMutex2
+5	84	35		acquire __CLSCSMutex3
+5	84	36		mov __CLSCSArgs0.Port, __i2cReadString_7qG2_prt_7qG2_000
+5	84	38		syscall 23, __CLSCSArgs0
+5	84	41		mov __i2cReadString_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+5	84	43		mov __D0i2cReadString, __CLSCSArgs0.Result
+5	84	46		release __CLSCSMutex0
+5	84	47		release __CLSCSMutex1
+5	84	48		release __CLSCSMutex2
+5	84	49		release __CLSCSMutex3
+5	8790	50	#line 8790 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	83	50	#line 83 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	84	50		mov __i2cReadString_7qG2_n_7qG2_000, __D0i2cReadString
+5	83	52	#line 83 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	83	52	#line 83 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	86	52	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	87	52		jmp __NXC_Label_634
+5	86	54	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	86	54	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	87	54	#pragma macro 28
+5	87	54		acquire __RLSBmutex0
+5	87	55		acquire __RLSBmutex1
+5	87	56		acquire __RLSBmutex2
+5	87	57		acquire __RLSBmutex3
+5	87	58		mov __RLSReadPort, __i2cReadString_7qG2_prt_7qG2_000
+5	87	60		mov __RLSReadBufVar, __i2cReadString_7qG2_cmdbuf_7qG2_000
+5	87	62		mov __RLSBytesCountVar, __i2cReadString_7qG2_cnt_7qG2_000
+5	87	64		subcall __ReadLSBytesVar, ____ReadLSBytesVar_return
+5	87	67		tst 4, __D0i2cReadString, __RLSBResultVar
+5	87	70		mov __i2cReadString_7qG2_cnt_7qG2_000, __RLSBytesCountVar
+5	87	72		mov __i2cReadString_7qG2_outbuf_7qG2_000, __RLSReadBufVar
+5	87	74		release __RLSBmutex0
+5	87	75		release __RLSBmutex1
+5	87	76		release __RLSBmutex2
+5	87	77		release __RLSBmutex3
+5	8802	78	#line 8802 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	88	78	#line 88 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	89	78		tst 5, __zfi2cReadString, __D0i2cReadString
+5	88	81	#line 88 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	89	81		brtst 4, __NXC_Label_642, __zfi2cReadString
+5	88	84	#line 88 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	89	84		mov __ByteArrayToStr_7qG2_data_7qG2_000_inline_i2cReadString, __i2cReadString_7qG2_outbuf_7qG2_000
+5	18495	86	#line 18495 "NXCDefs.h"
+5	18496	86		arrtostr __strbufByteArrayToStr_inline_i2cReadString, __ByteArrayToStr_7qG2_data_7qG2_000_inline_i2cReadString
+5	18495	89	#line 18495 "NXCDefs.h"
+5	89	89	#line 89 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	90	89		mov __strretvali2cReadString, __strbufByteArrayToStr_inline_i2cReadString
+5	89	91	#line 89 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	90	91		strcat __strbufi2cReadString, __strretvali2cReadString
+5	89	95	#line 89 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	90	95		mov __i2cReadString_7qG2_temp_7qG2_000, __strbufi2cReadString
+5	89	97	#line 89 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	90	97	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	91	97	#line 91 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	92	97		strcat __strbufi2cReadString, __i2cReadString_7qG2_temp_7qG2_000
+5	91	101	#line 91 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	92	101		subret __i2cReadString_return
+5	91	103	#line 91 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	97	103	#line 97 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+5	98	103		subret __i2cReadString_return
+6	101	0	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	102	0		set __NXTCam_Flush_7qG2_nByteReady_7qG2_000, 0
+6	101	3	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	103	3	#line 103 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	3		arrinit __NXTCam_Flush_7qG2_buf_7qG2_000, __constVal0, __constVal10
+6	103	7	#line 103 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	7	#pragma macro 23
+6	104	7		acquire __CLSCSMutex0
+6	104	8		acquire __CLSCSMutex1
+6	104	9		acquire __CLSCSMutex2
+6	104	10		acquire __CLSCSMutex3
+6	104	11		mov __CLSCSArgs0.Port, __NXTCam_Flush_7qG2_camPort_7qG2_000
+6	104	13		syscall 23, __CLSCSArgs0
+6	104	16		mov __NXTCam_Flush_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+6	104	18		mov __D0NXTCam_Flush, __CLSCSArgs0.Result
+6	104	21		release __CLSCSMutex0
+6	104	22		release __CLSCSMutex1
+6	104	23		release __CLSCSMutex2
+6	104	24		release __CLSCSMutex3
+6	8863	25	#line 8863 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	103	25	#line 103 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	25		mov __signed_stack_001NXTCam_Flush, __D0NXTCam_Flush
+6	103	27	#line 103 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	27		set __D0NXTCam_Flush, 32
+6	103	30	#line 103 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	30		cmp 4, __zfNXTCam_Flush, __signed_stack_001NXTCam_Flush, __D0NXTCam_Flush
+6	103	34	#line 103 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	34		mov __D0NXTCam_Flush, __zfNXTCam_Flush
+6	104	37	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	105	37		brtst 4, __NXC_Label_646, __zfNXTCam_Flush
+6	104	40	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	40	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	105	40		jmp __NXC_Label_645
+6	104	42	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	42	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	105	42	#pragma macro 25
+6	105	42		acquire __CLSRMutex0
+6	105	43		acquire __CLSRMutex1
+6	105	44		acquire __CLSRMutex2
+6	105	45		acquire __CLSRMutex3
+6	105	46		mov __CLSRArgs0.Port, __NXTCam_Flush_7qG2_camPort_7qG2_000
+6	105	48		mov __CLSRArgs0.BufferLen, __constVal1
+6	105	50		syscall 22, __CLSRArgs0
+6	105	53		mov __NXTCam_Flush_7qG2_buf_7qG2_000, __CLSRArgs0.Buffer
+6	105	55		mov __D0NXTCam_Flush, __CLSRArgs0.Result
+6	105	58		release __CLSRMutex0
+6	105	59		release __CLSRMutex1
+6	105	60		release __CLSRMutex2
+6	105	61		release __CLSRMutex3
+6	8882	62	#line 8882 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	62	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	105	62		mov __NXTCam_Flush_7qG2_n_7qG2_000, __D0NXTCam_Flush
+6	104	64	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	104	64	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	105	64	#line 105 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	106	64		mov __signed_stack_001NXTCam_Flush, __NXTCam_Flush_7qG2_n_7qG2_000
+6	105	66	#line 105 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	105	66	#line 105 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	106	66		set __D0NXTCam_Flush, 0
+6	105	69	#line 105 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	106	69		cmp 1, __zfNXTCam_Flush, __signed_stack_001NXTCam_Flush, __D0NXTCam_Flush
+6	105	73	#line 105 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	106	73		mov __D0NXTCam_Flush, __zfNXTCam_Flush
+6	106	76	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	76		brtst 4, __NXC_Label_652, __zfNXTCam_Flush
+6	106	79	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	79	#pragma macro 23
+6	107	79		acquire __CLSCSMutex0
+6	107	80		acquire __CLSCSMutex1
+6	107	81		acquire __CLSCSMutex2
+6	107	82		acquire __CLSCSMutex3
+6	107	83		mov __CLSCSArgs0.Port, __NXTCam_Flush_7qG2_camPort_7qG2_000
+6	107	85		syscall 23, __CLSCSArgs0
+6	107	88		mov __NXTCam_Flush_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+6	107	90		mov __D0NXTCam_Flush, __CLSCSArgs0.Result
+6	107	93		release __CLSCSMutex0
+6	107	94		release __CLSCSMutex1
+6	107	95		release __CLSCSMutex2
+6	107	96		release __CLSCSMutex3
+6	8906	97	#line 8906 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	106	97	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	97		mov __signed_stack_001NXTCam_Flush, __D0NXTCam_Flush
+6	106	99	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	99		set __D0NXTCam_Flush, 32
+6	106	102	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	102		cmp 4, __zfNXTCam_Flush, __signed_stack_001NXTCam_Flush, __D0NXTCam_Flush
+6	106	106	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	106		mov __D0NXTCam_Flush, __zfNXTCam_Flush
+6	107	109	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	108	109		brtst 4, __NXC_Label_656, __zfNXTCam_Flush
+6	107	112	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	112	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	108	112		jmp __NXC_Label_655
+6	107	114	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	114	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	108	114	#pragma macro 25
+6	108	114		acquire __CLSRMutex0
+6	108	115		acquire __CLSRMutex1
+6	108	116		acquire __CLSRMutex2
+6	108	117		acquire __CLSRMutex3
+6	108	118		mov __CLSRArgs0.Port, __NXTCam_Flush_7qG2_camPort_7qG2_000
+6	108	120		mov __CLSRArgs0.BufferLen, __constVal1
+6	108	122		syscall 22, __CLSRArgs0
+6	108	125		mov __NXTCam_Flush_7qG2_buf_7qG2_000, __CLSRArgs0.Buffer
+6	108	127		mov __D0NXTCam_Flush, __CLSRArgs0.Result
+6	108	130		release __CLSRMutex0
+6	108	131		release __CLSRMutex1
+6	108	132		release __CLSRMutex2
+6	108	133		release __CLSRMutex3
+6	8925	134	#line 8925 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	134	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	108	134		mov __NXTCam_Flush_7qG2_n_7qG2_000, __D0NXTCam_Flush
+6	107	136	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	107	136	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	116	136	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	117	136		jmp __NXC_Label_651
+6	116	138	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	116	138	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+6	117	138		subret __NXTCam_Flush_return
+7	119	0	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	120	0		set __NXTCam_SendCommand_7qG2_nByteReady_7qG2_000, 0
+7	119	3	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	119	3	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	120	3		arrbuild __NXTCam_SendCommand_7qG2_cmdBuf_7qG2_000, __NXTCam_SendCommand_7qG2_camAddr_7qG2_000, __constVal65, __NXTCam_SendCommand_7qG2_cmd_7qG2_000
+7	119	9	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	119	9	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	120	9	#line 120 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	121	9	#pragma macro 25
+7	121	9		acquire __CLSWMutex0
+7	121	10		acquire __CLSWMutex1
+7	121	11		acquire __CLSWMutex2
+7	121	12		acquire __CLSWMutex3
+7	121	13		mov __CLSWArgs0.Port, __NXTCam_SendCommand_7qG2_camPort_7qG2_000
+7	121	15		mov __CLSWArgs0.ReturnLen, __constVal0
+7	121	17		mov __CLSWArgs0.Buffer, __NXTCam_SendCommand_7qG2_cmdBuf_7qG2_000
+7	121	19		syscall 21, __CLSWArgs0
+7	121	22		mov __D0NXTCam_SendCommand, __CLSWArgs0.Result
+7	121	25		release __CLSWMutex0
+7	121	26		release __CLSWMutex1
+7	121	27		release __CLSWMutex2
+7	121	28		release __CLSWMutex3
+7	8972	29	#line 8972 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	120	29	#line 120 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	120	29	#line 120 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	121	29	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	122	29	#pragma macro 23
+7	122	29		acquire __CLSCSMutex0
+7	122	30		acquire __CLSCSMutex1
+7	122	31		acquire __CLSCSMutex2
+7	122	32		acquire __CLSCSMutex3
+7	122	33		mov __CLSCSArgs0.Port, __NXTCam_SendCommand_7qG2_camPort_7qG2_000
+7	122	35		syscall 23, __CLSCSArgs0
+7	122	38		mov __NXTCam_SendCommand_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+7	122	40		mov __D0NXTCam_SendCommand, __CLSCSArgs0.Result
+7	122	43		release __CLSCSMutex0
+7	122	44		release __CLSCSMutex1
+7	122	45		release __CLSCSMutex2
+7	122	46		release __CLSCSMutex3
+7	8977	47	#line 8977 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	121	47	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	122	47		mov __signed_stack_001NXTCam_SendCommand, __D0NXTCam_SendCommand
+7	121	49	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	122	49		set __D0NXTCam_SendCommand, 32
+7	121	52	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	122	52		cmp 4, __zfNXTCam_SendCommand, __signed_stack_001NXTCam_SendCommand, __D0NXTCam_SendCommand
+7	121	56	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	122	56		mov __D0NXTCam_SendCommand, __zfNXTCam_SendCommand
+7	122	59	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	123	59		brtst 4, __NXC_Label_664, __zfNXTCam_SendCommand
+7	122	62	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	122	62	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	123	62		jmp __NXC_Label_663
+7	122	64	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	122	64	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	123	64	#pragma macro 23
+7	123	64		acquire __CLSCSMutex0
+7	123	65		acquire __CLSCSMutex1
+7	123	66		acquire __CLSCSMutex2
+7	123	67		acquire __CLSCSMutex3
+7	123	68		mov __CLSCSArgs0.Port, __NXTCam_SendCommand_7qG2_camPort_7qG2_000
+7	123	70		syscall 23, __CLSCSArgs0
+7	123	73		mov __tmpsbyteNXTCam_SendCommand, __CLSCSArgs0.BytesReady
+7	123	75		mov __D0NXTCam_SendCommand, __CLSCSArgs0.Result
+7	123	78		release __CLSCSMutex0
+7	123	79		release __CLSCSMutex1
+7	123	80		release __CLSCSMutex2
+7	123	81		release __CLSCSMutex3
+7	9000	82	#line 9000 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	122	82	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	123	82		mov __NXTCam_SendCommand_7qG2_status_7qG2_000, __D0NXTCam_SendCommand
+7	123	84	#line 123 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	124	84		mov __signed_stack_001NXTCam_SendCommand, __NXTCam_SendCommand_7qG2_status_7qG2_000
+7	123	86	#line 123 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	124	86	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	125	86		set __D0NXTCam_SendCommand, 0
+7	124	89	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	125	89		cmp 1, __zfNXTCam_SendCommand, __signed_stack_001NXTCam_SendCommand, __D0NXTCam_SendCommand
+7	124	93	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	125	93		mov __D0NXTCam_SendCommand, __zfNXTCam_SendCommand
+7	124	96	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	125	96		brtst 4, __NXC_Label_670, __zfNXTCam_SendCommand
+7	124	99	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	125	99	#pragma macro 23
+7	125	99		acquire __CLSCSMutex0
+7	125	100		acquire __CLSCSMutex1
+7	125	101		acquire __CLSCSMutex2
+7	125	102		acquire __CLSCSMutex3
+7	125	103		mov __CLSCSArgs0.Port, __NXTCam_SendCommand_7qG2_camPort_7qG2_000
+7	125	105		syscall 23, __CLSCSArgs0
+7	125	108		mov __tmpsbyteNXTCam_SendCommand, __CLSCSArgs0.BytesReady
+7	125	110		mov __D0NXTCam_SendCommand, __CLSCSArgs0.Result
+7	125	113		release __CLSCSMutex0
+7	125	114		release __CLSCSMutex1
+7	125	115		release __CLSCSMutex2
+7	125	116		release __CLSCSMutex3
+7	9021	117	#line 9021 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	124	117	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	125	117		mov __NXTCam_SendCommand_7qG2_status_7qG2_000, __D0NXTCam_SendCommand
+7	124	119	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	124	119	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	125	119		jmp __NXC_Label_669
+7	124	121	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	124	121	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	136	121	#line 136 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc"
+7	137	121		subret __NXTCam_SendCommand_return
+8	33	0	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	34	0		set __NXTCam_Init_7qG2_nByteReady_7qG2_000, 0
+8	33	3	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	35	3	#line 35 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	36	3		mov __SetSensorLowspeed_7qG2_port_7qG2_000_inline_NXTCam_Init, __NXTCam_Init_7qG2_camPort_7qG2_000
+8	35	5	#line 35 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	36	5	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	37	5		mov __SetSensorLowspeed_7qG2_bIsPowered_7qG2_000_inline_NXTCam_Init, __constVal1
+8	3758	7	#line 3758 "NXCDefs.h"
+8	3759	7		mov __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_NXTCam_Init
+8	3758	9	#line 3758 "NXCDefs.h"
+8	3758	9	#line 3758 "NXCDefs.h"
+8	3759	9		mov __DU0SetSensorLowspeed_inline_NXTCam_Init, __SetSensorLowspeed_7qG2_bIsPowered_7qG2_000_inline_NXTCam_Init
+8	3758	11	#line 3758 "NXCDefs.h"
+8	3759	11		tst 5, __zfSetSensorLowspeed_inline_NXTCam_Init, __DU0SetSensorLowspeed_inline_NXTCam_Init
+8	3758	14	#line 3758 "NXCDefs.h"
+8	3759	14		brtst 4, __004__NXC_Label_36, __zfSetSensorLowspeed_inline_NXTCam_Init
+8	3758	17	#line 3758 "NXCDefs.h"
+8	3759	17		set __D0SetSensorLowspeed_inline_NXTCam_Init, 11
+8	3758	20	#line 3758 "NXCDefs.h"
+8	3759	20		jmp __004__NXC_Label_37
+8	3758	22	#line 3758 "NXCDefs.h"
+8	3759	22		set __D0SetSensorLowspeed_inline_NXTCam_Init, 10
+8	3758	25	#line 3758 "NXCDefs.h"
+8	3759	25		mov __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, __D0SetSensorLowspeed_inline_NXTCam_Init
+8	3663	27	#line 3663 "NXCDefs.h"
+8	3664	27		setin __SetSensorType_7qG2_type_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, __SetSensorType_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, 0
+8	3663	31	#line 3663 "NXCDefs.h"
+8	3759	31	#line 3759 "NXCDefs.h"
+8	3759	31	#line 3759 "NXCDefs.h"
+8	3760	31		mov __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_NXTCam_Init
+8	3759	33	#line 3759 "NXCDefs.h"
+8	3759	33	#line 3759 "NXCDefs.h"
+8	3760	33		set __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, 0
+8	3759	36	#line 3759 "NXCDefs.h"
+8	3676	36	#line 3676 "NXCDefs.h"
+8	3677	36		setin __SetSensorMode_7qG2_mode_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, __SetSensorMode_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, 1
+8	3676	40	#line 3676 "NXCDefs.h"
+8	3760	40	#line 3760 "NXCDefs.h"
+8	3760	40	#line 3760 "NXCDefs.h"
+8	3761	40		mov __ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init, __SetSensorLowspeed_7qG2_port_7qG2_000_inline_NXTCam_Init
+8	3760	42	#line 3760 "NXCDefs.h"
+8	3694	42	#line 3694 "NXCDefs.h"
+8	3695	42	#pragma macro 4
+8	3695	42		acquire __ResetSensorMutex
+8	3695	43		mov __ResetSensorPort, __ResetSensor_7qG2_port_7qG2_000_inline_SetSensorLowspeed_inline_NXTCam_Init
+8	3695	45		subcall __ResetSensorSubroutine, ____ResetSensorSubroutine_return
+8	3695	48		release __ResetSensorMutex
+8	10358	49	#line 10358 "NXCDefs.h"
+8	3694	49	#line 3694 "NXCDefs.h"
+8	3761	49	#line 3761 "NXCDefs.h"
+8	36	49	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	36	49	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	37	49		mov __NXTCam_SendCommand_7qG2_camPort_7qG2_000, __NXTCam_Init_7qG2_camPort_7qG2_000
+8	36	51	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	36	51	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	37	51		mov __NXTCam_SendCommand_7qG2_camAddr_7qG2_000, __NXTCam_Init_7qG2_camAddr_7qG2_000
+8	36	53	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	36	53	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	37	53		set __NXTCam_SendCommand_7qG2_cmd_7qG2_000, 68
+8	36	56	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	38	56	#line 38 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	39	56		subcall NXTCam_SendCommand, __NXTCam_SendCommand_return
+8	38	58	#line 38 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	39	58	#line 39 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	40	58		strcat __strbufNXTCam_Init, __constStr0009
+8	39	62	#line 39 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	40	62		mov __NXTCam_Init_7qG2_s_7qG2_000, __strbufNXTCam_Init
+8	39	64	#line 39 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	40	64	#line 40 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	41	64		set __NXTCam_Init_7qG2_i_7qG2_000, 0
+8	40	67	#line 40 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	40	67	#line 40 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	40	67	#line 40 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	41	67		set __Wait_7qG2_ms_7qG2_000_inline_NXTCam_Init, 100
+8	40	70	#line 40 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	7921	70	#line 7921 "NXCDefs.h"
+8	7922	70		wait 100
+8	7921	72	#line 7921 "NXCDefs.h"
+8	44	72	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	44	72	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	72		set __signed_stack_001NXTCam_Init, 0
+8	44	75	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	44	75	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	75		index __ArrHelper__NXTCam_Init_98_0, __NXTCam_Init_7qG2_s_7qG2_000, __signed_stack_001NXTCam_Init
+8	44	79	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	79		mov __unsigned_stack_001NXTCam_Init, __ArrHelper__NXTCam_Init_98_0
+8	44	82	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	44	82	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	82		set __D0NXTCam_Init, 109
+8	44	85	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	85		cmp 5, __zfNXTCam_Init, __unsigned_stack_001NXTCam_Init, __D0NXTCam_Init
+8	44	89	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	89		mov __D0NXTCam_Init, __zfNXTCam_Init
+8	44	92	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	92		brtst 4, __NXC_Label_891, __zfNXTCam_Init
+8	44	95	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	95		mov __signed_stack_001NXTCam_Init, __D0NXTCam_Init
+8	44	97	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	97		mov __signed_stack_002NXTCam_Init, __NXTCam_Init_7qG2_i_7qG2_000
+8	44	99	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	44	99	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	99		set __D0NXTCam_Init, 200
+8	44	102	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	102		cmp 0, __zfNXTCam_Init, __signed_stack_002NXTCam_Init, __D0NXTCam_Init
+8	44	106	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	44	106	#line 44 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	106		and __D0NXTCam_Init, __signed_stack_001NXTCam_Init, __zfNXTCam_Init
+8	45	110	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	46	110		tst 5, __zfNXTCam_Init, __D0NXTCam_Init
+8	45	113	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	46	113		brtst 4, __NXC_Label_889, __zfNXTCam_Init
+8	45	116	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	46	116		mov __i2cReadString_7qG2_prt_7qG2_000, __NXTCam_Init_7qG2_camPort_7qG2_000
+8	45	118	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	118	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	46	118		mov __i2cReadString_7qG2_adr_7qG2_000, __NXTCam_Init_7qG2_camAddr_7qG2_000
+8	45	120	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	120	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	46	120		set __i2cReadString_7qG2_reg_7qG2_000, 8
+8	45	123	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	45	123	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	46	123		set __i2cReadString_7qG2_cnt_7qG2_000, 8
+8	45	126	#line 45 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	46	126	#line 46 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	47	126		subcall i2cReadString, __i2cReadString_return
+8	46	129	#line 46 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	47	129		mov __strretvalNXTCam_Init, __strbufi2cReadString
+8	46	131	#line 46 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	47	131		strcat __strbufNXTCam_Init, __strretvalNXTCam_Init
+8	46	135	#line 46 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	47	135		mov __NXTCam_Init_7qG2_s_7qG2_000, __strbufNXTCam_Init
+8	46	137	#line 46 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	46	137	#line 46 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	47	137		set __Wait_7qG2_ms_7qG2_000_inline_NXTCam_Init, 40
+8	46	140	#line 46 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	7921	140	#line 7921 "NXCDefs.h"
+8	7922	140		wait 40
+8	7921	142	#line 7921 "NXCDefs.h"
+8	47	142	#line 47 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	48	142	#line 48 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	49	142		add __NXTCam_Init_7qG2_i_7qG2_000, __NXTCam_Init_7qG2_i_7qG2_000, __constVal1
+8	48	146	#line 48 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	50	146	#line 50 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	51	146		jmp __NXC_Label_888
+8	50	148	#line 50 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	50	148	#line 50 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	51	148		arrbuild __NXTCam_Init_7qG2_cmdbuf_7qG2_000, __NXTCam_Init_7qG2_camAddr_7qG2_000, __constVal0
+8	50	153	#line 50 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	50	153	#line 50 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	53	153	#line 53 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	54	153		set __NXTCam_Init_7qG2_n_7qG2_000, 32
+8	53	156	#line 53 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	53	156	#line 53 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	53	156	#line 53 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	54	156		mov __signed_stack_001NXTCam_Init, __NXTCam_Init_7qG2_n_7qG2_000
+8	53	158	#line 53 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	53	158	#line 53 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	54	158		set __D0NXTCam_Init, 32
+8	53	161	#line 53 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	54	161		cmp 4, __zfNXTCam_Init, __signed_stack_001NXTCam_Init, __D0NXTCam_Init
+8	53	165	#line 53 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	54	165		mov __D0NXTCam_Init, __zfNXTCam_Init
+8	54	168	#line 54 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	55	168		brtst 4, __NXC_Label_907, __zfNXTCam_Init
+8	54	171	#line 54 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	55	171	#pragma macro 23
+8	55	171		acquire __CLSCSMutex0
+8	55	172		acquire __CLSCSMutex1
+8	55	173		acquire __CLSCSMutex2
+8	55	174		acquire __CLSCSMutex3
+8	55	175		mov __CLSCSArgs0.Port, __NXTCam_Init_7qG2_camPort_7qG2_000
+8	55	178		syscall 23, __CLSCSArgs0
+8	55	181		mov __NXTCam_Init_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+8	55	184		mov __D0NXTCam_Init, __CLSCSArgs0.Result
+8	55	187		release __CLSCSMutex0
+8	55	188		release __CLSCSMutex1
+8	55	189		release __CLSCSMutex2
+8	55	190		release __CLSCSMutex3
+8	10527	191	#line 10527 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	54	191	#line 54 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	55	191		mov __NXTCam_Init_7qG2_n_7qG2_000, __D0NXTCam_Init
+8	54	193	#line 54 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	54	193	#line 54 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	58	193	#line 58 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	59	193		jmp __NXC_Label_906
+8	58	195	#line 58 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	59	195	#line 59 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	60	195		set __NXTCam_Init_7qG2_cnt_7qG2_000, 8
+8	59	198	#line 59 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	59	198	#line 59 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	59	198	#line 59 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	60	198	#pragma macro 28
+8	60	198		acquire __RLSBmutex0
+8	60	199		acquire __RLSBmutex1
+8	60	200		acquire __RLSBmutex2
+8	60	201		acquire __RLSBmutex3
+8	60	202		mov __RLSReadPort, __NXTCam_Init_7qG2_camPort_7qG2_000
+8	60	204		mov __RLSReadBufVar, __NXTCam_Init_7qG2_cmdbuf_7qG2_000
+8	60	206		mov __RLSBytesCountVar, __NXTCam_Init_7qG2_cnt_7qG2_000
+8	60	208		subcall __ReadLSBytesVar, ____ReadLSBytesVar_return
+8	60	211		tst 4, __D0NXTCam_Init, __RLSBResultVar
+8	60	214		mov __NXTCam_Init_7qG2_cnt_7qG2_000, __RLSBytesCountVar
+8	60	216		mov __NXTCam_Init_7qG2_outbuf_7qG2_000, __RLSReadBufVar
+8	60	218		release __RLSBmutex0
+8	60	219		release __RLSBmutex1
+8	60	220		release __RLSBmutex2
+8	60	221		release __RLSBmutex3
+8	10546	222	#line 10546 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	60	222	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	61	222		tst 5, __zfNXTCam_Init, __D0NXTCam_Init
+8	60	225	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	61	225		brtst 4, __NXC_Label_916, __zfNXTCam_Init
+8	60	228	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	61	228		set __signed_stack_001NXTCam_Init, 4
+8	60	231	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	60	231	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	61	231		index __ArrHelper__NXTCam_Init_98_0, __NXTCam_Init_7qG2_outbuf_7qG2_000, __signed_stack_001NXTCam_Init
+8	60	235	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	61	235		mov __unsigned_stack_001NXTCam_Init, __ArrHelper__NXTCam_Init_98_0
+8	60	238	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	60	238	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	61	238		set __D0NXTCam_Init, 71
+8	60	241	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	61	241		cmp 4, __zfNXTCam_Init, __unsigned_stack_001NXTCam_Init, __D0NXTCam_Init
+8	60	245	#line 60 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	61	245		mov __D0NXTCam_Init, __zfNXTCam_Init
+8	63	248	#line 63 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	64	248		brtst 4, __NXC_Label_921, __zfNXTCam_Init
+8	63	251	#line 63 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	64	251		set __signed_stack_001NXTCam_Init, 0
+8	63	254	#line 63 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	63	254	#line 63 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	64	254		set __signed_stack_002NXTCam_Init, 32
+8	63	257	#line 63 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	63	257	#line 63 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	64	257		strcat __strbufNXTCam_Init, __constStr0010
+8	63	261	#line 63 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	64	261		set __D0NXTCam_Init, 0
+8	64	264	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	264		acquire __TextOutMutex
+8	64	265	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	265		mov __TextOutArgs.Location.X, __signed_stack_001NXTCam_Init
+8	64	268	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	268		mov __TextOutArgs.Location.Y, __signed_stack_002NXTCam_Init
+8	64	271	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	271		mov __TextOutArgs.Options, __D0NXTCam_Init
+8	64	274	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	274		mov __TextOutArgs.Text, __strbufNXTCam_Init
+8	64	276	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	276		syscall 13, __TextOutArgs
+8	64	279	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	279		mov __D0NXTCam_Init, __TextOutArgs.Result
+8	64	282	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	282		release __TextOutMutex
+8	64	283	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	64	283	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	283		set __signed_stack_001NXTCam_Init, 0
+8	64	286	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	64	286	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	286		set __signed_stack_002NXTCam_Init, 24
+8	64	289	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	64	289	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	289		strcat __strbufNXTCam_Init, __constStr0011
+8	64	293	#line 64 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	293		set __D0NXTCam_Init, 0
+8	65	296	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	296		acquire __TextOutMutex
+8	65	297	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	297		mov __TextOutArgs.Location.X, __signed_stack_001NXTCam_Init
+8	65	300	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	300		mov __TextOutArgs.Location.Y, __signed_stack_002NXTCam_Init
+8	65	303	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	303		mov __TextOutArgs.Options, __D0NXTCam_Init
+8	65	306	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	306		mov __TextOutArgs.Text, __strbufNXTCam_Init
+8	65	308	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	308		syscall 13, __TextOutArgs
+8	65	311	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	311		mov __D0NXTCam_Init, __TextOutArgs.Result
+8	65	314	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	314		release __TextOutMutex
+8	65	315	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	315	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	315		set __signed_stack_001NXTCam_Init, 0
+8	65	318	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	318	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	318		set __signed_stack_002NXTCam_Init, 16
+8	65	321	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	65	321	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	321		strcat __strbufNXTCam_Init, __constStr0012
+8	65	325	#line 65 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	325		set __D0NXTCam_Init, 0
+8	66	328	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	328		acquire __TextOutMutex
+8	66	329	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	329		mov __TextOutArgs.Location.X, __signed_stack_001NXTCam_Init
+8	66	332	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	332		mov __TextOutArgs.Location.Y, __signed_stack_002NXTCam_Init
+8	66	335	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	335		mov __TextOutArgs.Options, __D0NXTCam_Init
+8	66	338	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	338		mov __TextOutArgs.Text, __strbufNXTCam_Init
+8	66	340	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	340		syscall 13, __TextOutArgs
+8	66	343	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	343		mov __D0NXTCam_Init, __TextOutArgs.Result
+8	66	346	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	346		release __TextOutMutex
+8	66	347	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	347	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	347		set __signed_stack_001NXTCam_Init, 0
+8	66	350	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	350	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	350		set __signed_stack_002NXTCam_Init, 8
+8	66	353	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	66	353	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	353		strcat __strbufNXTCam_Init, __constStr0013
+8	66	357	#line 66 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	357		set __D0NXTCam_Init, 0
+8	67	360	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	360		acquire __TextOutMutex
+8	67	361	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	361		mov __TextOutArgs.Location.X, __signed_stack_001NXTCam_Init
+8	67	364	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	364		mov __TextOutArgs.Location.Y, __signed_stack_002NXTCam_Init
+8	67	367	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	367		mov __TextOutArgs.Options, __D0NXTCam_Init
+8	67	370	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	370		mov __TextOutArgs.Text, __strbufNXTCam_Init
+8	67	372	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	372		syscall 13, __TextOutArgs
+8	67	375	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	375		mov __D0NXTCam_Init, __TextOutArgs.Result
+8	67	378	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	378		release __TextOutMutex
+8	67	379	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	379	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	379		set __signed_stack_001NXTCam_Init, 0
+8	67	382	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	382	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	382		set __signed_stack_002NXTCam_Init, 0
+8	67	385	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	67	385	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	385		strcat __strbufNXTCam_Init, __constStr0014
+8	67	389	#line 67 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	389		set __D0NXTCam_Init, 0
+8	68	392	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	392		acquire __TextOutMutex
+8	68	393	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	393		mov __TextOutArgs.Location.X, __signed_stack_001NXTCam_Init
+8	68	396	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	396		mov __TextOutArgs.Location.Y, __signed_stack_002NXTCam_Init
+8	68	399	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	399		mov __TextOutArgs.Options, __D0NXTCam_Init
+8	68	402	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	402		mov __TextOutArgs.Text, __strbufNXTCam_Init
+8	68	404	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	404		syscall 13, __TextOutArgs
+8	68	407	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	407		mov __D0NXTCam_Init, __TextOutArgs.Result
+8	68	410	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	410		release __TextOutMutex
+8	68	411	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	411	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	411		set __signed_stack_001NXTCam_Init, 440
+8	68	414	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	414	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	414		set __signed_stack_002NXTCam_Init, 200
+8	68	417	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	417	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	417		set __signed_stack_003NXTCam_Init, 4
+8	68	420	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	68	420	#line 68 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	420		set __D0NXTCam_Init, 0
+8	69	423	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	423		acquire __SPTArgsMutex
+8	69	424	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	424		mov __SPTArgs.Frequency, __signed_stack_001NXTCam_Init
+8	69	427	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	427		mov __SPTArgs.Duration, __signed_stack_002NXTCam_Init
+8	69	430	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	430		mov __SPTArgs.Volume, __signed_stack_003NXTCam_Init
+8	69	433	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	433		mov __SPTArgs.Loop, __D0NXTCam_Init
+8	69	436	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	436		syscall 10, __SPTArgs
+8	69	439	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	439		mov __D0NXTCam_Init, __SPTArgs.Result
+8	69	442	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	442		release __SPTArgsMutex
+8	69	443	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	69	443	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	443		set __Wait_7qG2_ms_7qG2_000_inline_NXTCam_Init, 500
+8	69	446	#line 69 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	7921	446	#line 7921 "NXCDefs.h"
+8	7922	446		wait 500
+8	7921	448	#line 7921 "NXCDefs.h"
+8	70	448	#line 70 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	448	#line 70 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	448		set __signed_stack_001NXTCam_Init, 440
+8	70	451	#line 70 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	451	#line 70 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	451		set __signed_stack_002NXTCam_Init, 200
+8	70	454	#line 70 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	454	#line 70 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	454		set __signed_stack_003NXTCam_Init, 4
+8	70	457	#line 70 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	70	457	#line 70 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	457		set __D0NXTCam_Init, 0
+8	71	460	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	460		acquire __SPTArgsMutex
+8	71	461	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	461		mov __SPTArgs.Frequency, __signed_stack_001NXTCam_Init
+8	71	464	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	464		mov __SPTArgs.Duration, __signed_stack_002NXTCam_Init
+8	71	467	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	467		mov __SPTArgs.Volume, __signed_stack_003NXTCam_Init
+8	71	470	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	470		mov __SPTArgs.Loop, __D0NXTCam_Init
+8	71	473	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	473		syscall 10, __SPTArgs
+8	71	476	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	476		mov __D0NXTCam_Init, __SPTArgs.Result
+8	71	479	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	479		release __SPTArgsMutex
+8	71	480	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	480	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	480		set __signed_stack_001NXTCam_Init, 3
+8	71	483	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	483	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	483		set __D0NXTCam_Init, 1
+8	71	486	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	486	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	486		mov __RBtnArgs.Index, __signed_stack_001NXTCam_Init
+8	71	489	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	489		mov __RBtnArgs.Reset, __D0NXTCam_Init
+8	71	492	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	492		syscall 20, __RBtnArgs
+8	71	495	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	495	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	71	495	#line 71 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	495		not __D0NXTCam_Init, __RBtnArgs.Pressed
+8	72	498	#line 72 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	73	498		tst 5, __zfNXTCam_Init, __D0NXTCam_Init
+8	72	501	#line 72 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	73	501		brtst 4, __NXC_Label_971, __zfNXTCam_Init
+8	72	504	#line 72 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	72	504	#line 72 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	73	504		jmp __NXC_Label_970
+8	72	506	#line 72 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	7934	506	#line 7934 "NXCDefs.h"
+8	7935	506		set __D0StopAllTasks_inline_NXTCam_Init, 1
+8	7934	509	#line 7934 "NXCDefs.h"
+8	7935	509		stop __D0StopAllTasks_inline_NXTCam_Init
+8	7934	511	#line 7934 "NXCDefs.h"
+8	73	511	#line 73 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	74	511	#line 74 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	75	511		set __D0NXTCam_Init, 0
+8	74	514	#line 74 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	75	514		subret __NXTCam_Init_return
+8	74	516	#line 74 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	76	516	#line 76 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	76	516	#line 76 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	77	516	#line 77 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	78	516		mov __D0NXTCam_Init, __NXTCam_Init_7qG2_i_7qG2_000
+8	77	518	#line 77 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	78	518		subret __NXTCam_Init_return
+8	77	520	#line 77 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	102	520	#line 102 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+8	103	520		subret __NXTCam_Init_return
+9	107	0	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	108	0		set __NXTCam_GetBlobs_7qG2_nByteReady_7qG2_000, 0
+9	107	3	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	108	3	#line 108 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	109	3		arrinit __NXTCam_GetBlobs_7qG2_msg_7qG2_000, __constVal0, __constVal3
+9	109	7	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	113	7	#line 113 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	114	7		arrinit __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __constVal0, __constVal10
+9	116	11	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	117	11		set __NXTCam_GetBlobs_7qG2_i_7qG2_000, 0
+9	116	14	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	116	14	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	117	14		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	116	16	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	116	16	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	117	16		set __D0NXTCam_GetBlobs, 10
+9	116	19	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	117	19		cmp 0, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	116	23	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	117	23		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	116	26	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	117	26		brtst 4, __NXC_Label_987, __zfNXTCam_GetBlobs
+9	116	29	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	117	29		jmp __NXC_Label_988
+9	116	31	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	117	31		add __NXTCam_GetBlobs_7qG2_i_7qG2_000, __NXTCam_GetBlobs_7qG2_i_7qG2_000, __constVal1
+9	117	35	#line 117 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	118	35		jmp __NXC_Label_986
+9	117	37	#line 117 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	118	37		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	117	39	#line 117 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	118	39	#line 118 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	119	39		set __D0NXTCam_GetBlobs, 0
+9	118	42	#line 118 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	119	42		replace __NXTCam_GetBlobs_7qG2_color_7qG2_000, __NXTCam_GetBlobs_7qG2_color_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	118	47	#line 118 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	118	47	#line 118 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	119	47		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	118	49	#line 118 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	119	49	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	120	49		set __D0NXTCam_GetBlobs, -1
+9	119	52	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	120	52		replace __NXTCam_GetBlobs_7qG2_left_7qG2_000, __NXTCam_GetBlobs_7qG2_left_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	119	57	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	119	57	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	120	57		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	119	59	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	120	59	#line 120 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	121	59		set __D0NXTCam_GetBlobs, -1
+9	120	62	#line 120 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	121	62		replace __NXTCam_GetBlobs_7qG2_top_7qG2_000, __NXTCam_GetBlobs_7qG2_top_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	120	67	#line 120 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	120	67	#line 120 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	121	67		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	120	69	#line 120 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	121	69	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	122	69		set __D0NXTCam_GetBlobs, -1
+9	121	72	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	122	72		replace __NXTCam_GetBlobs_7qG2_right_7qG2_000, __NXTCam_GetBlobs_7qG2_right_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	121	77	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	121	77	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	122	77		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	121	79	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	122	79	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	123	79		set __D0NXTCam_GetBlobs, -1
+9	122	82	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	123	82		replace __NXTCam_GetBlobs_7qG2_bottom_7qG2_000, __NXTCam_GetBlobs_7qG2_bottom_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	122	87	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	124	87	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	125	87		jmp __NXC_Label_989
+9	124	89	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	124	89	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	125	89		mov __NXTCam_Flush_7qG2_camPort_7qG2_000, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	124	91	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	128	91	#line 128 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	129	91		subcall NXTCam_Flush, __NXTCam_Flush_return
+9	128	93	#line 128 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	128	93	#line 128 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	129	93		arrbuild __NXTCam_GetBlobs_7qG2_msg_7qG2_000, __NXTCam_GetBlobs_7qG2_camAddr_7qG2_000, __constVal66
+9	128	98	#line 128 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	128	98	#line 128 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	130	98	#line 130 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	131	98	#pragma macro 23
+9	131	98		acquire __CLSCSMutex0
+9	131	99		acquire __CLSCSMutex1
+9	131	100		acquire __CLSCSMutex2
+9	131	101		acquire __CLSCSMutex3
+9	131	102		mov __CLSCSArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	131	104		syscall 23, __CLSCSArgs0
+9	131	107		mov __NXTCam_GetBlobs_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+9	131	109		mov __D0NXTCam_GetBlobs, __CLSCSArgs0.Result
+9	131	112		release __CLSCSMutex0
+9	131	113		release __CLSCSMutex1
+9	131	114		release __CLSCSMutex2
+9	131	115		release __CLSCSMutex3
+9	11096	116	#line 11096 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	130	116	#line 130 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	131	116		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	130	118	#line 130 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	131	118		set __D0NXTCam_GetBlobs, 32
+9	130	121	#line 130 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	131	121		cmp 4, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	130	125	#line 130 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	131	125		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	132	128	#line 132 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	133	128		brtst 4, __NXC_Label_1017, __zfNXTCam_GetBlobs
+9	132	131	#line 132 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	132	131	#line 132 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	133	131		jmp __NXC_Label_1016
+9	132	133	#line 132 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	132	133	#line 132 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	133	133	#pragma macro 25
+9	133	133		acquire __CLSWMutex0
+9	133	134		acquire __CLSWMutex1
+9	133	135		acquire __CLSWMutex2
+9	133	136		acquire __CLSWMutex3
+9	133	137		mov __CLSWArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	133	139		mov __CLSWArgs0.ReturnLen, __constVal1
+9	133	141		mov __CLSWArgs0.Buffer, __NXTCam_GetBlobs_7qG2_msg_7qG2_000
+9	133	143		syscall 21, __CLSWArgs0
+9	133	146		mov __D0NXTCam_GetBlobs, __CLSWArgs0.Result
+9	133	149		release __CLSWMutex0
+9	133	150		release __CLSWMutex1
+9	133	151		release __CLSWMutex2
+9	133	152		release __CLSWMutex3
+9	11115	153	#line 11115 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	132	153	#line 132 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	133	153		mov __NXTCam_GetBlobs_7qG2_n_7qG2_000, __D0NXTCam_GetBlobs
+9	132	155	#line 132 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	132	155	#line 132 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	134	155	#line 134 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	135	155		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	134	157	#line 134 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	134	157	#line 134 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	135	157		set __D0NXTCam_GetBlobs, 0
+9	134	160	#line 134 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	135	160		cmp 5, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	134	164	#line 134 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	135	164		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	142	167	#line 142 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	143	167		brtst 4, __NXC_Label_1024, __zfNXTCam_GetBlobs
+9	143	170	#line 143 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	144	170		subret __NXTCam_GetBlobs_return
+9	143	172	#line 143 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	145	172	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	145	172	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	146	172	#pragma macro 23
+9	146	172		acquire __CLSCSMutex0
+9	146	173		acquire __CLSCSMutex1
+9	146	174		acquire __CLSCSMutex2
+9	146	175		acquire __CLSCSMutex3
+9	146	176		mov __CLSCSArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	146	178		syscall 23, __CLSCSArgs0
+9	146	181		mov __NXTCam_GetBlobs_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+9	146	183		mov __D0NXTCam_GetBlobs, __CLSCSArgs0.Result
+9	146	186		release __CLSCSMutex0
+9	146	187		release __CLSCSMutex1
+9	146	188		release __CLSCSMutex2
+9	146	189		release __CLSCSMutex3
+9	11143	190	#line 11143 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	145	190	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	146	190		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	145	192	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	146	192		set __D0NXTCam_GetBlobs, 32
+9	145	195	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	146	195		cmp 4, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	145	199	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	146	199		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	148	202	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	149	202		brtst 4, __NXC_Label_1026, __zfNXTCam_GetBlobs
+9	148	205	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	148	205	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	149	205		jmp __NXC_Label_1025
+9	148	207	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	148	207	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	149	207	#pragma macro 25
+9	149	207		acquire __CLSRMutex0
+9	149	208		acquire __CLSRMutex1
+9	149	209		acquire __CLSRMutex2
+9	149	210		acquire __CLSRMutex3
+9	149	211		mov __CLSRArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	149	213		mov __CLSRArgs0.BufferLen, __constVal1
+9	149	215		syscall 22, __CLSRArgs0
+9	149	218		mov __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __CLSRArgs0.Buffer
+9	149	220		mov __D0NXTCam_GetBlobs, __CLSRArgs0.Result
+9	149	223		release __CLSRMutex0
+9	149	224		release __CLSRMutex1
+9	149	225		release __CLSRMutex2
+9	149	226		release __CLSRMutex3
+9	11162	227	#line 11162 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	148	227	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	149	227		mov __NXTCam_GetBlobs_7qG2_n_7qG2_000, __D0NXTCam_GetBlobs
+9	148	229	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	148	229	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	149	229	#line 149 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	150	229		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	149	231	#line 149 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	149	231	#line 149 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	150	231		set __D0NXTCam_GetBlobs, 0
+9	149	234	#line 149 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	150	234		cmp 5, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	149	238	#line 149 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	150	238		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	157	241	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	158	241		brtst 4, __NXC_Label_1033, __zfNXTCam_GetBlobs
+9	158	244	#line 158 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	159	244		subret __NXTCam_GetBlobs_return
+9	158	246	#line 158 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	159	246	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	159	246	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	160	246	#pragma macro 23
+9	160	246		acquire __CLSCSMutex0
+9	160	247		acquire __CLSCSMutex1
+9	160	248		acquire __CLSCSMutex2
+9	160	249		acquire __CLSCSMutex3
+9	160	250		mov __CLSCSArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	160	252		syscall 23, __CLSCSArgs0
+9	160	255		mov __NXTCam_GetBlobs_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+9	160	257		mov __D0NXTCam_GetBlobs, __CLSCSArgs0.Result
+9	160	260		release __CLSCSMutex0
+9	160	261		release __CLSCSMutex1
+9	160	262		release __CLSCSMutex2
+9	160	263		release __CLSCSMutex3
+9	11190	264	#line 11190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	159	264	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	160	264		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	159	266	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	160	266		set __D0NXTCam_GetBlobs, 32
+9	159	269	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	160	269		cmp 4, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	159	273	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	160	273		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	161	276	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	162	276		brtst 4, __NXC_Label_1035, __zfNXTCam_GetBlobs
+9	161	279	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	161	279	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	162	279		jmp __NXC_Label_1034
+9	161	281	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	161	281	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	162	281		set __signed_stack_001NXTCam_GetBlobs, 0
+9	161	284	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	161	284	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	162	284		index __ArrHelper__NXTCam_GetBlobs_98_0, __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __signed_stack_001NXTCam_GetBlobs
+9	161	288	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	161	288	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	164	288	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	164	288	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	288		and __NXTCam_GetBlobs_7qG2_nblobs_7qG2_000, __ArrHelper__NXTCam_GetBlobs_98_0, __constVal255
+9	164	292	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	164	292	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	164	292	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	292		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_nblobs_7qG2_000
+9	164	294	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	164	294	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	294		set __D0NXTCam_GetBlobs, 0
+9	164	297	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	297		cmp 0, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	164	301	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	301		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	164	304	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	304		brtst 5, __NXC_Label_1042, __zfNXTCam_GetBlobs
+9	164	307	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	307		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	164	309	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	309		mov __signed_stack_002NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_nblobs_7qG2_000
+9	164	311	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	164	311	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	311		set __D0NXTCam_GetBlobs, 8
+9	164	314	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	314		cmp 1, __zfNXTCam_GetBlobs, __signed_stack_002NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	164	318	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	164	318	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	165	318		or __D0NXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	165	322	#line 165 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	166	322		tst 5, __zfNXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	165	325	#line 165 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	166	325		brtst 4, __NXC_Label_1045, __zfNXTCam_GetBlobs
+9	166	328	#line 166 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	167	328		set __NXTCam_GetBlobs_7qG2_nblobs_7qG2_000, 0
+9	166	331	#line 166 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	166	331	#line 166 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	169	331	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	169	331	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	170	331		set __NXTCam_GetBlobs_7qG2_i_7qG2_000, 0
+9	169	334	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	169	334	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	170	334		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	169	336	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	169	336	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	170	336		mov __D0NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_nblobs_7qG2_000
+9	169	338	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	170	338		cmp 0, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	169	342	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	170	342		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	169	345	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	170	345		brtst 4, __NXC_Label_1049, __zfNXTCam_GetBlobs
+9	169	348	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	170	348		jmp __NXC_Label_1050
+9	169	350	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	170	350		add __NXTCam_GetBlobs_7qG2_i_7qG2_000, __NXTCam_GetBlobs_7qG2_i_7qG2_000, __constVal1
+9	172	354	#line 172 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	173	354		jmp __NXC_Label_1048
+9	172	356	#line 172 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	173	356		set __signed_stack_001NXTCam_GetBlobs, 67
+9	172	359	#line 172 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	172	359	#line 172 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	172	359	#line 172 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	172	359	#line 172 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	172	359	#line 172 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	173	359		mul __D0NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000, __constVal5
+9	173	363	#line 173 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	174	363		add __NXTCam_GetBlobs_7qG2_x_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	173	367	#line 173 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	173	367	#line 173 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	173	367	#line 173 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	174	367		arrbuild __NXTCam_GetBlobs_7qG2_msg_7qG2_000, __NXTCam_GetBlobs_7qG2_camAddr_7qG2_000, __NXTCam_GetBlobs_7qG2_x_7qG2_000
+9	173	372	#line 173 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	173	372	#line 173 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	174	372	#line 174 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	372	#pragma macro 23
+9	175	372		acquire __CLSCSMutex0
+9	175	373		acquire __CLSCSMutex1
+9	175	374		acquire __CLSCSMutex2
+9	175	375		acquire __CLSCSMutex3
+9	175	376		mov __CLSCSArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	175	378		syscall 23, __CLSCSArgs0
+9	175	381		mov __NXTCam_GetBlobs_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+9	175	383		mov __D0NXTCam_GetBlobs, __CLSCSArgs0.Result
+9	175	386		release __CLSCSMutex0
+9	175	387		release __CLSCSMutex1
+9	175	388		release __CLSCSMutex2
+9	175	389		release __CLSCSMutex3
+9	11327	390	#line 11327 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	174	390	#line 174 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	390		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	174	392	#line 174 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	392		set __D0NXTCam_GetBlobs, 32
+9	174	395	#line 174 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	395		cmp 4, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	174	399	#line 174 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	399		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	175	402	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	176	402		brtst 4, __NXC_Label_1061, __zfNXTCam_GetBlobs
+9	175	405	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	405	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	176	405		jmp __NXC_Label_1060
+9	175	407	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	407	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	176	407	#pragma macro 25
+9	176	407		acquire __CLSWMutex0
+9	176	408		acquire __CLSWMutex1
+9	176	409		acquire __CLSWMutex2
+9	176	410		acquire __CLSWMutex3
+9	176	411		mov __CLSWArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	176	413		mov __CLSWArgs0.ReturnLen, __constVal5
+9	176	415		mov __CLSWArgs0.Buffer, __NXTCam_GetBlobs_7qG2_msg_7qG2_000
+9	176	417		syscall 21, __CLSWArgs0
+9	176	420		mov __D0NXTCam_GetBlobs, __CLSWArgs0.Result
+9	176	423		release __CLSWMutex0
+9	176	424		release __CLSWMutex1
+9	176	425		release __CLSWMutex2
+9	176	426		release __CLSWMutex3
+9	11346	427	#line 11346 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	427	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	176	427		mov __NXTCam_GetBlobs_7qG2_n_7qG2_000, __D0NXTCam_GetBlobs
+9	175	429	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	175	429	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	176	429	#line 176 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	177	429		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	176	431	#line 176 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	176	431	#line 176 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	177	431		set __D0NXTCam_GetBlobs, 0
+9	176	434	#line 176 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	177	434		cmp 5, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	176	438	#line 176 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	177	438		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	184	441	#line 184 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	185	441		brtst 4, __NXC_Label_1068, __zfNXTCam_GetBlobs
+9	185	444	#line 185 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	186	444		subret __NXTCam_GetBlobs_return
+9	185	446	#line 185 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	188	446	#line 188 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	188	446	#line 188 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	189	446	#pragma macro 23
+9	189	446		acquire __CLSCSMutex0
+9	189	447		acquire __CLSCSMutex1
+9	189	448		acquire __CLSCSMutex2
+9	189	449		acquire __CLSCSMutex3
+9	189	450		mov __CLSCSArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	189	452		syscall 23, __CLSCSArgs0
+9	189	455		mov __NXTCam_GetBlobs_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+9	189	457		mov __D0NXTCam_GetBlobs, __CLSCSArgs0.Result
+9	189	460		release __CLSCSMutex0
+9	189	461		release __CLSCSMutex1
+9	189	462		release __CLSCSMutex2
+9	189	463		release __CLSCSMutex3
+9	11374	464	#line 11374 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	188	464	#line 188 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	189	464		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	188	466	#line 188 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	189	466		set __D0NXTCam_GetBlobs, 32
+9	188	469	#line 188 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	189	469		cmp 4, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	188	473	#line 188 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	189	473		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	190	476	#line 190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	191	476		brtst 4, __NXC_Label_1070, __zfNXTCam_GetBlobs
+9	190	479	#line 190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	190	479	#line 190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	191	479		jmp __NXC_Label_1069
+9	190	481	#line 190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	190	481	#line 190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	191	481	#pragma macro 25
+9	191	481		acquire __CLSRMutex0
+9	191	482		acquire __CLSRMutex1
+9	191	483		acquire __CLSRMutex2
+9	191	484		acquire __CLSRMutex3
+9	191	485		mov __CLSRArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	191	487		mov __CLSRArgs0.BufferLen, __constVal5
+9	191	489		syscall 22, __CLSRArgs0
+9	191	492		mov __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __CLSRArgs0.Buffer
+9	191	494		mov __D0NXTCam_GetBlobs, __CLSRArgs0.Result
+9	191	497		release __CLSRMutex0
+9	191	498		release __CLSRMutex1
+9	191	499		release __CLSRMutex2
+9	191	500		release __CLSRMutex3
+9	11393	501	#line 11393 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	190	501	#line 190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	191	501		mov __NXTCam_GetBlobs_7qG2_n_7qG2_000, __D0NXTCam_GetBlobs
+9	190	503	#line 190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	190	503	#line 190 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	191	503	#line 191 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	192	503		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	191	505	#line 191 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	191	505	#line 191 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	192	505		set __D0NXTCam_GetBlobs, 0
+9	191	508	#line 191 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	192	508		cmp 5, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	191	512	#line 191 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	192	512		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	199	515	#line 199 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	200	515		brtst 4, __NXC_Label_1077, __zfNXTCam_GetBlobs
+9	200	518	#line 200 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	201	518		subret __NXTCam_GetBlobs_return
+9	200	520	#line 200 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	202	520	#line 202 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	202	520	#line 202 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	203	520	#pragma macro 23
+9	203	520		acquire __CLSCSMutex0
+9	203	521		acquire __CLSCSMutex1
+9	203	522		acquire __CLSCSMutex2
+9	203	523		acquire __CLSCSMutex3
+9	203	524		mov __CLSCSArgs0.Port, __NXTCam_GetBlobs_7qG2_port_7qG2_000
+9	203	526		syscall 23, __CLSCSArgs0
+9	203	529		mov __NXTCam_GetBlobs_7qG2_nByteReady_7qG2_000, __CLSCSArgs0.BytesReady
+9	203	531		mov __D0NXTCam_GetBlobs, __CLSCSArgs0.Result
+9	203	534		release __CLSCSMutex0
+9	203	535		release __CLSCSMutex1
+9	203	536		release __CLSCSMutex2
+9	203	537		release __CLSCSMutex3
+9	11421	538	#line 11421 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	202	538	#line 202 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	203	538		mov __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	202	540	#line 202 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	203	540		set __D0NXTCam_GetBlobs, 32
+9	202	543	#line 202 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	203	543		cmp 4, __zfNXTCam_GetBlobs, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	202	547	#line 202 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	203	547		mov __D0NXTCam_GetBlobs, __zfNXTCam_GetBlobs
+9	205	550	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	550		brtst 4, __NXC_Label_1079, __zfNXTCam_GetBlobs
+9	205	553	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	205	553	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	553		jmp __NXC_Label_1078
+9	205	555	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	205	555	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	555		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	205	557	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	205	557	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	557		set __signed_stack_002NXTCam_GetBlobs, 0
+9	205	560	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	205	560	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	560		index __ArrHelper__NXTCam_GetBlobs_98_0, __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __signed_stack_002NXTCam_GetBlobs
+9	205	564	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	205	564	#line 205 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	564	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	564	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	564		and __D0NXTCam_GetBlobs, __ArrHelper__NXTCam_GetBlobs_98_0, __constVal255
+9	206	568	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	568		replace __NXTCam_GetBlobs_7qG2_color_7qG2_000, __NXTCam_GetBlobs_7qG2_color_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	206	573	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	573	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	573		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	206	575	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	575	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	575		set __signed_stack_002NXTCam_GetBlobs, 1
+9	206	578	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	578	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	578		index __ArrHelper__NXTCam_GetBlobs_98_0, __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __signed_stack_002NXTCam_GetBlobs
+9	206	582	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	206	582	#line 206 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	582	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	582	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	582		and __D0NXTCam_GetBlobs, __ArrHelper__NXTCam_GetBlobs_98_0, __constVal255
+9	207	586	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	586		replace __NXTCam_GetBlobs_7qG2_left_7qG2_000, __NXTCam_GetBlobs_7qG2_left_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	207	591	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	591	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	591		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	207	593	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	593	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	593		set __signed_stack_002NXTCam_GetBlobs, 2
+9	207	596	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	596	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	596		index __ArrHelper__NXTCam_GetBlobs_98_0, __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __signed_stack_002NXTCam_GetBlobs
+9	207	600	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	207	600	#line 207 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	600	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	600	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	600		and __D0NXTCam_GetBlobs, __ArrHelper__NXTCam_GetBlobs_98_0, __constVal255
+9	208	604	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	604		replace __NXTCam_GetBlobs_7qG2_top_7qG2_000, __NXTCam_GetBlobs_7qG2_top_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	208	609	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	609	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	609		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	208	611	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	611	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	611		set __signed_stack_002NXTCam_GetBlobs, 3
+9	208	614	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	614	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	614		index __ArrHelper__NXTCam_GetBlobs_98_0, __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __signed_stack_002NXTCam_GetBlobs
+9	208	618	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	208	618	#line 208 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	618	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	618	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	210	618		and __D0NXTCam_GetBlobs, __ArrHelper__NXTCam_GetBlobs_98_0, __constVal255
+9	209	622	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	210	622		replace __NXTCam_GetBlobs_7qG2_right_7qG2_000, __NXTCam_GetBlobs_7qG2_right_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	209	627	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	627	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	210	627		mov __signed_stack_001NXTCam_GetBlobs, __NXTCam_GetBlobs_7qG2_i_7qG2_000
+9	209	629	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	629	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	210	629		set __signed_stack_002NXTCam_GetBlobs, 4
+9	209	632	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	632	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	210	632		index __ArrHelper__NXTCam_GetBlobs_98_0, __NXTCam_GetBlobs_7qG2_buf_7qG2_000, __signed_stack_002NXTCam_GetBlobs
+9	209	636	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	209	636	#line 209 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	212	636	#line 212 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	212	636	#line 212 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	213	636		and __D0NXTCam_GetBlobs, __ArrHelper__NXTCam_GetBlobs_98_0, __constVal255
+9	212	640	#line 212 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	213	640		replace __NXTCam_GetBlobs_7qG2_bottom_7qG2_000, __NXTCam_GetBlobs_7qG2_bottom_7qG2_000, __signed_stack_001NXTCam_GetBlobs, __D0NXTCam_GetBlobs
+9	212	645	#line 212 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	216	645	#line 216 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	217	645		jmp __NXC_Label_1051
+9	216	647	#line 216 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	216	647	#line 216 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc"
+9	217	647		subret __NXTCam_GetBlobs_return
+10	22	0	#line 22 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+10	23	0		set __signed_stack_001LoadRound, 100
+10	22	3	#line 22 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+10	22	3	#line 22 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+10	23	3		set __D0LoadRound, -90
+10	23	6	#line 23 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+10	24	6	#pragma macro 22
+10	24	6		acquire __rotateMutex0
+10	24	7		acquire __rotateMutex1
+10	24	8		acquire __rotateMutex2
+10	24	9		arrbuild __rotate_ports6, fireMotor
+10	24	13		mov __rotate_power6, __signed_stack_001LoadRound
+10	24	16		mov __rotate_angle6, __D0LoadRound
+10	24	18		mov __rotate_turnpct6, __constVal0
+10	24	20		mov __rotate_sync6, __constVal0
+10	24	22		mov __rotate_stop6, __constVal1
+10	24	24		mov __rotate_theRVP6, __constVal32
+10	24	26		mov __rotate_theRVI6, __constVal0
+10	24	28		mov __rotate_theRVD6, __constVal96
+10	24	30		subcall __RotateMotorVar, ____RotateMotorVar_return
+10	24	33		release __rotateMutex2
+10	24	34		release __rotateMutex1
+10	24	35		release __rotateMutex0
+10	13106	36	#line 13106 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+10	23	36	#line 23 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+10	25	36	#line 25 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+10	26	36		subret __LoadRound_return
+11	26	0	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+11	27	0		set __signed_stack_001Fire, 100
+11	26	3	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+11	26	3	#line 26 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+11	27	3		set __D0Fire, 90
+11	27	6	#line 27 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+11	28	6	#pragma macro 22
+11	28	6		acquire __rotateMutex0
+11	28	7		acquire __rotateMutex1
+11	28	8		acquire __rotateMutex2
+11	28	9		arrbuild __rotate_ports6, fireMotor
+11	28	13		mov __rotate_power6, __signed_stack_001Fire
+11	28	16		mov __rotate_angle6, __D0Fire
+11	28	18		mov __rotate_turnpct6, __constVal0
+11	28	20		mov __rotate_sync6, __constVal0
+11	28	22		mov __rotate_stop6, __constVal1
+11	28	24		mov __rotate_theRVP6, __constVal32
+11	28	26		mov __rotate_theRVI6, __constVal0
+11	28	28		mov __rotate_theRVD6, __constVal96
+11	28	30		subcall __RotateMotorVar, ____RotateMotorVar_return
+11	28	33		release __rotateMutex2
+11	28	34		release __rotateMutex1
+11	28	35		release __rotateMutex0
+11	13124	36	#line 13124 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+11	27	36	#line 27 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+11	29	36	#line 29 "C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc"
+11	30	36		subret __Fire_return
+12	33	0	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	33	0	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	33	0	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	33	0	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	34	0		mov __signed_stack_001search, turn
+12	33	2	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	33	2	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	34	2		set __D0search, 1
+12	33	5	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	34	5		cmp 4, __zfsearch, __signed_stack_001search, __D0search
+12	33	9	#line 33 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	34	9		mov __D0search, __zfsearch
+12	34	12	#line 34 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	35	12		brtst 4, __NXC_Label_1426, __zfsearch
+12	34	15	#line 34 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	35	15		set __D0search, 35
+12	35	18	#line 35 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	36	18	#pragma macro 10
+12	36	18		acquire __OnRevMutex
+12	36	19		neg __OnRev_Tmp, __D0search
+12	36	22		setout rotateMotor, 2, __OnRev_Tmp, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+12	36	45		release __OnRevMutex
+12	13619	46	#line 13619 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	35	46	#line 35 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	36	46	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	46		jmp __NXC_Label_1429
+12	36	48	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	48		mov __signed_stack_001search, turn
+12	36	50	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	36	50	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	50		set __D0search, 2
+12	36	53	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	53		cmp 4, __zfsearch, __signed_stack_001search, __D0search
+12	36	57	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	57		mov __D0search, __zfsearch
+12	36	60	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	60		brtst 5, __NXC_Label_1430, __zfsearch
+12	36	63	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	63		mov __signed_stack_001search, __D0search
+12	36	65	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	65		mov __signed_stack_002search, turn
+12	36	67	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	36	67	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	67		set __D0search, 0
+12	36	70	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	70		cmp 4, __zfsearch, __signed_stack_002search, __D0search
+12	36	74	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	36	74	#line 36 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	37	74		or __D0search, __signed_stack_001search, __zfsearch
+12	37	78	#line 37 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	38	78		tst 5, __zfsearch, __D0search
+12	37	81	#line 37 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	38	81		brtst 4, __NXC_Label_1433, __zfsearch
+12	37	84	#line 37 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	38	84		set __D0search, 35
+12	38	87	#line 38 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	39	87	#pragma macro 7
+12	39	87		setout rotateMotor, 2, __D0search, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+12	13662	110	#line 13662 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	38	110	#line 38 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	41	110	#line 41 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	41	110	#line 41 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+12	42	110		exit -1, -1
+13	74	0	#line 74 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	75	0		stopthread Track
+13	74	2	#line 74 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	75	2	#line 75 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	76	2		stopthread search
+13	75	4	#line 75 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	77	4	#line 77 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	78	4		subcall LoadRound, __LoadRound_return
+13	77	6	#line 77 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	78	6	#line 78 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	79	6		subcall Fire, __Fire_return
+13	78	8	#line 78 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	79	8	#line 79 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	80	8		start Track
+13	79	10	#line 79 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+13	80	10		exit -1, -1
+14	83	0	#line 83 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	84	0		set __FilterBlobs_7qG2_left_7qG2_000, 0
+14	83	3	#line 83 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	84	3	#line 84 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	85	3		set __FilterBlobs_7qG2_right_7qG2_000, 0
+14	84	6	#line 84 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	85	6	#line 85 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	86	6		set __FilterBlobs_7qG2_top_7qG2_000, 0
+14	85	9	#line 85 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	86	9	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	9		set __FilterBlobs_7qG2_bottom_7qG2_000, 0
+14	86	12	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	86	12	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	12		set __FilterBlobs_7qG2_i_7qG2_001, 0
+14	86	15	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	86	15	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	15		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	86	17	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	86	17	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	17		mov __D0FilterBlobs, __FilterBlobs_7qG2_nblobs_7qG2_000
+14	86	19	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	19		cmp 0, __zfFilterBlobs, __signed_stack_001FilterBlobs, __D0FilterBlobs
+14	86	23	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	23		mov __D0FilterBlobs, __zfFilterBlobs
+14	86	26	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	26		brtst 4, __NXC_Label_1484, __zfFilterBlobs
+14	86	29	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	29		jmp __NXC_Label_1485
+14	86	31	#line 86 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	31		add __FilterBlobs_7qG2_i_7qG2_001, __FilterBlobs_7qG2_i_7qG2_001, __constVal1
+14	87	35	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	88	35		jmp __NXC_Label_1483
+14	87	37	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	88	37		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	87	39	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	39	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	88	39		index __ArrHelper__FilterBlobs_73_0, __FilterBlobs_7qG2_bl_7qG2_000, __signed_stack_001FilterBlobs
+14	87	43	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	88	43		mov __signed_stack_001FilterBlobs, __ArrHelper__FilterBlobs_73_0
+14	87	45	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	87	45	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	88	45		mov __D0FilterBlobs, __FilterBlobs_7qG2_left_7qG2_000
+14	87	47	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	88	47		cmp 1, __zfFilterBlobs, __signed_stack_001FilterBlobs, __D0FilterBlobs
+14	87	51	#line 87 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	88	51		mov __D0FilterBlobs, __zfFilterBlobs
+14	88	54	#line 88 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	89	54		brtst 4, __NXC_Label_1495, __zfFilterBlobs
+14	88	57	#line 88 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	89	57		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	88	59	#line 88 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	88	59	#line 88 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	89	59		index __ArrHelper__FilterBlobs_73_0, __FilterBlobs_7qG2_bl_7qG2_000, __signed_stack_001FilterBlobs
+14	88	63	#line 88 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	89	63		mov __FilterBlobs_7qG2_left_7qG2_000, __ArrHelper__FilterBlobs_73_0
+14	89	65	#line 89 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	89	65	#line 89 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	90	65	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	90	65	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	91	65		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	90	67	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	90	67	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	91	67		index __ArrHelper__FilterBlobs_73_0, __FilterBlobs_7qG2_br_7qG2_000, __signed_stack_001FilterBlobs
+14	90	71	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	91	71		mov __signed_stack_001FilterBlobs, __ArrHelper__FilterBlobs_73_0
+14	90	73	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	90	73	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	91	73		mov __D0FilterBlobs, __FilterBlobs_7qG2_right_7qG2_000
+14	90	75	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	91	75		cmp 1, __zfFilterBlobs, __signed_stack_001FilterBlobs, __D0FilterBlobs
+14	90	79	#line 90 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	91	79		mov __D0FilterBlobs, __zfFilterBlobs
+14	91	82	#line 91 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	92	82		brtst 4, __NXC_Label_1504, __zfFilterBlobs
+14	91	85	#line 91 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	92	85		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	91	87	#line 91 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	91	87	#line 91 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	92	87		index __ArrHelper__FilterBlobs_73_0, __FilterBlobs_7qG2_br_7qG2_000, __signed_stack_001FilterBlobs
+14	91	91	#line 91 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	92	91		mov __FilterBlobs_7qG2_right_7qG2_000, __ArrHelper__FilterBlobs_73_0
+14	92	93	#line 92 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	92	93	#line 92 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	93	93	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	93	93	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	94	93		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	93	95	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	93	95	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	94	95		index __ArrHelper__FilterBlobs_73_0, __FilterBlobs_7qG2_bt_7qG2_000, __signed_stack_001FilterBlobs
+14	93	99	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	94	99		mov __signed_stack_001FilterBlobs, __ArrHelper__FilterBlobs_73_0
+14	93	101	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	93	101	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	94	101		mov __D0FilterBlobs, __FilterBlobs_7qG2_top_7qG2_000
+14	93	103	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	94	103		cmp 1, __zfFilterBlobs, __signed_stack_001FilterBlobs, __D0FilterBlobs
+14	93	107	#line 93 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	94	107		mov __D0FilterBlobs, __zfFilterBlobs
+14	94	110	#line 94 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	95	110		brtst 4, __NXC_Label_1513, __zfFilterBlobs
+14	94	113	#line 94 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	95	113		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	94	115	#line 94 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	94	115	#line 94 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	95	115		index __ArrHelper__FilterBlobs_73_0, __FilterBlobs_7qG2_bt_7qG2_000, __signed_stack_001FilterBlobs
+14	94	119	#line 94 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	95	119		mov __FilterBlobs_7qG2_top_7qG2_000, __ArrHelper__FilterBlobs_73_0
+14	95	121	#line 95 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	95	121	#line 95 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	96	121	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	96	121	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	97	121		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	96	123	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	96	123	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	97	123		index __ArrHelper__FilterBlobs_73_0, __FilterBlobs_7qG2_bb_7qG2_000, __signed_stack_001FilterBlobs
+14	96	127	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	97	127		mov __signed_stack_001FilterBlobs, __ArrHelper__FilterBlobs_73_0
+14	96	129	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	96	129	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	97	129		mov __D0FilterBlobs, __FilterBlobs_7qG2_bottom_7qG2_000
+14	96	131	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	97	131		cmp 1, __zfFilterBlobs, __signed_stack_001FilterBlobs, __D0FilterBlobs
+14	96	135	#line 96 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	97	135		mov __D0FilterBlobs, __zfFilterBlobs
+14	97	138	#line 97 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	98	138		brtst 4, __NXC_Label_1522, __zfFilterBlobs
+14	97	141	#line 97 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	98	141		mov __signed_stack_001FilterBlobs, __FilterBlobs_7qG2_i_7qG2_001
+14	97	143	#line 97 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	97	143	#line 97 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	98	143		index __ArrHelper__FilterBlobs_73_0, __FilterBlobs_7qG2_br_7qG2_000, __signed_stack_001FilterBlobs
+14	97	147	#line 97 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	98	147		mov __FilterBlobs_7qG2_bottom_7qG2_000, __ArrHelper__FilterBlobs_73_0
+14	98	149	#line 98 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	98	149	#line 98 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	100	149	#line 100 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	100	149	#line 100 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	101	149		jmp __NXC_Label_1486
+14	100	151	#line 100 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	101	151	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	102	151		mov __FilterBlobs_7qG2_leftOut_7qG2_000, __FilterBlobs_7qG2_left_7qG2_000
+14	101	153	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	101	153	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	101	153	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	102	153		mov __MakeBlob_7qG2_bl_7qG2_000, __FilterBlobs_7qG2_left_7qG2_000
+14	101	155	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	101	155	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	102	155		mov __MakeBlob_7qG2_br_7qG2_000, __FilterBlobs_7qG2_right_7qG2_000
+14	101	157	#line 101 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	102	157	#line 102 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	103	157		subcall MakeBlob, __MakeBlob_return
+14	102	159	#line 102 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	103	159		mov __D0FilterBlobs, __D0MakeBlob
+14	102	161	#line 102 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	103	161		subret __FilterBlobs_return
+14	102	163	#line 102 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	104	163	#line 104 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+14	105	163		subret __FilterBlobs_return
+15	105	0	#line 105 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	105	0	#line 105 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	106	0	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	106	0	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	107	0		sub __MakeBlob_7qG2_tempWidth_7qG2_000, __MakeBlob_7qG2_br_7qG2_000, __MakeBlob_7qG2_bl_7qG2_000
+15	106	4	#line 106 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	107	4	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	108	4		set __MakeBlob_7qG2_combined_7qG2_000, 0
+15	107	7	#line 107 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	108	7	#line 108 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	109	7		set __MakeBlob_7qG2_n_7qG2_000, 0
+15	108	10	#line 108 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	108	10	#line 108 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	109	10		mov __signed_stack_001MakeBlob, histLoc
+15	108	12	#line 108 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	109	12	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	110	12		mov __D0MakeBlob, __MakeBlob_7qG2_tempWidth_7qG2_000
+15	109	14	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	110	14		replace hist, hist, __signed_stack_001MakeBlob, __D0MakeBlob
+15	109	19	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	109	19	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	110	19		mov __signed_stack_001MakeBlob, histLoc
+15	109	21	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	109	21	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	110	21		set __D0MakeBlob, 19
+15	109	24	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	110	24		cmp 0, __zfMakeBlob, __signed_stack_001MakeBlob, __D0MakeBlob
+15	109	28	#line 109 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	110	28		mov __D0MakeBlob, __zfMakeBlob
+15	110	31	#line 110 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	111	31		brtst 4, __NXC_Label_1547, __zfMakeBlob
+15	111	34	#line 111 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	112	34		add histLoc, histLoc, __constVal1
+15	111	38	#line 111 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	113	38	#line 113 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	114	38		jmp __NXC_Label_1548
+15	114	40	#line 114 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	115	40		set histLoc, 0
+15	114	43	#line 114 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	114	43	#line 114 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	115	43	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	115	43	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	43		set __MakeBlob_7qG2_i_7qG2_001, 0
+15	115	46	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	115	46	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	46		mov __signed_stack_001MakeBlob, __MakeBlob_7qG2_i_7qG2_001
+15	115	48	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	115	48	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	48		set __D0MakeBlob, 9
+15	115	51	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	51		cmp 0, __zfMakeBlob, __signed_stack_001MakeBlob, __D0MakeBlob
+15	115	55	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	55		mov __D0MakeBlob, __zfMakeBlob
+15	115	58	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	58		brtst 4, __NXC_Label_1552, __zfMakeBlob
+15	115	61	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	61		jmp __NXC_Label_1553
+15	115	63	#line 115 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	63		add __MakeBlob_7qG2_i_7qG2_001, __MakeBlob_7qG2_i_7qG2_001, __constVal1
+15	116	67	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	117	67		jmp __NXC_Label_1551
+15	116	69	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	117	69		mov __signed_stack_001MakeBlob, __MakeBlob_7qG2_i_7qG2_001
+15	116	71	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	71	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	117	71		index __ArrHelper__MakeBlob_73_0, hist, __signed_stack_001MakeBlob
+15	116	75	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	117	75		mov __signed_stack_001MakeBlob, __ArrHelper__MakeBlob_73_0
+15	116	77	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	116	77	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	117	77		set __D0MakeBlob, 0
+15	116	80	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	117	80		cmp 5, __zfMakeBlob, __signed_stack_001MakeBlob, __D0MakeBlob
+15	116	84	#line 116 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	117	84		mov __D0MakeBlob, __zfMakeBlob
+15	117	87	#line 117 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	118	87		brtst 4, __NXC_Label_1563, __zfMakeBlob
+15	117	90	#line 117 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	118	90		mov __signed_stack_001MakeBlob, __MakeBlob_7qG2_i_7qG2_001
+15	117	92	#line 117 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	117	92	#line 117 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	118	92		index __ArrHelper__MakeBlob_73_0, hist, __signed_stack_001MakeBlob
+15	117	96	#line 117 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	118	96	#line 118 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	119	96		add __MakeBlob_7qG2_combined_7qG2_000, __MakeBlob_7qG2_combined_7qG2_000, __ArrHelper__MakeBlob_73_0
+15	118	100	#line 118 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	119	100	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	120	100		add __MakeBlob_7qG2_n_7qG2_000, __MakeBlob_7qG2_n_7qG2_000, __constVal1
+15	119	104	#line 119 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	121	104	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	121	104	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	122	104		jmp __NXC_Label_1554
+15	121	106	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	121	106	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	121	106	#line 121 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	122	106	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	122	106	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	123	106		div __MakeBlob_7qG2_avg_7qG2_000, __MakeBlob_7qG2_combined_7qG2_000, __MakeBlob_7qG2_n_7qG2_000
+15	122	110	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	122	110	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	123	110		mov __signed_stack_001MakeBlob, __MakeBlob_7qG2_tempWidth_7qG2_000
+15	122	112	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	122	112	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	122	112	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	122	112	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	122	112	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	123	112		mul __DF0MakeBlob, __MakeBlob_7qG2_avg_7qG2_000, diff
+15	122	116	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	123	116		cmp 1, __zfMakeBlob, __signed_stack_001MakeBlob, __DF0MakeBlob
+15	122	120	#line 122 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	123	120		mov __D0MakeBlob, __zfMakeBlob
+15	123	123	#line 123 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	124	123		brtst 4, __NXC_Label_1572, __zfMakeBlob
+15	124	126	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	125	126		set __D0MakeBlob, 0
+15	124	129	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	125	129		subret __MakeBlob_return
+15	124	131	#line 124 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	125	131	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	126	131		jmp __NXC_Label_1575
+15	125	133	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	126	133		mov __signed_stack_001MakeBlob, __MakeBlob_7qG2_tempWidth_7qG2_000
+15	125	135	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	125	135	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	125	135	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	125	135	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	125	135	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	126	135		mul __DF0MakeBlob, __MakeBlob_7qG2_avg_7qG2_000, __constValf0P1
+15	125	139	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	126	139		cmp 0, __zfMakeBlob, __signed_stack_001MakeBlob, __DF0MakeBlob
+15	125	143	#line 125 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	126	143		mov __D0MakeBlob, __zfMakeBlob
+15	126	146	#line 126 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	127	146		brtst 4, __NXC_Label_1582, __zfMakeBlob
+15	127	149	#line 127 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	128	149		set __D0MakeBlob, 0
+15	127	152	#line 127 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	128	152		subret __MakeBlob_return
+15	127	154	#line 127 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	129	154	#line 129 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	130	154		jmp __NXC_Label_1585
+15	130	156	#line 130 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	131	156		mov __D0MakeBlob, __MakeBlob_7qG2_tempWidth_7qG2_000
+15	130	158	#line 130 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	131	158		subret __MakeBlob_return
+15	130	160	#line 130 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	134	160	#line 134 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	134	160	#line 134 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	134	160	#line 134 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+15	135	160		subret __MakeBlob_return
+16	136	0	#line 136 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	137	0		arrinit __Track_7qG2_bc_7qG2_000, __constVal0, __constVal10
+16	137	4	#line 137 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	138	4		arrinit __Track_7qG2_bl_7qG2_000, __constVal0, __constVal10
+16	138	8	#line 138 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	139	8		arrinit __Track_7qG2_bt_7qG2_000, __constVal0, __constVal10
+16	139	12	#line 139 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	140	12		arrinit __Track_7qG2_br_7qG2_000, __constVal0, __constVal10
+16	140	16	#line 140 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	141	16		arrinit __Track_7qG2_bb_7qG2_000, __constVal0, __constVal10
+16	141	20	#line 141 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	142	20		set __Track_7qG2_width_7qG2_000, 0
+16	141	23	#line 141 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	143	23	#line 143 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	144	23		set __Track_7qG2_left_7qG2_000, 0
+16	143	26	#line 143 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	143	26	#line 143 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	144	26		set __D0Track, 1
+16	144	29	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	29		tst 5, __zfTrack, __D0Track
+16	144	32	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	32		brtst 4, __NXC_Label_1593, __zfTrack
+16	144	35	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	35		set __NXTCam_GetBlobs_7qG2_port_7qG2_000, 0
+16	144	38	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	144	38	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	38		set __NXTCam_GetBlobs_7qG2_camAddr_7qG2_000, 2
+16	144	41	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	144	41	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	41		mov __NXTCam_GetBlobs_7qG2_nblobs_7qG2_000, nblobs
+16	144	43	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	43		mov __NXTCam_GetBlobs_7qG2_color_7qG2_000, __Track_7qG2_bc_7qG2_000
+16	144	45	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	45		mov __NXTCam_GetBlobs_7qG2_left_7qG2_000, __Track_7qG2_bl_7qG2_000
+16	144	47	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	47		mov __NXTCam_GetBlobs_7qG2_top_7qG2_000, __Track_7qG2_bt_7qG2_000
+16	144	49	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	49		mov __NXTCam_GetBlobs_7qG2_right_7qG2_000, __Track_7qG2_br_7qG2_000
+16	144	51	#line 144 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	51		mov __NXTCam_GetBlobs_7qG2_bottom_7qG2_000, __Track_7qG2_bb_7qG2_000
+16	145	53	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	53		subcall NXTCam_GetBlobs, __NXTCam_GetBlobs_return
+16	145	55	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	55		mov nblobs, __NXTCam_GetBlobs_7qG2_nblobs_7qG2_000
+16	145	57	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	57		mov __Track_7qG2_bc_7qG2_000, __NXTCam_GetBlobs_7qG2_color_7qG2_000
+16	145	59	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	59		mov __Track_7qG2_bl_7qG2_000, __NXTCam_GetBlobs_7qG2_left_7qG2_000
+16	145	61	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	61		mov __Track_7qG2_bt_7qG2_000, __NXTCam_GetBlobs_7qG2_top_7qG2_000
+16	145	63	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	63		mov __Track_7qG2_br_7qG2_000, __NXTCam_GetBlobs_7qG2_right_7qG2_000
+16	145	65	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	65		mov __Track_7qG2_bb_7qG2_000, __NXTCam_GetBlobs_7qG2_bottom_7qG2_000
+16	145	67	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	67	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	67		mov __signed_stack_001Track, nblobs
+16	145	69	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	145	69	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	69		set __D0Track, 1
+16	145	72	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	72		cmp 3, __zfTrack, __signed_stack_001Track, __D0Track
+16	145	76	#line 145 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	76		mov __D0Track, __zfTrack
+16	146	79	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	147	79		brtst 4, __NXC_Label_1602, __zfTrack
+16	146	82	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	147	82		mov __FilterBlobs_7qG2_nblobs_7qG2_000, nblobs
+16	146	84	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	84	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	146	84	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	147	84		mov __FilterBlobs_7qG2_bl_7qG2_000, __Track_7qG2_bl_7qG2_000
+16	146	86	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	147	86		mov __FilterBlobs_7qG2_bt_7qG2_000, __Track_7qG2_bt_7qG2_000
+16	146	88	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	147	88		mov __FilterBlobs_7qG2_br_7qG2_000, __Track_7qG2_br_7qG2_000
+16	146	90	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	147	90		mov __FilterBlobs_7qG2_bb_7qG2_000, __Track_7qG2_bb_7qG2_000
+16	146	92	#line 146 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	147	92		mov __FilterBlobs_7qG2_leftOut_7qG2_000, __Track_7qG2_left_7qG2_000
+16	148	94	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	149	94		subcall FilterBlobs, __FilterBlobs_return
+16	148	96	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	149	96		mov __Track_7qG2_left_7qG2_000, __FilterBlobs_7qG2_leftOut_7qG2_000
+16	148	98	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	149	98		mov __Track_7qG2_width_7qG2_000, __D0FilterBlobs
+16	148	100	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	148	100	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	148	100	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	149	100		mov __signed_stack_001Track, __D0FilterBlobs
+16	148	102	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	148	102	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	149	102		set __D0Track, 0
+16	148	105	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	149	105		cmp 5, __zfTrack, __signed_stack_001Track, __D0Track
+16	148	109	#line 148 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	149	109		mov __D0Track, __zfTrack
+16	149	112	#line 149 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	150	112		brtst 4, __NXC_Label_1609, __zfTrack
+16	150	115	#line 150 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	151	115		stopthread search
+16	150	117	#line 150 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	152	117	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	153	117	#pragma macro 7
+16	153	117		setout rotateMotor, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+16	14713	140	#line 14713 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	152	140	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	152	140	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	152	140	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	152	140	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	152	140	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	153	140		div __signed_stack_001Track, __Track_7qG2_width_7qG2_000, __constVal2
+16	152	144	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	152	144	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	153	144		set __D0Track, 72
+16	152	147	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	153	147		cmp 0, __zfTrack, __signed_stack_001Track, __D0Track
+16	152	151	#line 152 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	153	151		mov __D0Track, __zfTrack
+16	153	154	#line 153 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	154	154		brtst 4, __NXC_Label_1616, __zfTrack
+16	154	157	#line 154 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	155	157	#pragma macro 7
+16	155	157		setout rotateMotor, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+16	14738	180	#line 14738 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	154	180	#line 154 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	154	180	#line 154 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	155	180		set __D0Track, 30
+16	155	183	#line 155 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	156	183	#pragma macro 10
+16	156	183		acquire __OnRevMutex
+16	156	184		neg __OnRev_Tmp, __D0Track
+16	156	187		setout rotateMotor, 2, __OnRev_Tmp, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+16	156	210		release __OnRevMutex
+16	14745	211	#line 14745 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	155	211	#line 155 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	156	211	#line 156 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	157	211		set turn, 1
+16	156	214	#line 156 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	156	214	#line 156 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	157	214	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	158	214		jmp __NXC_Label_1621
+16	157	216	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	157	216	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	157	216	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	157	216	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	158	216		div __signed_stack_001Track, __Track_7qG2_width_7qG2_000, __constVal2
+16	157	220	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	157	220	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	158	220		set __D0Track, 72
+16	157	223	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	158	223		cmp 1, __zfTrack, __signed_stack_001Track, __D0Track
+16	157	227	#line 157 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	158	227		mov __D0Track, __zfTrack
+16	158	230	#line 158 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	159	230		brtst 4, __NXC_Label_1628, __zfTrack
+16	159	233	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	160	233	#pragma macro 7
+16	160	233		setout rotateMotor, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+16	14780	256	#line 14780 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	159	256	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	159	256	#line 159 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	160	256		set __D0Track, 30
+16	160	259	#line 160 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	161	259	#pragma macro 7
+16	161	259		setout rotateMotor, 2, __D0Track, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+16	14787	282	#line 14787 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	160	282	#line 160 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	161	282	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	162	282		set turn, 2
+16	161	285	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	161	285	#line 161 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	163	285	#line 163 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	164	285		jmp __NXC_Label_1633
+16	164	287	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	165	287	#pragma macro 7
+16	165	287		setout rotateMotor, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+16	14800	310	#line 14800 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	164	310	#line 164 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	165	310	#line 165 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	166	310		start shoot
+16	165	312	#line 165 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	167	312	#line 167 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	167	312	#line 167 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	168	312	#line 168 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	169	312	#line 169 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	170	312		jmp __NXC_Label_1634
+16	170	314	#line 170 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	171	314	#pragma macro 7
+16	171	314		setout rotateMotor, 2, __constVal0, 1, __constVal3, 8, __constVal0, 6, __constVal32, 7, __constVal0, 5, __constVal0, 10, __constVal96, 11, __constVal32, 12, __constVal32, 0, __constVal63
+16	14815	337	#line 14815 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	170	337	#line 170 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	171	337	#line 171 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	172	337		start search
+16	171	339	#line 171 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	173	339	#line 173 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	175	339	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	176	339		jmp __NXC_Label_1592
+16	175	341	#line 175 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+16	176	341		exit -1, -1
+17	176	0	#line 176 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+17	177	0		arrinit hist, __constVal0, __constVal20
+17	176	4	#line 176 "C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc"
+17	177	4		subret ____initialize_global_data_return
+#CLUMPS
+Clump	Name	Offset	File
+0	main	0	C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc
+1	__RotateMotor6	122	NXTDefs.h
+2	__RotateMotorVar	276	NXTDefs.h
+3	__ResetSensorSubroutine	320	NXTDefs.h
+4	__ReadLSBytesVar	333	NXTDefs.h
+5	i2cReadString	432	C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc
+6	NXTCam_Flush	537	C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc
+7	NXTCam_SendCommand	677	C:\Users\simme\Google Drev\P5\Project\Turret101\.\.\nxtcamlib-common.nxc
+8	NXTCam_Init	800	C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc
+9	NXTCam_GetBlobs	1322	C:\Users\simme\Google Drev\P5\Project\Turret101\.\nxtcamlib-default.nxc
+10	LoadRound	1971	C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc
+11	Fire	2009	C:\Users\simme\Google Drev\P5\Project\Turret101\.\TurretLib.nxc
+12	search	2047	C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc
+13	shoot	2160	C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc
+14	FilterBlobs	2173	C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc
+15	MakeBlob	2338	C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc
+16	Track	2500	C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc
+17	__initialize_global_data	2844	C:\Users\simme\Google Drev\P5\Project\Turret101\Prog3.nxc
