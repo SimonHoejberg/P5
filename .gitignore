@@ -3,3 +3,13 @@
 *.log
 build/tmp
 *.project
+
+#Latex build files
+*.aux
+*.log
+*.out
+*.thm
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
