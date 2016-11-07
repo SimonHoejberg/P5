@@ -1,10 +1,10 @@
 \section{Intelligent Agents}
  
-As \name is an autonomous turret and needs to be able to hit a moving target,
-it needs to have some intelligence in order to determine how best to hit the
-target. The turret can be considered intelligent \citep[ch.1.1]{MIBook} when its
-decisions are explainable by computations while its intelligence can be judged
-by:
+As \namep is an autonomous turret and needs to be able to hit a moving target,
+it needs to have some intelligence in order to determine how to position itself
+to hit the target. The turret can be considered intelligent
+\citep[ch.1.1]{MIBook} when its decisions are explainable by computations and
+its intelligence can be judged by:
 
 \begin{enumerate}
   \item If what it does is appropriate to its circumstances and goals.
@@ -22,8 +22,8 @@ a suitable way that allows it to work it into a suitable solution.
 %See MI book chapter 1.4 p.12
 
 As \name is a turret it needs to be able to convert the problem of hitting a
-moving target into a suitable representation. The representation can then be
-computed into a suitable output.The output can then be interpreted as
+moving target into a suitable representation. This representation can then be
+computed into a suitable output which in turn can be interpreted as
 a solution, presumably whether or not the target is hit. This can be seen in
 \autoref{MIRep}.
 
@@ -33,10 +33,10 @@ a solution, presumably whether or not the target is hit. This can be seen in
 The representation is a piece of specific knowledge from the representation
 scheme. The representation scheme is used to make sure the individual
 representations are detailed and close to the problem, such that the necessary
-knowledge can be used to solve the problem \citep{MIBook}. Some examples of the
-knowledge that \name should have is: Knowledge of the targets speed and
-direction and knowledge of what direction it is facing. This knowledge, along
-with more, should be used in a way that makes it possible to compute an output.
+knowledge can be used to solve said problem \citep{MIBook}. Some examples of the
+knowledge that \name could have is: the targets speed, its direction and
+knowledge of where the turret itself is pointing. This knowledge, along with
+more, should be used in a way that makes it possible to compute an output.
 Whether this output is a solution or not, depends on what a sufficient solution
 is. Generally there are 4 different categories of solutions:
 
@@ -50,7 +50,7 @@ is. Generally there are 4 different categories of solutions:
   but is not guaranteed to be.
 \end{itemize}
 
-As \name is shooting on a moving target. The solution needs to be reliably able
+As \name is shooting on a moving target. The solution needs to reliably be able
 to hit the target, but as it is a real-time system there are certain limits to
 how much time can be spent searching and waiting for the optimal shot.
 
@@ -71,7 +71,7 @@ Hierachical means that the modules can recursively have additional modules
 inside them. \name as an autonomous turret needs to have several functions, for
 example it needs to be able to turn, aim and determine the position of a target.
 This means that \name should be somewhat modular due to the fact that it has
-different tasks, that can each be considred a module of its own.
+different tasks, that can each be considred modules of their own.
 
 \subsubsection{Representation Scheme}
 As mentioned in \autoref{KR} the representation scheme is used to house the
