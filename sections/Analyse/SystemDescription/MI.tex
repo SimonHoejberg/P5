@@ -42,13 +42,15 @@ on what a sufficient solution is. Generally there are 4 different categories of
 solutions:
 
 \begin{itemize}
-  \item \textbf{Optimal solution} - The best possible solution to the problem.
-  \item \textbf{Satisficing solution} - A solution that is both satisfying and
-  sufficient.
-  \item \textbf{Approximately optimal solution} - A solution that is close to
-  the optimal solution.
+  \item \textbf{Optimal solution} - A solution which has been deemed optimal
+  through some measurement of quality.
+  \item \textbf{Satisficing solution} - A solution that is both deemed
+  satisfying by the end user and sufficient in terms of overall requirements. 
+  \item \textbf{Approximately optimal solution} - A solution that is close in
+  quality to the optimal solution. While not being perfect, this solution is
+  deemed to be sufficient.
   \item \textbf{Probable solution} - A solution that is likely to be a solution
-  but is not guaranteed to be.
+  but is not always guaranteed to be.
 \end{itemize}
 
 As \name is shooting on a moving target. The solution needs to reliably be able
@@ -79,8 +81,8 @@ As mentioned in \autoref{KR} the representation scheme is used to house the
 various knowledge the agent could need to perform. This knowledge is usually
 represented in terms of states. A state is a specific combination of
 the knowledge. For example a turret with the ability to turn 180 degrees and
-tilt its cannon 45 degrees would have $180 * 45$ states, a specific state
-would have the turret turned 90 degrees and the cannon tilted at an angle of 42
+tilt its cannon 45 degrees would have $180 * 45$ states. As an example, a
+specific state would have the turret turned 90 degrees and the cannon tilted at an angle of 42
 degrees. This leads to alot of different states as the amount of possible values
 increases. Instead of reasoning using states it is possible to combine the
 relevant values into features. This means that the state is determined by the
