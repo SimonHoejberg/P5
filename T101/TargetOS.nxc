@@ -1,0 +1,13 @@
+task fullAhead();
+
+task main(){
+     Precedes(fullAhead);
+}
+
+task fullAhead(){
+     byte motors[2] = {OUT_A, OUT_B};
+     while(true){
+                 OnFwdSync(OUT_AB, 100, 100);
+     }
+
+}
