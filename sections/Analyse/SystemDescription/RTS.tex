@@ -1,7 +1,11 @@
 \section{Real-Time Systems}
-In order to have a proper foundation of the core concepts in the field of
-real-time systems, we will give our own definition of what a real-time systems
-is:
+Although the project group does not have any members following the Real-Time
+Systems (RTS) course, the project still incorporates certain elements from RTS.
+As such, this section will provide a quick overview of the elements which will
+be used in relation to the project.
+In order to have a proper foundation for the core concepts in the field of
+real-time systems, we will give our own definition of what we percieve real-time
+systems to be:
 
 \begin{center}
 \begin{minipage}{0.8\linewidth}
@@ -11,45 +15,81 @@ its deadlines.}
 \end{minipage}
 \end{center}
 
-% Although the project group does not have any members following the Real-Time
-% Systems (RTS) course, the project still incorporates certain elements from RTS.
-% In this section a quick overview of the elements will be described in order to provide a basic
-% understanding in relation to the project.
+For this project we consider a real-time system to be categorized by looking at
+four different elements: timeliness,, deadlines, tasks and scheduling. As such,
+these will be further explained throughout this section.
 
 \subsection{Timeliness}
-Timeliness 
+% Timeliness is defined as being a function of the total system, for example a
+% missile guidance system requires the input data within a few milliseconds. This
+% means that for all real time systems the concept of timeliness is relative to
+% the project - which makes sense since the only thing to care about is whether
+% or not the deadlines are met \Source.
 
-Timeliness is defined as being a function of the total system, for example a
-missile guidance system requires the input data within a few milliseconds. This
-means that for all real time systems the concept of timeliness is relative to
-the project - which makes sense since the only thing to care about is whether
-or not the deadlines are met \Source.
+In the context of real-time systems in this project, timeliness should be
+understood as an operation being able to complete it tasks ahead of the deadline. As such the
+degree of timeliness depends on the deadlines in a given system, for example a
+missile guidance system could require its input data within a few milliseconds.
+This means that for any given real time systems the concept of timeliness is
+relative to its functionality - which makes sense since we always care about
+whether or not the deadlines are met.
+
 
 \subsection{Deadlines}
-As mentioned in the definition, real time systems are concerned about
-deadlines in a system. The real time system gets classified depending on the
+% As mentioned in our RTS definition, real time systems are concerned about
+% deadlines in a system. The real time system gets classified depending on the
+% consequences of not meeting a deadline. If the result of a failed deadline is
+% catastrophic, the system gets classified as a hard real time system - examples
+% of such are control systems for airplanes, nuclear power plants, etc \Source.
+% If an occasional deadline is missed, or the system doesn't shut down if a
+% deadline is missed, it might be a soft real time system, for example
+% video-conferencing software the result of a missed deadline might be dropped
+% frames but nothing critical \Source.
+
+As mentioned in our RTS definition, real time systems are concerned about
+deadlines in a system. As such, we can classify these systems depending on the
 consequences of not meeting a deadline. If the result of a failed deadline is
-catastrophic, the system gets classified as a hard real time system - examples
-of such are control systems for airplanes, nuclear power plants, etc \Source.
-If an occasional deadline is missed, or the system doesn't shut down if a
-deadline is missed, it might be a soft real time system, for example
-video-conferencing software the result of a missed deadline might be dropped
-frames but nothing critical \Source.
+catastrophic, we choose to classify such a system as a 'hard' real time
+system. These could for example include things such as control system for
+airplanes or nuclear power plants where it is vitally important that the
+system can react in a timely fashion. If an occasional deadline can be safely
+missed, or the system doesn't shut down if a deadline is missed, we choose to
+classify it as a 'soft' real time system. These systems could for example be 
+video-conferencing software where the result of a missed deadline could be
+dropped frames but nothing critical which would prevent the operation of the
+system.
+
 
 \subsection{Tasks}
-A task is a subset of the program. For example a task in the ABS-brake system
-could be ReadVelocity(). In order to construct a schedule first the time to
-process all the different tasks is needed. This provides a overview of all the
-different tasks needed to complete the function and their respective runtime
-\Source.
+For the purpose of this project, we consider a task to be a subset of a given
+program which can be executed on a thread. For example a task in an ABS-brake
+system could be to use a method named ReadVelocity() to determine the speed of
+the vehicle. In order to construct a schedule for a given system, the time to
+process the different tasks is needed. By having this overview of
+all the different tasks and their needed execution time, it is possible to
+accurately schedule a given program.
+
+% We consider a task to be a subset of a given program. For example a task in an
+% ABS-brake system could be ReadVelocity(). In order to construct a schedule first the time to
+% process all the different tasks is needed. This provides a overview of all the
+% different tasks needed to complete the function and their respective runtime
+% \Source.
 
 \subsection{Scheduling}
-To ensure that the deadlines \textbf{always} are met, scheduling is needed.
-By explicitly stating a schedule for the system to follow, a scheduling analysis
-can be conducted in order to ensure that the schedule does in fact always hold
-true and no deadlines are missed \Source. Scheduling is one of the
-fundamental concepts of RTS. But for scheduling to work, knowledge is needed
-about how long tasks take to finish \Source. 
+To ensure that the deadlines of the different tasks are \textbf{always} met,
+scheduling is needed to organize their execution. By explicitly stating a
+schedule for the system to follow, a scheduling analysis can be conducted in
+order to ensure that the schedule does in fact always hold true and no deadlines
+are missed \Source. Scheduling is one of the fundamental concepts of RTS, but
+for scheduling to work, knowledge is needed about how long tasks take to finish
+\Source.
+
+% To ensure that the deadlines \textbf{always} are met, scheduling is needed.
+% By explicitly stating a schedule for the system to follow, a scheduling analysis
+% can be conducted in order to ensure that the schedule does in fact always hold
+% true and no deadlines are missed \Source. Scheduling is one of the
+% fundamental concepts of RTS. But for scheduling to work, knowledge is needed
+% about how long tasks take to finish \Source. 
 
 
 % \subsection{An example}
