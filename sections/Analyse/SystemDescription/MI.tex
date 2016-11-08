@@ -229,15 +229,16 @@ when to shoot, it will have to determine the best course of action at the
 moment instead of spending a lot of time computing the best solution.
 
 \subsection{Belief Network}
-A belief network is an acyclic directed graph consisting of random variables and
-a set of conditional probalility distributions. This an be used to model a
-dynamic system by treating a feature at a given time as a random variable, which
-is the idea behind Markov chains. A markov chain is a special belief network
-that represents sequences of values.
-In a markov chain at state $S_t$ the future is conditionally independent from
-the past given the present. This gives that if the transition probabilities are
-the same for each time point. To specify a Markov chain two conditional
-probabilities must be specified:
+Since the agent can only partially observe the states it will need to be able to
+reason under uncertainty. A belief network is a way to do this. It is an acyclic
+directed graph consisting of random variables and a set of conditional
+probalility distributions. This an be used to model a dynamic system by
+treating a feature at a given time as a random variable, which is the idea
+behind Markov chains. A markov chain is a special belief network that
+represents sequences of values. In a markov chain at state $S_t$ the future is
+conditionally independent from the past given the present. This gives that if
+the transition probabilities are the same for each time point. To specify a
+Markov chain two conditional probabilities must be specified:
 \begin{itemize}
   \item $p(S_0)$ - species the initial condition
   \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t

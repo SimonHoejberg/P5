@@ -1,28 +1,20 @@
 \chapter{Problem Statement}
 
-
 Throughout the analysis several observations and conclusions were made in
-regards to the design and future implementation of the autonomous turret. In
-\autoref{ProblemDomain} it was stated that based on the turrets ideal scenario,
-it would need to implement a feature that would allow it to sense its
-surroundings. Due to this, it was chosen in \autoref{SensorChoice} that the
+regards to the design and future implementation of the autonomous turret. 
+
+In \autoref{ProblemDomain} it was stated that based on the turrets ideal
+scenario, it would need a feature that would allow it to sense its
+surroundings. Due to this, it was decided in \autoref{SensorChoice} that the
 turret would make use of two sensor types: a camera for tracking, and an
 ultrasonic sensor for determining the distance to the target.\nl
 
-
-% prob needs to be rewritten as to take the conclusion of system description
-% more into account
-In relation to the constraints imposed by the hardware limitations of
-embedded systems, it was determined in \autoref{EmbConc} that the turret should
-be:
-\begin{itemize}
-  \item Single-functioned - It should be constructed with the singular purpose
-  of hitting a target in motion.
-  \item Tightly-constrained - The system should be designed to adhere to the
-  imposed hardware limitations.
-  \item Reactive - The turrets functions should wait for when the sensory input
-  dictates that it should react, e.g. shooting a target that moves into range. 
-\end{itemize}\nl
+The system is an embedded system which means that it is constrained due to
+hardware limitations, and that it should be constructed for a single purpose,
+in this case: hitting a moving target. The system also needs to be an
+intelligent agent, which is only able to partially observe the states. This
+results in the need to use a belief network to predict the likelyhood of
+possible outcomes.
 
 In regards to hitting a target in motion, \autoref{ProjPhys} was used to
 clarify the necessary theory for the project. This information is used to
@@ -30,18 +22,16 @@ establish a formula for predicting where and when a projectile will hit. This
 formula was tested in \autoref{AppendixDistTest} and can be used by the turret
 during its operation.\nl
 
-%Are these the reasons behind our choice?
-In \autoref{PlatformC} it was chosen that the Lego NXT placform would be the
-better choice for this project. This choice was based on the following
-conclusions:
+In \autoref{PlatformC} the Arduino and NXT were compared, and Lego NXT
+platform was chosen as the prefered choice for this project. This choice was
+based on the following conclusions:
 \begin{itemize}
   \item Constructing a physical prototype is easily done using Lego.
   \item The cost of the platform/sensors is irrelevant, as all parts are
   supplied by the university.
   \item As the modules are specifically made for the platform, more time can be
   spent on developing the software.
-\end{itemize}\nl
-
+\end{itemize}
 
 Based on these conclusions, we can establish the following
 problem statement:
@@ -53,6 +43,4 @@ such that it is capable of hitting a moving target.}
 \end{minipage}
 \end{center}
 
-
 Based on this problem statement a number of refined requirements have been made.
-These can be found below in \autoref{FeatAndReq}. 
