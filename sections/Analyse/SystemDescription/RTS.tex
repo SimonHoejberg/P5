@@ -16,7 +16,7 @@ its deadlines.}
 \end{center}
 
 For this project we consider a real-time system to be categorized by looking at
-four different elements: timeliness,, deadlines, tasks and scheduling. As such,
+four different elements: timeliness, deadlines, tasks and scheduling. As such,
 these will be further explained throughout this section.
 
 \subsection{Timeliness}
@@ -26,9 +26,9 @@ these will be further explained throughout this section.
 % the project - which makes sense since the only thing to care about is whether
 % or not the deadlines are met \Source.
 
-In the context of real-time systems in this project, timeliness should be
-understood as an operation being able to complete it tasks ahead of the deadline. As such the
-degree of timeliness depends on the deadlines in a given system, for example a
+In the context of real-time systems in this project, \fix{timeliness}{what is
+timeliness \Source} should be understood as an operation being able to complete
+it tasks ahead of the deadline. As such the degree of timeliness depends on the deadlines in a given system, for example a
 missile guidance system could require its input data within a few milliseconds.
 This means that for any given real time systems the concept of timeliness is
 relative to its functionality - which makes sense since we always care about
@@ -47,8 +47,8 @@ whether or not the deadlines are met.
 % frames but nothing critical \Source.
 
 As mentioned in our RTS definition, real time systems are concerned about
-deadlines in a system. As such, we can classify these systems depending on the
-consequences of not meeting a deadline. If the result of a failed deadline is
+\fix{deadlines}{what is a deadline} in a system. As such, we can classify these
+systems depending on the consequences of not meeting a deadline. If the result of a failed deadline is
 catastrophic, we choose to classify such a system as a 'hard' real time
 system. These could for example include things such as control system for
 airplanes or nuclear power plants where it is vitally important that the
@@ -61,9 +61,9 @@ system.
 
 
 \subsection{Tasks}
-For the purpose of this project, we consider a task to be a subset of a given
-program which can be executed on a thread. For example a task in an ABS-brake
-system could be to use a method named ReadVelocity() to determine the speed of
+\fix{For the purpose of this project, we consider a task to be a subset of a
+given program which can be executed on a thread}{What about task in general}.
+For example a task in an ABS-brake system could be to use a method named ReadVelocity() to determine the speed of
 the vehicle. In order to construct a schedule for a given system, the time to
 process the different tasks is needed. By having this overview of
 all the different tasks and their needed execution time, it is possible to
