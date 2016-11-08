@@ -1,0 +1,48 @@
+#include "TurretLib.nxc"
+#include "nxtcamlib-default.nxc"
+#define CAMADDR 0x02
+task search();
+
+task main(){
+  int init = NXTCam_Init(camPort, CAMADDR);
+  NXTCam_SendCommand(camPort, CAMADDR, 'A');
+  NXTCam_SendCommand(camPort, CAMADDR, 'E');
+  start search;
+}
+task TurnLeft(){
+  while(true){
+    ClearScreen();
+    TextOut(0,0,"left" );
+    OnFwd(rotateMotor, 60);
+  }
+}
+
+task TurnRight(){
+  while(true){
+    ClearScreen();
+    TextOut(0,0,"right" );
+    OnRev(rotateMotor, 60);
+
+  }
+}
+
+task search(){
+  int bt[10];
+  int bl[10];
+  int bc[10];
+  int bb[10];
+  int br[10];
+  int nblobs;
+  int blobWidth = 0;
+  
+  while(true){
+    NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
+    if(nblobs > 0){
+      int center = (bl[0] + br[0])/2;
+      OnRev(rotateMotor, GetSpeed(center));
+    }
+    else{
+      Off(rotateMotor);
+    }
+  }
+}

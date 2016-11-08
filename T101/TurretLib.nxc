@@ -4,6 +4,7 @@ const byte sensorRight = S2;
 const byte angleMotor = OUT_C;
 const byte rotateMotor = OUT_A;
 const byte fireMotor = OUT_B;
+const int camCenter = 72;
 
 
 void Left(int power, int angle){
@@ -46,4 +47,13 @@ int CheckLength(int right, int left){
   else{
     return 3;
   }
+}
+
+int GetSpeed(int bcenter){
+  int length;
+  length = bcenter - camCenter;
+  
+  return length * 0.6;
+  
+  
 }
