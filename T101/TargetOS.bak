@@ -8,13 +8,13 @@ task fullAhead(){
      int power = 50;
      while(true){
         if(ButtonPressed(BTNLEFT, false) && power != 0) {
-            Wait(250);
+            Wait(25);
             power -= 25;
             ClearLine(LCD_LINE1);
             NumOut(0, LCD_LINE1, power);
         }
         else if(ButtonPressed(BTNRIGHT, false) && power != 100){
-            Wait(250);
+            Wait(25);
             power += 25;
             ClearLine(LCD_LINE1);
             NumOut(0, LCD_LINE1, power);
