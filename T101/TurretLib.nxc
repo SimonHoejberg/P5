@@ -36,16 +36,34 @@ int GetAngle(int distance){
 
 int CheckLength(int right, int left){
   if(right == left && right != 255){
-    return 0;
+    return right;
   }
-  else if(right == 255){
-    return 1;
+  else if(right == 255 && left != 255){
+    return left;
   }
-  else if(left == 255){
-    return 0;
+  else if(left == 255 && right != 255){
+    return right;
   }
   else{
-    return 3;
+    return -1;
+  }
+}
+
+float GetFactorFromLength(){
+  WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+  int right = SensorUS(sensorRight);
+  WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+  WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+  int left = SensorUS(sensorLeft);
+  WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+  int res = CheckLength(right, left);
+  if(res < 0){
+    return 0.6;
+  }
+  else{
+    return res * (-1/254) + 0.9999999999;
   }
 }
 

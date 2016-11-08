@@ -7,6 +7,8 @@ task main(){
   int init = NXTCam_Init(camPort, CAMADDR);
   NXTCam_SendCommand(camPort, CAMADDR, 'A');
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
+  SetSensorUltrasonic(sensorLeft);
+  SetSensorUltrasonic(sensorRight);
   start search;
 }
 task TurnLeft(){
@@ -40,6 +42,7 @@ task search(){
     if(nblobs > 0){
       int center = (bl[0] + br[0])/2;
       OnFwd(rotateMotor, GetSpeed(center));
+
     }
     else{
       Off(rotateMotor);

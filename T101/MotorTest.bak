@@ -1,4 +1,0 @@
-task main(){
-  RotateMotor(OUT_A, 50, -5);
-
-}

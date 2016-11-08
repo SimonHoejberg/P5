@@ -1,4 +1,0 @@
-task main(){
-    OnFwd(OUT_A,20);
-    while(true){}
-}
