@@ -4,34 +4,42 @@ Throughout this chapter the basic concepts of each aspect of the system have
 been explained. As such, this section will be used to conclude on how these
 different aspects can be used in relation to the \name system.
 
-% Now that the basic concepts of each aspect of the system have been explained, a summary will now be concluded in
-% relation to the project.
+% Now hat the basic concepts of each aspect of the system have been explained,
+% a summary will now be concluded in relation to the project.
 \begin{itemize}
   \item The constraints for this semester requires the developed product to be
   an embedded system, which implies that we need to take into consideration
   the hardware contraints imposed by the used platform. This requirement is
   fulfilled by using a hardware platform such as Arduino or Lego NXT, since the
   platforms are restricted on the basis of computing power, size and memory.
+  \item In order for the system to behave intelligently it needs a model with
+  with the ability to store enough knowledge to solve the problem. The design of
+  the agent can be divided into 8 categories, which affect the overall purpose
+  of the system. Finally the system makes use of a hidden markov model in order
+  to predict the future based on observations.
   \item The four different elements of real-time systems can be used to form a
   basis for consideration when developing the system. In relation to this
   project it will be especially important to consider how timeliness and
   deadlines interact in order to make sure that the turret is capable of
   computing all the input data in a timely fashion such that it is able to hit a
   moving target.
-  \item 
-\end{itemize}
+\end{itemize}  
 
-\subsubsection{Machine Intelligence}
+With the system analysed, it is now possible to analyse how we can ensure that
+the turret will actually hit the target.
 
-\subsection{Conclusion}
-\fix{}{conclusion inside of conclusion}
-Relative to an embedded system, the turret will be
-\begin{itemize}
-  \item Single-functioned - Our turret will be constructed with its only purpose of hitting a target in motion
-  \item Tightly-constrained - When working on a hardware platform, the platform imposes constraints in the form of
-  size, cost(production and design), power and memory. The system would also have to adhere to these constraints since it
-  needs to be implemented on a hardware platform
-  \item Reactive - The turret senses an area and if a certain input is received it will react on it and try to fire a projectile
-  in order to hit a target. Hence the system is reactionary
-\end{itemize}
-% In terms of RTS
+
+% \subsubsection{Machine Intelligence}
+% 
+% \subsection{Conclusion}
+% \fix{}{conclusion inside of conclusion}
+% Relative to an embedded system, the turret will be
+% \begin{itemize}
+%   \item Single-functioned - Our turret will be constructed with its only purpose of hitting a target in motion
+%   \item Tightly-constrained - When working on a hardware platform, the platform imposes constraints in the form of
+%   size, cost(production and design), power and memory. The system would also have to adhere to these constraints since it
+%   needs to be implemented on a hardware platform
+%   \item Reactive - The turret senses an area and if a certain input is received it will react on it and try to fire a projectile
+%   in order to hit a target. Hence the system is reactionary
+% \end{itemize}
+% % In terms of RTS
