@@ -1,6 +1,9 @@
 #include "TurretLib.nxc"
 #include "nxtcamlib-default.nxc"
 #define CAMADDR 0x02
+#define NAME "Data.txt"
+int SIZE  = 20;
+
 task search();
 
 task main(){
@@ -9,6 +12,10 @@ task main(){
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
   SetSensorUltrasonic(sensorLeft);
   SetSensorUltrasonic(sensorRight);
+  unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
+   if (rtn_code == LDR_FILEEXISTS)
+      rtn_code = OpenFileAppend(NAME, SIZE, handle);
+      
   start search;
 }
 task TurnLeft(){
@@ -39,6 +46,9 @@ task search(){
   
   while(true){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
+    if(ButtonPressed(BTNCENTER,false)){
+        CloseFile(handle);
+    }
     if(nblobs > 0){
       int center = (bl[0] + br[0])/2;
       OnFwd(rotateMotor, GetSpeed(center));

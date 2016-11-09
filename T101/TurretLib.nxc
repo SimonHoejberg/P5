@@ -5,6 +5,7 @@ const byte angleMotor = OUT_C;
 const byte rotateMotor = OUT_A;
 const byte fireMotor = OUT_B;
 const int camCenter = 72;
+byte handle = 0; // file handle
 
 
 void Left(int power, int angle){
@@ -70,8 +71,13 @@ float GetFactorFromLength(){
 int GetSpeed(int bcenter){
   int length;
   length = bcenter - camCenter;
+  float factor = 0.6;
+  if(length < 0){
+    factor = 1;
+  }
   
-  return length * 0.6;
+  Write(handle,"hej");
+  return length * factor;
   
   
 }
