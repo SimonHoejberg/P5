@@ -1,0 +1,45 @@
+struct PosData {
+   int dataID;
+   int xPos;
+   int yPos;
+   int timeStamp;
+   int angle;
+};
+
+struct ResData {
+   int horizontalAngle;
+   int verticalAngle;
+   int timeStamp;
+   int fireingDeadline;
+};
+
+struct directionVector {
+   float speedX;
+   float speedY;
+};
+
+task main(){
+
+}
+
+directionVector calcDirVector(PosData data1, PosData data2){
+   directionVector dirVec;
+   xDist = data2.speedX - data1.speedX;
+   yDist = data2.speedY - data1.speedY;
+   tDiff = data2.timeStamp - data1.timeStamp;
+   if(tDiff < 0){
+       tDiff = (64000 - data1.timeStamp) + data2.timeStamp
+   }
+   
+   dirVec.speedX = xDist / tDiff;
+   dirVec.speedY = yDist / tDiff;
+   
+   return dirVec;
+}
+
+
+/*ResData calcFuturePos(PosData dataSet[]){
+
+}   */
+
+
