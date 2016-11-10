@@ -1,7 +1,7 @@
 #include "TurretLib.nxc"
 #include "nxtcamlib-default.nxc"
 #define CAMADDR 0x02
-#define NAME "Data.txt"
+#define NAME "Data.dat"
 int SIZE  = 20;
 
 task search();
