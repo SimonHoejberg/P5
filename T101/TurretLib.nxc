@@ -75,9 +75,6 @@ int GetSpeed(int bcenter){
   if(length < 0){
     factor = 1;
   }
-  string input = NumToStr(length);
-  input += "\n";
-  Write(handle, input);
   return length * factor;
   
   

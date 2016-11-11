@@ -50,8 +50,10 @@ task search(){
         CloseFile(handle);
     }
     if(nblobs > 0){
+        string input = "left " + NumToStr(bl[0])+ ", right "+ NumToStr(br[0])+"\n";
+        Write(handle, input);
       int center = (bl[0] + br[0])/2;
-      OnFwd(rotateMotor, GetSpeed(center));
+     // OnFwd(rotateMotor, GetSpeed(center));
 
     }
     else{
