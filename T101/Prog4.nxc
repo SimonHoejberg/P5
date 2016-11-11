@@ -2,13 +2,13 @@
 #include "nxtcamlib-default.nxc"
 #define CAMADDR 0x02
 #define NAME "Data.dat"
-int SIZE  = 20;
-
+int SIZE  = 1024;
+bool first = true;
 task search();
 
 task main(){
   int init = NXTCam_Init(camPort, CAMADDR);
-  NXTCam_SendCommand(camPort, CAMADDR, 'A');
+  //NXTCam_SendCommand(camPort, CAMADDR, 'A');
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
   SetSensorUltrasonic(sensorLeft);
   SetSensorUltrasonic(sensorRight);
@@ -16,7 +16,7 @@ task main(){
    if (rtn_code == LDR_FILEEXISTS)
       rtn_code = OpenFileAppend(NAME, SIZE, handle);
       
-  start search;
+  StartTask(search);
 }
 task TurnLeft(){
   while(true){
@@ -35,6 +35,41 @@ task TurnRight(){
   }
 }
 
+void Rotate(){
+    PosRegEnable(angleMotor);
+    SetMotorRegulationTime(100);
+
+    int dis, newAngle, check, i;
+
+    for(i = 0; i < 3; i++){
+        WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+        int right = SensorUS(sensorRight);
+        WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+        WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+        int left = SensorUS(sensorLeft);
+        WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+        check = CheckLength(right, left);
+        if(check == 0){
+          newAngle = GetAngle(right);
+          Angle(newAngle);
+          return;
+        }
+        else if(check == 1){
+            newAngle = GetAngle(left);
+            Angle(newAngle);
+            return;
+        }
+    }
+}
+ 
+void shoot(){
+    LoadRound();
+    //Rotate();
+    Fire();
+}
+
 task search(){
   int bt[10];
   int bl[10];
@@ -43,21 +78,27 @@ task search(){
   int br[10];
   int nblobs;
   int blobWidth = 0;
+  string input;
   
   while(true){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
     if(ButtonPressed(BTNCENTER,false)){
-        CloseFile(handle);
+      CloseFile(handle);
     }
     if(nblobs > 0){
-        string input = "left " + NumToStr(bl[0])+ ", right "+ NumToStr(br[0])+"\n";
-        Write(handle, input);
+        if(first){
+          Wait(500);
+          first = false;
+        }
+        input = "left " + NumToStr(bl[0])+ ", right "+ NumToStr(br[0])+ "\n";
+        WriteLn(handle, input);
       int center = (bl[0] + br[0])/2;
-     // OnFwd(rotateMotor, GetSpeed(center));
-
+      OnFwd(rotateMotor, GetSpeed(center));
+      shoot();
     }
     else{
       Off(rotateMotor);
+      //StopTask(shoot);
     }
   }
 }
