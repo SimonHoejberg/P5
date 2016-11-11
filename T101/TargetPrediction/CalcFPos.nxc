@@ -1,9 +1,18 @@
+const float muzzleSpeed = 4.82; //meters per second
+const float gravConst = 9.92; //meters per second squared
+
 struct PosData {
    int dataID;
-   int xPos;
-   int yPos;
-   int timeStamp;
-   int angle;
+   float xPos;
+   float yPos;
+   int time;
+   float angle;
+};
+
+struct fireData {
+   float angleH;
+   float angleV;
+   float timeToHit;
 };
 
 struct ResData {
@@ -16,30 +25,70 @@ struct ResData {
 struct directionVector {
    float speedX;
    float speedY;
+   float speed;
 };
 
 task main(){
 
 }
 
+//Method which takes two positions and returns a direction vector
 directionVector calcDirVector(PosData data1, PosData data2){
    directionVector dirVec;
-   xDist = data2.speedX - data1.speedX;
-   yDist = data2.speedY - data1.speedY;
-   tDiff = data2.timeStamp - data1.timeStamp;
+   float xDist = data2.xPos - data1.xPos;
+   float yDist = data2.yPos - data1.yPos;
+   float tDiff = data2.time - data1.time;
    if(tDiff < 0){
-       tDiff = (64000 - data1.timeStamp) + data2.timeStamp
+       tDiff = (65535 - data1.time) + data2.time;
    }
    
    dirVec.speedX = xDist / tDiff;
    dirVec.speedY = yDist / tDiff;
+   dirVec.speed = sqrt((dirVec.speedX * dirVec.speedX + dirVec.speedY * dirVec.speedY)) / tDiff;
+   
+   
    
    return dirVec;
 }
 
+//Method which takes an array of directionVectors and returns the average
+directionVector combineVectors(directionVector dirVecArray[]){
 
-/*ResData calcFuturePos(PosData dataSet[]){
+   directionVector returnVector;
+   int arrayLength = SizeOf(dirVecArray) / SizeOf(returnVector);
+   int xRes = 0;
+   int yRes = 0;
+   int tRes = 0;
+   
+   for (int i = 0; i < arrayLength; i++){
+       xRes = xRes + dirVecArray[i].speedX;
+       yRes = yRes + dirVecArray[i].speedY;
+       tRes = tRes + dirVecArray[i].speed;
+   }
 
-}   */
+   returnVector.speedX = xRes / arrayLength;
+   returnVector.speedY = yRes / arrayLength;
+   returnVector.speed = tRes / arrayLength;
 
+   return returnVector;
+}
 
+PosData calcFuturePos(directionVector vector, int time){
+   PosData futurePosition;
+   futurePosition.xPos = vector.speedX * vector.speed * time;
+   futurePosition.yPos = vector.speedY * vector.speed * time;
+   futurePosition.time = CurrentTick() + time;
+   futurePosition.angle = atan((vector.speedY / vector.speedX));
+   
+   return futurePosition;
+}
+
+fireData calcFireData(PosData futurePos){
+
+   fireData returnData;
+   returnData.angleH = futurePos.angle;
+   returnData.angleV = 57.66666667 - 0.3333333333 * sqrt(39790-15000 * 2.596667) - 2; //Formel baseret på tendenslinje fra tests
+   returnData.timeToHit = futurePos.time - ((muzzleSpeed * sin(returnData.angleV) - sqrt(pow(muzzleSpeed,2) * pow(sin(returnData.angleV),2))) / gravConst); //Formel for tid for y=0
+   
+   return returnData;
+}
