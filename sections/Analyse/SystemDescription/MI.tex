@@ -24,7 +24,7 @@ a suitable way that allows it to work it into a suitable solution.
 As \name is a turret it needs to be able to convert the problem of hitting a
 moving target into a suitable representation. This representation can then be
 computed into a suitable output which in turn can be interpreted as
-a solution, presumably whether or not the target is hit. This can be seen in
+a solution, whether or not the target is actually hit. This can be seen in
 \autoref{MIRep}.
 
 \figx[0.8]{MIRep}{An illustration of how a problem is converted into a solution
@@ -53,7 +53,7 @@ solutions:
   but is not always guaranteed to be.
 \end{itemize}
 
-As \name is shooting on a moving target. The solution needs to reliably be able
+As \name is shooting on a moving target, the solution needs to reliably be able
 to hit the target, but as it is a real-time system there are certain limits to
 how much time can be spent searching and waiting for the optimal shot.
 
@@ -73,8 +73,9 @@ into several modules that can be understood separately from the system.
 Hierachical means that the modules can recursively have additional modules
 inside them \citep[Ch 1.5.1]{MIBook}. \name as an autonomous turret needs to
 have several functions, for example it needs to be able to turn, aim and determine the position of a target.
-This means that \name should be somewhat modular due to the fact that it has
-different tasks, that can each be considred modules of their own.
+This means that \name should be a modular system because, while it is a
+relatively simple system, it has distinct parts which can each be considred
+modules of their own.
 
 \subsubsection{Representation Scheme}
 As mentioned in \autoref{KR} the representation scheme is used to house the
@@ -90,11 +91,11 @@ value of the features, such as a feature, Tilt, could cover how tilted the
 cannon is and have the values covering 0 to 45.
 
 \subsubsection{Planning Horizon}
-The planning horizon of an intelligent agent is the time it considers the
-consequences of its actions. For example a child might only do something if
-there is an immediate reward, whereas an adult might have the foresight to do
-something for a reward thats some time off. There exist the following types of planning
-horizons \citep[Ch 1.5.3]{MIBook}:
+The planning horizon for an intelligent agent governs how far ahead it plans
+when it comes to the consequences of its actions. For example a child might
+only do something if there is an immediate reward, whereas an adult might have
+the foresight to do something for a reward thats some time off. There exist the
+following types of planning horizons \citep[Ch 1.5.3]{MIBook}:
 \begin{itemize}
 	\item \textbf{Non-planning} - The agent does not consider the future when
 	making decisions, or time is not involved as a factor.
@@ -107,7 +108,9 @@ horizons \citep[Ch 1.5.3]{MIBook}:
 
 Considering \name is an autonomous turret, non-planning can already be ruled
 out as that would that would result in a naive approach for the turret where it
-would fire when it sees a target.
+would fire when it sees a target. Given the limited time a target is in range,
+the turret can be considered having a finite horizon as the number of steps it
+needs are limited.
 
 \subsubsection{Uncertainty}
 
@@ -139,9 +142,10 @@ state based on an action in its current state. There are two possibilities
   distribution.
 \end{itemize}
 
-There are certain deterministic aspects in \name as it is able to reach a
-firing state when it has received information about the target, without
-resorting to probability.
+Since \name can not directly observe the current state, and is only able
+to observe some of it through its sensors, the system is stochastic. Although
+the system is stochastic, it can be modelled as a deterministic system, where
+the actions can be be detemined by what it can observe.
  
 \subsubsection{Preferences}
 For an agent to be able to make good decisions it is necessary to provide an
@@ -187,8 +191,8 @@ consideration in order to actually hit it.
 
 \subsubsection{Learning}
 
-There are two ways of handling knowledge: Either knowledge is given or
-it is learned \citep[Ch. 1.5.7]{MIBook}. 
+There are two ways of handling knowledge: knowledge can given in form of a
+model or the agent can be given data to learn from \citep[Ch. 1.5.7]{MIBook}. 
 \begin{itemize}
   \item \textbf{Knowledge is given} - The agent possesses a model which the
 designer thinks is suitable for the task.
@@ -196,37 +200,32 @@ designer thinks is suitable for the task.
   experiences to find a model that fits the data.
 \end{itemize}
 
-\name should make use of a given model, as it is easy to determine and
-calculate the various parts needed for projectile motion, see
-\autoref{ProjMotion}.
-
-
-% when it comes to learning it is the ability to improve
-% behavior based on experience. A way to do this is with supervised learning where
-% a set of input features and target features are given together with a set of
-% traing examples, where the values for both input and output are given and a set
-% of test examples where only input is given. The goal is to predict the target
-% features for the test set as future examples.
-
+\name should make use of a prebuilt model that can accurately help it decide
+what to do and calculate the various parts needed for projectile motion, see
+\autoref{ProjMotion}. It is limited how useful learning is in this project, as
+it is limited how much time and data we can provide for it to train with.
 
 \subsubsection{Computational Limits}
-An angent may not always be able to compute the best action to a problem fast
-enough, which could be due to memory limitation or just the sheer size of the
-problem. This means that the agent may need to trade off the time it needs to
-compute a solution with how good the solution is. This limit determines whether
-the agent has \citep[Ch. 1.5.8]{MIBook}:
+An agent may not always be able to compute the best action to a problem quickly
+enough, either due to memory limitation or just the sheer size of the problem.
+This means that the agent may need to trade off the time it needs to compute a
+solution with how good the solution is. This limit determines whether the agent
+has \citep[Ch. 1.5.8]{MIBook}:
 
 \begin{itemize}
-  \item Perfect rationality - The agent tries to find the best action without
-  taking into account the limited resources.
-  \item Bounded rationality - the agent decides the best ation given the
-  computational limits.
+  \item \textbf{Perfect rationality} - The agent tries to find the best action
+  without taking resources into account.
+  \item \textbf{Bounded rationality} - The agent decides the best action given
+  the computational limits.
 \end{itemize}
 
-\namep has bounded rationality due to the fact that the NXT does not have
-unlimited resources or time. This means that in some situations, like deciding
-when to shoot, it will have to determine the best course of action at the
-moment instead of spending a lot of time computing the best solution.
+\name has bounded rationality due to the fact that the NXT provides limited
+resources, as well as the limited time the target is in range. This means that
+in some situations, like deciding when to shoot, it will have to determine the
+best course of action at the moment instead of spending a lot of time computing
+the best solution. In addition to just the calculations, \name also needs to
+move into a proper position, and the shot itself has a certain travel time. All
+of this leads to a system which uses bounded rationality.
 
 \subsection{Belief Network}
 Since the agent can only partially observe the states it will need to be able to
