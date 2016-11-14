@@ -5,18 +5,20 @@
 int SIZE  = 1024;
 bool first = true;
 task search();
+task shoot();
+bool shouldFire = false;
 
 task main(){
   int init = NXTCam_Init(camPort, CAMADDR);
-  //NXTCam_SendCommand(camPort, CAMADDR, 'A');
+  NXTCam_SendCommand(camPort, CAMADDR, 'A');
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
   SetSensorUltrasonic(sensorLeft);
   SetSensorUltrasonic(sensorRight);
-  unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
-   if (rtn_code == LDR_FILEEXISTS)
-      rtn_code = OpenFileAppend(NAME, SIZE, handle);
+  //unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
+   //if (rtn_code == LDR_FILEEXISTS)
+     // rtn_code = OpenFileAppend(NAME, SIZE, handle);
       
-  StartTask(search);
+  Precedes(search,shoot);
 }
 task TurnLeft(){
   while(true){
@@ -64,10 +66,12 @@ void Rotate(){
     }
 }
  
-void shoot(){
-    LoadRound();
-    //Rotate();
-    Fire();
+task shoot(){
+    while(shouldFire){
+        LoadRound();
+        //Rotate();
+        Fire();
+    }
 }
 
 task search(){
@@ -82,23 +86,23 @@ task search(){
   
   while(true){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
-    if(ButtonPressed(BTNCENTER,false)){
-      CloseFile(handle);
-    }
+    //if(ButtonPressed(BTNCENTER,false)){
+      //CloseFile(handle);
+    //}
     if(nblobs > 0){
         if(first){
           Wait(500);
           first = false;
         }
-        input = "left " + NumToStr(bl[0])+ ", right "+ NumToStr(br[0])+ "\n";
-        WriteLn(handle, input);
+        //input = "left " + NumToStr(bl[0])+ ", right "+ NumToStr(br[0])+ "\n";
+        //WriteLn(handle, input);
       int center = (bl[0] + br[0])/2;
       OnFwd(rotateMotor, GetSpeed(center));
-      shoot();
+      shouldFire = true;
     }
     else{
       Off(rotateMotor);
-      //StopTask(shoot);
+      shouldFire = false;
     }
   }
 }
