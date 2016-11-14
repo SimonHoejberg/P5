@@ -14,30 +14,13 @@ task main(){
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
   SetSensorUltrasonic(sensorLeft);
   SetSensorUltrasonic(sensorRight);
-  //unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
+  unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
    //if (rtn_code == LDR_FILEEXISTS)
      // rtn_code = OpenFileAppend(NAME, SIZE, handle);
-      
   Precedes(search,shoot);
 }
-task TurnLeft(){
-  while(true){
-    ClearScreen();
-    TextOut(0,0,"left" );
-    OnFwd(rotateMotor, 60);
-  }
-}
 
-task TurnRight(){
-  while(true){
-    ClearScreen();
-    TextOut(0,0,"right" );
-    OnRev(rotateMotor, 60);
-
-  }
-}
-
-void Rotate(){
+bool Rotate(){
     PosRegEnable(angleMotor);
     SetMotorRegulationTime(100);
 
@@ -53,24 +36,19 @@ void Rotate(){
         WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
 
         check = CheckLength(right, left);
-        if(check == 0){
-          newAngle = GetAngle(right);
+        if(check != -1){
+          newAngle = GetAngle(check);
           Angle(newAngle);
-          return;
-        }
-        else if(check == 1){
-            newAngle = GetAngle(left);
-            Angle(newAngle);
-            return;
+          return true;
         }
     }
+    return false;
 }
  
 task shoot(){
     while(true){
-        if(shouldFire){
-            LoadRound();
-            //Rotate();
+        LoadRound();
+        if(shouldFire && Rotate()){
             Fire();
         }
     }
@@ -104,6 +82,7 @@ task search(){
     }
     else{
       Off(rotateMotor);
+      first = true;
       shouldFire = false;
     }
   }

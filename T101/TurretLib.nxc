@@ -6,6 +6,7 @@ const byte rotateMotor = OUT_A;
 const byte fireMotor = OUT_B;
 const int camCenter = 72;
 byte handle = 0; // file handle
+bool loaded = false;
 
 
 void Left(int power, int angle){
@@ -22,11 +23,22 @@ void Angle(int angle){
 }
 
 void LoadRound(){
-  RotateMotor(fireMotor, 100, -90);
+  if(!loaded){
+    loaded = true;
+    RotateMotor(fireMotor, 100, -90);
+  }
 }
 
 void Fire(){
+  loaded = false;
   RotateMotor(fireMotor, 100, 90);
+}
+
+int UpperBound(int normal){
+  if(normal > 148)
+    return 148;
+  else
+    return normal;
 }
 
 int GetAngle(int distance){
