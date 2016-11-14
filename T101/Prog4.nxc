@@ -67,10 +67,12 @@ void Rotate(){
 }
  
 task shoot(){
-    while(shouldFire){
-        LoadRound();
-        //Rotate();
-        Fire();
+    while(true){
+        if(shouldFire){
+            LoadRound();
+            //Rotate();
+            Fire();
+        }
     }
 }
 
