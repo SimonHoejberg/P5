@@ -2,13 +2,12 @@
 For the purpose of measuring the distance to the chosen target, the turret makes
 use of two ultrasonic sensors. These sensors work by producing sound waves from
 one of two frontal holes, which is then bounced back by an object and received
-by the second hole. An image of this sensor can be seen in
-\autoref{UltrasoundPic}. The delay between producing and receiving the sound
-wave is used to determine the distance to a given object.
+by the second hole. This is displayed in the illustration below
+\autoref{soundWavesSensor}.
+The delay between producing and receiving the sound wave is used to determine the
+distance to a given object. 
 
-\figx[0.2]{UltrasoundPic}{The two ultrasonic sensors and the camera mounted
-on the turret.}
-
+\figx{soundWavesSensor}{Visualization of the ultrasonic sensor.}
 The described sensor is a standardized ultrasonic sensor from Lego NXT. The
 sensor's technical specifications \citep{Ultrasonic_sensor} can be found below.
 \begin{itemize}
@@ -20,6 +19,11 @@ sensor's technical specifications \citep{Ultrasonic_sensor} can be found below.
   \item Each measurement outputs the distance in the form of a single integer
   with a value between 0 and 255cm
 \end{itemize}
+
+An image of this sensor as mounted in the turret can be seen in
+\autoref{UltrasoundPic}.
+\figx[0.2]{UltrasoundPic}{The two ultrasonic sensors and the camera mounted
+on the turret.}
 
 \section{Ultrasonic Sensor Testing}\label{SensorTest}
 The first sensor we need to test is the ultrasonic distance sensor. These tests
@@ -39,7 +43,8 @@ the floor along a wall, and pointing towards a target at various distances along
 the wall. This wall is marked with a number of lines each representing a
 distance of 10cm from the turret's location. The target for this test is a
 rectangular cardboard cutout, which is used to hold a sheet of coloured paper
-folded around it. This setup can be seen in \autoref{SensorUltraSetup.JPG}.
+which is folded around it. This setup can be seen in
+\autoref{SensorUltraSetup.JPG}.
 
 \figx[0.1]{SensorUltraSetup.JPG}{The test setup for testing the ultrasonic
 distance sensor.}
