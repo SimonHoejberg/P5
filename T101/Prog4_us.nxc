@@ -1,8 +1,12 @@
 #include "TurretLib.nxc"
 #include "nxtcamlib-default.nxc"
+#include "TargetPrediction/CalcFPos.nxc"
 #define CAMADDR 0x02
 #define NAME "Data.dat"
 int SIZE  = 2048;
+bool firstPos = true;
+PosData lastPos;
+PosData currentPos;
 bool first = true;
 task search();
 task shoot();
@@ -48,6 +52,7 @@ bool Rotate(){
 
 task GetLength(){
     string input;
+    int length;
     while(true){
     if(ButtonPressed(BTNCENTER,false))
         CloseFile(handle);
@@ -60,9 +65,24 @@ task GetLength(){
             WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
             int left = SensorUS(sensorLeft);
             WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
-    
-            input = "left " + NumToStr(left)+ ", right "+ NumToStr(right)+ ", motor_rot "+NumToStr(MotorRotationCount(rotateMotor)*0.73) + "\n";
-            WriteLn(handle, input);
+            
+            length = CheckLength(right,left);
+            if(length != -1){
+                PosData p = makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick());
+
+                if(firstPos){
+                    lastPos = p;
+                    firstPos = false;
+                }
+                else{
+                    currentPos = p;
+                    directionVector d = calcDirVector(lastPos,currentPos);
+                    lastPos = currentPos;
+                    fireData fire = calcFireData(calcFuturePos(d,500));
+                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + "\n";
+                    WriteLn(handle, input);
+                }
+            }
         }
     }
 

@@ -28,9 +28,16 @@ struct directionVector {
    float speed;
 };
 
-task main(){
 
+PosData makePosData(int length, float angle, int time){
+    PosData pos;
+    pos.xPos = length*cosd(angle);
+    pos.yPos = length*sind(angle);
+    pos.time = time;
+    pos.angle = angle;
+    return pos;
 }
+
 
 //Method which takes two positions and returns a direction vector
 directionVector calcDirVector(PosData data1, PosData data2){

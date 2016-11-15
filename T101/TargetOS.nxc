@@ -19,6 +19,6 @@ task fullAhead(){
             ClearLine(LCD_LINE1);
             NumOut(0, LCD_LINE1, power);
         }
-        OnFwdSync(OUT_AB, power, power);
+        OnRevSync(OUT_AB, 100, 40);
      }
 }
