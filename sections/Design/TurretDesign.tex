@@ -55,11 +55,15 @@ sensor. This is due to the fact that the ultrasonic sensor needs to be pointed
 almost perpendicular at the target in order to catch the soundwaves that bounces
 back. The use of two sensor brings up the problem of interference between the
 two sensors but that was solved by alternating between turning on and off aech
-sensor.
+sensor.\nl
 
-\subsection{Rotating Mechanism}
-The turret needs to be able to rotate in order to be able to track a moving
-target. For this purpose three design were considered. In the first design a
+\name also makes use of a camera to track a target. This camera is mounted on
+the front of the base in the middle. This is beause if it was not placed in the
+middle the turret's aim would be off.
+
+\subsection{Turning Mechanism}
+The turret needs to be able to turn in order to be able to track a moving
+target. For this purpose three designs were considered. In the first design a
 motor was placed beside the turret. This motor was connected to a stick with a
 spiral gear that was conected to a gear on the bottom of the base. This design
 made the turning of the turret precise in the sense that the turret was not
@@ -84,9 +88,12 @@ the outside of the base and the motor is geared which makes it more precise when
 stopping since it does not over turn as much as the design whitout a gear. 
 
 \subsection{Summary}
-To summarize the final design of the turret consists of a shooting mechanism
-with a piston that pushes the projectile through a mouthpiece that clamps around
-it, an angeling mechanism, a base with the NXT mounted inside to distribute the
-weight and to make it shorter, two ultrasonic sensor placed on the front and a
-rotating mechanism where the motor is placed on the outside of the turret with a
-gear connected to the rotator. This Can be seen in \autoref{}
+the final design of the turret consists of a number of different parts. first
+and foremost a shooting mechanism with a piston that pushes the projectile
+through a mouthpiece that clamps around it. It also has an angeling mechanism
+that the shooting mechanism is mounted on. These two parts sit on top of a
+base where the NXT is mounted inside to distribute the weight and to make it
+shorter. On the front of this bas two ultrasonic sensor placed in order to make
+\name able to track and measure distance to a target. All of this sits on a
+rotating mechanism where the motor is placed on the outside of the turret with
+a gear connected to the rotator. This Can be seen in \autoref{}
