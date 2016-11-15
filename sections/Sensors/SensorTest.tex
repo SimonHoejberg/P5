@@ -8,7 +8,7 @@ clarifying the following points:
   \item Where and how is the sensor best placed on the turret?
   \item What is the sensors maximum distance?
   \item At what distance is the data no longer accurate?
-  \item How wide is the sensors 'cone of vision'?
+  \item How wide is the sensors ``cone of vision"?
 \end{itemize}
 
 %
@@ -44,12 +44,11 @@ clarifying the following points:
 
 \subsection{Ultrasonic Sensor Test - Setup}\label{UltraTestSetup}
 The setup for testing the ultrasonic sensor consists of placing the turret on
-the floor along a wall, and pointing towards a target at varying distances along
+the floor along a wall, and pointing towards a target at various distances along
 the wall. This wall is marked with a number of lines each representing a
 distance of 10cm from the turret's location. The target for this test is a
 rectangular cardboard cutout, which is used to hold a sheet of coloured paper
-which is folded around it. This setup can be seen in
-\autoref{SensorUltraSetup.JPG}.
+folded around it. This setup can be seen in \autoref{SensorUltraSetup.JPG}.
 
 \figx[0.1]{SensorUltraSetup.JPG}{The test setup for testing the ultrasonic
 distance sensor.}
@@ -170,13 +169,13 @@ the ultrasonic sensors.}{UltConeTestDat}
 % become a very limiting factor in regards to how far the target can be placed
 % from the cannon.
 
-\subsection{Camera Sensor Test}\label{CamTest}%Will most likely need a better
+\section{Camera Sensor Test}\label{CamTest}%Will most likely need a better
 Testing the camera aims at answering two main questions. Namely
 what colours can be easily recognized, and at what distance can the target be
 identified. As such, this subsection will consist of a test setup, the resulting
 data and the conclusions which can be drawn from this data.
 
-\subsubsection{Camera Test - Setup}\label{CamTestSetup}
+\subsection{Camera Test - Setup}\label{CamTestSetup}
 The setup for testing the camera consists of placing the turret at one end of a
 long table, pointing towards a target at the other end. The table is marked with
 a number of lines each representing a distance of 25cm from the turret's
@@ -187,7 +186,7 @@ This setup can be seen in \autoref{SensorCamSetup.JPG}.
 
 \figx[0.1]{SensorCamSetup.JPG}{Setup for the camera test (With Background).}
 
-\subsubsection{Camera Test Results - Colours}\label{CamTestColours}
+\subsection{Camera Test Results - Colours}\label{CamTestColours}
 In order to determine what colour can best be detected, the target is wrapped
 with a piece of coloured paper, and is then placed at a distance of 2m from the
 turret. The camera is then used to search for the specified colour. As explained
@@ -215,7 +214,7 @@ From the data presented in \autoref{table:CamTest1} we can conclude the
 following:
 \begin{itemize}
   \item The blue and yellow colours can not be recognized
-  \item The green colour has the hightest variance of 163 pixels
+  \item The green colour has the highest variation of 163 pixels
   \item The green colour has a low amount of frames with recognition
   \item The red colour has the lowest variation of 19 pixels
   \item Of the 'ok' colours, orange and red, orange has the largest measured
@@ -243,7 +242,7 @@ Based on these conclusions we can determine that orange would be colour of
 choice, as the camera is capable of recognizing the colour without any variance
 in the recorded data.
 
-\subsubsection{Camera Test Results - Distance}\label{CamTestDistance}
+\subsection{Camera Test Results - Distance}\label{CamTestDistance}
 Based on the choice made in \autoref{CamTestColours} to use orange as the colour
 of the target, this section will be used to further determine how well this
 colour can be used at different distances. For this purpose, the target will be

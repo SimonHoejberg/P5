@@ -1,17 +1,16 @@
 \chapter{Sensors} \label{sensors}
-In order for \name to be able to perceive the world around it,
-it needs to make use of external peripherals, which throughout this report will
-be known as sensors. These sensors are used to gather data about the various
-aspects of the surrounding environment such as, sound, visuals, temperature and
+In order for \name to be able to perceive the world around it, it needs to make
+use of sensors. These sensors are used to gather data about the certain aspects
+of the surrounding environment such as, sound, visuals, temperature and
 movement. Because of the importance of correctly choosing and using these
 sensors, this chapter will be used to explain, analyze and test the different
 sensors which will be used throughout this project.
 
 \section{Sensor Choice}
-In the turret's ideal scenario and following the requirements in
-\autoref{ProblemDomain} it was determined that the turrets routine would consist
-of three main phases: scanning, tracking and shooting. These phases explains
-the requirements for the turret to be able to identify a target, measure the
+In the turret's ideal scenario and the requirements in
+\autoref{ProblemDomain} it was determined that the turrets routine should
+consist of three main phases: scanning, tracking and shooting. These phases explains the
+requirements for the turret to be able to identify a target, measure the
 distance to the target and then shoot the target. For the purpose of this
 project, these phases will be solved using two main sensors: a camera and a
 distance sensor. The camera will be able to identify and track the target, and
@@ -20,15 +19,15 @@ number of different sensors which can be classified as ``distance sensors'', we
 have chosen to use a standard NXT ultrasonic distance sensor. This was done due
 to the limited availability of sensors in stock, and the possiblity of waiting a
 long time for shipping new sensors. The contestants regarding the choice of
-camera was between a ``Microsoft Kinect'' and a ``NXTCam v4''. While the Kinect is
-vastly more powerful, it poses the problems of being a larger device which could
-not easily be placed on the turret, and it would need to be connected to a
+camera was between a ``Microsoft Kinect'' and a ``NXTCam v4''. While the Kinect
+is vastly more powerful, it poses the problems of being a larger device which
+could not easily be placed on the turret, and it would need to be connected to a
 PC in order to translate its input into useful data. On the other hand the
 NXTCam is less powerful, but it is easily integrateable with the LEGO NXT
 platform and it can be placed on the turret itself. In the end, we chose to use
 the NXTCam, as the semesters goals are to teach us about designing around the
 limitations of embedded systems, and using a Kinect with the attatched PC would
-go against the idea of imposed limitations. 
+go against the idea of imposed limitations.
 
 \input{sections/Sensors/sensorTheory.tex}
 \input{sections/Sensors/SensorTest.tex}
