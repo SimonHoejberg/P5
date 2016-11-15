@@ -1,7 +1,3 @@
-\chapter{Design}
-In this chapter the different parts of the design of \name will be discussed.
-The design of the target will also be described.
-
 \section{Turret Design}
 In this section the different parts of \namep's design wil be described. This
 includes the mechanism for shooting, the design of the base, sensor placement
@@ -39,13 +35,13 @@ NXT is laying flat on the back inside the base. In the design where the NXT was
 upright the screen and the buttons on the front was accessible, but all the I/O
 ports on the end was hard to get to. This design was not chosen mostly because
 of the height but also because it was hard to charge the NXT. The height is a
-factor due to the fact that the higher the turret gets the more unstaple it
+factor due to the fact that the taller the turret gets the more unstaple it
 becomes. This design also placed a lot of the weight on one side of turret
 which med it more unstable.\nl
 
 In the chosen design where the NXT is laying on the back inside the turret the
-I/O ports are fully accessible. This design also makes the turret a lot lower and
-distributes the weight which makes the turret more stable. 
+I/O ports are fully accessible. This design also makes the turret a lot shorter
+and distributes the weight which makes the turret more stable. 
 \subsection{Sensor Placement}
 The sensor are a vital part of the turret and need to placed in such a way that
 the results from the sensors are as good as possible. As the tests described in
@@ -53,11 +49,14 @@ the results from the sensors are as good as possible. As the tests described in
 placed to close to the ground due to the fact that it interferes with the
 soundwaves.\nl
 
+The final design makes use of two ultrasonic sensors placed side by side since
+it was determined that the field of view would be to narrow with only one
+sensor. This is due to the fact that the ultrasonic sensor needs to be pointed
+almost perpendicular at the target in order to catch the soundwaves that bounces
+back. The use of two sensor brings up the problem of interference between the
+two sensors but that was solved by alternating between turning on and off aech
+sensor.
 
-
-
-one ultrasonic sensor?
-on the front of the turret
 \subsection{Rotating Mechanism}
 The turret needs to be able to rotate in order to be able to track a moving
 target. For this purpose three design were considered. In the first design a
@@ -84,7 +83,10 @@ the gear that turns the turret, the difference being that the motor is placed on
 the outside of the base and the motor is geared which makes it more precise when
 stopping since it does not over turn as much as the design whitout a gear. 
 
-\section{Target Design}
-round target?
-flat target
-
+\subsection{Summary}
+To summarize the final design of the turret consists of a shooting mechanism
+with a piston that pushes the projectile through a mouthpiece that clamps around
+it, an angeling mechanism, a base with the NXT mounted inside to distribute the
+weight and to make it shorter, two ultrasonic sensor placed on the front and a
+rotating mechanism where the motor is placed on the outside of the turret with a
+gear connected to the rotator. This Can be seen in \autoref{}
