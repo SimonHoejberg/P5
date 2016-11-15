@@ -2,6 +2,7 @@
 #include "nxtcamlib-default.nxc"
 #define CAMADDR 0x02
 #define NAME "Data.dat"
+int SIZE  = 2048;
 bool first = true;
 task search();
 task shoot();
@@ -14,7 +15,10 @@ task main(){
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
   SetSensorUltrasonic(sensorLeft);
   SetSensorUltrasonic(sensorRight);
-  Precedes(search,shoot);
+  unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
+    if (rtn_code == LDR_FILEEXISTS)
+     rtn_code = OpenFileAppend(NAME, SIZE, handle);
+  Precedes(search,GetLength);
 }
 
 bool Rotate(){
@@ -45,6 +49,9 @@ bool Rotate(){
 task GetLength(){
     string input;
     while(true){
+    if(ButtonPressed(BTNCENTER,false))
+        CloseFile(handle);
+        
         if(shouldFire){
             WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
             int right = SensorUS(sensorRight);
@@ -54,6 +61,8 @@ task GetLength(){
             int left = SensorUS(sensorLeft);
             WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
     
+            input = "left " + NumToStr(left)+ ", right "+ NumToStr(right)+ ", motor_rot "+NumToStr(MotorRotationCount(rotateMotor)*0.73) + "\n";
+            WriteLn(handle, input);
         }
     }
 
@@ -80,11 +89,16 @@ task search(){
   
   while(true){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
+    //if(ButtonPressed(BTNCENTER,false)){
+      //CloseFile(handle);
+    //}
     if(nblobs > 0){
         if(first){
-          Wait(250);
+          Wait(500);
           first = false;
         }
+        //input = "left " + NumToStr(bl[0])+ ", right "+ NumToStr(br[0])+ "\n";
+        //WriteLn(handle, input);
       int center = (bl[0] + UpperBound(br[0]))/2;
       OnFwd(rotateMotor, GetSpeed(center));
       shouldFire = true;
