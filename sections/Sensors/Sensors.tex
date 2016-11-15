@@ -27,7 +27,16 @@ NXTCam is less powerful, but it is easily integrateable with the LEGO NXT
 platform and it can be placed on the turret itself. In the end, we chose to use
 the NXTCam, as the semesters goals are to teach us about designing around the
 limitations of embedded systems, and using a Kinect with the attatched PC would
-go against the idea of imposed limitations.
+go against the idea of imposed limitations.\nl
+
+For the purpose of sensing its environment, the turret will need two key
+features: the ability to identify a target, and the ability to measure the
+distance to said target. The identification process will be used to find and
+track a target, and the distance measurement will be used to accurately use the
+formula for projectile motion described in \autoref{ProjMotion} to hit the
+target. These features are implemented using two different sensors. The camera
+sensor is presented and tested below in \autoref{SensorTheory} and the distance
+sensor in \autoref{}.
 
 \input{sections/Sensors/sensorTheory.tex}
 \input{sections/Sensors/SensorTest.tex}

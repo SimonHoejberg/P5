@@ -1,19 +1,11 @@
-\section{Sensor Theory}\label{SensorTheory}
-For the purpose of sensing its environment, the turret will need two key
-features: the ability to identify a target, and the ability to measure the
-distance to said target. The identification process will be used to find and
-track a target, and the distance measurement will be used to accurately use the
-formula for projectile motion described in \autoref{ProjMotion} to hit the
-target.
-
-\subsection{Colour Camera}\label{SensTheoCam}
+\section{Camera}\label{SensorTheory}
 For the purpose of identifying and tracking a target, the developed turret will
 make use of a specialized camera, which is capable of identifying coloured
 objects. In order to use the camera, the user specifies a colour of choice,
 which will then be searched for. The colours are set using a program called
-``NXTCamView'''. When the camera registers an object of this colour, it
-will build a datalogical representation of the object consisting of a number of rectangles. Such a representation can be seen in
-\autoref{TwoBlobs2.PNG}. 
+``NXTCamView'''. When the camera registers an object of this colour, it will
+build a datalogical representation of the object consisting of a number of
+rectangles. Such a representation can be seen in \autoref{TwoBlobs2.PNG}.
 
 \figx[0.70]{TwoBlobs2.PNG}{Visual representation of the output from the camera.}
 
@@ -30,62 +22,98 @@ Below are the technical specifications \citep[p. 1]{NXTCam} for the camera.
   bounding box coordinates of these objects.
 \end{itemize}
 
-\subsection{Ultrasonic Sensor}\label{SensTheoUltra}
-For the purpose of measuring the distance to the chosen target, the turret makes
-use of two ultrasonic sensors. These sensors work by producing sound waves from
-one of two frontal holes, which is then bounced back by an object and received
-by the second hole. An image of this sensor can be seen in
-\autoref{UltrasoundPic}. The delay between producing and receiving the sound
-wave is used to determine the distance to a given object.
+\section{Camera Sensor Test}\label{CamTest}%Will most likely need a better
+Testing the camera aims at answering two main questions. Namely
+what colours can be easily recognized, and at what distance can the target be
+identified. As such, this subsection will consist of a test setup, the resulting
+data and the conclusions which can be drawn from this data.
 
-\figx[0.2]{UltrasoundPic}{The two ultrasonic sensors and the camera mounted
-on the turret.}
+\subsection{Camera Test - Setup}\label{CamTestSetup}
+The setup for testing the camera consists of placing the turret at one end of a
+long table, pointing towards a target at the other end. The table is marked with
+a number of lines each representing a distance of 25cm from the turret's
+location. The target for this test is a rectangular cardboard cutout, which is
+used to hold a sheet of coloured paper which is folded around it. Behind the
+coloured paper is a dark background which is used in some, but not all tests.
+This setup can be seen in \autoref{SensorCamSetup.JPG}.
 
-The described sensor is a standardized ultrasonic sensor from Lego NXT. The
-sensor's technical specifications \citep{Ultrasonic_sensor} can be found below.
+\figx[0.1]{SensorCamSetup.JPG}{Setup for the camera test (With Background).}
+
+\subsection{Camera Test Results - Colours}\label{CamTestColours}
+In order to determine what colour can best be detected, the target is wrapped
+with a piece of coloured paper, and is then placed at a distance of 2m from the
+turret. The camera is then used to search for the specified colour. As explained
+in \autoref{SensTheoCam} this data consists of rectangular segments of the
+identified colour, and these segments sizes and colours. The quality of the
+individual colours is determined by looking at two factors. The first factor is
+the consistency of the recorded data, which is determined by the variance in the
+data. The second factor is the cameras ability to keep recognizing the target
+at different distances.\nl
+
+The first test investigates the consistency of the recorded data. To do this we
+look at three main points. The maximum and minimum measured areas, the difference
+between these points, and the average measured area. In addition each colour is
+given a rating based on the amount of frames where a colour was recognized.
+These ratings are: Ok (~70-100\%), bad (~40-69\%), very bad (~20-39\%) and Null
+(No data). It should also be noted that the results from this test have been
+observed through the NXTCam calibration software, and that the data points have
+been manually observed and written down. The test was done twice, once with a
+background of a contrasting colour, and one without. The results from the first
+test can be seen in \autoref{table:CamTest1}.
+
+\dataTable{SensorCamTest1}{Data from test 1. (With background)}{CamTest1}
+
+From the data presented in \autoref{table:CamTest1} we can conclude the
+following:
 \begin{itemize}
-  \item Has a max range of 2.5m
-  \item Has a precision of +/- 3cm
-  \item Looses precision after 1.5m
-  \item Has a 15ms delay between readings
-  \item Works best with large, hard-sized objects
-  \item Each measurement outputs the distance in the form of a single integer
-  with a value between 0 and 255cm
+  \item The blue and yellow colours can not be recognized
+  \item The green colour has the highest variation of 163 pixels
+  \item The green colour has a low amount of frames with recognition
+  \item The red colour has the lowest variation of 19 pixels
+  \item Of the 'ok' colours, orange and red, orange has the largest measured
+  average area.
 \end{itemize}
 
-% The product description says that it has a maximum range of 2.5m with
-% a precision of +/- 3cm \citep{Ultrasonic_sensor}\KT. In actuality the product
-% that was used begins loose precision after anything further away than 1.5m.
-% 
-% There is a delay of 25ms at how often it can be used to determine the distance
-% to an object. Anything faster than that and the results become very imprecise
-% \Source.
+Based on these conclusions we can determine that the best colours would be
+either red or orange. In order to verify this assumption the test is repeated
+without the contrasting background. The results from the second test can be seen
+in \autoref{table:CamTest2}.
 
-% \section{Infrared Sensor}
-% The infrare sensor works on the same basic prinicple as the ultrasonic sensor,
-% insted of it using sound it uses infrared light, and mesures the intensitivit of
-% the light reflected by the object infront of the sensor, if there no reflected
-% light are then no object is infront of the sensor and if the amount of reflected
-% light is high then the object is close to the sesnor \Source.
+\dataTable{SensorCamTest2}{Data from test 2. (Without background)}{CamTest2}
 
-% En infrarød sensor virker
-% på samme princip som ultra sonic sensor, her er det så i stedet for at måle hvor lang tid der går, så gør den brug af intentiviten af
-% lyset der bliver kast tilbage til at udregner hvr langt væk et objekt er. Hvs
-% der ingen lys på den bestemmet bølgelængde som der bliver opfanget af lys
-% sensren inde i den infrarøde sensor så er der ingen objekt foran den, mens hvis
-% der er et objekt meget tæt på kommer der meget lys tlbage \Soure. 
+From the data presented in \autoref{table:CamTest2} we can conclude the
+following:
+\begin{itemize}
+  \item For some colours the contrasting background results in worse data
+  \item Given no contrasting background 'yellow' can be seen, but the data is
+  'bad'
+  \item Given no contrasting background 'red' can no longer be recognized
+  \item Given no contrasting background 'orange' has no variance in data
+\end{itemize}
 
+Based on these conclusions we can determine that orange would be colour of
+choice, as the camera is capable of recognizing the colour without any variance
+in the recorded data.
 
+\subsection{Camera Test Results - Distance}\label{CamTestDistance}
+Based on the choice made in \autoref{CamTestColours} to use orange as the colour
+of the target, this section will be used to further determine how well this
+colour can be used at different distances. For this purpose, the target will be
+placed at various distances from the target, as noted in \autoref{CamTestSetup}.
+The measurements will use the same ratings 'ok', 'bad', 'very bad' and 'null',
+as described in \autoref{CamTestColours}. The resulting data from this test can be
+seen in \autoref{table:CamTest3}.
 
+\dataTable{SensorCamTest3}{Quality of data at different distances.}{CamTest3}
 
-
-%http://www.education.rec.ri.cmu.edu/previews/nxt_products/robotics_eng_vol_1/preview/content/reference/helpers/ultrasonic.htm
-
-%http://www.techno-stuff.com/irrd.htm
-
-%http://www.mindsensors.com/ev3-and-nxt/112-high-precision-medium-range-infrared-distance-sensor-for-nxt-or-ev3
-
-%http://education.rec.ri.cmu.edu/content/electronics/boe/ir_sensor/1.html
-
-
-
+The data presented in \autoref{table:CamTest3} represents the camera's ability
+to recognize the target at different distances, but during the testing a major
+flaw was identified. It was found that the the measured colour of the target
+changes based on its distance from the turret and the light levels at its
+current location. In effect this means that no single colour can be used to
+recognize the target at all distances, but instead multiple colours need to be
+recognized based on the distance to the target. This problem has two identified
+solutions, either the camera is programmed to recognize a number of different
+shades of orange, or the turret will be limited to only operate in well and
+consistently lit areas. The solution to this problem will be further explored
+as part of the final implementation in \autoref{}.

@@ -1,3 +1,26 @@
+\section{Ultrasonic Sensor}\label{SensTheoUltra}
+For the purpose of measuring the distance to the chosen target, the turret makes
+use of two ultrasonic sensors. These sensors work by producing sound waves from
+one of two frontal holes, which is then bounced back by an object and received
+by the second hole. An image of this sensor can be seen in
+\autoref{UltrasoundPic}. The delay between producing and receiving the sound
+wave is used to determine the distance to a given object.
+
+\figx[0.2]{UltrasoundPic}{The two ultrasonic sensors and the camera mounted
+on the turret.}
+
+The described sensor is a standardized ultrasonic sensor from Lego NXT. The
+sensor's technical specifications \citep{Ultrasonic_sensor} can be found below.
+\begin{itemize}
+  \item Has a max range of 2.5m
+  \item Has a precision of +/- 3cm
+  \item Looses precision after 1.5m
+  \item Has a 15ms delay between readings
+  \item Works best with large, hard-sized objects
+  \item Each measurement outputs the distance in the form of a single integer
+  with a value between 0 and 255cm
+\end{itemize}
+
 \section{Ultrasonic Sensor Testing}\label{SensorTest}
 The first sensor we need to test is the ultrasonic distance sensor. These tests
 will be used to verify the contents of the technical specification, and
@@ -10,37 +33,6 @@ clarifying the following points:
   \item At what distance is the data no longer accurate?
   \item How wide is the sensors ``cone of vision"?
 \end{itemize}
-
-%
-% The two sensors used on the turret both have datasheets with technical
-% documentation, but in order to verify this information, and to gain a
-% deeper understanding of how to use these sensors, this section will be used to
-% test their individual features. The first test in \autoref{UltraTest} will be
-% used to determine the accuracy and limitations of the ultrasonic sensor. The second
-% test in \autoref{CamTest} will be used to determine how the camera can best be
-% used to identify a target, and how the resulting data can be accurately used.
-
-% First the
-% testing methodology will be explained for each test, and then this methodology
-% will be used to devise tests for the two sensors.
-%
-% In this chapter the different sensors will be tested, the reasoning for testing
-% the sensors is that we need to find out how precise the sensors are and how far
-% they can measure. There are two sensor which needs to be tested, one is an
-% ultrasonic sensor which is used for measuring the distance. The other sensor
-% which needs to be tested is a camera for tracking specific colours. We will then
-% use the results from these test to utilize the full potential of the sensors.
-
-% To find out which sensors are the optimal
-% sensors for the project, this chapter will be used to test the different sensors. The testing of the
-% sensors will also be used to find out how precise they are.\nl
-% %
-% First the testing methodology will be explained, then this methodology
-% will be used to devise tests for the different sensors.
-
-% \subsection{Testing Methodology}
-% The testing will be divided into to two parts, one part is testing the two
-% distance sensors and the second part is testing the camera.
 
 \subsection{Ultrasonic Sensor Test - Setup}\label{UltraTestSetup}
 The setup for testing the ultrasonic sensor consists of placing the turret on
@@ -131,17 +123,17 @@ data sets can be found in \autoref{UltraDistTestData}.
 the actual distance.}{UltDistTestDat}
 
 
-\subsection{Ultrasonic Sensor Test - Cone of Vision}
-The third test is intended to determine the sensors cone of vision, that is, how
-far off to the side can an object be placed and still be able to be registered
-by the sensor. This test was conducted by placing the target at varying
-distances, and then moving the target off to the side ultil it could no longer
-be registered by any of the two sensors. The results from
-this test is presented below in \autoref{table:UltConeTestDat}. The complete
-data sets can be found in \autoref{UltraConeTestData}.
-
-\dataTable{UltrasonicConeTestData}{Width of sensing for
-the ultrasonic sensors.}{UltConeTestDat}
+% \subsection{Ultrasonic Sensor Test - Cone of Vision}
+% The third test is intended to determine the sensors cone of vision, that is, how
+% far off to the side can an object be placed and still be able to be registered
+% by the sensor. This test was conducted by placing the target at varying
+% distances, and then moving the target off to the side ultil it could no longer
+% be registered by any of the two sensors. The results from
+% this test is presented below in \autoref{table:UltConeTestDat}. The complete
+% data sets can be found in \autoref{UltraConeTestData}.
+% 
+% \dataTable{UltrasonicConeTestData}{Width of sensing for
+% the ultrasonic sensors.}{UltConeTestDat}
 
 % The test of the ultrasonic sensor was divided into 4 different experiments, the
 % difference between the experiments are the size of the object being tracked and
@@ -169,101 +161,7 @@ the ultrasonic sensors.}{UltConeTestDat}
 % become a very limiting factor in regards to how far the target can be placed
 % from the cannon.
 
-\section{Camera Sensor Test}\label{CamTest}%Will most likely need a better
-Testing the camera aims at answering two main questions. Namely
-what colours can be easily recognized, and at what distance can the target be
-identified. As such, this subsection will consist of a test setup, the resulting
-data and the conclusions which can be drawn from this data.
 
-\subsection{Camera Test - Setup}\label{CamTestSetup}
-The setup for testing the camera consists of placing the turret at one end of a
-long table, pointing towards a target at the other end. The table is marked with
-a number of lines each representing a distance of 25cm from the turret's
-location. The target for this test is a rectangular cardboard cutout, which is
-used to hold a sheet of coloured paper which is folded around it. Behind the
-coloured paper is a dark background which is used in some, but not all tests.
-This setup can be seen in \autoref{SensorCamSetup.JPG}.
-
-\figx[0.1]{SensorCamSetup.JPG}{Setup for the camera test (With Background).}
-
-\subsection{Camera Test Results - Colours}\label{CamTestColours}
-In order to determine what colour can best be detected, the target is wrapped
-with a piece of coloured paper, and is then placed at a distance of 2m from the
-turret. The camera is then used to search for the specified colour. As explained
-in \autoref{SensTheoCam} this data consists of rectangular segments of the
-identified colour, and these segments sizes and colours. The quality of the
-individual colours is determined by looking at two factors. The first factor is
-the consistency of the recorded data, which is determined by the variance in the
-data. The second factor is the cameras ability to keep recognizing the target
-at different distances.\nl
-
-The first test investigates the consistency of the recorded data. To do this we
-look at three main points. The maximum and minimum measured areas, the difference
-between these points, and the average measured area. In addition each colour is
-given a rating based on the amount of frames where a colour was recognized.
-These ratings are: Ok (~70-100\%), bad (~40-69\%), very bad (~20-39\%) and Null
-(No data). It should also be noted that the results from this test have been
-observed through the NXTCam calibration software, and that the data points have
-been manually observed and written down. The test was done twice, once with a
-background of a contrasting colour, and one without. The results from the first
-test can be seen in \autoref{table:CamTest1}.
-
-\dataTable{SensorCamTest1}{Data from test 1. (With background)}{CamTest1}
-
-From the data presented in \autoref{table:CamTest1} we can conclude the
-following:
-\begin{itemize}
-  \item The blue and yellow colours can not be recognized
-  \item The green colour has the highest variation of 163 pixels
-  \item The green colour has a low amount of frames with recognition
-  \item The red colour has the lowest variation of 19 pixels
-  \item Of the 'ok' colours, orange and red, orange has the largest measured
-  average area.
-\end{itemize}
-
-Based on these conclusions we can determine that the best colours would be
-either red or orange. In order to verify this assumption the test is repeated
-without the contrasting background. The results from the second test can be seen
-in \autoref{table:CamTest2}.
-
-\dataTable{SensorCamTest2}{Data from test 2. (Without background)}{CamTest2}
-
-From the data presented in \autoref{table:CamTest2} we can conclude the
-following:
-\begin{itemize}
-  \item For some colours the contrasting background results in worse data
-  \item Given no contrasting background 'yellow' can be seen, but the data is
-  'bad'
-  \item Given no contrasting background 'red' can no longer be recognized
-  \item Given no contrasting background 'orange' has no variance in data
-\end{itemize}
-
-Based on these conclusions we can determine that orange would be colour of
-choice, as the camera is capable of recognizing the colour without any variance
-in the recorded data.
-
-\subsection{Camera Test Results - Distance}\label{CamTestDistance}
-Based on the choice made in \autoref{CamTestColours} to use orange as the colour
-of the target, this section will be used to further determine how well this
-colour can be used at different distances. For this purpose, the target will be
-placed at various distances from the target, as noted in \autoref{CamTestSetup}.
-The measurements will use the same ratings 'ok', 'bad', 'very bad' and 'null',
-as described in \autoref{CamTestColours}. The resulting data from this test can be
-seen in \autoref{table:CamTest3}.
-
-\dataTable{SensorCamTest3}{Quality of data at different distances.}{CamTest3}
-
-The data presented in \autoref{table:CamTest3} represents the camera's ability
-to recognize the target at different distances, but during the testing a major
-flaw was identified. It was found that the the measured colour of the target
-changes based on its distance from the turret and the light levels at its
-current location. In effect this means that no single colour can be used to
-recognize the target at all distances, but instead multiple colours need to be
-recognized based on the distance to the target. This problem has two identified
-solutions, either the camera is programmed to recognize a number of different
-shades of orange, or the turret will be limited to only operate in well and
-consistently lit areas. The solution to this problem will be further explored
-as part of the final implementation in \autoref{}.
 
 % several parts, these parts will heavily rely
 % on the technical specifications of the camera. Therefore the first part of this
