@@ -1,8 +1,14 @@
 \section{Target Design}
-As determined by the tests in \autoref{CamTest} the target needs to be orange in
-order to get the best results from the camera. However it was determined that
-oranges gives to many false positives and therefore red was chosen as the target
-colour since it performed second best in the camera test.\nl
+When designing the target a few things need to be considered. As stated in
+\autoref{FeatAndReq} The target needs to move fast enough to make \name
+calculate an offset. The turret also needs to be able to calculate this offset,
+which means that it needs to be able see the target. To make determine the
+best colour for the target the tests in \autoref{CamTest} was conducted. From
+these tests we came to the conclusion that the target needs to be orange in
+order to get the best results from the camera.
+However it was determined that oranges gives to many false positives and
+therefore red was chosen as the target colour since it performed second best in
+the camera test.\nl
 
 Both a flat and cylindrical design for the target has been considered. The
 advantage of the flat design is that it is large and easy for the ultrasonic
@@ -19,7 +25,7 @@ also ensures that the camera always sees the target as the same size.\nl
 
 In order to make the target move cart was designed. This cart consists of a
 platform to place the target on and three wheels that are all fixed so they can
-not turn. An NXT is used to control the speed of the cart t ensure that it
+not turn. An NXT is used to control the speed of the cart, to ensure that it
 travels at a constant speed.\nl
 
 Now that the a final design has been deciced on, it is possible to implement the
