@@ -231,20 +231,21 @@ of this leads to a system which uses bounded rationality.
 
 
 Since the agent can only partially observe the states it will need to be able to
-reason under uncertainty. A belief network is a way to do this. It is an acyclic
-directed graph consisting of random variables and a set of conditional
-probalility distributions. This is used to model a dynamic system by
-treating a feature at a given time as a random variable, which is the idea
+reason under uncertainty. A belief network is a way to do this. The reason for
+this is that It is an acyclic directed graph consisting of random variables and
+a set of conditional probalility distributions. This is used to model a dynamic
+system by treating a feature at a given time as a random variable, which is the idea
 behind Markov chains. A markov chain is a special belief network that
 represents sequences of values. In a markov chain at state $S_t$ the future is
 conditionally independent from the past given the present. This gives that if
-the transition probabilities are the same for each time point. To specify a
-Markov chain two conditional probabilities must be specified:
-\begin{itemize}
-  \item $p(S_0)$ - species the initial condition
-  \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t
-  \geq 0$
-\end{itemize}
+the transition probabilities are the same for each time point. 
+% To specify a
+% Markov chain two conditional probabilities must be specified:
+% \begin{itemize}
+%   \item $p(S_0)$ - specifies the initial condition
+%   \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t
+%   \geq 0$
+% \end{itemize}
 
 These kinds of chains are of interrest due to the fact that the stationary
 assumption is a natural model because the dynamics of the world ussually does
@@ -256,32 +257,40 @@ The Markov chain can be augmented to include observations which makes it a
 Hidden Markov model. Like the state transitions from a Markov chain the Hidden
 Markov model also includes observations about the states. If more than one state
 maps to the same observation it is partial and if the same state maps to
-different observations at different times it is noisy. The observations are
-modeled using $O_t$ for each time t whose domain is the set of possible
-observations. A Hidden Markov model needs three conditional proballity
-distributions \citep[6.5.2]{MIBook}
-\begin{itemize}
-  \item $P(S_0)$ - species the initial condition
-  \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t
-  \geq 0$
-  \item $P(O_t|S_t)$ - specifies the sensor model
-\end{itemize}
+different observations at different times it is noisy \citep[6.5.2]{MIBook}.\nl 
+% The observations are
+% modeled using $O_t$ for each time t whose domain is the set of possible
+% observations. A Hidden Markov model needs three conditional proballity
+% distributions 
+% \begin{itemize}
+%   \item $P(S_0)$ - specifies the initial condition
+%   \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t
+%   \geq 0$
+%   \item $P(O_t|S_t)$ - specifies the sensor model
+% \end{itemize}
+% 
+% This model makes it possible to determine the current state based on previous
+% and current observations. This is useful when tracking the target in order to
+% adjust \namep accordingly. This is done by having a belief network with 3
+% variables $Loc_i$, $Obs_i$ and $Act_i$ see \autoref{BeliefNetwork}. $Loc_i$ for
+% each time i represents \name's poition at time i, $Obs_i$ for each time i reprensts the observation
+% made at time i and for each time i $act_i$ represents the action taken at time
+% i. The model assumes the that at time i \namep is in position $Loc_i$, it
+% observes $Obs_i$ and acts, it observes $Act_i$ and time progresses to i+1 where
+% \namep is in position $Loc_{i+1}$. This means that at any given time t the
+% observation is only dependent on the state and at time t+1 the position is
+% dependent on the position and action at time t. This gives that the position
+% at time t+1 is conditionally independent from previous positions, actions and
+% observations given the position and ation at time t. 
+% 
+% \figx{BeliefNetwork}{A belief network for position of \name}
 
-This model makes it possible to determine the current state based on previous
-and current observations. This is useful when tracking the target in order to
-adjust \namep accordingly. This is done by having a belief network with 3
-variables $Loc_i$, $Obs_i$ and $Act_i$ see \autoref{BeliefNetwork}. $Loc_i$ for
-each time i represents \name's poition at time i, $Obs_i$ for each time i reprensts the observation
-made at time i and for each time i $act_i$ represents the action taken at time
-i. The model assumes the that at time i \namep is in position $Loc_i$, it
-observes $Obs_i$ and acts, it observes $Act_i$ and time progresses to i+1 where
-\namep is in position $Loc_{i+1}$. This means that at any given time t the
-observation is only dependent on the state and at time t+1 the position is
-dependent on the position and action at time t. This gives that the position
-at time t+1 is conditionally independent from previous positions, actions and
-observations given the position and ation at time t. 
-
-\figx{BeliefNetwork}{A belief network for position of \name}
-
+The reason for using a belief network is that it makes it possible to model the
+world with the data that \name gets from it's sensors. This model can be
+relatively compact and still give the information needed in order to reason
+under uncertainty. If structured correctly the Hidden markov model also makes
+makes possible to predict the speed of the target, Which is needed in order to
+calculate an offset, given evidence on the distance to the target and the angle
+from the turret. 
 %Although a HMM representation only shows few stages it can proceed
 % indefinitely.
