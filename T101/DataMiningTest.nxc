@@ -1,0 +1,92 @@
+#include "TurretLib.nxc"
+#include "nxtcamlib-default.nxc"
+#include "TargetPrediction/CalcFPos.nxc"
+#define CAMADDR 0x02
+#define NAME "Data.dat"
+int SIZE  = 2048;
+bool firstPos = true;
+PosData lastPos;
+PosData currentPos;
+bool first = true;
+task search();
+task shoot();
+task GetLength();
+bool shouldFire = false;
+
+task main(){
+  int init = NXTCam_Init(camPort, CAMADDR);
+  NXTCam_SendCommand(camPort, CAMADDR, 'A');
+  NXTCam_SendCommand(camPort, CAMADDR, 'E');
+  SetSensorUltrasonic(sensorLeft);
+  SetSensorUltrasonic(sensorRight);
+  unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
+    if (rtn_code == LDR_FILEEXISTS)
+     rtn_code = OpenFileAppend(NAME, SIZE, handle);
+  Precedes(search,GetLength);
+  RotateMotor(rotateMotor, 60, 30*1.375);
+  Precedes(search, GetLength);
+  CloseFile(handle);
+  
+}
+
+task GetLength(){
+    string input;
+    int length;
+        if(shouldFire){
+            WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+            int right = SensorUS(sensorRight);
+            WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+            WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+            int left = SensorUS(sensorLeft);
+            WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+            length = CheckLength(right,left);
+            if(length != -1){
+                PosData p = makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick());
+
+                if(firstPos){
+                    lastPos = p;
+                    firstPos = false;
+                }
+                else{
+                    currentPos = p;
+                    directionVector d = calcDirVector(lastPos,currentPos);
+                    lastPos = currentPos;
+                    fireData fire = calcFireData(calcFuturePos(d,500));
+                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + ", speed" + NumToStr(d.speed) + "\n";
+                    WriteLn(handle, input);
+                }
+            }
+        }
+}
+
+task search(){
+  int bt[10];
+  int bl[10];
+  int bc[10];
+  int bb[10];
+  int br[10];
+  int nblobs;
+  int blobWidth = 0;
+  string input;
+
+    NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
+
+    if(nblobs > 0){
+        if(first){
+          Wait(500);
+          first = false;
+        }
+        //input = "left " + NumToStr(bl[0])+ ", right "+ NumToStr(br[0])+ "\n";
+        //WriteLn(handle, input);
+      int center = (bl[0] + UpperBound(br[0]))/2;
+      OnFwd(rotateMotor, GetSpeed(center));
+      shouldFire = true;
+    }
+    else{
+      Off(rotateMotor);
+      first = true;
+      shouldFire = false;
+    }
+}
