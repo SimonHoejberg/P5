@@ -4,14 +4,26 @@ order to get the best results from the camera. However it was determined that
 oranges gives to many false positives and therefore red was chosen as the target
 colour since it performed second best in the camera test.\nl
 
-Both a flat and ylindrical design for the target has been considered. The flat
-design is good since it is easy to make wider. The cylindrical design
-should in theory counteract the problem with the ultrasonic sensors needing to be pointed
-perpendicular at the target, due to the fact that the angle is the same all
-around the target. The cylindrical design also ensures that the camera always
-sees the target as the same size.\nl
+Both a flat and cylindrical design for the target has been considered. The
+advantage of the flat design is that it is large and easy for the ultrasonic
+sensors to see when they are pointed directly at the target. The disadvantage
+is that if it is at an angle to the ultrasonic sensors line of sight it 
+becomes less likely that the soundwaves gets catched by the sensor when they
+bounce back. Another disadvantage is that if it is at an angle with the
+cameras line of sight it appears smaller to the camera.\nl
 
-The target is mounted on a "car" that moves forward at a constant speed. 
+The cylindrical design should in theory counteract the problem with the
+ultrasonic sensors needing to be pointed directly at the target, due to the
+fact that the angle is the same all around the target. The cylindrical design
+also ensures that the camera always sees the target as the same size.\nl
+
+In order to make the target move cart was designed. This cart consists of a
+platform to place the target on and three wheels that are all fixed so they can
+not turn. An NXT is used to control the speed of the cart t ensure that it
+travels at a constant speed.\nl
+
+Now that the a final design has been deciced on, it is possible to implement the
+functionality that goes into hitting a moving target.
 
 
 
