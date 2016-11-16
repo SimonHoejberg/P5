@@ -14,6 +14,9 @@ task GetLength();
 bool shouldFire = false;
 
 task main(){
+  PosRegEnable(angleMotor);
+  SetMotorRegulationTime(100);
+
   int init = NXTCam_Init(camPort, CAMADDR);
   NXTCam_SendCommand(camPort, CAMADDR, 'A');
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
@@ -26,8 +29,6 @@ task main(){
 }
 
 bool Rotate(){
-    PosRegEnable(angleMotor);
-    SetMotorRegulationTime(100);
 
     int dis, newAngle, check, i;
 
@@ -79,7 +80,7 @@ task GetLength(){
                     directionVector d = calcDirVector(lastPos,currentPos);
                     lastPos = currentPos;
                     fireData fire = calcFireData(calcFuturePos(d,500));
-                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + "\n";
+                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + ", speed" + NumToStr(d.speed) + "\n";
                     WriteLn(handle, input);
                 }
             }
@@ -109,9 +110,7 @@ task search(){
   
   while(true){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
-    //if(ButtonPressed(BTNCENTER,false)){
-      //CloseFile(handle);
-    //}
+
     if(nblobs > 0){
         if(first){
           Wait(500);
