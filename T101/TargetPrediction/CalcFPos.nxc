@@ -1,6 +1,6 @@
 const float muzzleSpeed = 4.82; //meters per second
 const float gravConst = 9.82; //meters per second squared
-const int angleToGroup = 5;
+const int angleToGroup = 8;
 float currentAngle = 0;
 int currentGroup = 0;
 
@@ -9,7 +9,7 @@ struct PosData {
    int dataID;
    float xPos;
    float yPos;
-   int time;
+   unsigned int time;
    float angle;
    int group;
    bool used;
@@ -24,7 +24,7 @@ struct fireData {
 struct ResData {
    int horizontalAngle;
    int verticalAngle;
-   int timeStamp;
+   unsigned int timeStamp;
    int fireingDeadline;
 };
 
@@ -35,13 +35,13 @@ struct directionVector {
 };
 
 
-PosData makePosData(int length, float angle, int time){
+PosData makePosData(int length, float angle, unsigned int time){
     PosData pos;
     pos.xPos = length*cosd(angle);
     pos.yPos = length*sind(angle);
     pos.time = time;
     pos.angle = angle;
-    if(currentAngle-angleToGroup <= angle || currentAngle+angleToGroup >= angle){
+    if(currentAngle-angleToGroup <= angle && currentAngle+angleToGroup >= angle){
         pos.group = currentGroup;
     }
     else{
@@ -85,7 +85,7 @@ directionVector calcDirVector(PosData dataArray[], int length){
    directionVector resultingVectors[10];
    float xDist;
    float yDist;
-   float tDiff;
+   unsigned int tDiff;
    
    for(int i = 0; i < length-1; i++){
         xDist = dataArray[firstVector+1].xPos - dataArray[firstVector].xPos;
@@ -107,7 +107,7 @@ directionVector calcDirVector(PosData dataArray[], int length){
    return dirVec;
 }
 
-PosData calcFuturePos(directionVector vector, int time){
+PosData calcFuturePos(directionVector vector, unsigned int time){
    PosData futurePosition;
    futurePosition.xPos = vector.speedX * vector.speed * time;
    futurePosition.yPos = vector.speedY * vector.speed * time;
