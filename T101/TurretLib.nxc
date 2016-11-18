@@ -9,6 +9,10 @@ byte handle = 0; // file handle
 bool loaded = false;
 
 
+void TurnTurret(float angle){
+    RotateMotor(rotateMotor,100,angle*1.375);
+}
+
 void Left(int power, int angle){
   RotateMotor(rotateMotor, power, angle);
 }

@@ -3,15 +3,20 @@
 #include "TargetPrediction/CalcFPos.nxc"
 #define CAMADDR 0x02
 #define NAME "Data.dat"
+const int MaxCounterToPurgeData = 40;
 int SIZE  = 2048;
 bool firstPos = true;
-PosData lastPos;
-PosData currentPos;
 bool first = true;
 task search();
 task shoot();
 task GetLength();
+void GroupData();
 bool shouldFire = false;
+int counter = 0;
+PosData data[100];
+int dataCounter = 0;
+PosData resData[5];
+int resDataCounter = 0;
 
 task main(){
   PosRegEnable(angleMotor);
@@ -22,9 +27,9 @@ task main(){
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
   SetSensorUltrasonic(sensorLeft);
   SetSensorUltrasonic(sensorRight);
-  unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
+  /*unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
     if (rtn_code == LDR_FILEEXISTS)
-     rtn_code = OpenFileAppend(NAME, SIZE, handle);
+     rtn_code = OpenFileAppend(NAME, SIZE, handle);*/
   Precedes(search,GetLength);
 }
 
@@ -55,8 +60,10 @@ task GetLength(){
     string input;
     int length;
     while(true){
-    if(ButtonPressed(BTNCENTER,false))
-        CloseFile(handle);
+        ClearScreen();
+        NumOut(0,0,counter);
+    //if(ButtonPressed(BTNCENTER,false))
+        //CloseFile(handle);
         
         if(shouldFire){
             WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
@@ -69,24 +76,73 @@ task GetLength(){
             
             length = CheckLength(right,left);
             if(length != -1){
-                PosData p = makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick());
+                data[dataCounter] = makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick());
+                dataCounter++;
+                GroupData();
 
-                if(firstPos){
-                    lastPos = p;
-                    firstPos = false;
-                }
-                else{
-                    currentPos = p;
-                    directionVector d = calcDirVector(lastPos,currentPos);
-                    lastPos = currentPos;
+                if(resDataCounter == 3){
+                    directionVector ds[5];
+                    int dCounter = 0;
+                    directionVector d = calcDirVector(resData,resDataCounter);
                     fireData fire = calcFireData(calcFuturePos(d,500));
-                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + ", speed" + NumToStr(d.speed) + "\n";
-                    WriteLn(handle, input);
+                    StopTask(search);
+                    TurnTurret(fire.angleH);
+                    Angle(fire.angleV);
+                    LoadRound();
+                    Fire();
+                    //input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + ", speed" + NumToStr(d.speed) + "\n";
+                    //WriteLn(handle, input);
                 }
             }
         }
     }
 
+}
+
+void GroupData(){
+    PosData tempData[20];
+    int tempDataCounter = 0;
+    int current = -1;
+    bool goodData = false;
+    for(int i = 0; i < dataCounter; i++){
+        int temp = data[i].group;
+        if(current != -1 && current == temp){
+          if(!data[i].used){
+                tempData[tempDataCounter] = data[i];
+                tempDataCounter++;
+                data[i].used = true;
+          }
+        }
+        else if(current == -1){
+            if(!data[i].used){
+                current = temp;
+                tempData[tempDataCounter] = data[i];
+                tempDataCounter++;
+                data[i].used = true;
+            }
+        }
+        else{
+            goodData = true;
+            break;
+        }
+    }
+    
+    float combinedYPos = 0;
+    float combinedXPos = 0;
+    
+    if(tempDataCounter > 0){
+        for(int i = 0; i < tempDataCounter; i++){
+            combinedXPos += tempData[i].xPos;
+            combinedYPos += tempData[i].yPos;
+        }
+        
+        resData[resDataCounter].yPos = combinedYPos / tempDataCounter;
+        resData[resDataCounter].xPos = combinedXPos / tempDataCounter;
+        resData[resDataCounter].angle = tempData[0].angle;
+        resData[resDataCounter].time = tempData[0].time;
+        resDataCounter++;
+    }
+    
 }
  
 task shoot(){
@@ -105,6 +161,7 @@ task search(){
   int bb[10];
   int br[10];
   int nblobs;
+  int counter = 0;
 
   while(true){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
@@ -113,11 +170,23 @@ task search(){
           Wait(500);
           first = false;
         }
+        counter = 0;
       int center = (bl[0] + UpperBound(br[0]))/2;
       OnFwd(rotateMotor, GetSpeed(center));
       shouldFire = true;
     }
     else{
+      counter++;
+      if(counter == MaxCounterToPurgeData){
+            currentAngle = 0;
+            currentGroup = 0;
+            counter = 0;
+            data =  NULL;
+            dataCounter = 0;
+            resData = NULL;
+            resDataCounter = 0;
+      }
+
       Off(rotateMotor);
       first = true;
       shouldFire = false;

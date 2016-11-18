@@ -1,5 +1,9 @@
 const float muzzleSpeed = 4.82; //meters per second
-const float gravConst = 9.92; //meters per second squared
+const float gravConst = 9.82; //meters per second squared
+const int angleToGroup = 5;
+float currentAngle = 0;
+int currentGroup = 0;
+
 
 struct PosData {
    int dataID;
@@ -7,6 +11,8 @@ struct PosData {
    float yPos;
    int time;
    float angle;
+   int group;
+   bool used;
 };
 
 struct fireData {
@@ -35,28 +41,18 @@ PosData makePosData(int length, float angle, int time){
     pos.yPos = length*sind(angle);
     pos.time = time;
     pos.angle = angle;
+    if(currentAngle-angleToGroup <= angle || currentAngle+angleToGroup >= angle){
+        pos.group = currentGroup;
+    }
+    else{
+        currentAngle = angle;
+        currentGroup++;
+        pos.group = currentGroup;
+    }
+    pos.used = false;
     return pos;
 }
 
-
-//Method which takes two positions and returns a direction vector
-directionVector calcDirVector(PosData data1, PosData data2){
-   directionVector dirVec;
-   float xDist = data2.xPos - data1.xPos;
-   float yDist = data2.yPos - data1.yPos;
-   float tDiff = data2.time - data1.time;
-   if(tDiff < 0){
-       tDiff = (65535 - data1.time) + data2.time;
-   }
-   
-   dirVec.speedX = xDist / tDiff;
-   dirVec.speedY = yDist / tDiff;
-   dirVec.speed = sqrt((dirVec.speedX * dirVec.speedX + dirVec.speedY * dirVec.speedY)) / tDiff;
-   
-   
-   
-   return dirVec;
-}
 
 //Method which takes an array of directionVectors and returns the average
 directionVector combineVectors(directionVector dirVecArray[]){
@@ -66,7 +62,7 @@ directionVector combineVectors(directionVector dirVecArray[]){
    int xRes = 0;
    int yRes = 0;
    int tRes = 0;
-   
+
    for (int i = 0; i < arrayLength; i++){
        xRes = xRes + dirVecArray[i].speedX;
        yRes = yRes + dirVecArray[i].speedY;
@@ -78,6 +74,37 @@ directionVector combineVectors(directionVector dirVecArray[]){
    returnVector.speed = tRes / arrayLength;
 
    return returnVector;
+}
+
+
+//Method which takes two positions and returns a direction vector
+directionVector calcDirVector(PosData dataArray[], int length){
+
+   directionVector dirVec;
+   int firstVector = 0;
+   directionVector resultingVectors[10];
+   float xDist;
+   float yDist;
+   float tDiff;
+   
+   for(int i = 0; i < length-1; i++){
+        xDist = dataArray[firstVector+1].xPos - dataArray[firstVector].xPos;
+        yDist = dataArray[firstVector+1].yPos - dataArray[firstVector].yPos;
+        tDiff = dataArray[firstVector+1].time - dataArray[firstVector].time;
+        if(tDiff < 0){
+            tDiff = (65535 - dataArray[firstVector].time) + dataArray[firstVector+1].time;
+        }
+
+        resultingVectors[i].speedX = xDist / tDiff;
+        resultingVectors[i].speedY = yDist / tDiff;
+        resultingVectors[i].speed = sqrt((resultingVectors[i].speedX * resultingVectors[i].speedX + resultingVectors[i].speedY * resultingVectors[i].speedY)) / tDiff;
+
+        firstVector++;
+   }
+   
+   dirVec = combineVectors(resultingVectors);
+
+   return dirVec;
 }
 
 PosData calcFuturePos(directionVector vector, int time){
