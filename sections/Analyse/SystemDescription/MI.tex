@@ -289,24 +289,30 @@ different observations at different times it is noisy \citep[6.5.2]{MIBook}.\nl
  different connections: serial, divergent and convergent. The serial
  connection is where the nodes are connected in a sequence. In such a connection
  it is possible to transmit evidence if the middle node is not instantiated. If
- evidene is present on the middle node however, it is not possible to say anything about the first node from the last.
- \fix{indsæt billede}{}
+ evidene is present on the middle node however, it is not possible to say
+ anything about the first node from the last. This can be seen in
+ \autoref{serial.JPG}
+ \figx{serial.JPG}{A serial connetion with evidence on the middle node}
  In a divergent onnection a parent node is connected to two children. In this
  kind of connection it is not possible to transmit evidence between the cildren
- if the parent node is not instantiated.
- \fix{indsæt billede}{}
+ if the parent node is not instantiated. This can be seen in
+ \autoref{divergent.JPG}
+ \figx{divergent.JPG}{A divergent connection with evidence on the parent node}
  The convergent connection  consists of a child node with two parents. In this
  connection the absence of evidence on the child node makes it impossible to
  transmit evidence between the parent nodes. If however evidence is present on
  the child node or any of it's children it is possible to transmit evidence
- between the parent nodes.\nl
- \fix{indsæt billede}{}
- 
+ between the parent nodes. This can be seen in
+ \autoref{convergentnoevidence.JPG} and \autoref{convergent.JPG}
+ \figx{convergentnoevidence.JPG}{A convergent connection with no evidece on the
+ child node}
+ \figx{convergent.JPG}{A convergent connection with evidence on the child node}
  All of this has an influence on how the belief network for \name should be
  structured, as the nodes in it is the velocity of the target, the position of
  the target, the distance to it and the angle of fire. The information we get is
  from the sensors which means that the evidene should be on the distance and
- angle node.
+ angle node. We want the evidence to flow in such a way that it is possible to
+ transmit evidence to the velocity node.\nl
 
 
 
