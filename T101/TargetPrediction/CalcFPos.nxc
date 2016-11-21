@@ -112,7 +112,7 @@ PosData calcFuturePos(directionVector vector, unsigned int time){
    futurePosition.time = CurrentTick() + time;
    NumOut(0,10,vector.speedY);
    NumOut(0,20,vector.speedX);
-   futurePosition.angle = atan((vector.speedY / vector.speedX));
+   futurePosition.angle = atan((vector.speedX / vector.speedY));
    
    return futurePosition;
 }
@@ -122,8 +122,7 @@ fireData calcFireData(PosData futurePos){
    fireData returnData;
    returnData.angleH = futurePos.angle;
    float dist = sqrt(pow(futurePos.xPos,2)+pow(futurePos.yPos,2));
-   returnData.angleV = -0.0006 * pow(dist,2) + 0.0692 * dist + 0.6574;
-   //returnData.angleV = 57.66666667 - 0.3333333333 * sqrt(39790-15000 * 2.596667) - 2; //Formel baseret på tendenslinje fra tests
+   returnData.angleV = abs(-0.0006 * pow(dist,2) + 0.0692 * dist + 0.6574); //Formel baseret på tendenslinje fra testresultater
    returnData.timeToHit = futurePos.time - ((muzzleSpeed * sin(returnData.angleV) - sqrt(pow(muzzleSpeed,2) * pow(sin(returnData.angleV),2))) / gravConst); //Formel for tid for y=0
    
    return returnData;
