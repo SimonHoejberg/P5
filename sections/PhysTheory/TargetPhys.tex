@@ -1,7 +1,8 @@
 \section{Target Requirements}\label{TargetReq}
 The purpose of the project is to create an automated turret, which is capable of
-hitting a target in motion. As the project has a number of imposed limitations,
-such as a small variety of available sensors and limited processing power and
-memory, it is important to consider the design of the target in relation to the
-limitations of the turret. As such, this section will be used to discuss the
-requirements of the chosen target.
+hitting a target in motion. One of the requirements for this process is, that
+the turret should be incapable of hitting the target if it simply fired at its
+current position, without trying to hit a future calculated position. As such,
+this imposes a requirement for the target, which can be defined by how fast the
+target moves and the size of the target. This section will be used to calculate
+these limitations.
