@@ -285,6 +285,35 @@ different observations at different times it is noisy \citep[6.5.2]{MIBook}.\nl
 % 
 % \figx{BeliefNetwork}{A belief network for position of \name}
 
+ A belief network consits of a number of nodes. These nodes can be in three
+ different connections: serial, divergent and convergent. The serial
+ connection is where the nodes are connected in a sequence. In such a connection
+ it is possible to transmit evidence if the middle node is not instantiated. If
+ evidene is present on the middle node however, it is not possible to say anything about the first node from the last.
+ \fix{indsæt billede}{}
+ In a divergent onnection a parent node is connected to two children. In this
+ kind of connection it is not possible to transmit evidence between the cildren
+ if the parent node is not instantiated.
+ \fix{indsæt billede}{}
+ The convergent connection  consists of a child node with two parents. In this
+ connection the absence of evidence on the child node makes it impossible to
+ transmit evidence between the parent nodes. If however evidence is present on
+ the child node or any of it's children it is possible to transmit evidence
+ between the parent nodes.\nl
+ \fix{indsæt billede}{}
+ 
+ All of this has an influence on how the belief network for \name should be
+ structured, as the nodes in it is the velocity of the target, the position of
+ the target, the distance to it and the angle of fire. The information we get is
+ from the sensors which means that the evidene should be on the distance and
+ angle node.
+
+
+
+
+
+
+
 The reason for using a belief network is that it makes it possible to model the
 world with the data that \name gets from it's sensors. This model can be
 relatively compact and still give the information needed in order to reason
