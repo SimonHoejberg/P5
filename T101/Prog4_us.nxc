@@ -56,31 +56,29 @@ task GetLength(){
             
             length = CheckLength(right,left);
             if(length != -1){
-                data[dataCounter] = makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick());
-                dataCounter++;
-                GroupData();
+                PosData temp;
+                if(makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick(),temp)){
+                    data[dataCounter] = temp;
+                    dataCounter++;
+                }
 
-                if(resDataCounter == dataSetsNeeded){
-
-
-                    /*directionVector ds[5];
-                    int dCounter = 0;
-                    directionVector d = calcDirVector(resData,resDataCounter);
+                if(dataCounter == dataSetsNeeded){
+                    directionVector d = calcDirVector(data,dataCounter);
                     fireData fire = calcFireData(calcFuturePos(d,500));
                     StopTask(search);
                     TurnTurret(fire.angleH);
                     Angle(fire.angleV);
-                    LoadRound();
-                    Fire(); */
+                    //LoadRound();
+                    //Fire();
 
 
-                    for(int i=0; i < resDataCounter; i++){
-                            input = "xPos " + NumToStr(resData[i].xPos) + ", yPos "+ NumToStr(resData[i].yPos)+ ", time " + NumToStr(resData[i].time) + ", angle " + NumToStr(resData[i].angle) + ", group " + NumToStr(resData[i].group);
+                    for(int i=0; i < dataCounter; i++){
+                            input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
                             WriteLn(handle, input);
                     }
 
-                    //input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + ", speed" + NumToStr(d.speed) + "\n";
-                    //WriteLn(handle, input);
+                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + ", speed" + NumToStr(d.speed) + "\n";
+                    WriteLn(handle, input);
                     CloseFile(handle);
                 }
             }

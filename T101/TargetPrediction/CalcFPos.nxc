@@ -35,8 +35,8 @@ struct directionVector {
 };
 
 
-PosData makePosData(int length, float angle, unsigned int time){
-    PosData pos;
+bool makePosData(int length, float angle, unsigned int time, PosData &pos){
+    bool result = false;
     pos.xPos = length*cosd(angle);
     pos.yPos = length*sind(angle);
     pos.time = time;
@@ -45,12 +45,13 @@ PosData makePosData(int length, float angle, unsigned int time){
         pos.group = currentGroup;
     }
     else{
+        result = true;
         currentAngle = angle;
         currentGroup++;
         pos.group = currentGroup;
     }
     pos.used = false;
-    return pos;
+    return result;
 }
 
 
