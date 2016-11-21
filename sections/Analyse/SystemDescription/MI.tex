@@ -312,20 +312,21 @@ different observations at different times it is noisy \citep[6.5.2]{MIBook}.\nl
  the target, the distance to it and the angle of fire. The information we get is
  from the sensors which means that the evidene should be on the distance and
  angle node. We want the evidence to flow in such a way that it is possible to
- transmit evidence to the velocity node.
-
-
-
-
-
-
-
-% The reason for using a belief network is that it makes it possible to model the
-% world with the data that \name gets from it's sensors. This model can be
-% relatively compact and still give the information needed in order to reason
-% under uncertainty. If structured correctly the Hidden markov model also makes
-% makes possible to predict the speed of the target, Which is needed in order to
-% calculate an offset, given evidence on the distance to the target and the angle
-% from the turret. 
+ transmit evidence to the velocity node.\nl
+ 
+ The reason for using a belief network is that it makes it possible to model the
+ world with the data that \name gets from it's sensors. This model can be
+ relatively compact Which is an advantage since the NXT does not have a lot of
+ processing power. Another reason for Using a belief network is that the \name
+ is only able to observe the world partially since there is some noise on the
+ sensors, which means that it needs to be able to reason under uncertainty.
+ A belief network is also useful since \name needs to be able to plan
+ ahead when taking actions, since it should be able to consider the movement of
+ the target before shooting.
+ 
+%  If structured correctly the Hidden markov model also makes
+%  makes possible to predict the speed of the target, Which is needed in order to
+%  calculate an offset, given evidence on the distance to the target and the angle
+%  from the turret. 
 %Although a HMM representation only shows few stages it can proceed
 % indefinitely.
