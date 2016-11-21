@@ -1,60 +1,77 @@
 \section{Turret Design}
-In this section the different parts of \namep's design wil be described. This
-includes the mechanism for shooting, the design of the base, sensor placement
-and the mechanism for rotating.
+The turret can be considered the product of 3 different design choices, the
+shooting mechanism, the base and the sensor placement.
+
+
+% In this section the different parts of \namep's design wil be described. This
+% includes the mechanism for shooting, the design of the base, sensor placement
+% and the mechanism for rotating.
 
 \subsection{Shooting Mechanism}
 When it comes to the shooting mechanism it needs to be able to shoot at least
-200 cm as this is one of the requirements. This means that it a significant
-amount of power behind each shot. To make this a reality three different designs
-were considered. The first design considered was a balista due to the fact that
-a balista is able to deliver a lot of power. This design was quickly dismissed
-due to the fact that it is hard to make it able to reload itself, which would
-mean that it would only be able to fire a single shot. This was deemed as a
-major flaw since if it missed it would not be able to try again. Another design
-considered utilizes the same principle as a football launcher, where two wheels
-placed side by side are spinning in opposite directions and a projectile is
-pushed through. 
-This design was not realised due to the fact that we did not have acces to motors
-powerfull enough to deliver the necessary power for the mechanism to have
-momentum enough to shoot. The final design considered uses a piston that pushes
-the projectile trough a mouth piece that clamps around it to apply force to the
-projectile. This design is the design we went with due to the fact that it has
-a sufficient amount of power and it is easily reloadable.\nl
+200 cm, as this is one of the requirements. This means that it needs a
+significant amount of power behind each shot. To make this a reality three
+different designs were considered.\nl
 
-The shooting mechanism is mounted on a mechanism that is used to angle the
-shooting mechanism to make it able to shoot a target at varying distances. This
-mechanism works by having a high gearing on a motor and connecting the platform
-that the shooting mechanism is mounted on to the big gear. This makes the
-platform rise when the motor turns.
+The first design which was considered was a ballista-like design due to the fact
+that a balista is able to deliver a lot of power to each shot.
+\figx[0.5]{ballista}{A sketch of the ballista design.}
+This design was quickly dismissed, as while it can deliver a lot power to each
+shot, its rate of fire would be slow, as it would be slow to reload. This would
+mean that in case of a miss it would most likely not be able to try again.\nl
+
+The second design which was considered, utilizes the same principle as a
+tennis ball launcher, two wheels placed side by side spinning in
+opposite directions, with the projectile pushed through.\fix{add sketch for a
+tennis ball launcher design}{sketch}
+This design was not realised due to the fact that we did not have access to
+motors powerful enough to deliver the necessary momentum for the shot.\nl
+
+The third and final design uses a piston that pushes the projectile
+trough a mouth piece that clamps around it. This means that until enough force
+has been applied to the projectile it is held in the mouth piece. When enough
+force has been applied by the piston, the projectile will be forced out at high
+speed.\fix{Add sketch for piston launcher}{sketch}
+This design has several advantages, Lego Technic has a ball launcher which can
+store several small ball projectiles. This allows us to have an easily
+reloadable and fast firing cannon, which can hold up to 6 shots.\nl
+
+Using this design\ldots \fix{Add graph that show the error margin at various
+angles}{\ldots}.\nl
+
+The cannon is mounted on a mechanism that is used to angle it such that it
+is able to shoot a target at varying distances. This mechanism works by having a
+high gearing on a motor and connecting the platform that the shooting mechanism
+is mounted on to the big gear. This makes the platform rise when the motor
+turns.
 
 \subsection{Design of the base}
-The base of the turret is a frame where the nxt is mounted and the shooting and
-angleing mechanism mounted on top. Two designs were considered for the frame,
-one where the NXT is mounted upright on the side of the base and one where the
-NXT is laying flat on the back inside the base. In the design where the NXT was
-upright the screen and the buttons on the front was accessible, but all the I/O
-ports on the end was hard to get to. This design was not chosen mostly because
-of the height but also because it was hard to charge the NXT. The height is a
-factor due to the fact that the taller the turret gets the more unstable it
-becomes. This is because the base sits in on top of the turning mechanism, which
-is a narrow point. This causes the turret to tilt when it turns. This is a
-problem due to the fact that if the turret were to make a fast turn it could be
-overthrown. 
-This design also placed a lot of the weight on one side of turret which made it
-more unstable.\nl
-
-In the chosen design where the NXT is laying on the back inside the turret the
-I/O ports are fully accessible. This design also makes the turret a lot shorter
-and distributes the weight which makes the turret more stable. 
+The base of the turret is designed as a frame where the NXT is mounted and
+the shooting and angling mechanism are mounted on the top. Two designs were
+considered for the frame, one where the NXT is mounted upright on the side of
+the base and one where the NXT is laying flat on the back inside the base. In
+the design where the NXT was upright the screen and the buttons on the front
+was accessible, but all the I/O ports on the end was hard to get to. This
+design was not chosen. This is because of the additional height and the fact
+that it is difficult to charge the NXT. The height is a factor due to the fact
+that the taller the turret gets the more unstable it becomes. This is because
+the base sits in on top of the turning mechanism, which is a narrow point. This
+causes the turret to tilt slightly when it turns. This is a problem due to the
+fact that if the turret were to make a fast turn it could be overthrown or be
+slightly erratic. This design also placed a lot of the weight on one side of
+turret which made it more unstable.
+In second  design where the NXT is laying on the back inside the
+turret, the I/O ports are fully accessible. This design also makes the turret a
+lot shorter and distributes the weight which makes the turret more stable. All
+of these advantages leads us to choosing this design.
 
 \subsection{Sensor Placement}
 The sensor are a vital part of the turret and need to placed in such a way that
 the results from the sensors are as good as possible. As the tests described in
 \autoref{UltraTestPlacement} states, it is important that the sensor is not
 placed to close to the ground due to the fact that it interferes with the
-soundwaves. This makes the results unprecise and can potentially make the
-turret not able to hit a target.\nl
+soundwaves. This makes the results imprecise and can potentially make the
+turret unable to hit a target.\nl
 
 The final design makes use of two ultrasonic sensors placed side by side since
 it was determined that the field of view would be too narrow with only one
@@ -78,7 +95,7 @@ motor was placed beside the turret. This motor was connected to a stick with a
 spiral gear that was conected to a gear on the bottom of the base. This design
 made the turning of the turret precise in the sense that the turret was not
 prone to over turning when stopping the motor. The problem with this design is
-that it limits how much The turret can turn, due to the fact that the cable
+that it limits how much the turret can turn, due to the fact that the cable
 connecting the motor to the NXT has to either go on the outside of the turret,
 which makes it wrap around and in turn stop the turret from turning, or go on
 the inside which makes the cable twist, which also makes the turret stop
@@ -107,4 +124,5 @@ shorter. On the front of this bas two ultrasonic sensor placed in order to make
 \name able to track and measure distance to a target. All of this sits on a
 turning mechanism. A motor is placed on the outside of the
 turret with a gear connected to the turning mechanism to make the whole turret
-turn. This design is seen in \autoref{}
+turn. \fix{Add picture of the turret with arrows pointing to the various
+parts}{}
