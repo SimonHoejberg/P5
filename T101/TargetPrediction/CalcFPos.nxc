@@ -37,8 +37,8 @@ struct directionVector {
 
 bool makePosData(int length, float angle, unsigned int time, PosData &pos){
     bool result = false;
-    pos.xPos = length*cosd(angle);
-    pos.yPos = length*sind(angle);
+    pos.xPos = length*sind(angle);
+    pos.yPos = length*cosd(angle);
     pos.time = time;
     pos.angle = angle;
     if(currentAngle-angleToGroup <= angle && currentAngle+angleToGroup >= angle){
@@ -56,10 +56,9 @@ bool makePosData(int length, float angle, unsigned int time, PosData &pos){
 
 
 //Method which takes an array of directionVectors and returns the average
-directionVector combineVectors(directionVector dirVecArray[]){
+directionVector combineVectors(directionVector dirVecArray[], int arrayLength){
 
    directionVector returnVector;
-   int arrayLength = SizeOf(dirVecArray) / SizeOf(returnVector);
    int xRes = 0;
    int yRes = 0;
    int tRes = 0;
@@ -79,7 +78,7 @@ directionVector combineVectors(directionVector dirVecArray[]){
 
 
 //Method which takes two positions and returns a direction vector
-directionVector calcDirVector(PosData dataArray[], int length){
+directionVector calcDirVector(PosData dataArray[],   int length){
 
    directionVector dirVec;
    int firstVector = 0;
@@ -92,6 +91,9 @@ directionVector calcDirVector(PosData dataArray[], int length){
         xDist = dataArray[firstVector+1].xPos - dataArray[firstVector].xPos;
         yDist = dataArray[firstVector+1].yPos - dataArray[firstVector].yPos;
         tDiff = dataArray[firstVector+1].time - dataArray[firstVector].time;
+        string input = "xDist " + NumToStr(xDist) + ", yDist "+ NumToStr(yDist)+ ", tDiff " + NumToStr(tDiff);
+        WriteLn(handle, input);
+
         if(tDiff < 0){
             tDiff = (65535 - dataArray[firstVector].time) + dataArray[firstVector+1].time;
         }
@@ -103,7 +105,7 @@ directionVector calcDirVector(PosData dataArray[], int length){
         firstVector++;
    }
    
-   dirVec = combineVectors(resultingVectors);
+   dirVec = combineVectors(resultingVectors,length-1);
 
    return dirVec;
 }
@@ -113,6 +115,8 @@ PosData calcFuturePos(directionVector vector, unsigned int time){
    futurePosition.xPos = vector.speedX * vector.speed * time;
    futurePosition.yPos = vector.speedY * vector.speed * time;
    futurePosition.time = CurrentTick() + time;
+   NumOut(0,10,vector.speedY);
+   NumOut(0,20,vector.speedX);
    futurePosition.angle = atan((vector.speedY / vector.speedX));
    
    return futurePosition;

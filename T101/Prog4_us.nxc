@@ -7,22 +7,21 @@
 const int dataSetsNeeded = 3;
 const int MaxCounterToPurgeData = 40;
 int SIZE  = 2048;
-bool firstPos = true;
 bool first = true;
 task search();
-task shoot();
 task GetLength();
-void GroupData();
+task waitAndFire();
 bool shouldFire = false;
 PosData data[100];
 int dataCounter = 0;
-PosData resData[5];
-int resDataCounter = 0;
+fireData fire;
+bool stopFire = false;
 
 task main(){
   PosRegEnable(angleMotor);
   SetMotorRegulationTime(100);
-
+  PosRegEnable(rotateMotor);
+  SetMotorRegulationTime(100);
   int init = NXTCam_Init(camPort, CAMADDR);
   NXTCam_SendCommand(camPort, CAMADDR, 'A');
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
@@ -31,8 +30,6 @@ task main(){
   unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
     if (rtn_code == LDR_FILEEXISTS)
      rtn_code = OpenFileAppend(NAME, SIZE, handle);
-     string t =  NumToStr(MotorRotationCount(rotateMotor));
-     WriteLn(handle, t);
   Precedes(search,GetLength);
 }
 
@@ -40,11 +37,6 @@ task GetLength(){
     string input;
     int length;
     while(true){
-        //ClearScreen();
-        //NumOut(0,0,counter);
-    //if(ButtonPressed(BTNCENTER,false))
-        //CloseFile(handle);
-        
         if(shouldFire){
             WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
             int right = SensorUS(sensorRight);
@@ -63,23 +55,23 @@ task GetLength(){
                 }
 
                 if(dataCounter == dataSetsNeeded){
-                    directionVector d = calcDirVector(data,dataCounter);
-                    fireData fire = calcFireData(calcFuturePos(d,500));
                     StopTask(search);
-                    TurnTurret(fire.angleH);
+                    directionVector d = calcDirVector(data,dataCounter);
+                    fire = calcFireData(calcFuturePos(d,2000));
+                    NumOut(0,0,fire.angleH);
+                    LoadRound();
+                    Rotate(fire.angleH);
                     Angle(fire.angleV);
-                    //LoadRound();
-                    //Fire();
-
-
-                    for(int i=0; i < dataCounter; i++){
+                    Wait(500);
+                    StartTask(waitAndFire);
+                    /*for(int i=0; i < dataCounter; i++){
                             input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
                             WriteLn(handle, input);
                     }
-
                     input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + ", speed" + NumToStr(d.speed) + "\n";
                     WriteLn(handle, input);
                     CloseFile(handle);
+                    */
                 }
             }
         }
@@ -87,53 +79,15 @@ task GetLength(){
 
 }
 
-void GroupData(){
-    PosData tempData[20];
-    int tempDataCounter = 0;
-    int current = -1;
-    bool goodData = false;
-    for(int i = 0; i < dataCounter; i++){
-        int temp = data[i].group;
-        if(current != -1 && current == temp){
-          if(!data[i].used){
-                tempData[tempDataCounter] = data[i];
-                tempDataCounter++;
-                data[i].used = true;
-          }
-        }
-        else if(current == -1){
-            if(!data[i].used){
-                current = temp;
-                tempData[tempDataCounter] = data[i];
-                tempDataCounter++;
-                data[i].used = true;
-            }
-        }
-        else{
-            goodData = true;
-            break;
+task waitAndFire(){
+ StopTask(GetLength);
+    while(!stopFire){
+        if(CurrentTick() >= fire.timeToHit){
+            Fire();
+            stopFire = true;
         }
     }
-    
-    float combinedYPos = 0;
-    float combinedXPos = 0;
-    int group = 0;
-    
-    if(tempDataCounter > 0){
-        for(int i = 0; i < tempDataCounter; i++){
-            combinedXPos += tempData[i].xPos;
-            combinedYPos += tempData[i].yPos;
-            group = tempData[i].group;
-        }
-        
-        resData[resDataCounter].yPos = combinedYPos / tempDataCounter;
-        resData[resDataCounter].xPos = combinedXPos / tempDataCounter;
-        resData[resDataCounter].angle = tempData[0].angle;
-        resData[resDataCounter].time = tempData[0].time;
-        resData[resDataCounter].group = group;
-        resDataCounter++;
-    }
-    
+    CloseFile(handle);
 }
 
 task search(){
@@ -149,13 +103,15 @@ task search(){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
     if(nblobs > 0){
         if(first){
-          Wait(500);
+          Wait(1000);
           first = false;
         }
-        counter = 0;
-      int center = (bl[0] + UpperBound(br[0]))/2;
-      OnFwd(rotateMotor, GetSpeed(center));
-      shouldFire = true;
+        else{
+            counter = 0;
+            int center = (bl[0] + UpperBound(br[0]))/2;
+            OnFwd(rotateMotor, GetSpeed(center));
+            shouldFire = true;
+      }
     }
     else{
       counter++;
@@ -165,8 +121,6 @@ task search(){
             counter = 0;
             data =  NULL;
             dataCounter = 0;
-            resData = NULL;
-            resDataCounter = 0;
             first = true;
       }
 

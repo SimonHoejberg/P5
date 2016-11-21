@@ -26,6 +26,11 @@ void Angle(int angle){
   PosRegSetAngle(angleMotor, -pos);
 }
 
+void Rotate(float angle){
+  float pos = 1.375 * angle;
+  PosRegSetAngle(rotateMotor, pos);
+}
+
 void LoadRound(){
   if(!loaded){
     loaded = true;
