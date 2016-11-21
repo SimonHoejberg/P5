@@ -11,10 +11,12 @@ ultrasonic sensor for determining the distance to the target.\nl
 
 The system is an embedded system which means that it is constrained due to
 hardware limitations, and that it should be constructed for a single purpose,
-in this case: hitting a moving target. The system also needs to be an
-intelligent agent, which is only able to partially observe the states. This
-results in the need to use a belief network to predict the likelyhood of
-possible outcomes.
+in this case: hitting a moving target. The system also needs to have some
+intelligence, this should be done through a belief network in the form a hidden
+markov model. This allows it to make predictions based on what it can
+observe. It needs to stick to its deadlines, in order to make sure it fires
+at just the right time such that it hits the target at the predicted
+position, as described in \autoref{SystemDescription}.\nl
 
 In regards to hitting a target in motion, \autoref{ProjPhys} was used to
 clarify the necessary theory for the project. This information is used to
@@ -40,7 +42,7 @@ problem statement:
 \begin{minipage}{0.8\linewidth}
 \textit{How can an autonomous turret be constructed, designed and implemented
 using the NXT a camera and a pair of ultrasonic distance sensors. Furthermore,
-how can a belief network be constructed and used for predicting the placement
+how can a belief network be constructed and used for predicting the position
 of the target.}
 \end{minipage}
 \end{center}

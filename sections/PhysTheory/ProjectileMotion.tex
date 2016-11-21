@@ -19,13 +19,15 @@ The formulas use the following variables:
   \item $v_0\ (m/s)$ - Starting Velocity
   \item $a\ (degrees)$ - Angle of Fire
   \item $g\ (m/s^2)$ - Gravitational Acceleration (Constant)
-  \item $x\ (m)$ - distance
+  \item $x\ (m)$ - Distance
   \item $t\ (s)$ - Time
 \end{itemize}
 In addition, the following variables are used in the following sections:
+% tried to make it more thorough and added x_0
 \begin{itemize}
-  \item $y_0\ (m)$ - Height of firing
-  \item $y\ (m)$ - height
+  \item $y_0\ (m)$ - Height at firing
+  \item $y\ (m)$ - Height
+  \item $x_0\ (m)$ - Distance at firing
 \end{itemize}
 
 By using this theorem, we can use the projectiles initial velocity, combined
@@ -49,6 +51,8 @@ the resulting formula:
 0=y_0+v_0*t*sin(a)-\frac{1}{2}*g*t^2
 \end{equation}
 
+%Note: vi skal nok bruge opdateret billede (quality and current version eller
+% skifte det ud med en tegning)
 \figx[0.2]{DistRepresent}{Projectile trajectory on the x- and y-axis.}
 Now we can isolate for $\mathbf{t}$ in \autoref{Eq1}. Using the quadratic
 formula gives two results, but assuming a positive value for $\mathbf{a}$ we get
@@ -105,22 +109,20 @@ turret $\mathbf{r}$.
 
 \subsection{Angle-Distance Relation}
 When firing, the turret has one primary variable it can use to aim,
-namely the angle at which the projectile is fired.
+namely the angle at which the projectile is fired. Given a constant, initial
+velocity of the projectile, the travelled distance and air time is proportional
+to the firing angle $\mathbf{a}$. This relation is shown in \autoref{FinEq2}
+where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as coeffecients. As
+such, the furthest possible shot would be achieved using $\mathbf{a=45\
+degrees}$ such that $\mathbf{sin(45)\approx 0.71}$ and $\mathbf{cos(45)\approx
+0.71}$. The relation between firing angle and travelled distance is exemplified
+in \autoref{ProjMot2.png}.
 
 % This variable is
 % theoretically enough to accurately fire the turret, but it does present some
 % problems when it comes to calculating the trajectory and the offset needed for
 % targets in motion.\nl
 
-Given a constant initial velocity of the projectile, the travelled distance and
-air time is proportional to the firing angle $\mathbf{a}$. This relation is
-shown in \autoref{FinEq2} where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as
-coeffecients. As such, the furthest possible shot would be achieved using
-$\mathbf{a=45\ degrees}$ such that $\mathbf{sin(45)\approx 0.71}$ and
-$\mathbf{cos(45)\approx 0.71}$.
-
-The relation between firing angle and travelled distance is exemplified in
-\autoref{ProjMot.png}.
 
 \figx[0.35]{ProjMot2.png}{Distance relative to angle of fire.}
 
