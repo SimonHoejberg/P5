@@ -18,20 +18,18 @@ criteria:
   \item Building - The turret needs to be physically constructed, thus an
   important factor is the need for a simple construction process, which can
   allow for more focus on the software aspect.
-  \item Integration of Sensors - As mentioned before, the group doesn't want to
-  spend too much time on the physical aspect of construction, so the platform should try to minimize
-  the time spent on things like soldering and integration of electrical
-  components and sensors.
+  %\item Integration of Sensors - As mentioned before, the group doesn't want to
+  %spend too much time on the physical aspect of construction, so the platform
+  % should try to minimize the time spent on things like soldering and integration of electrical
+  %components and sensors.
   \item I/O Ports - The number of available I/O Ports needs to be able to
   support a several sensors and motors.
   \item Processing power - The processing power needs to be taken into account
   since it has an effect on how complex the developed program can be.
-  \item Availability - This criteria refers to the ease of acquiring and
-  implementing new components for the given platform, e.g. buying a specialized
-  sensor module and implementing it using existing software libraries. 
-  
-  is a factor since we
-  need to be able to get components for the platform.
+  \item Availability and Integration - This criteria refers to the ease of
+  acquiring and implementing new components for the given platform, e.g. buying
+  a specialized sensor module and implementing it using existing software
+  libraries.
 \end{itemize}
 
 \section{Lego NXT Mindstorms}
@@ -141,16 +139,7 @@ the two platforms.
   designed for that purpose. The NXT also has the advantage that the various
   pieces can be combined in a lot of ways, allowing change in the design without
   necessarily needing new parts.
-  
-  \item Integration of sensors - The Lego NXT peripherals are built and
-  configured to be used with a Lego NXT brick, thus resulting in a much simpler
-  and streamlined process, being almost plug-and-play. Based on personal
-  experience, the Arduino often requires more work in regards to integrating the
-  modules with the board. Also, as the NXT sensors are designed to be used with
-  LEGO, they are easy to mount on the turret. In addition, while it is possible
-  to use NXT-based sensors with the Arduino platform, this would result in
-  potential design restrictions and problems as described in \autoref{CombPlat}.
-  
+
   \item I/O ports - When it comes to availability and flexibility in I/O
   Arduino is a vastly superior platform, since it not only far surpasses the NXT
   in number of available ports, it also allows flexibility in whether the ports
@@ -162,25 +151,32 @@ the two platforms.
   standard Arduino UNO has a clock frequency of 16 MHz, 32 kB Flash storage and
   2 kB SRAM.
   
-  \item Availability - If we limit the peripherals used by the NXT to those
-  specifically designed for the platform, the Arduino has access to a far wider
-  selection of peripherals than the NXT. Though considering that most of the
-  modules needed for the project, such as sensors, are available for both
+  \item Availability and Integration - If we limit the peripherals used by the
+  NXT to those specifically designed for the platform, the Arduino has access
+  to a far wider selection of peripherals than the NXT. The Lego NXT
+  peripherals are built and configured to be used with a Lego NXT brick, thus
+  resulting in a much simpler and streamlined process, being almost
+  plug-and-play. Based on personal experience, the Arduino often requires more
+  work in regards to integrating the modules with the board. Also, as the NXT
+  sensors are designed to be used with LEGO, they are easy to mount on the
+  turret. In addition, while it is possible to use NXT-based sensors with the
+  Arduino platform, this would result in potential design restrictions and
+  problems as described in \autoref{CombPlat}. Thus considering that most of
+  the modules needed for the project, such as sensors, are available for both
   platforms, the ease of implementing and mounting the sensors still favors the
   NXT.
 \end{enumerate}
 
-Since the university provides the platforms the cost aspect is not deemed as a
-vital factor. As mentioned before the parts needed for the project are
-available for both platforms so this is not the deciding factor either.
+Since the university can provide the platforms, as well as some of the
+peripherals, the cost aspect is not deemed as a vital factor. As mentioned
+before the peripherals needed for the project are available for both platforms
+so this is not the deciding factor either.\nl
 
 In conclusion the group has chosen the Lego NXT platform for use in the project
 based on the following reasons:
 \begin{itemize}
-  \item Easier to physically build a prototype with Lego parts
-  \item Availability of the modules or cost of the platform isn't really a
-  factor, since they both suit the needs of the project.
-  \item Less time spent on module integration and more time on software
+  \item It is easier to physically build a prototype with Lego parts.
+  \item Less time is spent on integration and more time spent on the software
 \end{itemize}
 
 Now the platform choices have been analysed in regards to the project and a
