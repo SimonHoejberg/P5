@@ -1,15 +1,10 @@
 \section{Real-Time Systems}
-\fix{Der er måske ikke brug for denne section i rapporten, begrundelse af at
-ingen er os har RTS og det bliver ikke brugt til noget i rapporten ud over at
-bruge masser af tid på at omskrive og lede efter kilder for at få det til at
-komme ind i rapporten} 
-Although the project group does not have any members
-following the Real-Time Systems (RTS) course, the project still incorporates certain elements from RTS.
-As such, this section will provide a quick overview of the elements which will
-be used in relation to the project.
-In order to have a proper foundation for the core concepts in the field of
-real-time systems, we will give our own definition of what we percieve real-time
-systems to be:
+
+\name is an autonomous turret that needs to be capable of hitting a moving
+target, in order to accomplish this, it will to react to its surroundings and
+be able to fire at the correct time, not too soon or too late. It can thus be
+treated as a real-time system, which we define as:
+
 
 \begin{center}
 \begin{minipage}{0.8\linewidth}
@@ -19,93 +14,164 @@ its deadlines.}
 \end{minipage}
 \end{center}
 
-For this project we consider a real-time system to be categorized by looking at
-four different elements: \fix{timeliness, deadlines, tasks and
-scheduling.}{where does these come from} As such, these will be further
-explained throughout this section.
-
-\subsection{Timeliness}
-% Timeliness is defined as being a function of the total system, for example a
-% missile guidance system requires the input data within a few milliseconds. This
-% means that for all real time systems the concept of timeliness is relative to
-% the project - which makes sense since the only thing to care about is whether
-% or not the deadlines are met \Source.
-
-In the context of real-time systems in this project, \fix{timeliness}{what is
-timeliness \Source} should be understood as an operation being able to complete
-it tasks ahead of the deadline. As such the degree of timeliness depends on the deadlines in a given system, for example a
-missile guidance system could require its input data within a few milliseconds.
-This means that for any given real time systems the concept of timeliness is
-relative to its functionality - which makes sense since we always care about
-whether or not the deadlines are met.
-
-
-\subsection{Deadlines}
-% As mentioned in our RTS definition, real time systems are concerned about
-% deadlines in a system. The real time system gets classified depending on the
-% consequences of not meeting a deadline. If the result of a failed deadline is
-% catastrophic, the system gets classified as a hard real time system - examples
-% of such are control systems for airplanes, nuclear power plants, etc \Source.
-% If an occasional deadline is missed, or the system doesn't shut down if a
-% deadline is missed, it might be a soft real time system, for example
-% video-conferencing software the result of a missed deadline might be dropped
-% frames but nothing critical \Source.
-
-As mentioned in our RTS definition, real time systems are concerned about
-\fix{deadlines}{what is a deadline} in a system. As such, we can classify these
-systems depending on the consequences of not meeting a deadline. If the result of a failed deadline is
-catastrophic, we choose to classify such a system as a 'hard' real time
-system. These could for example include things such as control system for
-airplanes or nuclear power plants where it is vitally important that the
-system can react in a timely fashion. If an occasional deadline can be safely
-missed, or the system doesn't shut down if a deadline is missed, we choose to
-classify it as a 'soft' real time system. These systems could for example be 
-video-conferencing software where the result of a missed deadline could be
-dropped frames but nothing critical which would prevent the operation of the
-system.
-
-
 \subsection{Tasks}
-\fix{For the purpose of this project, we consider a task to be a subset of a
-given program which can be executed on a thread}{What about task in general}.
-For example a task in an ABS-brake system could be to use a method named ReadVelocity() to determine the speed of
-the vehicle. In order to construct a schedule for a given system, the time to
-process the different tasks is needed. By having this overview of
-all the different tasks and their needed execution time, it is possible to
-accurately schedule a given program.
+Real-time systems are often comprised of different task working together. These
+task are often run at a regular interval, and have deadlines dictating when the
+task should be completed. A task works by sensing the environment around it,
+performing a computation and deciding whether or not to react to the input by
+changing the system state. In an example of a task in a real-time system, such
+as ABS, a task monitors the applied pressure on the brakes and the individual
+speed of the wheels. It then performs a computation to see whether or not the
+brakes have locked, and depending on the outcome it will change the state of the
+system(the brakes) in order to prevent locking of the brakes.\nl
 
-% We consider a task to be a subset of a given program. For example a task in an
-% ABS-brake system could be ReadVelocity(). In order to construct a schedule first the time to
-% process all the different tasks is needed. This provides a overview of all the
-% different tasks needed to complete the function and their respective runtime
-% \Source.
+Tasks can generally be divided into two different groups, \textbf{periodic} and
+\textbf{aperiodic}. \textbf{Periodic} tasks are those that need to be run
+constantly in order to keep the system running. A feature often found in
+\textbf{periodic} tasks is that they are time-critical, which means the system
+will not work if the deadlines are broken. Using the previous example, it is
+clear that the system would not be able to function since a failure to complete
+the task may result in the wheels locking which in turns causes an accident.
+\textbf{Aperiodic} tasks are those which only activates in case certain events
+occur, ie. not in regular intervals. Consider for example a task that should
+be activated in case of errors.\nl
+
+These tasks generally have deadlines associated with them. There are three types
+of tasks which are defined by how severe the consequence of missing a
+deadline is. If the real-time task is \textbf{hard} the consequences of missing
+are catastrophic, and can cause unacceptable damage to the system. 
+If the real-time task is \textbf{firm} the result ceases to be useful once the
+deadline has been passed, the consequences of missing it, is not very severe.
+The third and final type of real-time task is the \textbf{soft} type. It
+is not necessary to execute this task before the deadline, but the utility
+value decreases over time once the deadline has passed.
+
+
+
+% In the context of our project certain tasks can already be determined:
+% For example we need a task to monitor an area, in order for the robot to react
+% when a target enters it field of vision. The task should rotate the turret in a
+% pattern in order to patrol an area, and report if it senses anything.
 
 \subsection{Scheduling}
-To ensure that the deadlines of the different tasks are \textbf{always} met,
-scheduling is needed to organize their execution. By explicitly stating a
-schedule for the system to follow, a scheduling analysis can be conducted in
-order to ensure that the schedule does in fact always hold true and no deadlines
-are missed \Source. Scheduling is one of the fundamental concepts of RTS, but
-for scheduling to work, knowledge is needed about how long tasks take to finish
-\Source.\nl
 
-% To ensure that the deadlines \textbf{always} are met, scheduling is needed.
-% By explicitly stating a schedule for the system to follow, a scheduling analysis
-% can be conducted in order to ensure that the schedule does in fact always hold
-% true and no deadlines are missed \Source. Scheduling is one of the
-% fundamental concepts of RTS. But for scheduling to work, knowledge is needed
-% about how long tasks take to finish \Source. 
+Scheduling is used to determine when and in what order each task will be
+executed. There is a slight difference between real-time and non-real-time
+schedulers and what they are supposed to do. The objective for most
+non-real-time schedulers is to minimize the execution time for all tasks. For a
+real-time system, the schedulers main purpose is to meet the timing constraints
+on the individual task.
 
 
-% \subsection{An example}
-% An example of a real time system is the ABS-brakes on a car
 
-% At its most basic level, real time systems are systems where the timing of
-% specific parts are a vital factor. Consider the example of an ABS-brake - the
-% system needs an input i.e. a sensor input from the wheels. This information is
-% then used to calculate the correct amount of pressure to apply to the brakes in
-% order to optimize the braking length of the vehicle, that is the output. The
-% time it takes from receiving the input till it produces the output is critical.
-% This is due to the fact that the brakes needs to be on instantly. So in fact
-% when talking about real time systems, the only concern is whether or not the
-% deadlines are met.
+
+% \fix{Der er måske ikke brug for denne section i rapporten, begrundelse af at
+% ingen er os har RTS og det bliver ikke brugt til noget i rapporten ud over at
+% bruge masser af tid på at omskrive og lede efter kilder for at få det til at
+% komme ind i rapporten} 
+% Although the project group does not have any members
+% following the Real-Time Systems (RTS) course, the project still incorporates certain elements from RTS.
+% As such, this section will provide a quick overview of the elements which will
+% be used in relation to the project.
+% In order to have a proper foundation for the core concepts in the field of
+% real-time systems, we will give our own definition of what we percieve real-time
+% systems to be:
+% 
+% \begin{center}
+% \begin{minipage}{0.8\linewidth}
+% \textit{A real time system is any information processing system, which needs to
+% react within a finite time period to externally generated inputs in order meet
+% its deadlines.}
+% \end{minipage}
+% \end{center}
+% 
+% For this project we consider a real-time system to be categorized by looking at
+% four different elements: \fix{timeliness, deadlines, tasks and
+% scheduling.}{where does these come from} As such, these will be further
+% explained throughout this section.
+% 
+% \subsection{Timeliness}
+% % Timeliness is defined as being a function of the total system, for example a
+% % missile guidance system requires the input data within a few milliseconds. This
+% % means that for all real time systems the concept of timeliness is relative to
+% % the project - which makes sense since the only thing to care about is whether
+% % or not the deadlines are met \Source.
+% 
+% In the context of real-time systems in this project, \fix{timeliness}{what is
+% timeliness \Source} should be understood as an operation being able to complete
+% it tasks ahead of the deadline. As such the degree of timeliness depends on the deadlines in a given system, for example a
+% missile guidance system could require its input data within a few milliseconds.
+% This means that for any given real time systems the concept of timeliness is
+% relative to its functionality - which makes sense since we always care about
+% whether or not the deadlines are met.
+% 
+% 
+% \subsection{Deadlines}
+% % As mentioned in our RTS definition, real time systems are concerned about
+% % deadlines in a system. The real time system gets classified depending on the
+% % consequences of not meeting a deadline. If the result of a failed deadline is
+% % catastrophic, the system gets classified as a hard real time system - examples
+% % of such are control systems for airplanes, nuclear power plants, etc \Source.
+% % If an occasional deadline is missed, or the system doesn't shut down if a
+% % deadline is missed, it might be a soft real time system, for example
+% % video-conferencing software the result of a missed deadline might be dropped
+% % frames but nothing critical \Source.
+% 
+% As mentioned in our RTS definition, real time systems are concerned about
+% \fix{deadlines}{what is a deadline} in a system. As such, we can classify these
+% systems depending on the consequences of not meeting a deadline. If the result of a failed deadline is
+% catastrophic, we choose to classify such a system as a 'hard' real time
+% system. These could for example include things such as control system for
+% airplanes or nuclear power plants where it is vitally important that the
+% system can react in a timely fashion. If an occasional deadline can be safely
+% missed, or the system doesn't shut down if a deadline is missed, we choose to
+% classify it as a 'soft' real time system. These systems could for example be 
+% video-conferencing software where the result of a missed deadline could be
+% dropped frames but nothing critical which would prevent the operation of the
+% system.
+% 
+% 
+% \subsection{Tasks}
+% \fix{For the purpose of this project, we consider a task to be a subset of a
+% given program which can be executed on a thread}{What about task in general}.
+% For example a task in an ABS-brake system could be to use a method named ReadVelocity() to determine the speed of
+% the vehicle. In order to construct a schedule for a given system, the time to
+% process the different tasks is needed. By having this overview of
+% all the different tasks and their needed execution time, it is possible to
+% accurately schedule a given program.
+% 
+% % We consider a task to be a subset of a given program. For example a task in an
+% % ABS-brake system could be ReadVelocity(). In order to construct a schedule first the time to
+% % process all the different tasks is needed. This provides a overview of all the
+% % different tasks needed to complete the function and their respective runtime
+% % \Source.
+% 
+% \subsection{Scheduling}
+% To ensure that the deadlines of the different tasks are \textbf{always} met,
+% scheduling is needed to organize their execution. By explicitly stating a
+% schedule for the system to follow, a scheduling analysis can be conducted in
+% order to ensure that the schedule does in fact always hold true and no deadlines
+% are missed \Source. Scheduling is one of the fundamental concepts of RTS, but
+% for scheduling to work, knowledge is needed about how long tasks take to finish
+% \Source.\nl
+% 
+% % To ensure that the deadlines \textbf{always} are met, scheduling is needed.
+% % By explicitly stating a schedule for the system to follow, a scheduling analysis
+% % can be conducted in order to ensure that the schedule does in fact always hold
+% % true and no deadlines are missed \Source. Scheduling is one of the
+% % fundamental concepts of RTS. But for scheduling to work, knowledge is needed
+% % about how long tasks take to finish \Source. 
+% 
+% 
+% % \subsection{An example}
+% % An example of a real time system is the ABS-brakes on a car
+% 
+% % At its most basic level, real time systems are systems where the timing of
+% % specific parts are a vital factor. Consider the example of an ABS-brake - the
+% % system needs an input i.e. a sensor input from the wheels. This information is
+% % then used to calculate the correct amount of pressure to apply to the brakes in
+% % order to optimize the braking length of the vehicle, that is the output. The
+% % time it takes from receiving the input till it produces the output is critical.
+% % This is due to the fact that the brakes needs to be on instantly. So in fact
+% % when talking about real time systems, the only concern is whether or not the
+% % deadlines are met.
