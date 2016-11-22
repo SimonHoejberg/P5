@@ -1,0 +1,15 @@
+#include "TurretLib.nxc"
+
+task main(){
+  PosRegEnable(angleMotor);
+  SetMotorRegulationTime(10);
+  PosRegEnable(rotateMotor);
+  //TurnTurret(90);
+  LoadRound();
+  Angle(45);
+  Wait(1000);
+  Fire();
+  Wait(500);
+  Angle(0);
+}
+

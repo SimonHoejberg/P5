@@ -19,9 +19,8 @@ bool stopFire = false;
 
 task main(){
   PosRegEnable(angleMotor);
-  SetMotorRegulationTime(100);
+  SetMotorRegulationTime(10);
   PosRegEnable(rotateMotor);
-  SetMotorRegulationTime(100);
   int init = NXTCam_Init(camPort, CAMADDR);
   NXTCam_SendCommand(camPort, CAMADDR, 'A');
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
@@ -62,7 +61,6 @@ task GetLength(){
                     LoadRound();
                     Rotate(fire.angleH);
                     Angle(fire.angleV);
-                    Wait(500);
                     StartTask(waitAndFire);
                     /*for(int i=0; i < dataCounter; i++){
                             input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
