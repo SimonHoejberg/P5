@@ -5,6 +5,7 @@ const byte angleMotor = OUT_C;
 const byte rotateMotor = OUT_A;
 const byte fireMotor = OUT_B;
 const int camCenter = 72;
+const int angleOffsetV = 4;
 byte handle = 0; // file handle
 bool loaded = false;
 
@@ -22,7 +23,7 @@ void Right(int power, int angle){
 }
 
 void Angle(int angle){
-  int pos = 5 * angle;
+  int pos = (5 * angle)-angleOffsetV;
   PosRegSetAngle(angleMotor, -pos);
 }
 
