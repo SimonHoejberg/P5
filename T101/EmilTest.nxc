@@ -6,7 +6,7 @@ task main(){
   PosRegEnable(rotateMotor);
   //TurnTurret(90);
   //LoadRound();
-  Angle(36);
+  Angle(45);
   //Wait(1000);
   //Fire();
   //Wait(500);

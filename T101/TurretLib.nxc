@@ -8,6 +8,7 @@ const int camCenter = 72;
 const int angleOffsetV = 4;
 byte handle = 0; // file handle
 bool loaded = false;
+unsigned long currentTime = 0;
 
 
 void TurnTurret(float angle){
