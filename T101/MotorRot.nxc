@@ -1,0 +1,5 @@
+task main(){
+    while(true){
+        NumOut(0,0,MotorRotationCount(OUT_A)*0.73);
+    }
+}
