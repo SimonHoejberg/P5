@@ -102,15 +102,17 @@ directionVector calcDirVector(PosData dataArray[],   int length){
 
 PosData calcFuturePos(directionVector vector, unsigned long time){
    PosData futurePosition;
+   float tanInput = 0;
    futurePosition.xPos = vector.speedX * time;
    futurePosition.yPos = vector.speedY * time;
    futurePosition.time = CurrentTick() + time;
+   tanInput = futurePosition.xPos / futurePosition.yPos;
+   futurePosition.angle = atand(tanInput);
+   
    NumOut(0,10,vector.speedY);
    NumOut(0,20,vector.speedX);
-   
-   //PROBLEM MUST BE HERE!!!!
-   futurePosition.angle = atand((vector.speedX / vector.speedY));
-   //PROBLEM MUST BE HERE!!!!
+   NumOut(0,30,tanInput);
+   NumOut(0,40,futurePosition.angle);
    
    return futurePosition;
 }
