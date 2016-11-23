@@ -157,9 +157,15 @@ the base of the turret and connected directly to the gear that makes the turret 
 design does not have the problem of the cable limiting how much the turret can
 turn, since the motor is located on the the turret and therefore turns with the
 NXT. This design does have a flaw, that is that it overturns whenever it needs
-to stop. This is beacause the motor delivers a lot of power, which makes the
-turret turn fast, even at low settings for the motor. This means that the turret
-is very imprecise which makes it difficult to aim correctly.\nl
+to stop. This is beacause the stick that is connected to the turning mechanism
+is made of soft plastic, which makes it twist when the motor applies force to
+it. When the tension in the plastic is great enough the turret begins to turn.
+This means that when the motor stops the plastic will untwist which makes the
+turret overturn. This means that the turret is very imprecise which makes it
+difficult to aim correctly. This could be compensated for in the software by
+calculating how much more the turret turns, but since this is difficult to
+measure and it is relative to how much force the motor applies it was deemed
+not worth the effort.\nl
 
 The geared design is similar to the design with the turret directly connected to
 the gear that turns the turret, the difference being that the motor is placed on
