@@ -15,8 +15,8 @@ turret with a gear connected to the turning mechanism to make the whole turret
 turn. \fix{Add picture of the turret with arrows pointing to the various
 parts}{}
 
-In the following subsections, arguments for each part of this design
-wil be presented.
+In the following subsections the design process and arguments for each part will
+be presented.
 
 \subsection{Shooting Mechanism}
 When it comes to the shooting mechanism it needs to be able to shoot at least
@@ -61,8 +61,10 @@ In this test the turret was set to an angle before fireing. The distance was
 then measured by having the projectile landing in a layer of flour on the
 ground. The test was conducted twice The average distance for each angle in
 both datasets was calculated and plotted in a graph against the the angle,
-which is seen in \autoref{Accuracy}. This shows that if all 5 projectiles are
-fired the turret has good odds of hitting the target.
+which is seen in \autoref{graph:Accuracy}. This shows that if all 5 projectiles
+are fired the turret has good odds of hitting the target, since the points on
+the graph somewhat follows a \fix{thirddegreepolynomial}{Cubic function?} as
+expected.
 
 \graphLNo{Angle}{Distance [cm]}{DistVSAngleTestset1,
 DistVSAngleTestset2}{Dataset 1, Dataset 2}{Results from accuracy test}{Accuracy}
@@ -71,7 +73,7 @@ The reason for using this design is that it is able to shoot the desired
 distance and is able to reload itself. The tests conducted in
 \autoref{SensorTest} also shows that the sensors that \name makes use can not
 sense any longer than the piston design can shoot, which makes the power that
-the two other designs has obslete.
+the two other designs has obslete.\nl
 
 The cannon is mounted on a mechanism that is used to angle it such that it
 is able to shoot a target at varying distances. This mechanism works by having a
