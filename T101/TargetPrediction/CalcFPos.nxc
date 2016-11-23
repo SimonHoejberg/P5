@@ -107,7 +107,10 @@ PosData calcFuturePos(directionVector vector, unsigned long time){
    futurePosition.time = CurrentTick() + time;
    NumOut(0,10,vector.speedY);
    NumOut(0,20,vector.speedX);
+   
+   //PROBLEM MUST BE HERE!!!!
    futurePosition.angle = atand((vector.speedX / vector.speedY));
+   //PROBLEM MUST BE HERE!!!!
    
    return futurePosition;
 }
