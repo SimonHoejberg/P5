@@ -64,8 +64,6 @@ directionVector combineVectors(directionVector dirVecArray[], int arrayLength){
    for (int i = 0; i < arrayLength; i++){
        xRes = xRes + dirVecArray[i].speedX;
        yRes = yRes + dirVecArray[i].speedY;
-       NumOut(0,i*10,dirVecArray[i].speedX);
-       NumOut(50,i*10,dirVecArray[i].speedY);
    }
 
    returnVector.speedX = xRes / arrayLength;
@@ -105,8 +103,15 @@ PosData calcFuturePos(directionVector vector, unsigned long time){
    futurePosition.xPos = vector.speedX * time;
    futurePosition.yPos = vector.speedY * time;
    futurePosition.time = CurrentTick() + time;
-   tanInput = futurePosition.xPos / futurePosition.yPos;
-   futurePosition.angle = atand(tanInput);
+   tanInput = futurePosition.yPos / futurePosition.xPos;
+   if(futurePosition.xPos >= 0)
+        futurePosition.angle = 90+(atand(tanInput))*(-1);
+   else
+        futurePosition.angle = (90-(atand(tanInput))*(-1))*(-1);
+
+    NumOut(0,20,futurePosition.angle);
+    NumOut(0,0,futurePosition.xPos);
+    NumOut(0,10 ,futurePosition.yPos);
    
    return futurePosition;
 }

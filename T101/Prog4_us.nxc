@@ -19,8 +19,8 @@ bool stopFire = false;
 
 task main(){
   PosRegEnable(angleMotor);
-  SetMotorRegulationTime(10);
   PosRegEnable(rotateMotor);
+  SetMotorRegulationTime(10);
   int init = NXTCam_Init(camPort, CAMADDR);
   NXTCam_SendCommand(camPort, CAMADDR, 'A');
   NXTCam_SendCommand(camPort, CAMADDR, 'E');
@@ -49,23 +49,21 @@ task GetLength(){
             if(length != -1){
                 PosData temp;
                 if(makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick(),temp)){
+                    PlaySound(SOUND_LOW_BEEP);
                     data[dataCounter] = temp;
                     dataCounter++;
                 }
 
                 if(dataCounter == dataSetsNeeded){
                     StopTask(search);
-                     for(int i=0; i < dataCounter; i++){
-                            input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
-                            WriteLn(handle, input);
-                    }
+                     //for(int i=0; i < dataCounter; i++){
+                           // input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
+                            //WriteLn(handle, input);
+                    //}
                     directionVector d = calcDirVector(data,dataCounter);
-                    fire = calcFireData(calcFuturePos(d,1000));
-                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick());
-                    WriteLn(handle, input);
-                    LoadRound();
-                    Rotate(fire.angleH);
-                    Angle(fire.angleV);
+                    fire = calcFireData(calcFuturePos(d,2000));
+                    //input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick());
+                    //WriteLn(handle, input);
                     StartTask(waitAndFire);
                 }
             }
@@ -76,6 +74,11 @@ task GetLength(){
 
 task waitAndFire(){
  StopTask(GetLength);
+ LoadRound();
+Rotate(fire.angleH);
+Wait(150);
+NumOut(0,30,fire.angleH);
+Angle(fire.angleV);
     while(!stopFire){
         if(CurrentTick() >= fire.timeToHit){
             Fire();
@@ -85,6 +88,7 @@ task waitAndFire(){
     CloseFile(handle);
     Angle(0);
     while(true){
+    
     }
 }
 
@@ -101,7 +105,7 @@ task search(){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
     if(nblobs > 0){
         if(first){
-          Wait(1000);
+          Wait(1050);
           first = false;
         }
         else{
