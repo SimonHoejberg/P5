@@ -14,13 +14,13 @@ its deadlines.}
 \end{minipage}
 \end{center}
 
-\subsection{Tasks}
+%\subsection{Tasks}
 Real-time systems are often comprised of different task working together. These
 task are often run at a regular interval, and have deadlines dictating when the
 task should be completed. A task works by sensing the environment around it,
 performing a computation and deciding whether or not to react to the input by
-changing the system state. In an example of a task in a real-time system, such
-as ABS, a task monitors the applied pressure on the brakes and the individual
+changing the system state \citep[Chap 1]{Realtime}. In an example of a task in a
+real-time system, such as ABS, a task monitors the applied pressure on the brakes and the individual
 speed of the wheels. It then performs a computation to see whether or not the
 brakes have locked, and depending on the outcome it will change the state of the
 system(the brakes) in order to prevent locking of the brakes.\nl
@@ -29,8 +29,8 @@ Tasks can generally be divided into two different groups, \textbf{periodic} and
 \textbf{aperiodic}. \textbf{Periodic} tasks are those that need to be run
 constantly in order to keep the system running. A feature often found in
 \textbf{periodic} tasks is that they are time-critical, which means the system
-will not work if the deadlines are broken. Using the previous example, it is
-clear that the system would not be able to function since a failure to complete
+will not work if the deadlines are broken \citep[Chap 1]{Realtime}. Using the
+previous example, it is clear that the system would not be able to function since a failure to complete
 the task may result in the wheels locking which in turns causes an accident.
 \textbf{Aperiodic} tasks are those which only activates in case certain events
 occur, ie. not in regular intervals. Consider for example a task that should
@@ -44,7 +44,7 @@ If the real-time task is \textbf{firm} the result ceases to be useful once the
 deadline has been passed, the consequences of missing it, is not very severe.
 The third and final type of real-time task is the \textbf{soft} type. It
 is not necessary to execute this task before the deadline, but the utility
-value decreases over time once the deadline has passed.
+value decreases over time once the deadline has passed\citep[Chap 2]{Realtime}.
 
 
 
@@ -53,14 +53,14 @@ value decreases over time once the deadline has passed.
 % when a target enters it field of vision. The task should rotate the turret in a
 % pattern in order to patrol an area, and report if it senses anything.
 
-\subsection{Scheduling}
-
-Scheduling is used to determine when and in what order each task will be
-executed. There is a slight difference between real-time and non-real-time
-schedulers and what they are supposed to do. The objective for most
-non-real-time schedulers is to minimize the execution time for all tasks. For a
-real-time system, the schedulers main purpose is to meet the timing constraints
-on the individual task.
+%\subsection{Scheduling}
+% 
+% Scheduling is used to determine when and in what order each task will be
+% executed. There is a slight difference between real-time and non-real-time
+% schedulers and what they are supposed to do. The objective for most
+% non-real-time schedulers is to minimize the execution time for all tasks. For a
+% real-time system, the schedulers main purpose is to meet the timing constraints
+% on the individual task.
 
 
 

@@ -5,11 +5,12 @@ task main(){
   SetMotorRegulationTime(10);
   PosRegEnable(rotateMotor);
   //TurnTurret(90);
-  LoadRound();
+  //LoadRound();
   Angle(45);
-  Wait(1000);
-  Fire();
-  Wait(500);
+  //Wait(1000);
+  //Fire();
+  //Wait(500);
+  Wait(10000);
   Angle(0);
 }
 

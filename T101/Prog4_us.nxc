@@ -55,21 +55,18 @@ task GetLength(){
 
                 if(dataCounter == dataSetsNeeded){
                     StopTask(search);
+                     for(int i=0; i < dataCounter; i++){
+                            input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
+                            WriteLn(handle, input);
+                    }
                     directionVector d = calcDirVector(data,dataCounter);
-                    fire = calcFireData(calcFuturePos(d,2000));
-                    NumOut(0,0,fire.angleH);
+                    fire = calcFireData(calcFuturePos(d,1000));
+                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick());
+                    WriteLn(handle, input);
                     LoadRound();
                     Rotate(fire.angleH);
                     Angle(fire.angleV);
                     StartTask(waitAndFire);
-                    /*for(int i=0; i < dataCounter; i++){
-                            input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
-                            WriteLn(handle, input);
-                    }
-                    input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick()) + ", speed" + NumToStr(d.speed) + "\n";
-                    WriteLn(handle, input);
-                    CloseFile(handle);
-                    */
                 }
             }
         }
@@ -86,6 +83,9 @@ task waitAndFire(){
         }
     }
     CloseFile(handle);
+    Angle(0);
+    while(true){
+    }
 }
 
 task search(){

@@ -1,0 +1,12 @@
+struct node {
+  int state[];
+  struct node next[];
+};
+
+task main(){
+  node n1
+
+}
+
+
+

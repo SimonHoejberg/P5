@@ -9,7 +9,7 @@ struct PosData {
    int dataID;
    float xPos;
    float yPos;
-   unsigned int time;
+   unsigned long time;
    float angle;
    int group;
    bool used;
@@ -24,7 +24,7 @@ struct fireData {
 struct ResData {
    int horizontalAngle;
    int verticalAngle;
-   unsigned int timeStamp;
+   unsigned long timeStamp;
    int fireingDeadline;
 };
 
@@ -58,12 +58,14 @@ bool makePosData(int length, float angle, unsigned int time, PosData &pos){
 directionVector combineVectors(directionVector dirVecArray[], int arrayLength){
 
    directionVector returnVector;
-   int xRes = 0;
-   int yRes = 0;
+   float xRes = 0;
+   float yRes = 0;
 
    for (int i = 0; i < arrayLength; i++){
        xRes = xRes + dirVecArray[i].speedX;
        yRes = yRes + dirVecArray[i].speedY;
+       NumOut(0,i*10,dirVecArray[i].speedX);
+       NumOut(50,i*10,dirVecArray[i].speedY);
    }
 
    returnVector.speedX = xRes / arrayLength;
@@ -81,38 +83,30 @@ directionVector calcDirVector(PosData dataArray[],   int length){
    directionVector resultingVectors[10];
    float xDist;
    float yDist;
-   unsigned int tDiff;
+   unsigned long tDiff;
    
    for(int i = 0; i < length-1; i++){
         xDist = dataArray[firstVector+1].xPos - dataArray[firstVector].xPos;
         yDist = dataArray[firstVector+1].yPos - dataArray[firstVector].yPos;
         tDiff = dataArray[firstVector+1].time - dataArray[firstVector].time;
-        string input = "xDist " + NumToStr(xDist) + ", yDist "+ NumToStr(yDist)+ ", tDiff " + NumToStr(tDiff);
-        WriteLn(handle, input);
-
-        if(tDiff < 0){
-            tDiff = (65535 - dataArray[firstVector].time) + dataArray[firstVector+1].time;
-        }
-
         resultingVectors[i].speedX = xDist / tDiff;
         resultingVectors[i].speedY = yDist / tDiff;
-
         firstVector++;
    }
    
-   dirVec = combineVectors(resultingVectors,length-1);
+   dirVec = combineVectors(resultingVectors,firstVector);
 
    return dirVec;
 }
 
-PosData calcFuturePos(directionVector vector, unsigned int time){
+PosData calcFuturePos(directionVector vector, unsigned long time){
    PosData futurePosition;
+   float tanInput = 0;
    futurePosition.xPos = vector.speedX * time;
    futurePosition.yPos = vector.speedY * time;
    futurePosition.time = CurrentTick() + time;
-   NumOut(0,10,vector.speedY);
-   NumOut(0,20,vector.speedX);
-   futurePosition.angle = atan((vector.speedX / vector.speedY));
+   tanInput = futurePosition.xPos / futurePosition.yPos;
+   futurePosition.angle = atand(tanInput);
    
    return futurePosition;
 }
@@ -122,8 +116,8 @@ fireData calcFireData(PosData futurePos){
    fireData returnData;
    returnData.angleH = futurePos.angle;
    float dist = sqrt(pow(futurePos.xPos,2)+pow(futurePos.yPos,2));
-   returnData.angleV = abs(-0.0006 * pow(dist,2) + 0.0692 * dist + 0.6574); //Formel baseret på tendenslinje fra testresultater
-   returnData.timeToHit = futurePos.time - ((muzzleSpeed * sin(returnData.angleV) - sqrt(pow(muzzleSpeed,2) * pow(sin(returnData.angleV),2))) / gravConst); //Formel for tid for y=0
+   returnData.angleV = abs(0.2573*dist-22.85); //Formel baseret på tendenslinje fra testresultater
+   returnData.timeToHit = futurePos.time - ((muzzleSpeed * sind(returnData.angleV) - sqrt(pow(muzzleSpeed,2) * pow(sind(returnData.angleV),2))) / gravConst); //Formel for tid for y=0
    
    return returnData;
 }
