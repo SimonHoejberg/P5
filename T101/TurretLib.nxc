@@ -6,6 +6,7 @@ const byte rotateMotor = OUT_A;
 const byte fireMotor = OUT_B;
 const int camCenter = 72;
 const int angleOffsetV = 4;
+const float speedBuf = 1.2;
 byte handle = 0; // file handle
 bool loaded = false;
 unsigned long currentTime = 0;
@@ -94,10 +95,10 @@ float GetFactorFromLength(){
 int GetSpeed(int bcenter){
   int length;
   length = bcenter - camCenter;
-  float factor = 0.6;
-  if(length < 0){
-    factor = 1;
-  }
+  float factor = 0.6*speedBuf;
+  /*if(length < 0){
+    factor = 1*speedBuf;
+  } */
   return length * factor;
   
   

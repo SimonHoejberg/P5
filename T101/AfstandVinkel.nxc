@@ -1,0 +1,29 @@
+#include "TurretLib.nxc"
+
+task main(){
+  PosRegEnable(angleMotor);
+  SetSensorUltrasonic(sensorLeft);
+  SetSensorUltrasonic(sensorRight);
+  int length;
+  while(true){
+        if(ButtonPressed(BTNCENTER, false)){
+            ClearScreen();
+           WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+            int right = SensorUS(sensorRight);
+            WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+            WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+            int left = SensorUS(sensorLeft);
+            WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+            length = CheckLength(right,left);
+            if(length != -1){
+              NumOut(0,0,length);
+              NumOut(0,10,MotorRotationCount(rotateMotor)*0.73);
+            }
+        }
+  
+  
+  }
+
+}
