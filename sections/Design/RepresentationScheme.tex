@@ -25,11 +25,10 @@ When \name has turned to the desired angle it needs to angle itself vertically
 based on the distance to the target. This distance is calculated using
 pythagoras theorem. To calculate the angle the following function is used:\\
 $a_{vertical}=| 0.2573*distance-22.85 |$.
-This function comes from a trendline that was extrapolated from a set of test
+This function based on a trendline that was extrapolated from a set of test
 data, where the angle was plotted against how far the projectile travelled. This
-however is an estimate of the function needed in order to get the
-angle. This is because the exact function is too complex for the NXT to
-calculate in the available time.\nl
+function is an estimate of the function needed in order to get the angle. This
+is because the exact function is too complex for the NXT to calculate in the available time.\nl
  
 \name also needs to know when to shoot in order to hit the target.
 This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
