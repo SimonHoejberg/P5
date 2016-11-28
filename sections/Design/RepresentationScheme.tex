@@ -17,16 +17,15 @@ using two different formulas to calculate the angle is that the formulas output
 the angle that \name should turn to and not how many degrees it should turn.
 this means that the first formula only gives the right output when the point is
 in the positive half of the coordinate system and the second only gives the
-right output when the point is in the negative half.
+right output when the point is in the negative half.\nl
 
 When \name has turned to the desired angle it needs to angle itself vertically
 based on the distance to the target. This distance is calculated using
-pythagoras theorem. To calculate the angle the following function is used:
+pythagoras theorem. To calculate the angle the following function is used:\\
 $a_{vertical}=| 0.2573*distance-22.85 |$.
 This function comes from a trendline that was extrapolated from a set of test
 data, where the angle was plotted against how far the projectile travelled.
-\name also needs to know when to shoot in order to hit the target this is
-calculated by subtracting the value of \autoref{TimeEq} which is described in
-\autoref{ProjMotion}, from the time it takes the target to get to the desired
-point, which is calculated from the velocity vector. This gives the time where
-\name needs to shoot to be able to hit the target.
+\name also needs to know when to shoot in order to hit the target. This is
+calculated by subtracting the value of \autoref{TimeEq}, which is described in
+\autoref{ProjMotion}, from the time where the target is at the desired point.
+This gives the time where \name needs to shoot to be able to hit the target.
