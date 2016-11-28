@@ -16,7 +16,8 @@ As explained by the embedded systems manufacturer BarrGroup
 \textit{A combination of computer hardware and software, and perhaps additional
 mechanical or other parts, designed to perform a dedicated function. In some
 cases, embedded systems are part of a larger system or product, as in the case
-of an antilock braking system in a car.}
+of an antilock braking system in a car.} \fix{}{How do we explict state that
+this is not our text	}
 \end{minipage}
 \end{center}
 % An embedded system is a device with limited resources both in terms of computing
@@ -31,17 +32,20 @@ of an antilock braking system in a car.}
 This means that embedded systems cover alot of different types of computers, for example
 the ABS-brakes in a modern car, the cash registers in retailstores, washing machines, etc.
 The requirements can therefore differ alot between systems, although they do
-share some characteristics\citep[ch.1.1]{vahid1999embedded}:
+share some characteristics \citep[ch.1.1]{vahid1999embedded}:
 
 \begin{enumerate}
-  \item \textbf{Single-functioned}:  Most embedded systems only have a single
-  function which is executed repeatedly.
+  \item \textbf{Single-functioned}:  \fix{Most embedded systems only have a
+  single function which is executed repeatedly.}{Not quite what the source say,
+  a pager is only a pager, while a desktop pc is many}
   \item \textbf{Tightly constrained}: All systems have some limits, but
   embedded systems are much more tightly constrained when it comes to cost,
-  size, performance and power. These constraints are linked in the sense that
-  an increase in one area directly affects the other areas.
-  \item \textbf{Reactive and real-time}: An embedded system that has to react
-  and respond to physical input can be considered real-time when it has to make
+  size, performance and power. \fix{These constraints are linked in the sense
+  that an increase in one area directly affects the other areas}{The source
+  does not say that}.
+  \item \textbf{Reactive and real-time}: \fix{An embedded system that has to
+  react and respond to physical input can be considered real-time when it has to make
   sure that it responds within a given deadline. This deadline may be based on
-  other events happening around it.
+  other events happening around it.}{Star is okay, but the rest is not
+  something the source says}
 \end{enumerate}
