@@ -1,6 +1,6 @@
 const float muzzleSpeed = 4.82; //meters per second
 const float gravConst = 9.82; //meters per second squared
-const int angleToGroup = 8; 
+const int angleToGroup = 12;
 float currentAngle = 0;
 int currentGroup = 0;
 
@@ -124,7 +124,9 @@ fireData calcFireData(PosData futurePos){
    returnData.angleH = futurePos.angle;
    float dist = sqrt(pow(futurePos.xPos,2)+pow(futurePos.yPos,2));
    returnData.angleV = abs(0.2573*dist-22.85); //Formel baseret på tendenslinje fra testresultater
-   returnData.timeToHit = futurePos.time - ((muzzleSpeed * sind(returnData.angleV) - sqrt(pow(muzzleSpeed,2) * pow(sind(returnData.angleV),2))) / gravConst); //Formel for tid for y=0
+   //returnData.timeToHit = futurePos.time - ((muzzleSpeed * sind(returnData.angleV) - sqrt(pow(muzzleSpeed,2) * pow(sind(returnData.angleV),2))) / gravConst); //Formel for tid for y=0
+   returnData.timeToHit = futurePos.time - (dist/(muzzleSpeed*cosd(returnData.angleV))); //Formel for tid for y=0
+
    
    return returnData;
 }

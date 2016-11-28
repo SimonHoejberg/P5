@@ -8,11 +8,11 @@ task main(){
    NumOut(0,10,cosd(45));
    NumOut(0,20,sin(45));
    NumOut(0,30,sind(45));
-   Rotate(90);
+   RotateH(90);
    Wait(150);
    Angle(90);
    Wait(150);
-   Rotate(0);
+   RotateH(0);
    Wait(150);
    Angle(0);
    while(true){

@@ -15,7 +15,7 @@ task fullAhead(){
             Wait(350);
             power += 10;
         }
-        ClearLine(LCD_LINE1)
+        ClearLine(LCD_LINE1);
         NumOut(0, LCD_LINE1, power);
         OnFwdSync(OUT_AB, power, power);
      }

@@ -4,8 +4,8 @@
 #define CAMADDR 0x02
 #define NAME "Data.dat"
 
-const int dataSetsNeeded = 3;
-const int MaxCounterToPurgeData = 40;
+const int dataSetsNeeded = 2;
+const int MaxCounterToPurgeData = 150;
 int SIZE  = 2048;
 bool first = true;
 task search();
@@ -17,36 +17,30 @@ int dataCounter = 0;
 fireData fire;
 bool stopFire = false;
 bool track = true;
+bool sampling = true;
+
 
 task main(){
-  PosRegEnable(angleMotor);
-  PosRegEnable(rotateMotor);
-  SetMotorRegulationTime(10);
-  int init = NXTCam_Init(camPort, CAMADDR);
-  NXTCam_SendCommand(camPort, CAMADDR, 'A');
-  NXTCam_SendCommand(camPort, CAMADDR, 'E');
-  SetSensorUltrasonic(sensorLeft);
-  SetSensorUltrasonic(sensorRight);
-  unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
+    PosRegEnable(rotateMotor);
+    PosRegEnable(angleMotor);
+    SetMotorRegulationTime(10);
+    int init = NXTCam_Init(camPort, CAMADDR);
+    NXTCam_SendCommand(camPort, CAMADDR, 'A');
+    NXTCam_SendCommand(camPort, CAMADDR, 'E');
+    SetSensorUltrasonic(sensorLeft);
+    SetSensorUltrasonic(sensorRight);
+    unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
     if (rtn_code == LDR_FILEEXISTS)
-     rtn_code = OpenFileAppend(NAME, SIZE, handle);
-  Precedes(search,GetLength);
+        rtn_code = OpenFileAppend(NAME, SIZE, handle);
+    Precedes(search,GetLength);
 }
 
 task GetLength(){
     string input;
     int length;
-    while(true){
+    while(sampling){
         if(shouldFire){
-            WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
-            int right = SensorUS(sensorRight);
-            WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
-
-            WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
-            int left = SensorUS(sensorLeft);
-            WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
-            
-            length = CheckLength(right,left);
+            length = GetDistance();
             if(length != -1){
                 PosData temp;
                 if(makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick(),temp)){
@@ -62,7 +56,7 @@ task GetLength(){
                             //WriteLn(handle, input);
                     //}
                     directionVector d = calcDirVector(data,dataCounter);
-                    fire = calcFireData(calcFuturePos(d,2000));
+                    fire = calcFireData(calcFuturePos(d,1500));
                     //input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick());
                     //WriteLn(handle, input);
                     StartTask(waitAndFire);
@@ -74,11 +68,13 @@ task GetLength(){
 }
 
 task waitAndFire(){
-LoadRound();
-Rotate(fire.angleH);
-Wait(150);
-NumOut(0,30,fire.angleH);
-Angle(fire.angleV);
+    sampling = false;
+    LoadRound();
+    Off(rotateMotor);
+    int angleH = fire.angleH;
+    RotateH(angleH);
+    Wait(150);
+    Angle(fire.angleV);
     while(!stopFire){
         if(CurrentTick() >= fire.timeToHit){
             Fire();
@@ -93,43 +89,37 @@ Angle(fire.angleV);
 }
 
 task search(){
-  int bt[10];
-  int bl[10];
-  int bc[10];
-  int bb[10];
-  int br[10];
-  int nblobs;
-  int counter = 0;
+    int bt[10];
+    int bl[10];
+    int bc[10];
+    int bb[10];
+    int br[10];
+    int nblobs;
+    int counter = 0;
+    int oldCenter;
 
-  while(track){
-    NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
-    if(nblobs > 0){
-        if(first){
-          Wait(1050);
-          first = false;
-        }
-        else{
+    while(track){
+        NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
+        if(nblobs > 0){
+            shouldFire = true;
             counter = 0;
             int center = (bl[0] + UpperBound(br[0]))/2;
+            Off(rotateMotor);
             OnFwd(rotateMotor, GetSpeed(center));
-            shouldFire = true;
-      }
+        }else{
+            shouldFire = false;
+            counter++;
+            if(counter == MaxCounterToPurgeData){
+                currentAngle = 0;
+                currentGroup = 0;
+                counter = 0;
+                data =  NULL;
+                dataCounter = 0;
+                first = true;
+                speed = 0;
+                Off(rotateMotor);
+            }
+        }
     }
-    else{
-      counter++;
-      if(counter == MaxCounterToPurgeData){
-            currentAngle = 0;
-            currentGroup = 0;
-            counter = 0;
-            data =  NULL;
-            dataCounter = 0;
-            first = true;
-            speed = 0;
-      }
-
-      Off(rotateMotor);
-      shouldFire = false;
-    }
-  }
   Off(rotateMotor);
 }

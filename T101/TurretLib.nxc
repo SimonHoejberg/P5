@@ -7,10 +7,13 @@ const byte fireMotor = OUT_B;
 const int camCenter = 72;
 const int angleOffsetV = 4;
 const float speedBuf = 1.2;
+const int MAX_DISTANCE = 230;
+const float ADD_TO_SPEED = 0.2;
 byte handle = 0; // file handle
 bool loaded = false;
 unsigned long currentTime = 0;
-int speed = 0;
+float speed = 0;
+int Direction = 0;
 
 
 void TurnTurret(float angle){
@@ -18,90 +21,78 @@ void TurnTurret(float angle){
 }
 
 void Left(int power, int angle){
-  RotateMotor(rotateMotor, power, angle);
+    RotateMotor(rotateMotor, power, angle);
 }
 
 void Right(int power, int angle){
-  RotateMotor(rotateMotor, power, angle);
+    RotateMotor(rotateMotor, power, angle);
 }
 
 void Angle(int angle){
-  int pos = (5 * angle)-angleOffsetV;
-  PosRegSetAngle(angleMotor, -pos);
+    int pos = (5 * angle)-angleOffsetV;
+    PosRegSetAngle(angleMotor, -pos);
 }
 
-void Rotate(float angle){
-  float pos = 1.375 * angle;
-  PosRegSetAngle(rotateMotor, pos);
+void RotateH(float angle){
+    //float pos = 1.375 * angle;
+    //PosRegSetAngle(rotateMotor, pos);
+    
+    float pos = (angle - MotorRotationCount(rotateMotor)*0.73);
+    RotateMotor(rotateMotor, 100, pos);
+    
 }
 
 void LoadRound(){
-  if(!loaded){
-    loaded = true;
-    RotateMotor(fireMotor, 100, -90);
-  }
+    if(!loaded){
+        loaded = true;
+        RotateMotor(fireMotor, 100, -90);
+    }
 }
 
 void Fire(){
-  loaded = false;
-  RotateMotor(fireMotor, 100, 90);
+    loaded = false;
+    RotateMotor(fireMotor, 100, 90);
 }
 
 int UpperBound(int normal){
-  if(normal > 148)
-    return 148;
-  else
-    return normal;
-}
-
-int GetAngle(int distance){
-  float dis = distance/100;
-  int res = 6.5593*(dis*dis)-(0.9564*dis)+0.0607;
-  return res;
+    if(normal > 148)
+        return 148;
+    else
+        return normal;
 }
 
 int CheckLength(int right, int left){
-  if(right == left && right != 255){
-    return right;
-  }
-  else if(right == 255 && left != 255){
-    return left;
-  }
-  else if(left == 255 && right != 255){
-    return right;
-  }
-  else{
-    return -1;
-  }
+    if(left < MAX_DISTANCE){
+        return left;
+    }
+    else if(right < MAX_DISTANCE){
+        return right;
+    }
+    else{
+        return -1;
+    }
 }
 
-float GetFactorFromLength(){
-  WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
-  int right = SensorUS(sensorRight);
-  WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+int GetDistance(){
+    WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    int right = SensorUS(sensorRight);
+    WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
 
-  WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
-  int left = SensorUS(sensorLeft);
-  WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
-
-  int res = CheckLength(right, left);
-  if(res < 0){
-    return 0.6;
-  }
-  else{
-    return res * (-1/254) + 0.9999999999;
-  }
+    WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    int left = SensorUS(sensorLeft);
+    WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+    return CheckLength(right,left);
 }
 
-int GetSpeed(int bcenter){
-  int length;
-  length = bcenter - camCenter;
-  float factor = 0.6;
-  if(length < 0){
-    factor = 1;
-  }
-  speed = speed + (length * factor);
-  return speed;
-  
-  
+int GetAngle(int distance){
+    float dis = distance/100;
+    int res = 6.5593*(dis*dis)-(0.9564*dis)+0.0607;
+    return res;
+}
+
+float GetSpeed(int bcenter){
+    int length;
+    length = bcenter - camCenter;
+    speed = length *0.4;
+    return speed;
 }
