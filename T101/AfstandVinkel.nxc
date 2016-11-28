@@ -1,7 +1,7 @@
 #include "TurretLib.nxc"
 
 task main(){
-  PosRegEnable(angleMotor);
+  PosRegEnable(angleMotor); 
   SetSensorUltrasonic(sensorLeft);
   SetSensorUltrasonic(sensorRight);
   int length;
