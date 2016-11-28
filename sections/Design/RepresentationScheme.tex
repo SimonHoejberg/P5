@@ -25,10 +25,11 @@ pythagoras theorem. To calculate the angle the following function is used:\\
 $a_{vertical}=| 0.2573*distance-22.85 |$.
 This function comes from a trendline that was extrapolated from a set of test
 data, where the angle was plotted against how far the projectile travelled. This
-however is not the exact function needed in order to get the angle. This is
-because the real function is to complex for the NXT to calculate in the
-available time. \name also needs to know when to shoot in order to hit the
-target.
+however is an estimate of the function needed in order to get the
+angle. This is because the exact function is too complex for the NXT to
+calculate in the available time.\nl
+ 
+\name also needs to know when to shoot in order to hit the target.
 This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
 \autoref{ProjMotion}, from the time where the target is at the desired point.
 This gives the time where \name needs to shoot to be able to hit the target.
