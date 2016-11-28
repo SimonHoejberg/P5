@@ -1,10 +1,10 @@
 \section{Intelligent Agents}
  
-As \name is an autonomous turret and needs to be able to hit a moving target,
-it needs to have some intelligence in order to determine how to position itself
+As \name is an autonomous turret and needs to be able to hit a moving target.
+It needs to have some intelligence in order to determine how to position itself
 to hit the target. The turret can be considered intelligent
 \citep[ch.1.1]{MIBook} when its decisions are explainable by computations.
-How intelligent can be judged by:
+How intelligent it is, can be judged by:
 
 \begin{enumerate}
   \item If what it does is appropriate to its circumstances and goals.
@@ -15,13 +15,13 @@ How intelligent can be judged by:
 \end{enumerate}
 %See MI book, chapter 1.1 p.4
 
-In order to be intelligent \name needs to be able to represent its knowledge in
-a suitable way that allows it to work it into a suitable solution. 
+In order to be intelligent \name needs to be able to represent its
+knowledge in a suitable way that allows it to work it into a suitable solution. 
 
 \subsection{Knowledge Representation}\label{KR}
 %See MI book chapter 1.4 p.12
 
-\name is a turret, it needs to be able to represent the problem of hitting a
+\name needs to be able to represent the problem of hitting a
 moving target as a suitable representation. This representation can then be
 computed into a suitable output which in turn can be interpreted as
 a solution, whether or not the target is actually hit. This can be seen in
@@ -30,16 +30,15 @@ a solution, whether or not the target is actually hit. This can be seen in
 \figx[0.8]{MIRep}{An illustration of how a problem is converted into a solution
 \citep[Chap. 1.4]{MIBook}}
 
-The representation is a piece of specific knowledge from the representation
+The representation is a piece of knowledge from the representation
 scheme. The representation scheme is used to make sure the individual
 representations are detailed and close to the problem, such that the necessary
-knowledge can be used to solve said problem \citep{MIBook}. Some examples of the
-knowledge that \name could have is: the targets speed, its direction and
-knowledge of where the turret itself is pointing. When the turret has a
-sufficient amount of knowledge, it should be used in a way that makes it
-possible to compute an output. Whether this output is a solution or not, depends
-on what a sufficient solution is. Generally there are 4 different categories of
-solutions:
+knowledge can be used to solve said problem \citep{MIBook}. Examples of
+knowledge that \name has is: the targets speed and how much the turret has
+turned. When the turret has a sufficient amount of knowledge, it should be used
+in a way that makes it possible to compute an output. Whether this output is a
+solution or not, depends on what a solution is. There are 4 different categories
+of solutions:
 
 \begin{itemize}
   \item \textbf{Optimal solution} - A solution which has been deemed optimal
@@ -53,9 +52,10 @@ solutions:
   but is not always guaranteed to be.
 \end{itemize}
 
-As \name is shooting on a moving target, the solution needs to reliably be able
-to hit the target, but as it is a real-time system there are certain limits to
-how much time can be spent searching and waiting for the optimal shot.
+As \name is shooting on a moving target, the solution needs to be able
+to  reliably hit the target. \name is also a real-time system, as such there are
+certain limits to how much time can be spent searching and waiting for the
+optimal shot.
 
 \subsection{Design Space}
 The design space of an intelligent agent can be considered a series of 8
@@ -142,9 +142,9 @@ state based on an action in its current state. There are two possibilities
   distribution.
 \end{itemize}
 
-Since \name can not directly observe the current state, and is only able
-to observe some of it through its sensors, the system is stochastic. Although
-the system is stochastic, it can be modelled as a deterministic system, where
+\name can not directly observe the current state, it is only able
+to observe some of it through its sensors, as such the system is stochastic.
+Although the system is stochastic, it can be modelled as a deterministic system, where
 the actions can be be detemined by what it can observe.
  
 \subsubsection{Preferences}
@@ -229,104 +229,85 @@ of this leads to a system which uses bounded rationality.
 
 \subsection{Belief Network}
 
-
-Since the agent can only partially observe the states it will need to be able to
-reason under uncertainty. A belief network is a way to do this. The reason for
-this is that It is an acyclic directed graph consisting of random variables and
-a set of conditional probalility distributions. This is used to model a dynamic
-system by treating a feature at a given time as a random variable, which is the idea
-behind Markov chains. A markov chain is a special belief network that
-represents sequences of values. In a markov chain at state $S_t$ the future is
-conditionally independent from the past given the present. This gives that if
-the transition probabilities are the same for each time point. 
-% To specify a
-% Markov chain two conditional probabilities must be specified:
-% \begin{itemize}
-%   \item $p(S_0)$ - specifies the initial condition
-%   \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t
-%   \geq 0$
-% \end{itemize}
-
-These kinds of chains are of interrest due to the fact that the stationary
-assumption is a natural model because the dynamics of the world ussually does
-not change. The network can also extend indefinetly which means that with a
-small number of parameters the network can be infinite \citep[Ch.
-6.5.1]{MIBook}.\nl
-
-The Markov chain can be augmented to include observations which makes it a
-Hidden Markov model. Like the state transitions from a Markov chain the Hidden
-Markov model also includes observations about the states. If more than one state
-maps to the same observation it is partial and if the same state maps to
-different observations at different times it is noisy \citep[6.5.2]{MIBook}.\nl 
-% The observations are
-% modeled using $O_t$ for each time t whose domain is the set of possible
-% observations. A Hidden Markov model needs three conditional proballity
-% distributions 
-% \begin{itemize}
-%   \item $P(S_0)$ - specifies the initial condition
-%   \item $P(S_{t+1}|S_t)$ - specifies the dynamics, which is the same for each $t
-%   \geq 0$
-%   \item $P(O_t|S_t)$ - specifies the sensor model
-% \end{itemize}
-% 
-% This model makes it possible to determine the current state based on previous
-% and current observations. This is useful when tracking the target in order to
-% adjust \namep accordingly. This is done by having a belief network with 3
-% variables $Loc_i$, $Obs_i$ and $Act_i$ see \autoref{BeliefNetwork}. $Loc_i$ for
-% each time i represents \name's poition at time i, $Obs_i$ for each time i reprensts the observation
-% made at time i and for each time i $act_i$ represents the action taken at time
-% i. The model assumes the that at time i \namep is in position $Loc_i$, it
-% observes $Obs_i$ and acts, it observes $Act_i$ and time progresses to i+1 where
-% \namep is in position $Loc_{i+1}$. This means that at any given time t the
-% observation is only dependent on the state and at time t+1 the position is
-% dependent on the position and action at time t. This gives that the position
-% at time t+1 is conditionally independent from previous positions, actions and
-% observations given the position and ation at time t. 
-% 
-% \figx{BeliefNetwork}{A belief network for position of \name}
-
- A belief network consits of a number of nodes. These nodes can be in three
- different connections: serial, divergent and convergent. The serial
- connection is where the nodes are connected in a sequence. In such a connection
- it is possible to transmit evidence if the middle node is not instantiated. If
- evidene is present on the middle node however, it is not possible to say
- anything about the first node from the last. This can be seen in
- \autoref{serial.JPG}
+The agent is only able to partially observe the states, it will thus need to be
+able to reason under uncertainty. A belief network is a way to do this, it is an acyclic
+directed graph consisting of random variables. These variables and their domain
+are usually derived from the features in the representation scheme. The
+variables that make up the belief network are connected via either a
+\textbf{serial}, \textbf{convergent} or \textbf{divergent} connection. These
+connections dictate how information is able flow through the network given
+evidence on a node.
+\fix{}{Update nodes such that they are consistent with example below}
+\begin{itemize}
+  \item A \textbf{serial} connection is a set of nodes connected in a sequence.
+  These connections allow information to flow as long as the middle node is not
+  blocked by evidence. If evidence is present on the middle node, it is not
+  possible to say anything new about first node given more evidence further down
+  the sequence. An example of a serial connection can be seen in
+  \autoref{serial.JPG}.
  \figx{serial.JPG}{A serial connetion with evidence on the middle node}
- In a divergent onnection a parent node is connected to two children. In this
- kind of connection it is not possible to transmit evidence between the cildren
- if the parent node is not instantiated. This can be seen in
- \autoref{divergent.JPG}
- \figx{divergent.JPG}{A divergent connection with evidence on the parent node}
- The convergent connection  consists of a child node with two parents. In this
- connection the absence of evidence on the child node makes it impossible to
- transmit evidence between the parent nodes. If however evidence is present on
- the child node or any of it's children it is possible to transmit evidence
- between the parent nodes. This can be seen in
- \autoref{convergentnoevidence.JPG} and \autoref{convergent.JPG}
+  \item A \textbf{convergent} connection consists of a child node with two or
+  more parents. In this connection the absence of evidence on the child node, or
+  one of its descendants, makes it impossible to transmit information between
+  the parent nodes. If however evidence is present on the child node, or one of
+  its descendants, it is possible to transmit evidence between the
+  parent nodes. An example of a convergent connection can be seen in
+ \autoref{convergentnoevidence.JPG}.
  \figx{convergentnoevidence.JPG}{A convergent connection with no evidece on the
  child node}
- \figx{convergent.JPG}{A convergent connection with evidence on the child node}
- All of this has an influence on how the belief network for \name should be
- structured, as the nodes in it is the velocity of the target, the position of
- the target, the distance to it and the angle of fire. The information we get is
- from the sensors which means that the evidene should be on the distance and
- angle node. We want the evidence to flow in such a way that it is possible to
- transmit evidence to the velocity node.\nl
- 
- The reason for using a belief network is that it makes it possible to model the
- world with the data that \name gets from it's sensors. This model can be
- relatively compact Which is an advantage since the NXT does not have a lot of
- processing power. Another reason for Using a belief network is that the \name
- is only able to observe the world partially since there is some noise on the
- sensors, which means that it needs to be able to reason under uncertainty.
- A belief network is also useful since \name needs to be able to plan
- ahead when taking actions, since it should be able to consider the movement of
- the target before shooting.
- 
-%  If structured correctly the Hidden markov model also makes
-%  makes possible to predict the speed of the target, Which is needed in order to
-%  calculate an offset, given evidence on the distance to the target and the angle
-%  from the turret. 
-%Although a HMM representation only shows few stages it can proceed
-% indefinitely.
+  \item A \textbf{divergent} connection is a parent node connected to two or
+  more children. In this kind of connection it is only possible to transmit
+  information between the children if the parent node has evidence. An
+  example of a divergent connection can be seen in \autoref{divergent.JPG}.
+ \figx{divergent.JPG}{A divergent connection with evidence on the parent node}
+\end{itemize}
+
+The independence assumption \citep[p.240]{MIBook} says:
+
+\begin{center}
+\begin{minipage}{0.8\linewidth}
+\textit{Each random variable is conditionally independent of its non-descendants
+given its parents.}
+\end{minipage}
+\end{center}
+
+This assumption and the connections described above, allows us to find
+the conditional probabilities of the belief network.
+
+\subsection{Hidden Markov Model}
+
+A belief network can be made to model a dynamic system by using a \textbf{Markov
+chain} to represent a feature at different points in time. By adding
+observations to the Markov chain, it becomes a \textbf{hidden Markov
+model (HMM)}. If more than one state maps to the same observation it
+becomes partial and if the same state maps to different observations at
+different times it becomes noisy \citep[6.5.2]{MIBook}. A Markov chain and by
+extension an HMM, can be extendeded indefinitely, meaning that a small number
+of parameters can provide an infinite network\citep[Ch.6.5.1]{MIBook}.
+For example: A man observes an airplane taking off northbound at $S_0$, then at
+$S_1$ he observes that the airplane has turned eastward, at $S_2$ he observes
+that it has turned southward and at $S_3$ he sees that it continues south. This
+allows him to guess the position of the plane at $S_4$, see\ldots
+\fix{}{Insert example of HMM}
+
+
+
+% \subsection{Conclusion}
+%  All of this has an influence on how the belief network for \name should be
+%  structured, as the nodes in it is the velocity of the target, the position of
+%  the target, the distance to it and the angle of fire. The information we get is
+%  from the sensors which means that the evidene should be on the distance and
+%  angle node. We want the evidence to flow in such a way that it is possible to
+%  transmit evidence to the velocity node.\nl
+
+
+% 
+%  The reason for using a belief network is that it makes it possible to model the
+%  world with the data that \name gets from it's sensors. This model can be
+%  relatively compact Which is an advantage since the NXT does not have a lot of
+%  processing power. Another reason for Using a belief network is that the \name
+%  is only able to observe the world partially since there is some noise on the
+%  sensors, which means that it needs to be able to reason under uncertainty.
+%  A belief network is also useful since \name needs to be able to plan
+%  ahead when taking actions, since it should be able to consider the movement of
+%  the target before shooting.

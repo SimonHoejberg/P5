@@ -11,10 +11,9 @@ different aspects can be used in relation to the \name system.
   requirement is fulfilled by using a hardware platform such as Arduino or Lego
   NXT, since the platforms are restricted on the basis of computing power, size
   and memory.
-  \item Since it needs to be an intelligent agent, it needs to have a model
-  which can be used to solve the problem. Since the agent can only partially
-  observe the state it must be able to reason under uncertainty. To do this the
-  agent can use a belief network to try and predict the future based on
+  \item Using a belief network with an underlying HMM allows \name to have a
+  model that can be populated with observations from the sensors. This allows
+  the turret to try and predict the future position of target based on the
   observations.
   \item \name can be considered a firm real-time system, as once certain
   deadlines have passed, for instance when firing, the information becomes
