@@ -10,6 +10,7 @@ const float speedBuf = 1.2;
 byte handle = 0; // file handle
 bool loaded = false;
 unsigned long currentTime = 0;
+int speed = 0;
 
 
 void TurnTurret(float angle){
@@ -95,11 +96,12 @@ float GetFactorFromLength(){
 int GetSpeed(int bcenter){
   int length;
   length = bcenter - camCenter;
-  float factor = 0.6*speedBuf;
-  /*if(length < 0){
-    factor = 1*speedBuf;
-  } */
-  return length * factor;
+  float factor = 0.6;
+  if(length < 0){
+    factor = 1;
+  }
+  speed = speed + (length * factor);
+  return speed;
   
   
 }

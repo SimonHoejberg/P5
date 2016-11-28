@@ -16,6 +16,7 @@ PosData data[100];
 int dataCounter = 0;
 fireData fire;
 bool stopFire = false;
+bool track = true;
 
 task main(){
   PosRegEnable(angleMotor);
@@ -55,7 +56,7 @@ task GetLength(){
                 }
 
                 if(dataCounter == dataSetsNeeded){
-                    StopTask(search);
+                    track = false;
                      //for(int i=0; i < dataCounter; i++){
                            // input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
                             //WriteLn(handle, input);
@@ -73,8 +74,7 @@ task GetLength(){
 }
 
 task waitAndFire(){
- StopTask(GetLength);
- LoadRound();
+LoadRound();
 Rotate(fire.angleH);
 Wait(150);
 NumOut(0,30,fire.angleH);
@@ -101,7 +101,7 @@ task search(){
   int nblobs;
   int counter = 0;
 
-  while(true){
+  while(track){
     NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
     if(nblobs > 0){
         if(first){
@@ -124,10 +124,12 @@ task search(){
             data =  NULL;
             dataCounter = 0;
             first = true;
+            speed = 0;
       }
 
       Off(rotateMotor);
       shouldFire = false;
     }
   }
+  Off(rotateMotor);
 }

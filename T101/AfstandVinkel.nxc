@@ -1,13 +1,17 @@
 #include "TurretLib.nxc"
+#include "TargetPrediction/CalcFPos.nxc"
+int counter = 0;
+PosData data[5];
 
 task main(){
   PosRegEnable(angleMotor); 
   SetSensorUltrasonic(sensorLeft);
   SetSensorUltrasonic(sensorRight);
   int length;
+  float angle;
   while(true){
         if(ButtonPressed(BTNCENTER, false)){
-            ClearScreen();
+            //ClearScreen();
            WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
             int right = SensorUS(sensorRight);
             WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
@@ -17,9 +21,32 @@ task main(){
             WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
 
             length = CheckLength(right,left);
+            angle = MotorRotationCount(rotateMotor)*0.73;
             if(length != -1){
-              NumOut(0,0,length);
-              NumOut(0,10,MotorRotationCount(rotateMotor)*0.73);
+                PosData temp;
+                makePosData(length,MotorRotationCount(rotateMotor)*0.73,counter*1000,temp);
+                    NumOut(counter*12,0,temp.xPos);
+                    NumOut(counter*12,10,temp.yPos);
+                    NumOut(counter*12,20,temp.angle);
+                    data[counter] = temp;
+                    counter++;
+
+                
+                if(counter == 2){
+                 directionVector d = calcDirVector(data,counter);
+                 PosData res = calcFuturePos(d,1000);
+                 NumOut(60,0,res.xPos);
+                 NumOut(60,10,res.yPos);
+                 NumOut(60,20,res.angle);
+                }
+                Wait(500);
+                
+
+              /*NumOut(0,0,length);
+              NumOut(0,10,angle);
+              NumOut(0,20,length*sind(angle));
+              NumOut(0,30,length*cosd(angle));
+              */
             }
         }
   

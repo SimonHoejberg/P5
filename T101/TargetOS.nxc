@@ -8,17 +8,15 @@ task fullAhead(){
      int power = 50;
      while(true){
         if(ButtonPressed(BTNLEFT, false) && power != 0) {
-            Wait(250);
-            power -= 25;
-            ClearLine(LCD_LINE1);
-            NumOut(0, LCD_LINE1, power);
+            Wait(350);
+            power -= 10;
         }
         else if(ButtonPressed(BTNRIGHT, false) && power != 100){
-            Wait(250);
-            power += 25;
-            ClearLine(LCD_LINE1);
-            NumOut(0, LCD_LINE1, power);
+            Wait(350);
+            power += 10;
         }
+        ClearLine(LCD_LINE1)
+        NumOut(0, LCD_LINE1, power);
         OnFwdSync(OUT_AB, power, power);
      }
 }

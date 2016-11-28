@@ -31,6 +31,8 @@ struct ResData {
 struct directionVector {
    float speedX;
    float speedY;
+   float xPos;
+   float yPos;
 };
 
 
@@ -64,6 +66,8 @@ directionVector combineVectors(directionVector dirVecArray[], int arrayLength){
    for (int i = 0; i < arrayLength; i++){
        xRes = xRes + dirVecArray[i].speedX;
        yRes = yRes + dirVecArray[i].speedY;
+        returnVector.xPos = dirVecArray[i].xPos;
+        returnVector.yPos = dirVecArray[i].yPos;
    }
 
    returnVector.speedX = xRes / arrayLength;
@@ -87,6 +91,8 @@ directionVector calcDirVector(PosData dataArray[],   int length){
         xDist = dataArray[firstVector+1].xPos - dataArray[firstVector].xPos;
         yDist = dataArray[firstVector+1].yPos - dataArray[firstVector].yPos;
         tDiff = dataArray[firstVector+1].time - dataArray[firstVector].time;
+        resultingVectors[i].xPos = dataArray[firstVector+1].xPos;
+        resultingVectors[i].yPos = dataArray[firstVector+1].yPos;
         resultingVectors[i].speedX = xDist / tDiff;
         resultingVectors[i].speedY = yDist / tDiff;
         firstVector++;
@@ -100,18 +106,14 @@ directionVector calcDirVector(PosData dataArray[],   int length){
 PosData calcFuturePos(directionVector vector, unsigned long time){
    PosData futurePosition;
    float tanInput = 0;
-   futurePosition.xPos = vector.speedX * time;
-   futurePosition.yPos = vector.speedY * time;
+   futurePosition.xPos = vector.xPos + vector.speedX * time;
+   futurePosition.yPos = vector.yPos + vector.speedY * time;
    futurePosition.time = CurrentTick() + time;
    tanInput = futurePosition.yPos / futurePosition.xPos;
    if(futurePosition.xPos >= 0)
         futurePosition.angle = 90+(atand(tanInput))*(-1);
    else
         futurePosition.angle = (90-(atand(tanInput))*(-1))*(-1);
-
-    NumOut(0,20,futurePosition.angle);
-    NumOut(0,0,futurePosition.xPos);
-    NumOut(0,10 ,futurePosition.yPos);
    
    return futurePosition;
 }
