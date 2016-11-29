@@ -234,35 +234,35 @@ of this leads to a system which uses bounded rationality.
 
 The agent is only able to partially observe the states, it will thus need to be
 able to reason under uncertainty. A belief network is a way to do this, it is an acyclic
-directed graph consisting of random variables. These variables and their domain
-are usually derived from the features in the representation scheme. The
+directed graph consisting of random variables. These variables and their domains
+are usually derived from the features in the representation scheme, although
+some random variables can be created to act as intermidiate variables. The
 variables that make up the belief network are connected via either a
 \textbf{serial}, \textbf{convergent} or \textbf{divergent} connection. These
 connections dictate how information is able flow through the network given
 evidence on a node.
-\fix{}{Update nodes such that they are consistent with example below}
 \begin{itemize}
   \item A \textbf{serial} connection is a set of nodes connected in a sequence.
   These connections allow information to flow as long as the middle node is not
   blocked by evidence. If evidence is present on the middle node, it is not
   possible to say anything new about first node given more evidence further down
   the sequence. An example of a serial connection can be seen in
-  \autoref{serial.JPG}.
- \figx{serial.JPG}{A serial connetion with evidence on the middle node}
+  \autoref{Serial2}.
+ \figx[0.8]{Serial2}{A serial connetion with evidence on the middle node}
   \item A \textbf{convergent} connection consists of a child node with two or
   more parents. In this connection the absence of evidence on the child node, or
   one of its descendants, makes it impossible to transmit information between
   the parent nodes. If however evidence is present on the child node, or one of
   its descendants, it is possible to transmit evidence between the
   parent nodes. An example of a convergent connection can be seen in
- \autoref{convergentnoevidence.JPG}.
- \figx{convergentnoevidence.JPG}{A convergent connection with no evidece on the
+ \autoref{Convergent2}.
+ \figx[0.8]{Convergent2}{A convergent connection with no evidece on the
  child node}
   \item A \textbf{divergent} connection is a parent node connected to two or
   more children. In this kind of connection it is only possible to transmit
   information between the children if the parent node has evidence. An
-  example of a divergent connection can be seen in \autoref{divergent.JPG}.
- \figx{divergent.JPG}{A divergent connection with evidence on the parent node}
+  example of a divergent connection can be seen in \autoref{Divergent2}.
+ \figx[0.8]{Divergent2}{A divergent connection with evidence on the parent node}
 \end{itemize}
 
 The independence assumption \citep[p.240]{MIBook} says:
@@ -274,11 +274,9 @@ given its parents.}
 \end{minipage}
 \end{center}
 
-This means that if the number of parents each node has is low the number of
-variables that is affected by one another is small. This means that the fewer
-parents each node has the fewer probabilities need to be specified.
-With this assumption and the connections described above, we are able to find
-the conditional probabilities of the belief network.
+This means that if the node has few parents, the number of variables it can
+directly affected it are few. It also means that the fewer parents each node
+has the fewer probabilities need to be specified.
 
 \subsection{Hidden Markov Model}
 
@@ -289,12 +287,12 @@ model (HMM)}. If more than one state maps to the same observation it
 becomes partial and if the same state maps to different observations at
 different times it becomes noisy \citep[6.5.2]{MIBook}. A Markov chain and by
 extension an HMM, can be extendeded indefinitely, meaning that a small number
-of parameters can provide an infinite network\citep[Ch.6.5.1]{MIBook}.
-For example: A man observes an airplane taking off northbound at $S_0$, then at
-$S_1$ he observes that the airplane has turned eastward, at $S_2$ he observes
-that it has turned southward and at $S_3$ he sees that it continues south. This
-allows him to guess the position of the plane at $S_4$, see\ldots
-\fix{}{Insert example of HMM}
+of parameters can provide an infinite network\citep[Ch.6.5.1]{MIBook}. For
+example: A man observes an airplane taking off northbound at $O_0$, then at
+$O_1$ he observes that the airplane has turned eastward, at $O_2$ he observes
+that it has turned southward and at $O_3$ he sees that it continues south. This
+allows him to guess the position of the plane at $P_4$, see \autoref{HMM}.
+ \figx[0.9]{HMM}{A belief network as a hidden Markov model}
 
 
 
