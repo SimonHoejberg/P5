@@ -46,12 +46,8 @@ The third and final type of real-time task is the \textbf{soft} type. It
 is not necessary to execute this task before the deadline, but the utility
 value decreases over time once the deadline has passed\citep[Chap 2]{Realtime}.
 
+In order to reliably complete a task before its deadline, a need arises for scheduling, which means determining when and in what order each task will be executed. The main difference between scheduling in an RTS context and in a non-rts context is the goal of the scheduling: In a non-rts context the objective of the scheduler is to minimize the execution time of alle the tasks. On the other hand an RTS schedulers objective is to ensure that all deadlines are met. In order to properly schedule, the execution time of the tasks is needed
 
-
-% In the context of our project certain tasks can already be determined:
-% For example we need a task to monitor an area, in order for the robot to react
-% when a target enters it field of vision. The task should rotate the turret in a
-% pattern in order to patrol an area, and report if it senses anything.
 
 %\subsection{Scheduling}
 % 
