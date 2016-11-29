@@ -4,6 +4,7 @@
 #define CAMADDR 0x02
 #define NAME "Data.dat"
 
+const int pixelWidth = 148;
 const int dataSetsNeeded = 2;
 const int MaxCounterToPurgeData = 150;
 int SIZE  = 2048;
@@ -97,12 +98,16 @@ task search(){
     int nblobs;
     int counter = 0;
     int oldCenter;
+    int direction = 0; // [-1]Left, [1]Right, [0]Nothing
+    int directionCount = 0; //How many times have we seen movement in a direction
+    int directionThreshold = 15; //Nr of frames where target has moved in a direction
 
     while(track){
         NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
         if(nblobs > 0){
             shouldFire = true;
             counter = 0;
+            oldCenter = center;
             int center = (bl[0] + UpperBound(br[0]))/2;
             Off(rotateMotor);
             OnFwd(rotateMotor, GetSpeed(center));
@@ -118,6 +123,24 @@ task search(){
                 first = true;
                 speed = 0;
                 Off(rotateMotor);
+                directionCount = 0;
+            }
+        }
+        //If direction not found. Check if blob-center has moved left/right for directionTreshold * frames
+        if(direction != 0){
+            //Check what direction the target is moving
+            if(center > oldCenter){
+                directionCount++;
+            }
+            else if (center < oldCenter) {
+                directionCount--;
+            }
+            //Set direction if count above threshold
+            if(directionCount > directionThreshold){
+                direction = 1;
+            }
+            else if(directionCount < directionThreshold * (-1)){
+                direction = -1;
             }
         }
     }
