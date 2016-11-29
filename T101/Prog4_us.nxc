@@ -1,37 +1,30 @@
 #include "TurretLib.nxc"
 #include "nxtcamlib-default.nxc"
-#include "TargetPrediction/CalcFPos.nxc"
-#define CAMADDR 0x02
-#define NAME "Data.dat"
+#define CAM_ADDR 0x02
+const int DATASETS_NEEDED_TO_CALCULATE = 2;
+const int MAX_COUNTER_TO_PURGE_DATA = 150;
 
-const int dataSetsNeeded = 2;
-const int MaxCounterToPurgeData = 150;
-int SIZE  = 2048;
-bool first = true;
 task search();
 task GetLength();
 task waitAndFire();
-bool shouldFire = false;
-PosData data[100];
+PosData data[10];
 int dataCounter = 0;
 fireData fire;
 bool stopFire = false;
 bool track = true;
 bool sampling = true;
+bool shouldFire = false;
 
 
 task main(){
-    PosRegEnable(rotateMotor);
-    PosRegEnable(angleMotor);
+    PosRegEnable(ROTATE_MOTOR);
+    PosRegEnable(ANGLE_MOTOR);
     SetMotorRegulationTime(10);
-    int init = NXTCam_Init(camPort, CAMADDR);
-    NXTCam_SendCommand(camPort, CAMADDR, 'A');
-    NXTCam_SendCommand(camPort, CAMADDR, 'E');
-    SetSensorUltrasonic(sensorLeft);
-    SetSensorUltrasonic(sensorRight);
-    unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
-    if (rtn_code == LDR_FILEEXISTS)
-        rtn_code = OpenFileAppend(NAME, SIZE, handle);
+    int init = NXTCam_Init(CAM_PORT, CAM_ADDR);
+    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'A');
+    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'E');
+    SetSensorUltrasonic(SENSOR_LEFT);
+    SetSensorUltrasonic(SENSOR_RIGHT);
     Precedes(search,GetLength);
 }
 
@@ -43,22 +36,16 @@ task GetLength(){
             length = GetDistance();
             if(length != -1){
                 PosData temp;
-                if(makePosData(length,MotorRotationCount(rotateMotor)*0.73,CurrentTick(),temp)){
+                if(makePosData(length,GetMotorAngle(),CurrentTick(),temp)){
                     PlaySound(SOUND_LOW_BEEP);
                     data[dataCounter] = temp;
                     dataCounter++;
                 }
 
-                if(dataCounter == dataSetsNeeded){
+                if(dataCounter == DATASETS_NEEDED_TO_CALCULATE){
                     track = false;
-                     //for(int i=0; i < dataCounter; i++){
-                           // input = "xPos " + NumToStr(data[i].xPos) + ", yPos "+ NumToStr(data[i].yPos)+ ", time " + NumToStr(data[i].time) + ", angle " + NumToStr(data[i].angle) + ", group " + NumToStr(data[i].group);
-                            //WriteLn(handle, input);
-                    //}
                     directionVector d = calcDirVector(data,dataCounter);
                     fire = calcFireData(calcFuturePos(d,1500));
-                    //input = "angleH " + NumToStr(fire.angleH) + ", angleV "+ NumToStr(fire.angleV)+ ", time to hit " + NumToStr(fire.timeToHit) + ", time " + NumToStr(CurrentTick());
-                    //WriteLn(handle, input);
                     StartTask(waitAndFire);
                 }
             }
@@ -70,7 +57,7 @@ task GetLength(){
 task waitAndFire(){
     sampling = false;
     LoadRound();
-    Off(rotateMotor);
+    Off(ROTATE_MOTOR);
     int angleH = fire.angleH;
     RotateH(angleH);
     Wait(150);
@@ -81,11 +68,7 @@ task waitAndFire(){
             stopFire = true;
         }
     }
-    CloseFile(handle);
     Angle(0);
-    while(true){
-    
-    }
 }
 
 task search(){
@@ -99,27 +82,24 @@ task search(){
     int oldCenter;
 
     while(track){
-        NXTCam_GetBlobs(camPort, CAMADDR, nblobs, bc, bl, bt, br, bb);
+        NXTCam_GetBlobs(CAM_PORT, CAM_ADDR, nblobs, bc, bl, bt, br, bb);
         if(nblobs > 0){
             shouldFire = true;
             counter = 0;
             int center = (bl[0] + UpperBound(br[0]))/2;
-            Off(rotateMotor);
-            OnFwd(rotateMotor, GetSpeed(center));
+            Off(ROTATE_MOTOR);
+            OnFwd(ROTATE_MOTOR, GetSpeed(center));
         }else{
             shouldFire = false;
             counter++;
-            if(counter == MaxCounterToPurgeData){
-                currentAngle = 0;
-                currentGroup = 0;
+            if(counter == MAX_COUNTER_TO_PURGE_DATA){
                 counter = 0;
                 data =  NULL;
                 dataCounter = 0;
-                first = true;
-                speed = 0;
-                Off(rotateMotor);
+                ResetLibVariables();
+                Off(ROTATE_MOTOR);
             }
         }
     }
-  Off(rotateMotor);
+  Off(ROTATE_MOTOR);
 }

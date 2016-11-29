@@ -1,57 +1,59 @@
-const byte camPort = IN_1;
-const byte sensorLeft = S3;
-const byte sensorRight = S2;
-const byte angleMotor = OUT_C;
-const byte rotateMotor = OUT_A;
-const byte fireMotor = OUT_B;
-const int camCenter = 72;
-const int angleOffsetV = 4;
-const float speedBuf = 1.2;
+#include "TargetPrediction/CalcFPos.nxc"
+const byte CAM_PORT = IN_1;
+const byte SENSOR_LEFT = S3;
+const byte SENSOR_RIGHT = S2;
+const byte ANGLE_MOTOR = OUT_C;
+const byte ROTATE_MOTOR = OUT_A;
+const byte FIRE_MOTOR = OUT_B;
+const int CAM_CENTER = 72;
+const int ANGLE_OFFSET_V = 4;
 const int MAX_DISTANCE = 230;
 const float ADD_TO_SPEED = 0.2;
-byte handle = 0; // file handle
 bool loaded = false;
 unsigned long currentTime = 0;
 float speed = 0;
 int Direction = 0;
 
+float GetMotorAngle(){
+    return MotorRotationCount(ROTATE_MOTOR)*0.73;
+}
 
 void TurnTurret(float angle){
-    RotateMotor(rotateMotor,25,angle*1.375);
+    RotateMotor(ROTATE_MOTOR,25,angle*1.375);
 }
 
 void Left(int power, int angle){
-    RotateMotor(rotateMotor, power, angle);
+    RotateMotor(ROTATE_MOTOR, power, angle);
 }
 
 void Right(int power, int angle){
-    RotateMotor(rotateMotor, power, angle);
+    RotateMotor(ROTATE_MOTOR, power, angle);
 }
 
 void Angle(int angle){
-    int pos = (5 * angle)-angleOffsetV;
-    PosRegSetAngle(angleMotor, -pos);
+    int pos = (5 * angle)-ANGLE_OFFSET_V;
+    PosRegSetAngle(ANGLE_MOTOR, -pos);
 }
 
 void RotateH(float angle){
     //float pos = 1.375 * angle;
     //PosRegSetAngle(rotateMotor, pos);
     
-    float pos = (angle - MotorRotationCount(rotateMotor)*0.73);
-    RotateMotor(rotateMotor, 100, pos);
+    float pos = (angle - GetMotorAngle());
+    RotateMotor(ROTATE_MOTOR, 100, pos);
     
 }
 
 void LoadRound(){
     if(!loaded){
         loaded = true;
-        RotateMotor(fireMotor, 100, -90);
+        RotateMotor(FIRE_MOTOR, 100, -90);
     }
 }
 
 void Fire(){
     loaded = false;
-    RotateMotor(fireMotor, 100, 90);
+    RotateMotor(FIRE_MOTOR, 100, 90);
 }
 
 int UpperBound(int normal){
@@ -74,13 +76,13 @@ int CheckLength(int right, int left){
 }
 
 int GetDistance(){
-    WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
-    int right = SensorUS(sensorRight);
-    WriteI2CRegister(sensorRight, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+    WriteI2CRegister(SENSOR_RIGHT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    int right = SensorUS(SENSOR_RIGHT);
+    WriteI2CRegister(SENSOR_RIGHT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
 
-    WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
-    int left = SensorUS(sensorLeft);
-    WriteI2CRegister(sensorLeft, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+    WriteI2CRegister(SENSOR_LEFT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    int left = SensorUS(SENSOR_LEFT);
+    WriteI2CRegister(SENSOR_LEFT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
     return CheckLength(right,left);
 }
 
@@ -92,7 +94,14 @@ int GetAngle(int distance){
 
 float GetSpeed(int bcenter){
     int length;
-    length = bcenter - camCenter;
+    length = bcenter - CAM_CENTER;
     speed = length *0.4;
     return speed;
 }
+
+void ResetLibVariables(){
+    currentAngle = 0;
+    currentGroup = 0;
+    speed = 0;
+}
+
