@@ -8,11 +8,13 @@ const byte FIRE_MOTOR = OUT_B;
 const int CAM_CENTER = 72;
 const int ANGLE_OFFSET_V = 4;
 const int MAX_DISTANCE = 230;
-const float ADD_TO_SPEED = 0.2;
+const int DATASETS_NEEDED_TO_CALCULATE = 2;
+const int MAX_COUNTER_TO_PURGE_DATA = 150;
+const int DIRECTION_THRESHOLD = 7;
+const long MILLISECONDS_TO_HIT = 1500;
 bool loaded = false;
 unsigned long currentTime = 0;
-float speed = 0;
-int Direction = 0;
+int lib_direction = 0;
 
 float GetMotorAngle(){
     return MotorRotationCount(ROTATE_MOTOR)*0.73;
@@ -36,9 +38,6 @@ void Angle(int angle){
 }
 
 void RotateH(float angle){
-    //float pos = 1.375 * angle;
-    //PosRegSetAngle(rotateMotor, pos);
-    
     float pos = (angle - GetMotorAngle());
     RotateMotor(ROTATE_MOTOR, 100, pos);
     
@@ -93,15 +92,33 @@ int GetAngle(int distance){
 }
 
 float GetSpeed(int bcenter){
-    int length;
-    length = bcenter - CAM_CENTER;
-    speed = length *0.4;
-    return speed;
+    int length = bcenter - CAM_CENTER;
+    float lib_speed = sind(1.25*length)*100;
+    return lib_speed;
 }
 
 void ResetLibVariables(){
-    currentAngle = 0;
-    currentGroup = 0;
-    speed = 0;
+    calcLib_currentAngle = 0;
+    calcLib_currentGroup = 0;
+}
+
+void DetermineDirection(int center, int oldCenter, int &directionCount){
+    //If direction not found. Check if blob-center has moved left/right for directionTreshold * frames
+    if(lib_direction == 0){
+        //Check what direction the target is moving
+        if(center > oldCenter){
+            directionCount++;
+        }
+        else if (center < oldCenter) {
+            directionCount--;
+        }
+        //Set direction if count above threshold
+        if(directionCount > DIRECTION_THRESHOLD){
+            lib_direction = 1;
+        }
+        else if(directionCount < DIRECTION_THRESHOLD * (-1)){
+            lib_direction = -1;
+        }
+    }
 }
 
