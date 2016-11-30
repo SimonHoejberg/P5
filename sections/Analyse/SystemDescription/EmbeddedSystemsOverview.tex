@@ -35,17 +35,9 @@ The requirements can therefore differ alot between systems, although they do
 share some characteristics \citep[ch.1.1]{vahid1999embedded}:
 
 \begin{enumerate}
-  \item \textbf{Single-functioned}:  \fix{Most embedded systems only have a
-  single function which is executed repeatedly.}{Not quite what the source say,
-  a pager is only a pager, while a desktop pc is many}
+  \item \textbf{Single-functioned}:Most embedded systems only have a single purpose, running the same program over and over again. An example could be a washing machine. The computer inside it will always have the same function(control the washing machine), and although it might have a variety of different programs to execute(wool, synthetics, different temperatures) it is still considered single-functioned. On the other hand a desktop pc allows the user to install a variety of different programs, and does not have a universal single purpose.
   \item \textbf{Tightly constrained}: All systems have some limits, but
   embedded systems are much more tightly constrained when it comes to cost,
-  size, performance and power. \fix{These constraints are linked in the sense
-  that an increase in one area directly affects the other areas}{The source
-  does not say that}.
-  \item \textbf{Reactive and real-time}: \fix{An embedded system that has to
-  react and respond to physical input can be considered real-time when it has to make
-  sure that it responds within a given deadline. This deadline may be based on
-  other events happening around it.}{Star is okay, but the rest is not
-  something the source says}
+  size, performance and power. These are to be understood as a compromise between the different aspects, for example it could be impossible to make the embedded system smaller without making it more expensive. 
+  \item \textbf{Reactive and real-time}: If an embedded system has to react and respond to external stimuli it is considered a real-time system. We will further expand upon what this means in \autoref{rts}.
 \end{enumerate}
