@@ -2,19 +2,17 @@
  
 As \name is an autonomous turret and needs to be able to hit a moving target.
 It needs to have some intelligence in order to determine how to position itself
-to hit the target. The turret can be considered intelligent when its decisions are explainable by computations.
-How intelligent it is, can be judged by \citep[ch.1.1]{MIBook}:
+to hit the target. The turret can be considered intelligent when its decisions
+are explainable by computations. How intelligent it is, can as
+\citep[ch.1.1,p.4]{MIBook} states, be judged by:
 
 \begin{enumerate}
   
-  \item \fix{If what it does is appropriate to its circumstances and goals.}{
-  Too much copy pasta}
-  \item \fix{If it is flexible to changing environments and changing goals.}{
-  Too much copy pasta}
-  \item \fix{If it learns from experience.}{ Too much copy pasta}
-  \item \fix{If it makes appropriate choices given its perceptual and
-  computational limits.
-  }{ Too much copy pasta}
+  \item \say{What it does is appropriate to its circumstances and goals.}
+  \item \say{It is flexible to changing environments and changing goals.}
+  \item \say{It learns from experience.}
+  \item \say{It makes appropriate choices given its perceptual and
+  computational limits.}
 \end{enumerate}
 %See MI book, chapter 1.1 p.4
 
@@ -31,12 +29,12 @@ a solution, whether or not the target is actually hit. This can be seen in
 \autoref{MIRep}.
 
 \figx[0.8]{MIRep}{An illustration of how a problem is converted into a solution
-\citep[Chap. 1.4]{MIBook}}
+\citep[ch. 1.4]{MIBook}}
 
 The representation is a piece of knowledge from the representation
 scheme. The representation scheme is used to make sure the individual
 representations are detailed and close to the problem, such that the necessary
-knowledge can be used to solve said problem \fix{\citep{MIBook}}{what pages?}.
+knowledge can be used to solve said problem \citep[ch.1.4.1]{MIBook}.
 Examples of knowledge that \name has is: the targets speed and how much the turret has
 turned. When the turret has a sufficient amount of knowledge, it should be used
 in a way that makes it possible to compute an output. Whether this output is a
@@ -74,7 +72,7 @@ different levels, flat, modular and hierachical. Flat means that everything is
 contained within a single module. Modular means that the system can be divided
 into several modules that can be understood separately from the system.
 Hierachical means that the modules can recursively have additional modules
-inside them \citep[Ch 1.5.1]{MIBook}. \name as an autonomous turret needs to
+inside them \citep[ch1.5.1]{MIBook}. \name as an autonomous turret needs to
 have several functions, for example it needs to be able to turn, aim and determine the position of a target.
 This means that \name should be a modular system because, while it is a
 relatively simple system, it has distinct parts which can each be considred
@@ -84,7 +82,7 @@ modules of their own.
 As mentioned in \autoref{KR} the representation scheme is used to house the
 various knowledge the agent could need to perform. This knowledge is usually
 represented in terms of states. A state is a specific combination of
-the knowledge \citep[Ch 1.5.2]{MIBook}. For example a turret with the ability
+the knowledge \citep[ch1.5.2]{MIBook}. For example a turret with the ability
 to turn 180 degrees and tilt its cannon 45 degrees would have $180 * 45$ states. As an example, a
 specific state would have the turret turned 90 degrees and the cannon tilted at an angle of 42
 degrees. This leads to alot of different states as the amount of possible values
@@ -98,7 +96,7 @@ The planning horizon for an intelligent agent governs how far ahead it plans
 when it comes to the consequences of its actions. For example a child might
 only do something if there is an immediate reward, whereas an adult might have
 the foresight to do something for a reward thats some time off. There exist the
-following types of planning horizons \citep[Ch 1.5.3]{MIBook}:
+following types of planning horizons \citep[ch1.5.3]{MIBook}:
 \begin{itemize}
 	\item \textbf{Non-planning} - The agent does not consider the future when
 	making decisions, or time is not involved as a factor.
@@ -120,7 +118,7 @@ needs are limited.
 There are two parts to uncertainty. The first part is sensing uncertainty while
 the second is effect uncertainty. Sensing uncertainty concerns what the agent
 can determine based on its observations. There are two possibilities concerning
-what it can sense \citep[Ch. 1.5.4]{MIBook}:
+what it can sense \citep[ch.1.5.4]{MIBook}:
 \begin{itemize}
   \item \textbf{Fully observable} - The agent can determine the current state
   based on observations.
@@ -137,7 +135,7 @@ the sensors may provide noisy observations. We can thus already determine that
 
 Effect uncertainty concerns how accurately the agent can determine the resulting
 state based on an action in its current state. There are two possibilities
-\citep[Ch. 1.5.4]{MIBook}:
+\citep[ch.1.5.4]{MIBook}:
 \begin{itemize}
   \item \textbf{Deterministic} - The resulting state can be determined based on
   an action and the current state.
@@ -153,8 +151,8 @@ the actions can be be detemined by what it can observe.
 \subsubsection{Preferences}
 For an agent to be able to make good decisions it is necessary to provide an
 idea of the goals we are trying to accomplish. Furthermore there are certain
-preferences concerning the trade-off between different solutions \citep[Ch.
-1.5.5]{MIBook}.
+preferences concerning the trade-off between different solutions
+\citep[ch.1.5.5]{MIBook}.
 
 \begin{itemize}
   \item \textbf{Goals} - There are two types of goals, achievement goals and
@@ -174,7 +172,7 @@ that allows us to hit a target in motion.
 \subsubsection{Number of Agents}
 Depending on what an agent needs to accomplish, it might need to take the
 reasoning of other agents into account. This leads to two types of reasoning
-\citep[Ch. 1.5.6]{MIBook}:
+\citep[ch.1.5.6]{MIBook}:
 \begin{itemize}
   \item \textbf{Single agent reasoning} - The agent does not take other
   agents into account and assumes they are part of the environment.
@@ -195,7 +193,7 @@ consideration in order to actually hit it.
 \subsubsection{Learning}
 
 There are two ways of handling knowledge: knowledge can given in form of a
-model or the agent can be given data to learn from \citep[Ch. 1.5.7]{MIBook}. 
+model or the agent can be given data to learn from \citep[ch.1.5.7]{MIBook}. 
 \begin{itemize}
   \item \textbf{Knowledge is given} - The agent possesses a model which the
 designer thinks is suitable for the task.
@@ -213,7 +211,7 @@ An agent may not always be able to compute the best action to a problem quickly
 enough, either due to memory limitation or just the sheer size of the problem.
 This means that the agent may need to trade off the time it needs to compute a
 solution with how good the solution is. This limit determines whether the agent
-has \citep[Ch. 1.5.8]{MIBook}:
+has \citep[ch.1.5.8]{MIBook}:
 
 \begin{itemize}
   \item \textbf{Perfect rationality} - The agent tries to find the best action
@@ -234,8 +232,8 @@ of this leads to a system which uses bounded rationality.
 
 The agent is only able to partially observe the states, it will thus need to be
 able to reason under uncertainty. A belief network is a way to do this, it is an acyclic
-directed graph consisting of random variables. These variables and their domains
-are usually derived from the features in the representation scheme, although
+directed graph consisting of random variables \citep[ch.6.3]{MIBook}. These
+variables and their domains are usually derived from the features in the representation scheme, although
 some random variables can be created to act as intermidiate variables. The
 variables that make up the belief network are connected via either a
 \textbf{serial}, \textbf{convergent} or \textbf{divergent} connection. These
@@ -284,13 +282,14 @@ chain} to represent a feature at different points in time. By adding
 observations to the Markov chain, it becomes a \textbf{hidden Markov
 model (HMM)}. If more than one state maps to the same observation it
 becomes partial and if the same state maps to different observations at
-different times it becomes noisy \citep[6.5.2]{MIBook}. A Markov chain and by
+different times it becomes noisy \citep[ch.6.5.2]{MIBook}. A Markov chain and by
 extension an HMM, can be extendeded indefinitely, meaning that a small number
-of parameters can provide an infinite network\citep[Ch.6.5.1]{MIBook}. For
-example: A man observes an airplane taking off northbound at $O_0$, then at
-$O_1$ he observes that the airplane has turned eastward, at $O_2$ he observes
-that it has turned southward and at $O_3$ he sees that it continues south. This
-allows him to guess the position of the plane at $P_4$, see \autoref{HMM}.
+of parameters can provide an infinite network\citep[ch.6.5.1]{MIBook}. For
+example: A man observes an airplane taking off northbound therefore adding
+evidence at $O_0$, then at $O_1$ he observes that the airplane has turned
+eastward, at $O_2$ he observes that it has turned southward and at $O_3$ he
+sees that it continues south. This allows him to guess the position of the
+plane at $P_4$, see \autoref{HMM}.
  \figx[0.9]{HMM}{A belief network as a hidden Markov model}
 
 
