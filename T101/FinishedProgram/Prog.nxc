@@ -41,8 +41,8 @@ task GetDataAndCalculate(){
 
                 if(dataCounter == DATASETS_NEEDED_TO_CALCULATE){
                     track = false;
-                    DirectionVector d = CalcDirVector(data,dataCounter);
-                    fire = CalcFireData(CalcFuturePos(d,MILLISECONDS_TO_HIT));
+                    DirectionVector vector = CalcDirVector(data,dataCounter);
+                    fire = CalcFireData(CalcFuturePos(vector,MILLISECONDS_TO_HIT));
                     StartTask(WaitAndFire);
                 }
             }
@@ -69,6 +69,7 @@ task WaitAndFire(){
     track = true;
     blobInCam = false;
     collecting = true;
+    dataCounter = 0;
     StartTask(Track);
     StartTask(GetDataAndCalculate);
 }
@@ -85,7 +86,6 @@ task Track(){
     int blobCenter = 0;
     lib_direction = 0; // [-1]Left, [1]Right, [0]Nothing
     int directionCount = 0; //How many times have we seen movement in a direction
-    dataCounter = 0;
 
     while(track){
         NXTCam_GetBlobs(CAM_PORT, CAM_ADDR, nblobs, bc, bl, bt, br, bb);
