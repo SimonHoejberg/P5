@@ -1,19 +1,4 @@
-#include "TargetPrediction/CalcFPos.nxc"
-const byte CAM_PORT = IN_1;
-const byte SENSOR_LEFT = S3;
-const byte SENSOR_RIGHT = S2;
-const byte ANGLE_MOTOR = OUT_C;
-const byte ROTATE_MOTOR = OUT_A;
-const byte FIRE_MOTOR = OUT_B;
-const int CAM_CENTER = 72;
-const int ANGLE_OFFSET_V = 4;
-const int MAX_DISTANCE = 230;
-const int DATASETS_NEEDED_TO_CALCULATE = 2;
-const int MAX_COUNTER_TO_PURGE_DATA = 150;
-const int DIRECTION_THRESHOLD = 7;
-const long MILLISECONDS_TO_HIT = 1500;
-const int NO_DATA = -1;
-const in START_ANGLE = 0;
+#include "CalcFPos.nxc"
 bool loaded = false;
 unsigned long currentTime = 0;
 int lib_direction = 0;

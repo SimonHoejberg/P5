@@ -1,0 +1,242 @@
+/************************************************************************/
+/*                                                                      */
+/* Program Name: nxtcamlib-common.nxc                                   */
+/* ===========================                                          */
+/*                                                                      */
+/* Copyright (c) 2008 by mindsensors.com                                */
+/* Email: info (<at>) mindsensors (<dot>) com                           */
+/*                                                                      */
+/* This program is free software. You can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; version 3 of the License.              */
+/* Read the license at: http://www.gnu.org/licenses/gpl.txt             */
+/*                                                                      */
+/************************************************************************/
+
+/*
+  nxtcamlib-common.nxc
+  NXC Library routines to simplify use of NXTcam 
+	This file contains all the common functions used for
+	communication with various NXTCam firmwares
+	This file is included in firmware specific library file.
+
+  Written by Deepak Patil Jan 2010
+  */
+#ifndef NXTCAMLIB_COMMON
+#define NXTCAMLIB_COMMON
+
+// Constants associated with NXTCam
+#ifndef CAMADDR
+#define CAMADDR     0x02
+#endif
+
+#define MAX_BLOBS 8
+#define NXTCAM_REG_CMD      0x41
+#define NXTCAM_REG_COUNT    0x42
+#define NXTCAM_REG_DATA     0x43
+
+// #define MS_DEBUG
+
+// read data from sensor register(s)
+byte i2cread(byte prt, byte adr, byte reg, byte cnt)
+{
+  byte result = -1;             // default: error value
+  byte outbuf[];               // here we will get data
+  byte cmdbuf[];               // register number holder
+	int loop, nByteReady;
+
+  ArrayBuild(cmdbuf, adr, reg);
+  loop = STAT_COMM_PENDING;
+  while ( loop == STAT_COMM_PENDING ) {
+    loop = I2CStatus(prt, nByteReady);
+  }
+  if(I2CBytes(prt, cmdbuf, cnt, outbuf))
+  {
+    result = outbuf[0];       // read value
+
+    if(cnt==2)
+      result = result + outbuf[1]*256;
+// if 2 registers (16 bit), then add the MSB part
+  }
+
+  return result;              // returns -1 if I2CBytes failed
+}
+
+/*
+This function reads a string from the i2c device buffer which is connected to NXT.
+prt: the port number on NXT (1, 2, 3, or 4) to which this device is connected.
+adr: i2c address of the device.
+reg: The device buffer is a large area. This is the register to read a string from this area.
+cnt: Number of bytes to read from the buffer.
+*/
+string i2cReadString(byte prt, byte adr, byte reg, byte cnt)
+{
+  byte outbuf[];
+  byte cmdbuf[];
+  string temp = "";
+  int n;
+
+  ArrayBuild(cmdbuf, adr, reg);
+  byte nByteReady = 0;
+
+  n = STAT_COMM_PENDING;
+  while ( n == STAT_COMM_PENDING ) {
+    n = I2CStatus(prt, nByteReady);
+  }
+
+  if(I2CBytes(prt, cmdbuf, cnt, outbuf))
+  {
+    temp = ByteArrayToStr(outbuf);
+  }
+  return temp;
+}
+
+/*
+Flush the NXT's buffer for a given port, and discard any data that may be there.
+camPort: The port number on NXT to which device is connected.
+*/
+void NXTCam_Flush(byte camPort)
+{
+  int n;
+  byte nByteReady = 0;
+  byte buf[10];
+  
+  while (I2CStatus(camPort, nByteReady) ==  STAT_COMM_PENDING);
+  n = I2CRead(camPort, 1, buf);
+  while (n > 0) {
+    while (I2CStatus(camPort, nByteReady) ==  STAT_COMM_PENDING);
+    n = I2CRead(camPort, 1, buf);
+  }
+}
+
+/*
+Send a command to the i2c device.  The commands are interpreted by the device and acted upon.
+camPort: The port number on NXT to which device is connected.
+camAddr: The i2c address of the device.
+*/
+void NXTCam_SendCommand(byte camPort, byte camAddr, byte cmd) {
+  byte cmdBuf[];
+  byte nByteReady = 0;
+  ArrayBuild(cmdBuf, camAddr, NXTCAM_REG_CMD, cmd);
+  I2CWrite(camPort, 0, cmdBuf);
+  while (I2CStatus(camPort, nByteReady) ==  STAT_COMM_PENDING);
+  int status = I2CCheckStatus(camPort);
+  while (status > NO_ERR)
+    status = I2CCheckStatus(camPort);
+  //Stop(status < NO_ERR);
+}
+
+/*
+This function draws a rectangle on the NXT LCD screen.
+Draw a rectangle parameters:
+top-left X, top left Y, bottom right X, bottom right Y
+the NXTCam returns coordinates based on top left corner being zero-zero
+where as NXT screen drawing is based on bottom left corner being zero-zero.
+so correct the y coordinate.
+*/
+void DrawRectangle(byte X1,byte Y1,byte X2,byte Y2)
+{
+// vertical pixels: 63
+  int ny1, ny2;
+  ny1 = 63 - Y1;
+  ny2 = 63 - Y2;
+  RectOut (X1, ny1, X2-X1, ny2-ny1,false);
+}
+
+
+
+/*
+
+This function prepares colormap for the objects.
+Colormap[]: the prepared colormap is stored in this variable.
+Object: the object number (1 to 8) for this colormap being defined.
+Red_low, green_low, blue_low: the lowest range of that color you need to match.
+Red_high, green_high, blue_high: hte highest range of that color you need to match.
+ 
+pass a colormap array (of size 48)
+object numbers range from 1 to 8
+pass low and high range color values of RGB
+
+More about colormaps:
+The colormap is a 48 byte buffer.
+From this buffer each of RGB color is assigned 16 bytes for that color.
+i.e. first 16 bytes are for Red, next 16 for green and remaining 16 for blue.
+
+These 16 bytes store matching preference for that color's absolute value ranges as
+0-16-32-48-64-80-96-112-128-144-160-176-192-208-224-240-255
+i.e. first byte is set for color range 0 to 16, second byte for range 16 to 32 and so on...
+each bit in the byte contains mask for each object (i.e. 8 objects) which is set to 1 if you want matching object.
+
+example -
+if you want 1st object to match red color in range of 16 to 48, you will set
+first bit to 1 in byte 1 and byte 2.
+or if you want 4th object to match any shade of red (0 to 255) then you will set
+4th bit of all 16 bytes to 1.
+
+
+*/
+void NXTCam_PrepareColormap(byte & colormap[], byte object,
+                           byte red_low, byte red_high,
+                           byte green_low, byte green_high,
+													 byte blue_low, byte blue_high)
+{
+	/* 0-16-32-48-64-80-96-112-128-144-160-176-192-208-224-240-255
+	 */
+   
+  byte mask, nmask;
+	byte a;
+	byte i, rl, rh, gl, gh, bl, bh;
+
+	if ( object > 8 ) object = 8;
+
+  mask = 0x01 << (8-object);
+	nmask = 0xFF ^ mask;
+
+	rl = (red_low/16) & 0xff;
+	rh = ((red_high/16) + 1) & 0xff;
+	gl = ((green_low/16) + 16) & 0xff;
+	gh = ((green_high/16) + 17) & 0xff;
+	bl = ((blue_low/16) + 32) & 0xff;
+	bh = ((blue_high/16) + 33) & 0xff;
+
+	if ( rl <  0 || rl > 16) rl = 0 & 0xff;
+	if ( rh <  0 || rh > 17) rh = 17 & 0xff;
+	if ( gl < 16 || gl > 32) gl = 16 & 0xff;
+	if ( gh < 16 || gh > 33) gh = 33 & 0xff;
+	if ( bl < 32 || bl > 47) bl = 32 & 0xff;
+	if ( bh < 32 || bh > 48) bh = 47 & 0xff;
+
+	for (i=0; i < 48; i++) { colormap[i] |= mask; }
+
+	for (i= 0; i< rl; i++) { colormap[i] &= nmask; }
+	for (i=rh; i< 16; i++) { colormap[i] &= nmask; }
+	for (i=16; i< gl; i++) { colormap[i] &= nmask; }
+	for (i=gh; i< 32; i++) { colormap[i] &= nmask; }
+	for (i=32; i< bl; i++) { colormap[i] &= nmask; }
+	for (i=bh; i< 48; i++) { colormap[i] &= nmask; }
+	
+  return ;
+}
+
+void NXTCam_i2cwrite(byte port, byte adr, byte reg, byte data)
+{
+  byte result = -1;             // default: error value
+  byte cmdbuf[];               // register number holder
+	int loop, n, nByteReady;
+
+  ArrayBuild(cmdbuf, adr, reg, data);
+  loop = STAT_COMM_PENDING;
+  while ( loop == STAT_COMM_PENDING ) {
+    loop = I2CStatus(port, nByteReady);
+  }
+
+  // when the I2C bus is ready, send the message you built   LowspeedWrite
+  n = I2CWrite(port, 0, cmdbuf);
+
+  loop = STAT_COMM_PENDING;
+  while ( loop == STAT_COMM_PENDING ) {
+    loop = I2CStatus(port, nByteReady);
+  }
+}
+
+#endif  /* NXTCAMLIB_COMMON */
