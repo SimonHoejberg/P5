@@ -1,0 +1,127 @@
+#include "Constants.nxc"
+float calcLib_currentAngle = 0;
+int calcLib_currentGroup = 0;
+
+
+struct PosData {
+   int dataID;
+   float xPos;
+   float yPos;
+   unsigned long time;
+   float angle;
+   int group;
+   bool used;
+};
+
+struct FireData {
+   float angleH;
+   float angleV;
+   float timeToHit;
+};
+
+struct ResData {
+   int horizontalAngle;
+   int verticalAngle;
+   unsigned long timeStamp;
+   int fireingDeadline;
+};
+
+struct DirectionVector {
+   float speedX;
+   float speedY;
+   float xPos;
+   float yPos;
+};
+
+
+bool MakePosData(int length, float angle, unsigned int time, PosData &pos){
+    bool result = false;
+    pos.xPos = length*sind(angle);
+    pos.yPos = length*cosd(angle);
+    pos.time = time;
+    pos.angle = angle;
+    if(calcLib_currentAngle-ANGLE_TO_GROUP <= angle && calcLib_currentAngle+ANGLE_TO_GROUP >= angle){
+        pos.group = calcLib_currentGroup;
+    }
+    else{
+        result = true;
+        calcLib_currentAngle = angle;
+        calcLib_currentGroup++;
+        pos.group = calcLib_currentGroup;
+    }
+    pos.used = false;
+    return result;
+}
+
+
+//Method which takes an array of directionVectors and returns the average
+DirectionVector CombineVectors(DirectionVector dirVecArray[], int arrayLength){
+
+   DirectionVector returnVector;
+   float xRes = 0;
+   float yRes = 0;
+
+   for (int i = 0; i < arrayLength; i++){
+       xRes = xRes + dirVecArray[i].speedX;
+       yRes = yRes + dirVecArray[i].speedY;
+        returnVector.xPos = dirVecArray[i].xPos;
+        returnVector.yPos = dirVecArray[i].yPos;
+   }
+
+   returnVector.speedX = xRes / arrayLength;
+   returnVector.speedY = yRes / arrayLength;
+   
+   return returnVector;
+}
+
+
+//Method which takes two positions and returns a direction vector
+DirectionVector CalcDirVector(PosData dataArray[],   int length){
+
+   DirectionVector dirVec;
+   int firstVector = 0;
+   DirectionVector resultingVectors[10];
+   float xDist;
+   float yDist;
+   unsigned long tDiff;
+   
+   for(int i = 0; i < length-1; i++){
+        xDist = dataArray[firstVector+1].xPos - dataArray[firstVector].xPos;
+        yDist = dataArray[firstVector+1].yPos - dataArray[firstVector].yPos;
+        tDiff = dataArray[firstVector+1].time - dataArray[firstVector].time;
+        resultingVectors[i].xPos = dataArray[firstVector+1].xPos;
+        resultingVectors[i].yPos = dataArray[firstVector+1].yPos;
+        resultingVectors[i].speedX = xDist / tDiff;
+        resultingVectors[i].speedY = yDist / tDiff;
+        firstVector++;
+   }
+   
+   dirVec = CombineVectors(resultingVectors,firstVector);
+
+   return dirVec;
+}
+
+PosData CalcFuturePos(DirectionVector vector, unsigned long time){
+   PosData futurePosition;
+   float tanInput = 0;
+   futurePosition.xPos = vector.xPos + vector.speedX * time;
+   futurePosition.yPos = vector.yPos + vector.speedY * time;
+   futurePosition.time = CurrentTick() + time;
+   tanInput = futurePosition.yPos / futurePosition.xPos;
+   if(futurePosition.xPos >= 0)
+        futurePosition.angle = 90+(atand(tanInput))*(-1);
+   else
+        futurePosition.angle = (90-(atand(tanInput))*(-1))*(-1);
+   
+   return futurePosition;
+}
+
+FireData CalcFireData(PosData futurePos){
+   FireData returnData;
+   returnData.angleH = futurePos.angle;
+   float dist = sqrt(pow(futurePos.xPos,2)+pow(futurePos.yPos,2));
+   returnData.angleV = abs(0.2573*dist-22.85); //Formel baseret på tendenslinje fra testresultater
+   returnData.timeToHit = futurePos.time - (dist/(MUZZLE_SPEED*cosd(returnData.angleV))); //Formel for tid for y=0
+   
+   return returnData;
+}
