@@ -1,0 +1,29 @@
+\section{Programming Language}
+The software used in the \name project has been written in the language NXC,
+which is a domain specific language specialized for writing programs for the
+Lego NXT platform \cite{NXCIntro}. NXC is similar the language C, and as such
+uses many of the same constructs, including the imperative programming approach. As the
+language is domain specific, it comes with its own libraries and their
+respective documentation \cite{NXCIntro}. As described in the NXC documentation,
+the langage has a limited selection of data types \cite{}. An exaple of a short
+program written in NXC can be seen below in \autoref{NXCExample}.\nl
+
+\begin{minipage}[H]{\linewidth}
+\begin{lstlisting}[caption = Exaple of a program written in the NXC language, label = NXCExample] 
+#include "nxtcamlib-default.nxc"
+const int TESTVALUE = 10;
+task search();
+
+task main(){
+    Precedes(search);
+}
+
+task search(){
+	bool track = true;
+	if(TESTVALUE == 10)
+	while(track){
+        NXTCam_GetBlobs(CAM_PORT, CAM_ADDR, nblobs, bc, bl, bt, br, bb);
+	}
+}
+\end{lstlisting}
+\end{minipage}
