@@ -1,8 +1,7 @@
-const float muzzleSpeed = 4.82; //meters per second
-const float gravConst = 9.82; //meters per second squared
-const int angleToGroup = 12;
-float currentAngle = 0;
-int currentGroup = 0;
+const float MUZZLE_SPEED = 4.82; //meters per second
+const int ANGLE_TO_GROUP = 5;
+float calcLib_currentAngle = 0;
+int calcLib_currentGroup = 0;
 
 
 struct PosData {
@@ -15,7 +14,7 @@ struct PosData {
    bool used;
 };
 
-struct fireData {
+struct FireData {
    float angleH;
    float angleV;
    float timeToHit;
@@ -28,7 +27,7 @@ struct ResData {
    int fireingDeadline;
 };
 
-struct directionVector {
+struct DirectionVector {
    float speedX;
    float speedY;
    float xPos;
@@ -36,20 +35,20 @@ struct directionVector {
 };
 
 
-bool makePosData(int length, float angle, unsigned int time, PosData &pos){
+bool MakePosData(int length, float angle, unsigned int time, PosData &pos){
     bool result = false;
     pos.xPos = length*sind(angle);
     pos.yPos = length*cosd(angle);
     pos.time = time;
     pos.angle = angle;
-    if(currentAngle-angleToGroup <= angle && currentAngle+angleToGroup >= angle){
-        pos.group = currentGroup;
+    if(calcLib_currentAngle-ANGLE_TO_GROUP <= angle && calcLib_currentAngle+ANGLE_TO_GROUP >= angle){
+        pos.group = calcLib_currentGroup;
     }
     else{
         result = true;
-        currentAngle = angle;
-        currentGroup++;
-        pos.group = currentGroup;
+        calcLib_currentAngle = angle;
+        calcLib_currentGroup++;
+        pos.group = calcLib_currentGroup;
     }
     pos.used = false;
     return result;
@@ -57,9 +56,9 @@ bool makePosData(int length, float angle, unsigned int time, PosData &pos){
 
 
 //Method which takes an array of directionVectors and returns the average
-directionVector combineVectors(directionVector dirVecArray[], int arrayLength){
+DirectionVector CombineVectors(DirectionVector dirVecArray[], int arrayLength){
 
-   directionVector returnVector;
+   DirectionVector returnVector;
    float xRes = 0;
    float yRes = 0;
 
@@ -78,11 +77,11 @@ directionVector combineVectors(directionVector dirVecArray[], int arrayLength){
 
 
 //Method which takes two positions and returns a direction vector
-directionVector calcDirVector(PosData dataArray[],   int length){
+DirectionVector CalcDirVector(PosData dataArray[],   int length){
 
-   directionVector dirVec;
+   DirectionVector dirVec;
    int firstVector = 0;
-   directionVector resultingVectors[10];
+   DirectionVector resultingVectors[10];
    float xDist;
    float yDist;
    unsigned long tDiff;
@@ -98,12 +97,12 @@ directionVector calcDirVector(PosData dataArray[],   int length){
         firstVector++;
    }
    
-   dirVec = combineVectors(resultingVectors,firstVector);
+   dirVec = CombineVectors(resultingVectors,firstVector);
 
    return dirVec;
 }
 
-PosData calcFuturePos(directionVector vector, unsigned long time){
+PosData CalcFuturePos(DirectionVector vector, unsigned long time){
    PosData futurePosition;
    float tanInput = 0;
    futurePosition.xPos = vector.xPos + vector.speedX * time;
@@ -118,15 +117,12 @@ PosData calcFuturePos(directionVector vector, unsigned long time){
    return futurePosition;
 }
 
-fireData calcFireData(PosData futurePos){
-
-   fireData returnData;
+FireData CalcFireData(PosData futurePos){
+   FireData returnData;
    returnData.angleH = futurePos.angle;
    float dist = sqrt(pow(futurePos.xPos,2)+pow(futurePos.yPos,2));
    returnData.angleV = abs(0.2573*dist-22.85); //Formel baseret på tendenslinje fra testresultater
-   //returnData.timeToHit = futurePos.time - ((muzzleSpeed * sind(returnData.angleV) - sqrt(pow(muzzleSpeed,2) * pow(sind(returnData.angleV),2))) / gravConst); //Formel for tid for y=0
-   returnData.timeToHit = futurePos.time - (dist/(muzzleSpeed*cosd(returnData.angleV))); //Formel for tid for y=0
-
+   returnData.timeToHit = futurePos.time - (dist/(MUZZLE_SPEED*cosd(returnData.angleV))); //Formel for tid for y=0
    
    return returnData;
 }
