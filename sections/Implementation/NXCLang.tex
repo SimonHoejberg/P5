@@ -5,17 +5,18 @@ Lego NXT platform \cite{NXCIntro}. NXC is similar the language C, and as such
 uses many of the same constructs, including the imperative programming approach. As the
 language is domain specific, it comes with its own libraries and their
 respective documentation \cite{NXCIntro}. As described in the NXC documentation,
-the langage has a limited selection of data types \cite{}. An exaple of a short
-program written in NXC can be seen below in \autoref{NXCExample}.\nl
+the langage has a limited selection of data types \cite{NXCVariables}. An exaple
+of a short program written in NXC can be seen below in \autoref{NXCExample}.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Exaple of a program written in the NXC language, label = NXCExample] 
 #include "nxtcamlib-default.nxc"
-const int TESTVALUE = 10;
+const byte ROTATE_MOTOR = OUT_A;
 task search();
 
 task main(){
     Precedes(search);
+    RotateMotor(ROTATE_MOTOR, 50, 50);
 }
 
 task search(){
@@ -27,3 +28,7 @@ task search(){
 }
 \end{lstlisting}
 \end{minipage}
+
+As excemplified in \autoref{NXCExample} the NXC language is reminicent of C, and
+the most notable differences come in the form of the inclusion of standard
+libraries, and specialized thread handling.
