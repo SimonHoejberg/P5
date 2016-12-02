@@ -1,18 +1,18 @@
 \section{GetDataAndCalculate}
-The thread \textbf{\textit{GetDataAndCalculate}} is responsible for reading data
+The thread \textc{GetDataAndCalculate} is responsible for reading data
 from the ultrasonic distance sensors, determining if the data is useful,
 grouping data and calculating a future position for the target. As seen in
 \autoref{InitGDAC} the tasks general behaviour is contained within a while loop
 (\textbf{line 5}), which is active while the boolean variable
-\textbf{\textit{collecting}} is true. This variable is true as long as the
+\textc{collecting} is true. This variable is true as long as the
 turret does not have enough data to fire. Within the loop is a control structure
 (\textbf{line 6}) which is only active when the target is in the middle of the
 camera. As such, when this happens the distance sensors should be able to
 measure the distance to the target, which is done by calling the method
-\textbf{\textit{GetDistance}}.
+\textc{GetDistance}.
 
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = , label = InitGDAC]
+\begin{lstlisting}[caption = General behaviour for GetDataAndCalculate, label = InitGDAC] 
 task GetDataAndCalculate(){
     string input;
     int length;
@@ -24,6 +24,60 @@ task GetDataAndCalculate(){
     ...
     }
 ...
+}
+\end{lstlisting}
+\end{minipage}
+
+The \textc{GetDistance} method works by activating the ultrasonic distance
+sensors by using \textc{WriteI2CRegister}. This is shown below in
+\autoref{GetDistanceFunc}. This method is used to communicate with I2C devices
+by writing formatted data to and from it. The methods input parameters are: NXT
+port, device address, device register and command. The command on \textbf{line
+2} calls the sensor with the command \textc{US\_CMD\_CONTINUOUS} which turns on
+the sensor. On \textbf{line 3} the \textc{SensorUS} method is called, which
+returns a single reading from the sensor. On \textbf{line 4}
+\textc{US\_CMD\_OFF} is used to turn off the sensor. This pattern is repeated on
+for the second ultrasonic distance sensor on \textbf{lines 6-8}. The resulting
+data from these sensors are parsed to the \textc{CheckLength} method, which
+returns an integer containing the distance in centimeters.
+
+\begin{minipage}[H]{\linewidth}
+\begin{lstlisting}[caption = Method for reading the distance from the ultrasonic distance sensors., label = GetDistanceFunc] 
+int GetDistance(){
+    WriteI2CRegister(SENSOR_RIGHT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    int right = SensorUS(SENSOR_RIGHT);
+    WriteI2CRegister(SENSOR_RIGHT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+
+    WriteI2CRegister(SENSOR_LEFT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    int left = SensorUS(SENSOR_LEFT);
+    WriteI2CRegister(SENSOR_LEFT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+    return CheckLength(right,left);
+}
+\end{lstlisting}
+\end{minipage}
+
+The \textc{CheckLength} method takes the two distances read from the ultrasonic
+sensors, and chooses which one to use. This is shown in \autoref{CheckLengthEx}.
+Here the distance is compared to \textc{MAX\_DISTANCE}, which is an upper bound
+for what distance is accepted. When reading from the sensor, if a target is not
+registered, the sensor will return 255, which is the maximum value. As such,
+\textc{MAX\_DISTANCE} is a value which is less than 255 to make sure that
+useless data is not used. If the left sensors reading is accepted, the right
+sensor is ignored. If no valid reading is found, the method returns -1, which
+indicates an error.
+
+\begin{minipage}[H]{\linewidth}
+\begin{lstlisting}[caption = CheckLength method which chooses the best input distance., label = CheckLengthEx] 
+int CheckLength(int right, int left){
+    if(left < MAX_DISTANCE){
+        return left;
+    }
+    else if(right < MAX_DISTANCE){
+        return right;
+    }
+    else{
+        return -1;
+    }
 }
 \end{lstlisting}
 \end{minipage}
