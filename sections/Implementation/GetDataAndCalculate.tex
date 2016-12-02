@@ -1,1 +1,29 @@
 \section{GetDataAndCalculate}
+The thread \textbf{\textit{GetDataAndCalculate}} is responsible for reading data
+from the ultrasonic distance sensors, determining if the data is useful,
+grouping data and calculating a future position for the target. As seen in
+\autoref{InitGDAC} the tasks general behaviour is contained within a while loop
+(\textbf{line 5}), which is active while the boolean variable
+\textbf{\textit{collecting}} is true. This variable is true as long as the
+turret does not have enough data to fire. Within the loop is a control structure
+(\textbf{line 6}) which is only active when the target is in the middle of the
+camera. As such, when this happens the distance sensors should be able to
+measure the distance to the target, which is done by calling the method
+\textbf{\textit{GetDistance}}.
+
+\begin{minipage}[H]{\linewidth}
+\begin{lstlisting}[caption = , label = InitGDAC]
+task GetDataAndCalculate(){
+    string input;
+    int length;
+    while(collecting){
+        if(blobInCam){
+            length = GetDistance();
+            ...
+        }
+    ...
+    }
+...
+}
+\end{lstlisting}
+\end{minipage}
