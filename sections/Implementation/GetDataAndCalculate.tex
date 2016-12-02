@@ -9,7 +9,7 @@ turret does not have enough data to fire. Within the loop is a control structure
 (\textbf{line 6}) which is only active when the target is in the middle of the
 camera. As such, when this happens the distance sensors should be able to
 measure the distance to the target, which is done by calling the method
-\textc{GetDistance}.
+\textc{GetDistance}.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = General behaviour for GetDataAndCalculate, label = InitGDAC] 
@@ -39,7 +39,7 @@ returns a single reading from the sensor. On \textbf{line 4}
 \textc{US\_CMD\_OFF} is used to turn off the sensor. This pattern is repeated on
 for the second ultrasonic distance sensor on \textbf{lines 6-8}. The resulting
 data from these sensors are parsed to the \textc{CheckLength} method, which
-returns an integer containing the distance in centimeters.
+returns an integer containing the distance in centimeters.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Method for reading the distance from the ultrasonic distance sensors., label = GetDistanceFunc] 
@@ -64,7 +64,7 @@ registered, the sensor will return 255, which is the maximum value. As such,
 \textc{MAX\_DISTANCE} is a value which is less than 255 to make sure that
 useless data is not used. If the left sensors reading is accepted, the right
 sensor is ignored. If no valid reading is found, the method returns -1, which
-indicates an error.
+indicates an error.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = CheckLength method which chooses the best input distance., label = CheckLengthEx] 

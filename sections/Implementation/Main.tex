@@ -3,7 +3,7 @@ The execution of the program begins in the \textbf{Main} thread, which is shown
 in \autoref{MainThread}. First, the library method
 \textbf{\textit{PosRegEnable}} is used to enable the motors ability to set an absolute position using a PID controller. This is used to
 allow the turret to set its angle instead of simply turning on/off the motor.
-The \textbf{\textit{SetMotorRegulationTime}} method is used to determine the
+The \textc{SetMotorRegulationTime} method is used to determine the
 time in which the motor should regulate its angle. This allows the turret to
 move to the target angle in a single swift motion, and then making a hard break
 when the target angle has been reached. This hard break can cause stress to the
@@ -30,7 +30,7 @@ sent to the camera. The first command on \textbf{line 6} confingures the camera
 to sort the returned blobs by size, such that the largest blob is the first
 element of the returned arrays. The second command is used to enable the camera,
 and start the blob tracking. The next commands on \textbf{line 8-9} are used to
-initialize the two sensor ports \textbf{\textit{SENSOR\_LEFT}} and
-\textbf{\textit{SENSOR\_RIGHT}} as being used for ultrasonic distance sensors.
-Finally, the \textbf{\textit{Precedes}} method is used to initialize the
-threads: \textbf{\textit{Track}} and \textbf{\textit{GetDataAndCalculate}}.
+initialize the two sensor ports \textc{SENSOR\_LEFT} and
+\textc{SENSOR\_RIGHT} as being used for ultrasonic distance sensors.
+Finally, the \textc{Precedes} method is used to initialize the
+threads: \textc{Track} and \textc{GetDataAndCalculate}.
