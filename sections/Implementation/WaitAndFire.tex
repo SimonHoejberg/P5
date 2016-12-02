@@ -1,0 +1,49 @@
+\section{WaitAndFire}
+When \name has collected enough data to calculate where the target is going to
+be in the future, the task WaitAndFire is performed. This task makes \name stop
+collecting data, loads the canon, turns to the calculated angle, angles the
+canon vertically and waits until the right time to fire. When it is done fireing
+it starts to track again.\nl
+
+This task calls three functions to get it ready to fire. The first function is
+LoadRound() which pushes the piston out so that the projectile is locked in
+place. The second is RotateH() which turns \name horisontally to the future
+position of the target. The third function angles the canon vertically based on
+the distance to the target. These three function calls can be seen in
+\autoref{Funccall}\nl
+
+\begin{minipage}[H]{\linewidth}
+\begin{lstlisting}[caption = Function calls in WaitAndFire, label = Funccall,
+style = nc] 
+task WaitAndFire(){
+    collecting = false;
+    LoadRound();
+    Off(ROTATE_MOTOR);
+    int angleH = fire.angleH;
+    RotateH(angleH);
+    Wait(150);
+    Angle(fire.angleV);
+    ...
+\end{lstlisting}
+\end{minipage}
+
+The Functionality that determines when to fire is contained in a while loop with
+an if statement that checks if the current time is bigger than or equal to the
+time to fire which is contained in the struct called fire. This is seen in
+\autoref{Whentofire}\nl
+ 
+\begin{minipage}[H]{\linewidth}
+\begin{lstlisting}[caption = While that determines when to fire, label =
+Whentofire, style = nc] ...
+while(true){
+        if(CurrentTick() >= fire.timeToHit){
+            Fire();
+            break;
+        }
+    }
+\end{lstlisting}
+\end{minipage}
+
+
+
+
