@@ -68,15 +68,32 @@ Using this design a test to find how accurate it is at fireing the projectile
 to the expected distance was conducted.
 In this test the turret was set to an angle before fireing. The distance was
 then measured by having the projectile landing in a layer of flour on the
-ground. The test was conducted twice The average distance for each angle in
-both datasets was calculated and plotted in a graph against the the angle,
-which is seen in \autoref{graph:Accuracy}. This shows that if all 5 projectiles
-are fired the turret has good odds of hitting the target, since the points on
+ground. The test was conducted twice and the minimum and maximum distance was
+plotted against the angle together with the best fit line, which is seen in
+\autoref{graph:Accuracy}.
+This shows that the turret is fairly accurate, since the points on
 the graph somewhat follows a \fix{thirddegreepolynomial}{Cubic function?} as
 expected.
 
-\graphLNo{Angle}{Distance [cm]}{DistVSAngleTestset1,
-DistVSAngleTestset2}{Dataset 1, Dataset 2}{Results from accuracy test}{Accuracy}
+
+\begin{graphEnv}
+\begin{graphFloat}
+\centering
+\begin{tikzpicture}
+	\begin{axis}[xlabel={Angle}, ylabel={Distance}, xmin=0,
+	ymin=0, minor tick num = 3, /pgfplots/grid = both, axis lines =
+	left,legend style={ at={(1.3,0.5)}, anchor=center}] 
+	\addplot[blue] expression[domain=0:50,samples=300]{-0.0035*x^3 + 0.2498*x^2 -
+	1.957*x + 114.27}; 
+	\addlegendentry{Average}
+	\addplot[red,only marks] table {data/DistVSAngleTestset1.dat};
+	\addlegendentry{Data}
+	\end{axis}
+\end{tikzpicture}
+\caption{Results from accuracy test}
+\end{graphFloat}
+\label{graph:Accuracy}
+\end{graphEnv}
 
 The reason for using this design is that it is able to shoot the desired
 distance and is able to reload itself. The tests conducted in
