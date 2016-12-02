@@ -14,22 +14,20 @@ for this feature can be found under section 2 in \autoref{TrackVar}.
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Variables used on the Track() thread., label = TrackVar, style = nc] 
 task Track(){
-    //1: Variables used to store info about blobs
-    int bt[10];                          //Top
-    int bl[10];                          //Left
-    int bc[10];                          //Center
-    int bb[10];                          //Bottom
-    int br[10];                          //Right
-    int nblobs;                          //Number of blobs
+    int bt[10];
+    int bl[10];
+    int bc[10];
+    int bb[10];
+    int br[10];
+    int nblobs;
 
-    //2: Variables used to determine direction
-    lib_direction = 0;                   // [-1]Left, [1]Right, [0]Nothing
-    int directionCount = 0;              //How many times have we seen movement in a direction
-    int oldBlobCenter = 0;               //Center of old blob
-    int blobCenter = 0;                  //Center of new blob
+    lib_direction = 0;
+    int directionCount = 0;
+    int oldBlobCenter = 0;
+    int blobCenter = 0;
 
-    int counter = 0;                     //Cycles since data was last recieved from camera
-    dataCounter = 0;                     //Position to write data to the PosData array
+    int counter = 0;
+    dataCounter = 0;
     ...
 }
 \end{lstlisting}
