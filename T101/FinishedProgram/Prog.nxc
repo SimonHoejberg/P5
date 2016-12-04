@@ -17,7 +17,7 @@ task main(){
     PosRegEnable(ROTATE_MOTOR);
     PosRegEnable(ANGLE_MOTOR);
     SetMotorRegulationTime(10);
-    int init = NXTCam_Init(CAM_PORT, CAM_ADDR);
+    NXTCam_Init(CAM_PORT, CAM_ADDR);
     NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'A');
     NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'E');
     SetSensorUltrasonic(SENSOR_LEFT);
