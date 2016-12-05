@@ -1,0 +1,108 @@
+#include "TurretLib.nxc"
+bool Assert(int out, int expected){
+  if(out == expected){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+bool MakePosDataTest(int length, float angle, unsigned int time, PosData pos){
+  calcLib_currentAngle = angle + 6;
+  return MakePosData(length, angle, time, pos);
+}
+bool CombineVectorsTest(){
+  DirectionVector input1;
+  DirectionVector input2;
+  input1.speedX = 10;
+  input1.speedY = 10;
+  input1.xPos = 15;
+  input1.yPos = 15;
+  
+  input2.speedX = 25;
+  input2.speedY = 25;
+  input2.xPos = 20;
+  input2.yPos = 20;
+  DirectionVector dirVecArray[2];
+  dirVecArray[0] = input1;
+  dirVecArray[1] = input2;
+  DirectionVector out = CombineVectors(dirVecArray, 2);
+  
+  if(out.speedX == 22.5 && out.speedY == 22.5 && out.xPos == 20, out.yPos == 20){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+bool UpperBoundTest(int input, int expected){
+  int out = UpperBound(input);
+
+  return Assert(out, expected);
+}
+
+bool CheckLengthTest(int right, int left, int expected){
+  int out = CheckLength(right, left);
+
+  return Assert(out, expected);
+}
+
+bool GetAngleTest(int distance, int expected){
+  int out = GetAngle(distance);
+
+  return Assert(out, expected);
+}
+
+bool GetSpeedTest(int bcenter, int expected){
+  int out = GetSpeed(bcenter);
+
+  if(out == expected){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+task main(){
+  PosData pos;
+  if(UpperBoundTest(130, 130)){
+    TextOut(0, LCD_LINE1, "true");
+  }
+  else{
+    TextOut(0, LCD_LINE1, "false");
+  }
+  if(CheckLengthTest(230, 215, 215)){
+     TextOut(0, LCD_LINE2, "true");
+  }
+  else{
+    TextOut(0, LCD_LINE2, "false");
+  }
+  if(GetAngleTest(135, 10)){
+    TextOut(0, LCD_LINE3, "true");
+  }
+  else{
+    TextOut(0, LCD_LINE3, "false");
+  }
+  if(GetSpeedTest(45, -55.5570233)){
+   TextOut(0, LCD_LINE4, "true");
+  }
+  else{
+    TextOut(0, LCD_LINE4, "false");
+  }
+  if(MakePosDataTest(100, 10, CurrentTick(), pos)){
+    TextOut(0, LCD_LINE5, "true");
+  }
+  else{
+    TextOut(0, LCD_LINE5, "false");
+  }
+  if(CombineVectorsTest()){
+    TextOut(0, LCD_LINE6, "true");
+  }
+  else{
+    TextOut(0, LCD_LINE6, "false");
+  }
+  while(true){}
+}
+

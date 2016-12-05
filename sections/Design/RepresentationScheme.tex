@@ -1,4 +1,4 @@
-\chapter{Representation Scheme}
+\chapter{Representation Scheme}\label{RepScheme}
 When tracking the target \name needs data in order to do so. This data comes
 from the camera and ultrasonic sensors in the form of a distance and an angle.
 This data is relative to the turret, which means that in coordinate system it
@@ -17,7 +17,8 @@ using two different formulas to calculate the angle is that the formulas output
 the angle that \name should turn to and not how many degrees it should turn.
 this means that the first formula only gives the right output when the point is
 in the positive half of the coordinate system and the second only gives the
-right output when the point is in the negative half.\nl
+right output when the point is in the negative half. All of this is
+calculated in the function CalcFuturePos.\nl
 
 \fix{indsæt forklarende figur af koordinatsystem}{}
 
@@ -25,7 +26,7 @@ When \name has turned to the desired angle it needs to angle itself vertically
 based on the distance to the target. This distance is calculated using
 pythagoras theorem. To calculate the angle the following function is used:\\
 $a_{vertical}=| 0.2573*distance-22.85 |$.
-This function based on a trendline that was extrapolated from a set of test
+This function based on a best fit line that was extrapolated from a set of test
 data, where the angle was plotted against how far the projectile travelled. This
 function is an estimate of the function needed in order to get the angle. This
 is because the exact function is too complex for the NXT to calculate in the available time.\nl
@@ -34,3 +35,4 @@ is because the exact function is too complex for the NXT to calculate in the ava
 This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
 \autoref{ProjMotion}, from the time where the target is at the desired point.
 This gives the time where \name needs to shoot to be able to hit the target.
+This is calculated in the function CalcFireData.

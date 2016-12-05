@@ -97,7 +97,12 @@ task Track(){
             int temp = CAM_CENTER - blobCenter;
             Off(ROTATE_MOTOR);
             if(lib_direction!=0){
-                int tempSpeed = GetSpeed(blobCenter);
+                //int tempSpeed = GetSpeed(blobCenter);
+                if(lib_direction == 1){
+                   int tempSpeed = GetSpeed(br[0]);
+                }else{
+                   int tempSpeed = GetSpeed(bl[0]);
+                }
                 if(tempSpeed > 0 && lib_direction > 0)
                     OnFwd(ROTATE_MOTOR, tempSpeed);
                 else if(tempSpeed < 0 && lib_direction < 0)

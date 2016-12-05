@@ -40,7 +40,7 @@ Examples of knowledge that \name has is: the targets speed and how much the turr
 turned. When the turret has a sufficient amount of knowledge, it should be used
 in a way that makes it possible to compute an output. Whether this output is a
 solution or not, depends on what a solution is. There are 4 different categories
-of solutions:
+of solutions \citep[ch.1.4.1]{MIBook}:
 
 \begin{itemize}
   \item \textbf{Optimal solution} - A solution which has been deemed optimal
@@ -61,8 +61,8 @@ optimal shot.
 
 \subsection{Design Space}
 The design space of an intelligent agent can be considered a series of 8
-factors, which are used to give an estimation of the system \citep[ch.
-1.5]{MIBook}\KT. These factors are: modularity, representation scheme, planning
+factors, which are used to give an estimation of the system \citep[ch.1.5]{MIBook}. 
+These factors are: modularity, representation scheme, planning
 horizon, uncertainty, preference, number of agents, learning and computational
 limits.
 
@@ -73,7 +73,7 @@ different levels, flat, modular and hierachical. Flat means that everything is
 contained within a single module. Modular means that the system can be divided
 into several modules that can be understood separately from the system.
 Hierachical means that the modules can recursively have additional modules
-inside them \citep[ch1.5.1]{MIBook}. \name as an autonomous turret needs to
+inside them \citep[ch.1.5.1]{MIBook}. \name as an autonomous turret needs to
 have several functions, for example it needs to be able to turn, aim and determine the position of a target.
 This means that \name should be a modular system because, while it is a
 relatively simple system, it has distinct parts which can each be considred
@@ -83,7 +83,7 @@ modules of their own.
 As mentioned in \autoref{KR} the representation scheme is used to house the
 various knowledge the agent could need to perform. This knowledge is usually
 represented in terms of states. A state is a specific combination of
-the knowledge \citep[ch1.5.2]{MIBook}. For example a turret with the ability
+the knowledge \citep[ch.1.5.2]{MIBook}. For example a turret with the ability
 to turn 180 degrees and tilt its cannon 45 degrees would have $180 * 45$ states. As an example, a
 specific state would have the turret turned 90 degrees and the cannon tilted at an angle of 42
 degrees. This leads to alot of different states as the amount of possible values
@@ -97,14 +97,14 @@ The planning horizon for an intelligent agent governs how far ahead it plans
 when it comes to the consequences of its actions. For example a child might
 only do something if there is an immediate reward, whereas an adult might have
 the foresight to do something for a reward thats some time off. There exist the
-following types of planning horizons \citep[ch1.5.3]{MIBook}:
+following types of planning horizons \citep[ch.1.5.3]{MIBook}:
 \begin{itemize}
-	\item \textbf{Non-planning} - The agent does not consider the future when
-	making decisions, or time is not involved as a factor.
+	\item \textbf{Non-planning} - The agent either does not consider the
+	future when making decisions, or doesn't use time as a factor.
 	\item \textbf{Finite horizon} - The agent considers the future for a fixed
 	finite set of steps. 
-	\item \textbf{Indefinite horizon} - The agent looks ahead for finite but not
-	fixed number of steps.
+	\item \textbf{Indefinite horizon} - The agent considers the future for a
+	finite but not fixed number of steps.
 	\item \textbf{Infinite horizon} - The agent plans on running forever.	
 \end{itemize}
 
@@ -115,7 +115,6 @@ the turret can be considered having a finite horizon as the number of steps it
 needs are limited.
 
 \subsubsection{Uncertainty}
-
 There are two parts to uncertainty. The first part is sensing uncertainty while
 the second is effect uncertainty. Sensing uncertainty concerns what the agent
 can determine based on its observations. There are two possibilities concerning
@@ -123,12 +122,12 @@ what it can sense \citep[ch.1.5.4]{MIBook}:
 \begin{itemize}
   \item \textbf{Fully observable} - The agent can determine the current state
   based on observations.
-  \item \textbf{Partially observable} - The agent can not directly observe the
-  current state. This can be caused by noisy observations or when multiple
+  \item \textbf{Partially observable} - The agent can not directly observe
+  the current state. This can be caused by noisy observations or when multiple
   states result in the same observations.
 \end{itemize}
 
-In order have knowledge of the target, \name will need to observe since the
+In order to have knowledge of the target, \name will need to observe since the
 properties of the target are not known by \name beforehand. This results in
 uncertainty as we not only need to predict the future position of the target,
 the sensors may provide noisy observations. We can thus already determine that
@@ -153,7 +152,7 @@ the actions can be be detemined by what it can observe.
 For an agent to be able to make good decisions it is necessary to provide an
 idea of the goals we are trying to accomplish. Furthermore there are certain
 preferences concerning the trade-off between different solutions
-\citep[ch.1.5.5]{MIBook}.
+\citep[ch.1.5.5]{MIBook}:
 
 \begin{itemize}
   \item \textbf{Goals} - There are two types of goals, achievement goals and
@@ -177,8 +176,8 @@ reasoning of other agents into account. This leads to two types of reasoning
 \begin{itemize}
   \item \textbf{Single agent reasoning} - The agent does not take other
   agents into account and assumes they are part of the environment.
-  \item \textbf{Multiple agent reasoning} - The agent takes the reasoning of
-  other agents into account.
+  \item \textbf{Multiple agent reasoning} - The agents reasoning is also based
+  on the other agents reasoning.
 \end{itemize}
 
 In regards to \namep, it needs to take the reasoning of the target into
@@ -192,7 +191,6 @@ consideration in order to actually hit it.
 % agent so it does not need to take any other agents into account.
 
 \subsubsection{Learning}
-
 There are two ways of handling knowledge: knowledge can given in form of a
 model or the agent can be given data to learn from \citep[ch.1.5.7]{MIBook}. 
 \begin{itemize}
@@ -216,9 +214,9 @@ has \citep[ch.1.5.8]{MIBook}:
 
 \begin{itemize}
   \item \textbf{Perfect rationality} - The agent tries to find the best action
-  without taking resources into account.
-  \item \textbf{Bounded rationality} - The agent decides the best action given
-  the computational limits.
+  allways.
+  \item \textbf{Bounded rationality} - The agent decides the best action taking
+  its limitation into account.
 \end{itemize}
 
 \name has bounded rationality due to the fact that the NXT provides limited
@@ -229,8 +227,7 @@ the best solution. In addition to just the calculations, \name also needs to
 move into a proper position, and the shot itself has a certain travel time. All
 of this leads to a system which uses bounded rationality.
 
-\subsection{Belief Network}
-
+\subsection{Belief Network}\KT
 The agent is only able to partially observe the states, it will thus need to be
 able to reason under uncertainty. A belief network is a way to do this, it is an acyclic
 directed graph consisting of random variables \citep[ch.6.3]{MIBook}. These
