@@ -1,8 +1,8 @@
 \section{Main}
-The execution of the program begins in the \textbf{Main} thread, which is shown
+The execution of the program begins in the \textc{Main} thread, which is shown
 in \autoref{MainThread}. First, the library method
-\textbf{\textit{PosRegEnable}} is used to enable the motors ability to set an absolute position using a PID controller. This is used to
-allow the turret to set its angle instead of simply turning on/off the motor.
+\textc{PosRegEnable} is used to enable the motors ability to set
+an absolute position using a PID controller. This is used to allow the turret to set its angle instead of simply turning on/off the motor.
 The \textc{SetMotorRegulationTime} method is used to determine the
 time in which the motor should regulate its angle. This allows the turret to
 move to the target angle in a single swift motion, and then making a hard break

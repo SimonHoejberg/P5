@@ -1,14 +1,14 @@
 \section{WaitAndFire}
 When \name has collected enough data to calculate where the target is going to
-be in the future, the task \textbf{WaitAndFire} is performed. This task makes
+be in the future, the task \textc{WaitAndFire} is performed. This task makes
 \name stop collecting data, loads the canon, turns to the calculated angle, angles the
 canon vertically and waits until the right time to fire. When it is done fireing
 it starts to track again.\nl
 
 This task calls three functions to get it ready to fire. The first function is
-\textbf{LoadRound} which pushes the piston out so that the projectile is locked
-in place. The second is \textbf{RotateH} which turns \name horisontally to the
-future position of the target. The third function called \textbf{Angle} angles
+\textc{LoadRound} which pushes the piston out so that the projectile is locked
+in place. The second is \textc{RotateH} which turns \name horisontally to the
+future position of the target. The third function called \textc{Angle} angles
 the canon vertically based on the distance to the target. These three function calls can be seen in
 \autoref{Funccall}\nl
 
@@ -27,13 +27,13 @@ task WaitAndFire(){
 \end{lstlisting}
 \end{minipage}
 
-The data Contained in the struct called \textbf{fire} is calculated in the the
-function \textbf{CalcFireData} and \textbf{CalcFuturePos}, which is explained in
+The data contained in the struct called \textc{fire} is calculated in the the
+function \textc{CalcFireData} and \textc{CalcFuturePos}, which is explained in
 \autoref{RepScheme}
 
-The Functionality that determines when to fire is contained in a while loop with
+The functionality that determines when to fire is contained in a while loop with
 an if statement that checks if the current time is bigger than or equal to the
-time to fire which is contained in the struct called \textbf{fire}. This is seen
+time to fire which is contained in the struct called \textc{fire}. This is seen
 in \autoref{Whentofire}\nl
  
 \begin{minipage}[H]{\linewidth}
