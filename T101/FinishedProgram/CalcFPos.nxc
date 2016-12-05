@@ -4,7 +4,7 @@ int calcLib_currentGroup = 0;
 
 
 struct PosData {
-   int dataID;
+   //int dataID;
    float xPos;
    float yPos;
    unsigned long time;
@@ -107,6 +107,7 @@ PosData CalcFuturePos(DirectionVector vector, unsigned long time){
    futurePosition.xPos = vector.xPos + vector.speedX * time;
    futurePosition.yPos = vector.yPos + vector.speedY * time;
    futurePosition.time = CurrentTick() + time;
+
    tanInput = futurePosition.yPos / futurePosition.xPos;
    if(futurePosition.xPos >= 0)
         futurePosition.angle = 90+(atand(tanInput))*(-1);

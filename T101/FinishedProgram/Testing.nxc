@@ -8,10 +8,75 @@ bool Assert(int out, int expected){
   }
 }
 
+bool CalcFireDataTest(){
+  PosData input;
+  input.xPos = 10;
+  input.yPos = 15;
+  input.time = 1000;
+  input.angle = 50;
+  
+  FireData out = CalcFireData(input);
+  NumOut(30, LCD_LINE1, out.angleH);
+  NumOut(30, LCD_LINE2, out.angleV);
+  NumOut(30, LCD_LINE3, out.timeToHit);
+  if(out.angleH == 50 && out.angleV == 18.2114583 && out.timeToHit == 996.0625742){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+bool CalcDirVectorTest(){//DOES NOT COMPUTE!!!!
+  PosData dataArray[2];
+
+  PosData input1;
+  PosData input2;
+  input1.xPos = 10;
+  input1.yPos = 15;
+  input1.time = 1000;
+  input1.angle = 50;
+  
+  input2.xPos = 25;
+  input2.yPos = 30;
+  input2.time = 1001;
+  input2.angle = 75;
+
+  dataArray[1] = input1;
+  dataArray[0] = input2;
+  DirectionVector out = CalcDirVector(dataArray, 2);
+
+  if(out.speedX == 0.03 && out.speedY == 0 && out.xPos == 10 && out.yPos == 15){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+bool CalcFuturePosTest() {
+  DirectionVector input;
+  input.speedX = 50;
+  input.speedY = 35;
+  input.xPos = 25;
+  input.yPos = 25;
+  
+  PosData out = CalcFuturePos(input, 1500);
+
+  if(out.xPos == 75025 && out.yPos == 52525 && out.angle == 55.0041359){
+    return true;
+  }
+  else {
+    return false;
+  }
+  
+}
+
 bool MakePosDataTest(int length, float angle, unsigned int time, PosData pos){
   calcLib_currentAngle = angle + 6;
   return MakePosData(length, angle, time, pos);
 }
+
 bool CombineVectorsTest(){
   DirectionVector input1;
   DirectionVector input2;
@@ -30,6 +95,24 @@ bool CombineVectorsTest(){
   DirectionVector out = CombineVectors(dirVecArray, 2);
   
   if(out.speedX == 22.5 && out.speedY == 22.5 && out.xPos == 20, out.yPos == 20){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+bool CombineVectorsTest2(){
+  DirectionVector input1;
+  input1.speedX = 10;
+  input1.speedY = 10;
+  input1.xPos = 15;
+  input1.yPos = 15;
+
+  DirectionVector dirVecArray[1];
+  dirVecArray[0] = input1;
+  DirectionVector out = CombineVectors(dirVecArray, 1);
+
+  if(out.speedX == 10 && out.speedY == 10 && out.xPos == 15, out.yPos == 15){
     return true;
   }
   else {
@@ -97,11 +180,23 @@ task main(){
   else{
     TextOut(0, LCD_LINE5, "false");
   }
-  if(CombineVectorsTest()){
+  if(CombineVectorsTest2()){
     TextOut(0, LCD_LINE6, "true");
   }
   else{
     TextOut(0, LCD_LINE6, "false");
+  }
+  if(CalcFuturePosTest()){
+    TextOut(0, LCD_LINE7, "true");
+  }
+  else{
+    TextOut(0, LCD_LINE7, "false");
+  }
+  if(CalcFireDataTest()){
+    TextOut(0, LCD_LINE8, "true");
+  }
+  else{
+    TextOut(0, LCD_LINE8, "false");
   }
   while(true){}
 }
