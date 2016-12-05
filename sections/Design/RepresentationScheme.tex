@@ -1,38 +1,74 @@
-\chapter{Representation Scheme}\label{RepScheme}
-When tracking the target \name needs data in order to do so. This data comes
-from the camera and ultrasonic sensors in the form of a distance and an angle.
-This data is relative to the turret, which means that in coordinate system it
-would be in (0,0). To get the current position of the target an x and a y
-coordinate is calculated by multiplying the distance with $sin(a)$ to get the x coordinate and
-$cos(a)$ to get the y coordinate, where a is the angle. This is because \name is
-centered around the y-axis. When The turret has a number of points, a vector is
+\section{Representation Scheme}\label{RepScheme}
+As \name needs to track the location of an object in a three dimensional world,
+it needs a consistant way to represnent this data. This data comes in the form
+of images from the camera, distance readings from the ultrasonic sensors and
+the turrets relative angle, which is read from the motors. Given that all of
+this data is relative to the turret location, we can create a representation
+scheme where the turret is the center of a 2-dimensional coordinate system. An
+example of this can be seen below in \autoref{CoordinateSystem}.\nl
+
+\figx[0.35]{CoordinateSystem}{Example of the turret standing in the middle of an
+x,y coordinate system.}
+
+By using the distance to the target and the angle of the turret, we are able to
+calculate the location of the target in our 2-dimensional coordinate system.
+As position is given by an (x,y) set of coordinates, we can calculate its
+position using sine and cosine, as shown in \autoref{locEq1}.
+
+\begin{equation}\label{locEq1}
+x=sin(a)*dist
+\end{equation}
+\begin{equation}\label{locEq2}
+y=cos(a)*dist
+\end{equation} 
+
+In this equation the angle \textc{a} is given in radians, and the distance
+\textc{dist} is given in centimeters. Contrary to what might be expected, sine
+is used to find the x-coordinate and cosine is used to determine the
+y-coordinate. This is because the turrets coordinate system is rotated 90
+degrees counter clockwise, as the turrets starting direction is read as an angle
+of 0 degrees. This calculation is shown below in \autoref{CoordinateSystem2}.
+
+\figx{CoordinateSystem2}{Sine and cosine are used to calculate positions
+in the representation scheme.}
+
+When the turret has registered a number of data points, a vector is
 calculated to get the distance that the target has travelled. This vector is
-then divided by the time it takes the target to travel the distance, to get a new vector that represnts the
-velocity of the target in $\frac{cm}{ms}$. This vector is then multiplied by a
-number of miliseconds to get a point where the target is going to be in the
-future. To get the angle to this point the following formulas are used:
-$a_{positive}=90+(tan^{-1}(\frac{y_{pos}}{x_{pos}}))*(-1)$ and
-$a_{negative}=(90-(tan^{-1}(\frac{y_{pos}}{x_{pos}})*(-1))*(-1)$. The reason for
-using two different formulas to calculate the angle is that the formulas output
-the angle that \name should turn to and not how many degrees it should turn.
-this means that the first formula only gives the right output when the point is
-in the positive half of the coordinate system and the second only gives the
-right output when the point is in the negative half. All of this is
-calculated in the function CalcFuturePos.\nl
+then divided by the time it takes the target to travel the distance, to get a
+new vector that represents the velocity of the target in $\frac{cm}{ms}$. This
+vector is then multiplied by a given number of miliseconds, in order to
+calculate a point in the coordinate system where the target is going to be in
+the future. Again, normally tangens could be used to calculate the distance to
+this point, but because our coordiante system is rotated 90 degrees, we need two
+different equations. For this purpose \autoref{locEq4} is used if the angle is
+negative, or \autoref{locEq3} if positive.
+\begin{equation}\label{locEq3}
+a_{positive}=90+(tan^{-1}(\frac{y_{pos}}{x_{pos}}))*(-1)
+\end{equation} 
+\begin{equation}\label{locEq4}
+a_{negative}=(90-(tan^{-1}(\frac{y_{pos}}{x_{pos}})*(-1))*(-1)
+\end{equation} 
 
-\fix{indsæt forklarende figur af koordinatsystem}{}
+These equations are represented below in \autoref{CoordinateSystem3}.
 
-When \name has turned to the desired angle it needs to angle itself vertically
-based on the distance to the target. This distance is calculated using
-pythagoras theorem. To calculate the angle the following function is used:\\
-$a_{vertical}=| 0.2573*distance-22.85 |$.
-This function based on a best fit line that was extrapolated from a set of test
-data, where the angle was plotted against how far the projectile travelled. This
-function is an estimate of the function needed in order to get the angle. This
-is because the exact function is too complex for the NXT to calculate in the available time.\nl
- 
-\name also needs to know when to shoot in order to hit the target.
-This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
-\autoref{ProjMotion}, from the time where the target is at the desired point.
-This gives the time where \name needs to shoot to be able to hit the target.
-This is calculated in the function CalcFireData.
+\figx[0.4]{CoordinateSystem3}{Coordinate system with two locations representing
+a positive and a negative angle.}
+
+In conclusion, by using a combination of this representation scheme and
+trigonometry, the turret is capable of modelling the world around it such that
+it can accurately determine and predict the location of the target.
+
+% When \name has turned to the desired angle it needs to angle itself vertically
+% based on the distance to the target. This distance is calculated using
+% pythagoras theorem. To calculate the angle the following function is used:\\
+% $a_{vertical}=| 0.2573*distance-22.85 |$.
+% This function based on a best fit line that was extrapolated from a set of test
+% data, where the angle was plotted against how far the projectile travelled. This
+% function is an estimate of the function needed in order to get the angle. This
+% is because the exact function is too complex for the NXT to calculate in the available time.\nl
+%  
+% \name also needs to know when to shoot in order to hit the target.
+% This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
+% \autoref{ProjMotion}, from the time where the target is at the desired point.
+% This gives the time where \name needs to shoot to be able to hit the target.
+% This is calculated in the function CalcFireData.
