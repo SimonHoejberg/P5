@@ -228,35 +228,44 @@ move into a proper position, and the shot itself has a certain travel time. All
 of this leads to a system which uses bounded rationality.
 
 \subsection{Belief Network}\KT
-The agent is only able to partially observe the states, it will thus need to be
-able to reason under uncertainty. A belief network is a way to do this, it is an acyclic
-directed graph consisting of random variables \citep[ch.6.3]{MIBook}. These
-variables and their domains are usually derived from the features in the representation scheme, although
-some random variables can be created to act as intermidiate variables. The
+\name is only able to partially observe where the target is and how fast it is
+moving and will thus need to be able to reason under uncertainty. This means
+that it will need a way to consider different possibilities for each world.
+This can be done with a belief network which is an acyclic directed graph
+consisting of a set of random variables, which is variables which has a domain
+that is a set of the values the varibale can have, and a set of conditional
+probability distributions for each variable given its parents. From these
+conditional probality distributions it is given that evidence is a formula that
+represnts the union of all the observations that an agent makes of the world
+\citep[ch.6.3]{MIBook}.
+These variables and their domains are usually derived from the features in the
+representation scheme, although some random variables can be created to act as intermidiate variables. The
 variables that make up the belief network are connected via either a
 \textbf{serial}, \textbf{convergent} or \textbf{divergent} connection. These
 connections dictate how information is able flow through the network given
-evidence on a node.
+evidence on a node. 
 \begin{itemize}
   \item A \textbf{serial} connection is a set of nodes connected in a sequence.
-  These connections allow information to flow as long as the middle node is not
-  blocked by evidence. If evidence is present on the middle node, it is not
+  This kind of connection represnts that each node is affected by the node prior
+  to it. These connections allow information to flow as long as the middle
+  node is not blocked by evidence. If evidence is present on the middle node, it is not
   possible to say anything new about first node given more evidence further down
   the sequence. An example of a serial connection can be seen in
   \autoref{Serial2}.
  \figx[0.8]{Serial2}{An example of a serial connection}
   \item A \textbf{convergent} connection consists of a child node with two or
-  more parents. In this connection the absence of evidence on the child node, or
-  one of its descendants, makes it impossible to transmit information between
+  more parents. This kind of connection represents that one node is affected by
+  more than one node. In this connection the absence of evidence on the child
+  node, or one of its descendants, makes it impossible to transmit information between
   the parent nodes. If however evidence is present on the child node, or one of
   its descendants, it is possible to transmit evidence between the
   parent nodes. An example of a convergent connection can be seen in
  \autoref{Convergent2}.
  \figx[0.8]{Convergent2}{An example of convergent connection}
   \item A \textbf{divergent} connection is a parent node connected to two or
-  more children. In this kind of connection it is only possible to transmit
-  information between the children if the parent node has evidence. An
-  example of a divergent connection can be seen in \autoref{Divergent2}.
+  more children. This kind of connection reprensts that one node affects more
+  than one node. In this kind of connection it is only possible to transmit
+  information between the children if the parent node has evidence. An example of a divergent connection can be seen in \autoref{Divergent2}.
  \figx[0.8]{Divergent2}{An example of a divergent connection}
 \end{itemize}
 
@@ -269,15 +278,17 @@ given its parents.}
 \end{minipage}
 \end{center}
 
-This means that if the node has few parents, the number of variables it can
-directly affected it are few. It also means that the fewer parents each node
-has the fewer probabilities need to be specified.
+This means that if the node has few parents, the number of variables that can
+directly affect it are few. It also means that the fewer parents each node has
+the fewer probabilities need to be specified, since all the influence of
+variables that are not descendants of a given variable is given when the value
+of the variables parents are known.
 
 \subsection{Hidden Markov Model}
 
 A belief network can be made to model a dynamic system by using a \textbf{Markov
-chain} to represent a feature at different points in time. By adding
-observations to the Markov chain, it becomes a \textbf{hidden Markov
+chain} to represent a feature at different points in time as random variables.
+By adding observations to the Markov chain, it becomes a \textbf{hidden Markov
 model (HMM)}. If more than one state maps to the same observation it
 becomes partial and if the same state maps to different observations at
 different times it becomes noisy \citep[ch.6.5.2]{MIBook}. A Markov chain and by
