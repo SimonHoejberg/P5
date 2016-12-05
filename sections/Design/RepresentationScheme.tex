@@ -54,21 +54,27 @@ These equations are represented below in \autoref{CoordinateSystem3}.
 \figx[0.4]{CoordinateSystem3}{Coordinate system with two locations representing
 a positive and a negative angle.}
 
+When \name has turned to the desired angle it needs to angle its cannon
+vertically based on the distance to the target. Due to the complexity of using
+the formula for projectile motion to calculate an angle from a distance, we have
+chosen to use data from tests to determine a function. As such, to calculate the
+angle the following equation is used:
+
+\begin{equation}\label{locEq4}
+a_{vertical}=0.2573*distance-22.85
+\end{equation} 
+
+This function based on a best fit line that was extrapolated from a set of test
+data, where the angle was plotted against how far the projectile travelled. This
+function is an estimate of the function needed in order to get the angle. This
+is because the exact function is too complex for the NXT to calculate in the available time.\nl
+
+\name also needs to know when to shoot in order to hit the target.
+This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
+\autoref{ProjMotion}, from the time where the target is at the desired point.
+This gives the time where \name needs to shoot to be able to hit the target.
+This is calculated in the function CalcFireData.
+
 In conclusion, by using a combination of this representation scheme and
 trigonometry, the turret is capable of modelling the world around it such that
 it can accurately determine and predict the location of the target.
-
-% When \name has turned to the desired angle it needs to angle itself vertically
-% based on the distance to the target. This distance is calculated using
-% pythagoras theorem. To calculate the angle the following function is used:\\
-% $a_{vertical}=| 0.2573*distance-22.85 |$.
-% This function based on a best fit line that was extrapolated from a set of test
-% data, where the angle was plotted against how far the projectile travelled. This
-% function is an estimate of the function needed in order to get the angle. This
-% is because the exact function is too complex for the NXT to calculate in the available time.\nl
-%  
-% \name also needs to know when to shoot in order to hit the target.
-% This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
-% \autoref{ProjMotion}, from the time where the target is at the desired point.
-% This gives the time where \name needs to shoot to be able to hit the target.
-% This is calculated in the function CalcFireData.
