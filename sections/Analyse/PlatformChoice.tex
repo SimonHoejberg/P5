@@ -51,14 +51,15 @@ of:
   \item 4 input ports compatible with the I2C standard and 3 output ports
 \end{itemize}
 
-The Lego NXT comes with the NXT-G programming environment which is a visual
+The Lego NXT comes with its own programming environment with a visual
 programming language for use with the NXT platform \cite{NXTG}. There exist a
 variety of unofficial programming languages for the NXT, such as leJOS(Java) and
 RobotC(C) which makes it possible to write programs using the more popular programming
 languages \citep{NXTProgrammingLanguage}.\nl
+
 When using the LEGO NXT platform, one can make use of a multitude of 1st or 3rd
 party peripherals. These specialized peripherals come programmed and assembled -
-all the user has to do is handle the data received by the NXT brick.
+all the user has to do is handle the data received by the NXT brick \Source.
 Another feature of the platform is that the NXT can be directly combined with
 Lego Technics, or just lego in general, to use as a building platform. This
 makes construction simple, as it is not necessesary to manifacture your own
@@ -68,13 +69,13 @@ mechanical parts.
 The Arduino platform is developed as a tool for fast and effecient prototyping.
 By design, the platform is designed to be used effeciently by people without
 much knowledge about programming and electronics. The Arduino lineup consists of
-a number of different boards, each with their own hardware specifications. As
-such, a model with sufficient memory, processing power and I/O ports.
-The arduino comes with its own programming language and IDE
+a number of different boards, each with their own hardware specifications.
+\fix{As such, a model with sufficient memory, processing power and I/O
+ports.}{What?} The arduino comes with its own programming language and IDE
 \citep{ArduinoIntro}. For the sake of comparison we will use the Arduino Uno,
 since this is the board being offered by the university.\nl
 
-The Arduino Uno has the following technical specifications\citep{UNOSpecs}:
+The Arduino Uno has the following technical specifications \citep{UNOSpecs}:
 
 \begin{itemize}
   \item ATmega328P processor 16 MHz clockfrequency
@@ -84,8 +85,8 @@ The Arduino Uno has the following technical specifications\citep{UNOSpecs}:
 
 It should also be noted that as the Arduino platform is not limited to work with
 specific hardware, it has access to a large variety of 3rd party peripherals
-\citep{ArduinoComponents}. In addition, due to the popularity of the platform,
-there appears to be a large dedicated community, which provides a large amount
+\fix{\citep{ArduinoComponents}}{Bad source, we are not buying}. In addition, due
+to the popularity of the platform, there appears to be a large dedicated community, which provides a large amount
 of libraries to use with the modules.
 
 \section{Combination of platforms}\label{CombPlat}
