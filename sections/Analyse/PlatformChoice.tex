@@ -3,7 +3,7 @@ The purpose of this chapter will be to analyse the different hardware platforms 
 and ultimately select one for the project. The platforms to be examined are Lego
 NXT Mindstorms and Arduino, due to the fact that these platforms are offered by
 the university and that they are suited for an embedded system.
-First the platform the platforms will be described briefly, then they will be
+First the platforms will be described briefly, then they will be
 compared based on a set of criteria. In conclusion a platform for the project
 will be chosen.
 
@@ -23,7 +23,7 @@ criteria:
   % should try to minimize the time spent on things like soldering and integration of electrical
   %components and sensors.
   \item I/O Ports - The number of available I/O Ports needs to be able to
-  support a several sensors and motors.
+  support several sensors and motors.
   \item Processing power - The processing power needs to be taken into account
   since it has an effect on how complex the developed program can be.
   \item Availability and Integration - This criteria refers to the ease of
@@ -52,8 +52,8 @@ of:
 \end{itemize}
 
 The Lego NXT comes with the NXT-G programming environment which is a visual
-programming language for use with the NXT platform. There exist a variety of
-unofficial programming languages for the NXT, such as leJOS(Java) and
+programming language for use with the NXT platform \Source. There exist a
+variety of unofficial programming languages for the NXT, such as leJOS(Java) and
 RobotC(C) which makes it possible to write programs using the more popular programming
 languages \citep{NXTProgrammingLanguage}.
 
@@ -64,33 +64,34 @@ languages \citep{NXTProgrammingLanguage}.
   platform. This makes construction simple, as it is not necessesary to
   manifacture your own mechanical parts.
 \end{itemize}
+\fix{}{what is this doing here?}
 
 \section{Arduino}
-The Arduino was born as a tool for fast prototyping, aimed at people lacking a
-background in electronics and programming. Over the years the arduino has
+\fix{The Arduino was born as a tool for fast prototyping, aimed at people
+lacking a background in electronics and programming. Over the years the arduino has
 evolved from offering simple 8-bit boards to offering a variety of different
 boards suiting different needs such as memory available, processing power,
-number of ports on the platform, etc. The arduino comes with its
-own programming language and IDE \citep{ArduinoIntro}. A large number of modules are available for
-the arduino provided by Arduino themselves and 3rd party vendors, allowing for
-construction of diverse and complex systems \citep{ArduinoComponents}. For the
-sake of comparison we will use the Arduino Uno, since this is the board being
-offered by the university.\nl
+number of ports on the platform, etc.}{A bit to much copy paste} The arduino
+comes with its own programming language and IDE \citep{ArduinoIntro}. \fix{A
+large number of modules are available for the arduino provided by Arduino themselves and 3rd party vendors, allowing for
+construction of diverse and complex systems \citep{ArduinoComponents}.}{Bad
+source, needs better source and bettet text} For the sake of comparison we will
+use the Arduino Uno, since this is the board being offered by the university.\nl
 
 The Arduino Uno has the following technical specifications\citep{UNOSpecs}:
 
 \begin{itemize}
   \item ATmega328P processor 16 MHz clockfrequency
-  \item 32 kB Flash storage
-  \item 2 kB SRAM
-  \item A large variety of 3rd party peripherals are available for the platform
-  \citep{ArduinoComponents}.
-  \item Due to the popularity of the platform, there is a large community
+  \item 32 KB Flash storage
+  \item 2 KB SRAM
+  \fix{\item A large variety of 3rd party peripherals are available for the
+  platform \citep{ArduinoComponents}.}{Not a spec}
+  \fix{\item Due to the popularity of the platform, there is a large community
   surrounding it, providing a large amount of libraries to use with the
-  modules.
-  \item If the library doesn't exist or contain the necesary functionality, it
-  will have to be written, thus time will have to be invested in order to make
-  it work.
+  modules.}{Not a spec}
+  \fix{\item If the library doesn't exist or contain the necesary functionality,
+  it will have to be written, thus time will have to be invested in order to make
+  it work.}{Not a spec}
 \end{itemize}
 
 \section{Combination of platforms}\label{CombPlat}
@@ -133,7 +134,8 @@ the two platforms.
   entirety of the Lego Technics system, which makes it easy to construct a
   technical platform. Using the Arduino platform could be difficult, as it could
   require us to manually manufacture the individual parts of the turret, e.g.
-  designing a fulcrum for the cannon or constructing a fireing mechanism.
+  designing a \fix{fulcrum}{a what?} for the cannon or constructing a fireing
+  mechanism.
   While it is possible to integrate an Arduino into the LEGO platform, we find
   that it is considerably easier to use the NXT platform, as it is specifically
   designed for that purpose. The NXT also has the advantage that the various
@@ -148,8 +150,8 @@ the two platforms.
   \item Processing power - When comparing the technical specifications of the
   two platforms, the NXT is superior in terms of both clockspeed and memory.
   While the NXT has 48MHz clock frequency, 256KB Flash storage and 64KB RAM, a
-  standard Arduino UNO has a clock frequency of 16 MHz, 32 kB Flash storage and
-  2 kB SRAM.
+  standard Arduino UNO has a clock frequency of 16 MHz, 32 KB Flash storage and
+  2 KB SRAM.
   
   \item Availability and Integration - If we limit the peripherals used by the
   NXT to those specifically designed for the platform, the Arduino has access

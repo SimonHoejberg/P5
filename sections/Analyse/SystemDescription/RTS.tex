@@ -10,7 +10,7 @@ target, in needs to compute the information from its sensors. In order to
 accomplish this, it will to react to its surroundings and fire at the
 correct time, not too soon or too late. As the turret needs to react to
 information and operate within deadlines, it can be treated as a real-time
-system, which we define as:
+system (RTS), which we define as:
 
 \begin{center}
 \begin{minipage}{0.8\linewidth}
@@ -65,7 +65,7 @@ An example of the tasks in \name are
 
 Tasks often have deadlines associated with them. There are three types of
 deadlines which are defined by how severe the consequence of missing it are
-\citep[ch.1A]:
+\citep[ch.1A]{Realtime}:
 
 \begin{itemize}
   \item \textbf{Hard} missing this deadline can cause unacceptable damage to
@@ -79,13 +79,13 @@ deadlines which are defined by how severe the consequence of missing it are
 Using the previous example with an Anti-lock braking system, it is clear that
 the system uses hard deadlines, as it would not be able to function if it did
 not adhere to certain deadlines, since a failure to complete the task may result
-in the wheels locking which in turns causes an accident.
+in the wheels locking which in turns causes an accident.\nl
 
 We regarded \name as a firm real-time application, since missing a deadline
 will render the calculation useless, although the system can still function. In
 a broader scope, the system could be argued as hard if the result of a missed
 deadline is the failure to shoot down a hostile target resulting in friendly
-casualties.
+casualties.\nl
 % These tasks generally have deadlines associated with them. There are three
 % types
 % of tasks which are defined by how severe the consequence of missing a
@@ -97,14 +97,14 @@ casualties.
 % is not necessary to execute this task before the deadline, but the utility
 % value decreases over time once the deadline has passed \citep[ch.1B]{Realtime}.
 
-In order to reliably complete a task before its deadline, a need arises for
-scheduling, which means determining when and in what order each task will be
-executed. The main difference between scheduling in an RTS context and in a
-non-rts context is the goal of the scheduling: In a non-rts context the
-objective of the scheduler is to minimize the completion time of alle the tasks.
-On the other hand an RTS schedulers objective is to ensure that all deadlines
-are met. In order to properly schedule, the execution time of the tasks is
-needed.
+% In order to reliably complete a task before its deadline, a need arises for
+% scheduling, which means determining when and in what order each task will be
+% executed. The main difference between scheduling in an RTS context and in a
+% non-RTS context is the goal of the scheduling: In a non-RTS context the
+% objective of the scheduler is to minimize the completion time of all the tasks.
+% On the other hand an RTS schedulers objective is to ensure that all deadlines
+% are met. In order to properly schedule, the execution time of the tasks is
+% needed.
 
 %\subsection{Scheduling}
 % 
