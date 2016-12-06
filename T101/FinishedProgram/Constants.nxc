@@ -19,4 +19,4 @@ const int MAX_DISTANCE = 230;
 
 //CalcFPos
 const float MUZZLE_SPEED = 4.82; //meters per second
-const int ANGLE_TO_GROUP = 5;
+const int ANGLE_TO_GROUP = 7;

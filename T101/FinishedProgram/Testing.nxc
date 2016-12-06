@@ -39,13 +39,16 @@ bool CalcDirVectorTest(){//DOES NOT COMPUTE!!!!
   
   input2.xPos = 25;
   input2.yPos = 30;
-  input2.time = 1001;
+  input2.time = 1500;
   input2.angle = 75;
 
-  dataArray[1] = input1;
-  dataArray[0] = input2;
+  dataArray[0] = input1;
+  dataArray[1] = input2;
   DirectionVector out = CalcDirVector(dataArray, 2);
-
+  NumOut(0, LCD_LINE1, out.speedX);
+  NumOut(0, LCD_LINE2, out.speedY);
+  NumOut(0, LCD_LINE3, out.xPos);
+  NumOut(0, LCD_LINE4, out.yPos);
   if(out.speedX == 0.03 && out.speedY == 0 && out.xPos == 10 && out.yPos == 15){
     return true;
   }
@@ -150,6 +153,8 @@ bool GetSpeedTest(int bcenter, int expected){
 
 task main(){
   PosData pos;
+  CalcDirVectorTest();
+  /*
   if(UpperBoundTest(130, 130)){
     TextOut(0, LCD_LINE1, "true");
   }
@@ -198,6 +203,7 @@ task main(){
   else{
     TextOut(0, LCD_LINE8, "false");
   }
+  */
   while(true){}
 }
 
