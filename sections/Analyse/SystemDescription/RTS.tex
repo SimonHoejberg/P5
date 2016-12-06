@@ -47,13 +47,15 @@ Tasks can generally be divided into two different groups, \textbf{periodic} and
   \item \textbf{Periodic} tasks are those that need to be run at regular
   intervals in order to keep the system running, these task are often
   time-critical meaning that if the deadline of such a task is broken then the system cannot work.
-  \item \textbf{Aperiodic} tasks are those which are activated by an ooccurance
+  \item \textbf{Aperiodic} tasks are those which are activated by an occurrence
   of an event.
 \end{itemize}
 
-Using the previous example, it is clear that the system with the ABS would not
-be able to function since a failure to complete the task may result in the wheels locking which in turns causes an accident.\nl
-
+An example of the tasks in \name are
+\begin{itemize}
+  \item The turret will need a function that takes the data from the camera and converts it to the variables needed in order to calculate a position. This task is periodic, since it should do it continuously
+  \item An example of a aperiodic task is a function that should give the turret an order to shoot. This function should only be called once enough data has been gathered in order to calculate a vector for the target. 
+\end{itemize}
 % Tasks can generally be divided into two different groups, \textbf{periodic} and
 % \textbf{aperiodic}. \textbf{Periodic} tasks are those that need to be run
 % constantly in order to keep the system running. A feature often found in
@@ -73,11 +75,12 @@ deadlines which are defined by how severe the consequence of missing it are
   \item \textbf{Hard} missing this deadline can cause unacceptable damage to
   the system, and the consequence are quite severe.
   \item \textbf{Firm} missing this deadline causes the result of the task to
-  be unusable, the consequence of missing it is not very severe.
+  be unusable, although the consequence of missing it is not very severe.
   \item \textbf{Soft} missing this deadline is not severe at all, and the
-  usefullnes of the result decrease after the deadline has passed.
+  usefulness of the result decreases after the deadline has passed.
 \end{itemize}
-
+\nl
+\name is regarded as a firm real-time application, since missing a deadline will render the calculation useless, although the system can still function. In a broader scope, the system could be argued as hard if the result of a missed deadline is the failure to shoot down a hostile target resulting in friendly casualties. 
 % These tasks generally have deadlines associated with them. There are three types
 % of tasks which are defined by how severe the consequence of missing a
 % deadline is. If the real-time task is \textbf{hard} the consequences of missing
@@ -92,11 +95,10 @@ In order to reliably complete a task before its deadline, a need arises for
 scheduling, which means determining when and in what order each task will be
 executed. The main difference between scheduling in an RTS context and in a
 non-rts context is the goal of the scheduling: In a non-rts context the
-objective of the scheduler is to minimize the execution time of alle the tasks.
+objective of the scheduler is to minimize the completion time of alle the tasks.
 On the other hand an RTS schedulers objective is to ensure that all deadlines
 are met. In order to properly schedule, the execution time of the tasks is
-needed
-
+needed.
 
 %\subsection{Scheduling}
 % 
