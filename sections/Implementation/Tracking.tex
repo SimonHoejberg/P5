@@ -41,7 +41,9 @@ the newest frame from the camera. If the number of blobs found was more than
 zero, the center of the largest blob (first entry in array) is determined on
 \textbf{line 6}. On \textbf{line 7} the difference in pixels between the blob's
 and the cameras centers is stored in \textc{temp} for future
-calculations.\nl
+calculations. The boolean on \textbf{line 3} tells that the blob is in the
+view of the camaéra, this boolean is used in the \textc{GetDataAndCalculate}
+task \autoref{GetDataAndCalc} to gather data.\nl
   
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = First part of the general tracking behaviour., label = TrackFirst] while(track){
