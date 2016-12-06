@@ -20,11 +20,12 @@ sensor's technical specifications \citep{Ultrasonic_sensor} can be found below:
 \begin{itemize}
   \item Has a max range of 2.5m
   \item Has a precision of +/- 3cm
-  \item Loses precision after 1.5m
-  \item Has a 15ms delay between readings
+  \fix{\item Loses precision after 1.5m}{Is not stated by the source, found out
+  by us testing}
+  \fix{\item Has a 15ms delay between readings}{Is not stated by the source}
   \item Works best with hard, large-sized objects
-  \item Each measurement outputs the distance in the form of a single integer
-  with a value between 0 and 255cm
+  \fix{\item Each measurement outputs the distance in the form of a single
+  integer with a value between 0 and 255cm}{Is not stated by the source}
 \end{itemize}
 
 % An image of this sensor as mounted in the turret can be seen in
@@ -67,9 +68,9 @@ turret.\nl
 % as a part of the initial turret design, it does not include any formalized data
 % sets. As such, these were the conclusions which could be drawn:\nl
 
-\subsubsection{\fix{Using Blinders}{Skal vi rent faktisk bruge dem?}} 
-At first when testing the ultrasonic sensors, it was determined that the
-sensor's ability to accurately measure the distance was subject to interferance
+\subsubsection{\fix{Using Blinders}{Skal skrives om til bare en tst af
+rækkeviden}} At first when testing the ultrasonic sensors, it was determined
+that the sensor's ability to accurately measure the distance was subject to interferance
 by the surroundings. In effect this vastly reduced the maximum distance of the
 sensor, and as such, a lot of different attempts were made in order to solve
 this problem. As this was done as a part of the initial design phase, the

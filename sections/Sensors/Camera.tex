@@ -18,8 +18,8 @@ Below are the technical specifications \citep[p. 1]{NXTCam} for the camera.
   \item Analyzes 30 frames per second
   \item Uses a resolution of 88x144 pixels
   \item Uses a standard NXT sensor port
-  \item Resulting data consists of: number of objects, color of objects and
-  bounding box coordinates of these objects.
+  \item Resulting data consists of: number, color and coordinates of these
+  objects.
 \end{itemize}
 
 \section{Camera Sensor Test}\label{CamTest}%Will most likely need a better
@@ -36,7 +36,7 @@ location. The target for this test is a rectangular cardboard cutout, which is
 used to hold a sheet of coloured paper which is folded around it. Behind the
 coloured paper is a dark background which is used in some, but not all
 tests.
-This setup can be seen in \autoref{SensorCamSetup.JPG}.
+This setup can be seen in \autoref{SensorCamSetupV2}.
 
 \figx[0.15]{SensorCamSetupV2}{Setup for the camera test (With Background).}
 
@@ -92,9 +92,9 @@ following:
   \item Given no contrasting background 'orange' has no variance in data
 \end{itemize}
 
-Based on these conclusions we can determine that orange would be colour of
+\fix{Based on these conclusions we can determine that orange would be colour of
 choice, as the camera is capable of recognizing the colour without any variance
-in the recorded data.
+in the recorded data.}{But we use red???}
 
 \subsection{Camera Test Results - Distance}\label{CamTestDistance}
 Based on the choice made in \autoref{CamTestColours} to use orange as the colour
