@@ -31,25 +31,9 @@ system, such as Anti-lock braking system (ABS), could be a task which monitors
 the applied pressure on the brakes and the individual speed of the wheels. It
 then performs a computation to see whether or not the brakes have locked, and
 depending on the outcome it will change the state of the system(the brakes) in
-order to prevent locking of the brakes \citep[ch.1A]{Realtime}.
-
-
-% \fix{Real-time systems are often comprised of different task working together.
-% These task are often run at a regular interval, and have deadlines dictating when the
-% task should be completed.
-% 
-% A task works by sensing the environment around it,
-% performing a computation and deciding whether or not to react to the input by
-% changing the system state. In an example of a task in a
-% real-time system, such as ABS, a task monitors the applied pressure on the brakes and the individual
-% speed of the wheels. It then performs a computation to see whether or not the
-% brakes have locked, and depending on the outcome it will change the state of the
-% system(the brakes) in order to prevent locking of the brakes 
-% \citep[ch.1A]{Realtime}.}{Need a slight rewrite}\nl
-
-Tasks can generally be divided into two different groups, \textbf{periodic} and
-\textbf{aperiodic} depending on the circumstance of their execution.
-\citep[ch.1A]{Realtime}:
+order to prevent locking of the brakes. Tasks can generally be divided into two
+different groups, \textbf{periodic} and \textbf{aperiodic} depending on the
+circumstance of their execution \citep[ch.1A]{Realtime}:
 
 \begin{itemize}
   \item \textbf{Periodic} tasks are those that need to be run at regular
@@ -61,8 +45,12 @@ Tasks can generally be divided into two different groups, \textbf{periodic} and
 
 An example of the tasks in \name are
 \begin{itemize}
-  \item The turret will need a function that takes the data from the camera and converts it to the variables needed in order to calculate a position. This task is periodic, since it should do it continuously
-  \item An example of a aperiodic task is a function that should give the turret an order to shoot. This function should only be called once enough data has been gathered in order to calculate a vector for the target. 
+  \item The turret will need a function that takes the data from the camera and
+  converts it to the variables needed in order to calculate a position. This
+  task is periodic, since it should do it continuously.
+  \item An example of a aperiodic task is a function that should give the turret
+  an order to shoot. This function should only be called once enough data has
+  been gathered in order to calculate a vector for the target.
 \end{itemize}
 % Tasks can generally be divided into two different groups, \textbf{periodic} and
 % \textbf{aperiodic}. \textbf{Periodic} tasks are those that need to be run
