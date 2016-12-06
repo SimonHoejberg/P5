@@ -10,10 +10,10 @@ value is tested and functions which uses input from the sensors are not
 tested. The basic principle is Arrange, Act and Assert. In the arrange step the
 input data is constucted as well as what the expected output is. In the act
 step, the functions are called and the inputs are saved. Then finaly in the
-assert step the outputs are verified arcording to the expected output. 
+assert step the outputs are verified arcording to the expected output. \nl
 
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}{caption = "", label = ""}
+\begin{lstlisting}[caption =Unit Test for Combine Vectors,label=combineVectorsTest] 
 bool CombineVectorsTest(){
   DirectionVector input1;
   DirectionVector input2;
@@ -40,3 +40,17 @@ bool CombineVectorsTest(){
 }
 \end{lstlisting}
 \end{minipage}
+
+In \autoref{combineVectorsTest} the basic setup can be seen, on \textbf{Line
+2-15} the needed information is arranged, however the expected output is not
+defined yet. This is defined in the assert part as this was the easiest way to
+do it. On \textbf{Line 16}, the tested function is called and in this case the
+output is put into a struct called DirectionVector. Then finaly we use an if
+statement to check the output against the expected and if the output coresponds
+to the expected we return true. This return value is then used to print the
+value on the screen of the NXT to have a way of representing the test results.
+\nl
+
+To conclude all the tests succeeded, one of the tests we had some issues as our
+calculations differed a little bit from the calculations made by the NXT. Theese
+differences was so small that we choose to call it a success. 
