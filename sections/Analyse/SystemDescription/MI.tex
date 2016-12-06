@@ -30,7 +30,7 @@ to use a computer to determine a solution. The result of this computation is a
 suitable output which in turn can be interpreted as a solution, whether or not
 the target is actually hit. The model below in \autoref{MIRep}, presents the
 correlation between the informal and formal representation, where the informal
-is models the problem domain, and the formal the computational domain.
+models the problem domain, and the formal the computational domain.
 
 \figxs[0.8]{MIRep}{An illustration of how a problem is converted into a
 solution}{\citep[ch. 1.4 p.12]{MIBook}}
@@ -39,7 +39,7 @@ solution}{\citep[ch. 1.4 p.12]{MIBook}}
 % scheme. 
 When modelling a problem, we make use of knowledge as a means of choosing the
 right solution. In the field of machine intelligence, knowledge is defined as
-the information about a domain, which can be used to solve problems in this
+the information which can be used to solve problems in a specific
 domain. When implementing knowledge into a system, it will take the form of a
 representation scheme, which defines the computational form this knowledge will
 be represented by. The representation scheme is used to make sure the individual
@@ -238,7 +238,7 @@ the best solution. In addition to just the calculations, \name also needs to
 move into a proper position, and the shot itself has a certain travel time. All
 of this leads to a system which uses bounded rationality.
 
-\subsection{Belief Network}\KT
+\subsection{Belief Network}
 \name is only is able to see the
 target and determine the distance between them, it does not know where the
 target is going nor how fast it is. This can lead to alot of different possible
@@ -246,7 +246,7 @@ situations, as it will need to try and determine the speed and direction through
 additional observations of the distance. A belief network is a way to model
 this conditional dependency. It is an acyclic directed graph, consisting of a
 set of random variables functioning as nodes. These variables represent the
-various features the model has, usually the based on the features of
+various features the model has, usually based on the features of
 the representation scheme. Nodes can also be created to act as
 intermediary variables, which are created in order to either simplify the model
 or to make the conditional dependency more logical. These variables affect each
@@ -304,17 +304,17 @@ This way of modelling a system is aided by the independence assumption
  
  \begin{center}
  \begin{minipage}{0.8\linewidth}
- \textit{Each random variable is conditionally independent of its non-descendants
+ \say{Each random variable is conditionally independent of its non-descendants
  given its parents.}
  \end{minipage}
  \end{center}
  
 For a Markov chain it means that when we want to consider a variable at time
-\textit{t}, we only need to also consider the previous variable at time
-\textit{t-1}. The same principle applies to an HMM, if the node has few parents,
+\textit{t+1}, we only need to also consider the variable at time
+\textit{t}. The same principle applies to an HMM, if the node has few parents,
 the number of variables that it directly affect it are few.\nl
 
-A Markov chain and by extension an HMM, can be extendeded indefinitely, meaning
+A Markov chain and by extension an HMM, can be extendeded endlessly, meaning
 that a small number of parameters can provide an infinite network
 \citep[ch.6.5.1]{MIBook}. For example: A man observes an airplane taking off
 northbound therefore adding evidence at random variable $O_0$, then at $O_1$ he
