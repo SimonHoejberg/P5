@@ -1,0 +1,42 @@
+\section{Unit test}
+
+To test the software we decided to make unit tests, however since there is no
+framework for making this kind of test we had to make our own. The setup is
+quite simple and is build on the same principle as unit testing in fx. C\#.
+However, when testing an object oriented language, the testing is done on class
+level this gives a clear distinction between the different methods. This however
+is not the case in NXC. In our testing setup, only functions with a return
+value is tested and functions which uses input from the sensors are not
+tested. The basic principle is Arrange, Act and Assert. In the arrange step the
+input data is constucted as well as what the expected output is. In the act
+step, the functions are called and the inputs are saved. Then finaly in the
+assert step the outputs are verified arcording to the expected output. 
+
+\begin{minipage}[H]{\linewidth}
+\begin{lstlisting}{caption = "", label = ""}
+bool CombineVectorsTest(){
+  DirectionVector input1;
+  DirectionVector input2;
+  input1.speedX = 10;
+  input1.speedY = 10;
+  input1.xPos = 15;
+  input1.yPos = 15;
+  
+  input2.speedX = 25;
+  input2.speedY = 25;
+  input2.xPos = 20;
+  input2.yPos = 20;
+  DirectionVector dirVecArray[2];
+  dirVecArray[0] = input1;
+  dirVecArray[1] = input2;
+  DirectionVector out = CombineVectors(dirVecArray, 2);
+  
+  if(out.speedX == 22.5 && out.speedY == 22.5 && out.xPos == 20, out.yPos == 20){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+\end{lstlisting}
+\end{minipage}
