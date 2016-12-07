@@ -1,4 +1,5 @@
 \section{Hardware Architecture}
+<<<<<<< .mine
 In the previous chapter the physical design of the turret was presented and
 explained. As such, this section will be used to present the technical aspects
 of the turret design, namely the hardware architecture. The \name system makes
@@ -26,3 +27,32 @@ components can be seen below in \autoref{HARCH}.
 In this setup all calculations are done by the NXT, which in turn is responsible
 for controlling all other hardware components by communicating through RJ12
 connector cables.
+=======
+In the previous chapter the physical design of the turret was presented and
+explained. As such, this section will be used to present the technical aspects
+of the turret design, namely the hardware architecture. The \name system makes
+use of a number of hardware components, which are used for varying
+functionality. These components are:
+
+\begin{itemize}
+  \item 3 NXT Interactive Servo Motors
+  \item 2 NXT Ultrasonic Distance Sensors
+  \item 1 NXTCam-v4 Visual Sensor
+  \item 1 NXT Intelligent Brick
+  \item 6 RJ12 Connector Cables
+\end{itemize}
+
+In this setup all components are connected to the NXT Brick, and communicate
+through cables. A single servo motor is used to for the fireing mechanism, one
+is used to rotate the turret horizontally and one is used to angle the
+ball-launcer part of the turret. The ultrasonic sensors are used to gather data
+about the distance to the target, and the camera collects data about the
+relative position of a target within its vision. A view of the hardware
+components can be seen below in \autoref{HARCH}.
+
+\figx{HARCH}{Figure showing the hardware conncetions within the \name turret.}
+
+In this setup all calculations are done by the NXT, which in turn is responsible
+for controlling all other hardware components by communicating through RJ12
+connector cables.
+>>>>>>> .r583
