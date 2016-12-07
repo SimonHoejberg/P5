@@ -1,0 +1,6 @@
+-       		Red  Blue  Green  Orange  Yellow
+MinArea(pixels) 0	 0     266    342     266		
+MaxArea(pixels) 0	 0     414    342     391
+Diff(pixels)    0    0     148    0       125
+AvgArea(pixels)	0	 0     326    342     326
+Quality 		Null Null  Bad    Ok      Bad
