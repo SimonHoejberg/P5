@@ -295,8 +295,10 @@ A belief network can be made to model a dynamic system by using a \textbf{Markov
 chain} to represent a feature at different points in time as random
 variables. By adding random variables called observation to the
 Markov chain, it becomes a \textbf{hidden Markov model (HMM)}. This is done to
-model how multiple observations allow for a prediction
-\citep[ch.6.5.2]{MIBook}, see \autoref{HMM}.
+model how multiple observations allow for a prediction, see \autoref{HMM}. If
+more than one variable maps to the same observation it becomes a partial
+observation, and if the same variable maps to different observations at
+different times it becomes a noisy observation\citep[ch.6.5.2]{MIBook}.
 \figx[0.9]{HMM}{A belief network as a hidden Markov model}
 
 This way of modelling a system is aided by the independence assumption
