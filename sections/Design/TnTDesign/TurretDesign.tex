@@ -18,8 +18,8 @@ seen in \autoref{turret}.
 In the following subsections the design process and arguments for the
 design of each part will be presented.
 
-\subsection{Design of the Shooting Mechanism}
-The goal of the shooting mechanism is to be able to shoot at least
+\subsection{Design of the Cannon}
+The goal of the cannon is to be able to shoot at least
 200 cm, as this is one of the requirements. It thus needs a lot of power behind
 each shot. It also needs to be able to fire multiple times without reloading,
 which can allow to fire again if it misses. Three different design were
@@ -43,43 +43,49 @@ considered:
 \end{minipage}
 \end{figure}
 
-The ballista design was considered as a ballista is able to deliver a lot of
-power with each shot. Which can be seen in \autoref{ballista}.\nl
+The ballista was considered as depending on how far back the projectile
+can be pulled, a shot can be fired with a lot of power. The obvious drawbacks
+are that it cannot store more than 1 shot before it needs to be reloaded. This
+gives it a low rate of fire, which means that in case it misses, it will not be
+able to shoot again. This design can be seen in \autoref{ballista}. This
+design was dismissed because of these drawbacks.\nl
 
-This design was quickly dismissed, as while it can deliver a lot power to each
-shot, its rate of fire would be slow as it would be slow to reload. This would
-mean that in case it missed, it would most likely not be able to try again.\nl
+The launcher was considered since it is able to lauch projectiles quickly, and
+depening on how good the rotating wheels are, with a lot of force. It utilizes
+two wheels placed side by side, spinning in opposite directions, with the
+projectile pushed through, see \autoref{tennisball}. When trying to build this
+design, it was determined that the available motors were not powerful enough to
+deliver the necessary momentum for launching a projectile, not even with a
+gearing. Another problem is that the wheels available was made of soft rubber,
+which absorbs a lot of the force when the projectile is pushed through. For
+this design to work better, the wheels would need to be made of a hard material
+that does not absorb the force and has a lot of friction, which makes it easier
+for the wheels to grip the projectile. This design was dismissed because it was
+not possible to fire with enough force.\nl
 
-The launcher was considered, since it is able to lauch projectiles quickly and
-with great force. It utilizes the same principle as a tennis ball launcher, two
-wheels placed side by side spinning in opposite directions, with the projectile
-pushed through. Which can be seen in \autoref{tennisball}.\nl
-
-When trying to build this design it was determined that the available motors was
-not powerful enough to deliver the necessary momentum for launching a
-projectile, not even with a gearing. Another problem is that the wheels
-available was made of soft rubber, which absorbs a lot of the force when the
-projectile is pushed through. For this design to work the better, the wheels
-would need to be made of a hard material that does not absorb the force from the
-motor and has a lot of friction, which makes it easier for the wheels to
-grip the projectile.\nl
-
-The piston design uses a piston that pushes the projectile trough a mouth piece
+The piston design uses a piston that pushes the projectile through a mouth piece
 that clamps around it. This means that until enough force has been applied to
 the projectile it is held in the mouth piece. When enough force has been
-applied by the piston, the projectile will be forced out at high speed. Which
-can be seen in \autoref{piston}.\nl
+applied by the piston, the projectile will be forced out at high speed. This
+design can be seen in \autoref{piston}. This design has several advantages, LEGO
+Technic has a ball launcher which can store several small ball projectiles.
+This allows us to have an easily reloadable and fast firing cannon, which can
+hold up to 6 shots.\nl
 
-This design has several advantages, Lego Technic has a ball launcher which can
-store several small ball projectiles. This allows us to have an easily
-reloadable and fast firing cannon which can hold up to 6 shots.\nl
+The piston design was chosen as the
 
-Using this design a test to find how accurate it is at fireing the projectile
-to the expected distance was conducted.
-In this test the turret was set to an angle before fireing. The distance was
-then measured by having the projectile landing in a layer of flour on the
-ground. The test was conducted twice and the minimum and maximum distance was
-plotted against the angle together with the best fit line, which is seen in
+The reason for using this design is that it is able to shoot the desired
+distance and is able to reload itself. The tests conducted in
+\autoref{SensorTest} also shows that the sensors that \name makes use can not
+sense any longer than the piston design can shoot, which makes the power that
+the two other designs has obslete.\nl
+
+
+
+
+
+
+ which is seen in
 \autoref{graph:Accuracy}.
 This shows that the turret is fairly accurate, since the points on
 the graph somewhat follows a \fix{thirddegreepolynomial}{Cubic function?} as
@@ -230,19 +236,15 @@ expected.
 \label{graph:Accuracy}
 \end{graphEnv}
 
-The reason for using this design is that it is able to shoot the desired
-distance and is able to reload itself. The tests conducted in
-\autoref{SensorTest} also shows that the sensors that \name makes use can not
-sense any longer than the piston design can shoot, which makes the power that
-the two other designs has obslete.\nl
 
-The cannon is mounted on a mechanism that is used to angle it such that it
-is able to shoot a target at varying distances. This mechanism works by having a
-high gearing on a motor and connecting the platform that the shooting mechanism
+
+The cannon is mounted on a motor that is used to angle it such that it
+is able to shoot a target at varying distances. This is done by having a
+high gearing on a motor and connecting the platform that the cannon
 is mounted on to the big gear. This makes the platform rise when the motor
 turns.
 
-\subsection{Design of the base}
+\subsection{Design of the Base}
 The base of the turret is designed with two main requirements in mind: it should
 be able to turn freely and it should be as stable as possible. This resulted
 in the base being designed as a frame where the NXT is mounted and the shooting
