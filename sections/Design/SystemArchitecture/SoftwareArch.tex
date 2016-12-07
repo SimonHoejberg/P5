@@ -1,19 +1,18 @@
 \section{Software Architecture}
+In order to present an overview of the developed software, this section will be
+used to present the implemented call stack. In \autoref{CallStack}, it can be
+seen how the calls through software is handled, and what threads make use of
+which functionality. The software has been implemented in a modular fashion such
+that each thread has its own varibles and methods, which for the most part are
+not shared between threads.\nl
 
-In this section we will go through the hardware and the software architecture,
-this means that the different hardware and software layers will be explained. In
-\autoref{CallStack}, it can be seen how the calls through software is handled.
-Furthermore, this can help improve the software by showing how many nested calls
-are in the software. In our program the call stack is not very deep, so this is
-not a big issue. However, we have no way to find out how deep the call stack for
-the camera is. To solve this a runtime analysis of the software will be created. 
-\figx[0.6]{CallStack}{The call stack from the software} 
+While useful to get an overview, this model of the software architecture is also
+helpful, as it can help improve the software by showing the nesting of methods
+in our call stack. It should be noted, that this model can not take into account
+the firmware implemented on the various sensors. This is the case, as this
+software is not well documented, and as such, we do not know how it functions.
 
-\section{Hardware Architecture}
+\figx[0.6]{CallStack}{The call stack from the software}
 
-In this section the hardware architecture will be explained and how inputs and
-outputs are handled. Inputs are handled by an input circuit, which sends the
-data directly to the processor. \nl
 
-Power to the engines is sent from the processor to the co-processor, which then
-sends the information directly to the engines. 
+
