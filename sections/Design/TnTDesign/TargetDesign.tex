@@ -1,21 +1,29 @@
 \section{Target Design}
-When designing the target a few things need to be considered. As stated in
-\autoref{FeatAndReq}, the target needs to move fast enough to make \name
-miss if \name fires when it sees the target. The turret needs to be able to calculate this offset,
-which means that it needs to be able see the target. Since the primary method of
-tracking is tracking colours using the camera, the tests in \autoref{CamTest}
-were conducted in order to find the most suitable colour for the target. From these
-tests we came to the conclusion that the target needs to be orange in order to get the best
-results from the camera. However it was also determined that oranges gives to many false positives and
-therefore red was chosen as the target colour since it performed second best in
-the camera test.\nl
+In this section the design decisions of the target will be explained. First the
+requirements of the target will be presented again. Then the different design
+aspects of the target will be discussed along with the reasoning for choosing them.
+\subsection{introduction}
 
+Using these requirements from \autoref{FeatAndReq} two aspects of the target can be identified
+\begin{itemize}
+  \item The turret needs to be able to see the target
+  \item The target should be able to move
+\end{itemize}
+
+\subsection{making the target trackable}
+Since the primary method of tracking is tracking colours using the camera, the
+tests in \autoref{CamTest} were conducted in order to find the most suitable
+colour for the target. From these tests we came to the conclusion that the target
+needs to be orange in order to get the best results from the camera. However it
+was also determined that oranges gives to many false positives and therefore red
+was chosen as the target colour since it performed second best in the camera test.
+\nl
 Both a flat and cylindrical design for the target have been considered. The
-advantage of the flat design is that it is large and easy for the ultrasonic
-sensors to see when they are pointed directly at the target. The disadvantage
+advantage of the flat design is that it is large and therefore easy for the ultrasonic
+sensors to sense when they are pointed directly at the target. The disadvantage
 is that if it is at an angle to the ultrasonic sensors line of sight it
 becomes less likely that the soundwaves gets catched by the sensor when they
-bounce back. Another disadvantage is that if it is at an angle with the
+bounce back. Another disadvantage is that if the target is at an angle with the
 cameras line of sight it appears smaller to the camera.\nl
 
 The cylindrical design should in theory counteract the problem with the
@@ -23,25 +31,14 @@ ultrasonic sensors needing to be pointed directly at the target, due to the
 fact that the angle is the same all around the target. The cylindrical design
 also ensures that the camera always sees the target as the same size.\nl
 
-In order to make the target move a cart was designed. This cart consists of a
-platform to place the target on and three wheels that are all fixed so they can
-not turn. An NXT is used to control the speed of the cart, to ensure that it
-travels at a constant speed.\fix{Add picture of the target}{}
-#Since our problem statement says that we are always travelling the same direction
+\subsection{making the target move}
+Since our problem statement says that the target is always travelling the same direction
 at a constant speed, there is no need for the target to be able to turn. This allows
-for a simple design for the vehicle, using only 3 wheels, fixed in place.
-\fix{Nævn hvilke motorer vi bruger}
-\fix{Nævn den kan have 3 forskellige hastigheder}
-
-Requirements:
-
-Design:
-
-  Target:
-
-  Engine:
-  The design of the engine consists of two regular NXT electrical motors used to
-  power the front wheels. Since the target only needs to be able to move straight
-  there is no need to device a turning mechanism for the wheels. The two motors
-  are synchronised using a built-in function of NXC, to further ensure that the
-  target always moves in a straight line.
+for a simple design for the vehicle, using only 3 wheels, fixed in place. The cart
+is powered by a NXT brick used to control the motors. The cart has 4 different speeds including standing:
+25, 50,75,100 indicating the percentage of power being fed to the motors. In order to
+calculate the speed a test was conducted\fix{inkluder target speed test fra drive og link den her}
+although the speed with a value of 25 was never tested since it was observed that
+it was travelling too slow for our requirement from \autoref{FeatAndReq} that states
+that the target must travel at a speed such that the turret will miss if it fires when
+it sees a target.
