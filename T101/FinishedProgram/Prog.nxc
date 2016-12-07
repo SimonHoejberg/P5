@@ -12,7 +12,6 @@ bool track = true; //Used to stop the tracking from the other tasks
 bool collecting = true; //Used to stop the collecting of data from the other tasks
 bool blobInCam = false; //Used to tell when the ultra sonic sensor should measure distance
 
-
 task main(){
     PosRegEnable(ROTATE_MOTOR);
     PosRegEnable(ANGLE_MOTOR);
@@ -69,7 +68,10 @@ task WaitAndFire(){
     track = true;
     blobInCam = false;
     collecting = true;
+    data =  NULL;
     dataCounter = 0;
+    ResetLibVariables();
+    Wait(4000);
     StartTask(Track);
     StartTask(GetDataAndCalculate);
 }
@@ -98,7 +100,7 @@ task Track(){
             int tempSpeed = 0;
             Off(ROTATE_MOTOR);
             if(lib_direction!=0){
-                tempSpeed = GetSpeed(blobCenter);
+                tempSpeed = GetSpeed(blobCenter + (lib_direction * SECRET_VAR3));
                 if(tempSpeed > 0 && lib_direction > 0)
                     OnFwd(ROTATE_MOTOR, tempSpeed);
                 else if(tempSpeed < 0 && lib_direction < 0)
