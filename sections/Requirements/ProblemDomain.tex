@@ -9,55 +9,57 @@ domain and initial goals for the project.
 \section{Ideal Scenario}
 Based on the proposed challenge, it is possible to describe an ideal scenario
 of how the turret should operate. We construct an ideal scenario in order to better
-visualize the initial problem and to serve as a basis for the requirements engineering.
-The ideal scenario involves the two actors the ``Turret'' and the ``Target'',
-and describes how they should interact with each other.
+visualize the initial problem and to serve as a basis for specifying the
+requirements. The ideal scenario involves the two actors the ``Turret'' and the
+``Target'', and describes how they should interact with each other.
 
 \begin{center}
 \colorbox{diff}{
 \begin{minipage}{0.8\linewidth}
 \textbf{Ideal Scenario:}
 
-The turret is set down on an even floor and activated. It then turns searching
-for a target by turning left and right, scanning an area for possible
-targets.\nl
+The turret is set down on an even floor and activated. It then rotates
+horizontally while searching for a target by turning left and right, scanning an
+area for possible targets.\nl
 
-The target is moving on an even plane at a constant but unknown speed driving
-in a straight line, but entering the firing zone from an unknown angle. The
-target moves at a speed such that the turret will miss if it fires when the
-target is directly in front of the turret.\nl
+The target is moving on an even plane at a constant but unknown speed, while
+driving in a straight line. It enters the turrets the firing zone from an
+unknown angle. The target moves at a speed such that the turret will miss if it
+fires when the target is directly in front of the turret.\nl
 
-The turret detects a target, it begins to predict the targets movements in
-order to anticipate the targets position at any given time.\nl
+The turret detects a target, and begins to track its movements. The turret then
+begins to predict the targets movements in order to anticipate the targets
+position at any future point in time.\nl
 
 The turret moves into a firing position based on the predicted position. It then
-fires at the appropriate time, in order to hit the target at the predicted
-position.\nl
+fires at the appropriate time, in order to hit the target when it moves to the
+predicted position.\nl
 
 The turret stops sensing the target and start scanning the area again.
 \end{minipage}
 }
 \end{center}
 
-This scenario can be visualized with \autoref{turretScenario} which shows process of
-finding and shooting a target.
+This scenario is visualized in \autoref{turretScenario}, which shows the process
+of finding and shooting a target.
 
 \figx[0.45]{turretScenario}{A representation of the ideal scenario.}
 
 \section{Phases}
 Based on the ideal scenario three distrinct phases are identified,
-``Scanning'', ``Tracking'' and ``Shooting''. The ``Scanning'' phase is where
-the turret searches for a target by turning. The ``Tracking'' phase is where the
-turret collects data and calculates the trajectory for the target. The
-``Shooting'' phase is where the turret moves to a firing position and shoots at
-the correct time. These phases will now be examined in order to identify the
-problems in their respective domain.
+\textbf{Scanning}, \textbf{Tracking} and \textbf{Shooting}. The Scanning phase
+consists of the turret turning left and right in order to search for a target.
+The Tracking phase is where the turret collects data and calculates the
+trajectory for the target. The Shooting phase consists of the turret moving to
+a firing position and shoots at the predicted location at the correct time.
+These phases represent the turrets entire behaviour, and will now be examined in
+order to identify any problems in the respective phases.
 
 \subsection{Scanning}
-The ``Scanning'' phase where the turret monitors an area presents two different
-situations. The first situation is when no target is detected and it continuosly
-scans for a target. The second situation is when a target is detected and it
-switches to the ``Tracking'' phase.\nl
+The \textbf{Scanning} phase, where the turret monitors an area, presents two
+different outcomes. The first outcome is when no target is detected and it
+keeps continuosly scanning for a target. The second outcome is when a target
+is detected, and the turret switches to the \textbf{Tracking} phase.\nl
 
 This leads to the following problems:
 \begin{itemize}
@@ -78,9 +80,10 @@ This leads to the following problems:
 \end{itemize}
 
 \subsection{Shooting}
-The ``Shooting'' phase occurs when the cannon has determined where the target
-will be, when it will be there and how the turret will hit it. The turret then moves
-into the a shooting position and proceeds to shoot at the correct.\nl
+The \textbf{Shooting} phase begins when the cannon has determined where the
+target will be, when it will be there and how the turret will hit it. With
+these informations, the turret moves into the calculated shooting position and
+proceeds to shoot at the determined time.\nl
 
 This leads to the following problems:
 \begin{itemize}
@@ -91,19 +94,21 @@ This leads to the following problems:
 \end{itemize}
 
 \section{Summary}
-In conclusion, we construct an ideal scenario based on the initial problem. We
-already determined the following as hard requirements based on the semester
-topic:
+In conclusion, we have constructed an ideal scenario based on the initial
+problem, and analyzed this scenario in order to gain an insight into what
+design problems must be overcome. We already determined the following as hard
+requirements based on the semester topic:
 
 \begin{enumerate}
-	\item The system must be embedded
-	\item The system must use techniques from either the machine intelligence or
-	real-time systems fields or both
+	\item The developed system must be classifiable as an embedded system
+	\item The developed system must use techniques and models taught in either the
+	machine intelligence or real-time systems courses
 \end{enumerate}
 
-Three distinct phases were identified, ``Scanning", ``Tracking'' and
-``Shooting''. Each phase was analysed in order to find the problems associated
-with it. These problems which are mechanical, real-time and reasoning based
-problems are used as the foundation for the analysis. In the next chapter
-we will examine the what an embedded system is, what makes a real-time system
-and how machine intelligence will integrate with the project.
+During the analysis, three distinct phases were identified, \textbf{Scanning},
+\textbf{Tracking} and \textbf{Shooting}. Each phase was analysed in order to
+determine what design problems could be associated with it. These problems
+which are mechanical, real-time and reasoning based problems, are used as the
+foundation for the analysis. In the next chapter we will examine what an
+embedded system is, what constitutes a real-time system and how machine
+intelligence can be integrated with the project.
