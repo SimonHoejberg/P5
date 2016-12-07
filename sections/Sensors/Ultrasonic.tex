@@ -1,10 +1,9 @@
 \section{Ultrasonic Sensor}\label{SensTheoUltra}
-The ultrasonic sensors works by producing sound waves from
-one of two frontal holes, which is then bounced back by an object and received
-by the second hole. This is displayed in the illustration below
-\autoref{soundWavesSensor}.
-The delay between producing and receiving the sound wave is used to determine the
-distance to a given object.
+The ultrasonic sensors works by producing sound waves from one of two frontal
+holes, which is then bounced back by an object and received by the second hole.
+This is displayed in the illustration below \autoref{soundWavesSensor}.
+The delay between producing and receiving the sound wave is used to determine
+the distance to a given object.
 
 % For the purpose of measuring the distance to the chosen target, the turret makes
 % use of two ultrasonic sensors. These sensors work by producing sound waves from
@@ -15,6 +14,7 @@ distance to a given object.
 % distance to a given object. 
 
 \figx{soundWavesSensor}{Visualization of the ultrasonic sensor.}
+
 The described sensor is a standardized ultrasonic sensor from Lego NXT. The
 sensor's technical specifications \citep{Ultrasonic_sensor} can be found below:
 \begin{itemize}
@@ -88,6 +88,14 @@ only difference was the object itself.\nl
 % horizontal}{Results with a shielded sensor and a box h.
 % 14.2cm and w. 9cm}{shieldedTestBox}
 
+The results from this test can be seen below in
+\autoref{graph:unshieldedTestBox} and \autoref{graph:unshieldedTestPaper}. The
+actual distance is on the x-axis and the measured distance is on the y-axis.
+Based on the collected data, it can be concluded that the target needs to be
+wider rather than taller, in order to get the best results. Furthermore, it was
+found that the size of the target does not influence the results much, it should
+however be noted that the orientation of the target is important.
+
 \graphL{Actual distance [cm]}{Measured distance
 [cm]}{unshieldedBoxStanding,unshieldedBoxLandscape}{Box vertical, Box
 horizontal}{Results with a sensor and a box h.
@@ -101,12 +109,7 @@ horizontal}{Results with a sensor and a box h.
 [cm]}{unshieldedPaperStanding,unshieldedPaperLandscape}{Paper vertical, Paper
 horizontal}{Results with a sensor and a A4 Paper}{unshieldedTestPaper}
 
-In \autoref{unshieldedTestBox} and \autoref{unshieldedTestPaper} the test
-results can be seen, the actual distance is on the x axis and the measured
-distance is on the y axis. As it can be seen in the graphs the target needs to
-be wider than taller. Furthermore, it was found that the size of the target does
-not influence the results much it should however be noted that the orientation
-of the target is important. \nl
+
 % As seen in \autoref{graph:shieldedTestBox}, \autoref{graph:unshieldedTestBox},
 % \autoref{graph:shieldedTestPaper} and \autoref{graph:unshieldedTestPaper} the
 % sensor was able to determine the distance with better precision when it is
