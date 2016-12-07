@@ -1,9 +1,9 @@
 \section{Intelligent Agents}
  
-As \name is an autonomous turret and needs to be able to hit a moving target.
-It needs to have some intelligence in order to determine how to position itself
-to hit the target. The turret can be considered intelligent when its decisions
-are explainable by computations. How intelligent it is, can as
+As \name is an autonomous turret and needs to be able to hit a moving target,
+it could make use of some kind of intelligence, in order to determine how to
+position itself to hit the target. The turret can be considered intelligent when
+its decisions are explainable by computations. How intelligent it is, can as
 \citep[ch.1.1,p.4]{MIBook} states, be judged by:
 
 \begin{enumerate}
@@ -30,7 +30,7 @@ to use a computer to determine a solution. The result of this computation is a
 suitable output which in turn can be interpreted as a solution, whether or not
 the target is actually hit. The model below in \autoref{MIRep}, presents the
 correlation between the informal and formal representation, where the informal
-models the problem domain, and the formal the computational domain.
+models the problem domain, and the formal models the computational domain.
 
 \figxs[0.8]{MIRep}{An illustration of how a problem is converted into a
 solution}{\citep[ch. 1.4 p.12]{MIBook}}
@@ -39,17 +39,17 @@ solution}{\citep[ch. 1.4 p.12]{MIBook}}
 % scheme. 
 When modelling a problem, we make use of knowledge as a means of choosing the
 right solution. In the field of machine intelligence, knowledge is defined as
-the information which can be used to solve problems in a specific
-domain. When implementing knowledge into a system, it will take the form of a
-representation scheme, which defines the computational form this knowledge will
-be represented by. The representation scheme is used to make sure the individual
+the information which can be used to solve problems in a specific domain. When
+implementing knowledge into a system, it will take the form of a representation
+scheme, which defines the computational form this knowledge will be represented
+by. The representation scheme is used to make sure the individual
 representations are detailed and close to the problem, such that the necessary
 knowledge can be used to solve said problem \citep[ch.1.4]{MIBook}.
-Examples of knowledge that \name has is: the targets speed and how much the turret has
-turned. When the turret has a sufficient amount of knowledge, it should be used
-in a way that makes it possible to compute an output. Whether this output is a
-solution or not, depends on what a solution is. For this purpose, there are 4
-different categories of solutions \citep[ch.1.4.1]{MIBook}:
+Examples of knowledge that \name has is: the targets speed and how much the
+turret has turned. When the turret has a sufficient amount of knowledge, it
+should be used in a way that makes it possible to compute an output. Whether
+this output is a solution or not, depends on what a solution is. For this
+purpose, there are 4 different categories of solutions \citep[ch.1.4.1]{MIBook}:
 
 \begin{itemize}
   \item \textbf{Optimal solution} - A solution which has been deemed optimal
@@ -59,8 +59,8 @@ different categories of solutions \citep[ch.1.4.1]{MIBook}:
   \item \textbf{Approximately optimal solution} - A solution that is close in
   quality to the optimal solution. While not being perfect, this solution is
   deemed to be sufficient.
-  \item \textbf{Probable solution} - A solution that is likely to be a solution
-  but is not always guaranteed to be.
+  \item \textbf{Probable solution} - A solution that is likely to solve the
+  problem, but is not always guaranteed to.
 \end{itemize}
 
 As \name is shooting on a moving target, the solution needs to be able
