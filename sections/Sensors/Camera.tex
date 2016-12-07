@@ -2,8 +2,8 @@
 For the purpose of identifying and tracking a target, the turret will
 make use of a specialized camera, which is capable of identifying coloured
 objects. In order to use the camera, the user specifies a colour of choice,
-which will then be searched for. The colours are set using a program called
-``NXTCamView'''. When the camera registers an object of this colour, it will
+which will then be searched for. The colours are specified using a program
+called ``NXTCamView'''. When the camera registers an object of this colour, it will
 build a datalogical representation of the object consisting of a number of
 rectangles. Such a representation can be seen in \autoref{TwoBlobs2.PNG}.
 
@@ -73,7 +73,7 @@ following:
   \item The red colour has the lowest variation of 19 pixels
   \item Of the 'ok' colours, orange and red, orange has the largest measured
   average area.
-\end{itemize}
+\end{itemize} 
 
 Based on these conclusions we can determine that the best colours would be
 either red or orange. In order to verify this assumption the test is repeated
@@ -88,16 +88,19 @@ following:
   \item For some colours the contrasting background results in worse data
   \item Given no contrasting background 'yellow' can be seen, but the data is
   'bad'
-  \item Given no contrasting background 'red' can no longer be recognized
   \item Given no contrasting background 'orange' has no variance in data
 \end{itemize}
 
-\fix{Based on these conclusions we can determine that orange would be colour of
-choice, as the camera is capable of recognizing the colour without any variance
-in the recorded data.}{But we use red???}
+Based on these conclusions we can determine that orange would likely be colour
+of choice, as the camera is capable of recognizing the colour without any
+variance in the recorded data. A problem with this conclusion was determined
+through further testing, which revealed the flaw, that while orange is easily
+recognized, it is also easy to get false positives during actual operation. As
+such, the colour used for the final target is \textbf{red}, as it is almost as
+easily recognizeable as orange, but leads to much fewer false positives.
 
 \subsection{Camera Test Results - Distance}\label{CamTestDistance}
-Based on the choice made in \autoref{CamTestColours} to use orange as the colour
+Based on the choice made in \autoref{CamTestColours} to use red as the colour
 of the target, this section will be used to further determine how well this
 colour can be used at different distances. For this purpose, the target will be
 placed at various distances from the target, as noted in \autoref{CamTestSetup}.
@@ -113,7 +116,19 @@ flaw was identified. It was found that the the measured colour of the target
 changes based on its distance from the turret and the light levels at its
 current location. In effect this means that no single colour can be used to
 recognize the target at all distances, but instead multiple colours need to be
-recognized based on the distance to the target. This problem has two identified
-solutions, either the camera is programmed to recognize a number of different
-shades of orange, or the turret will be limited to only operate in well and
-consistently lit areas.
+specified based on the distance to the target. This problem has two identified
+solutions, either to program the camera to recognize a number of different
+shades of red, or limiting the turret to only operate in well and consistently
+lit areas.
+
+\section{Conclusion}
+During this chapter the two sensors were tested, and it was determined how best
+to use them to gather the most accurate data. In order to determine the distance
+to the target, two ultrasonic distance sensors are being used. The reason for
+using two sensors is to increase the chance of at least one sensor to recieve
+useful data. The colour chosen for the camera sensor was determined to be red,
+as it was almost as recignizeable as orange, but led to much fever instances of
+false positive results. To circumvent the problem of the camera recognizing the
+target as different colours based on the distance, all tests of the turret are
+done using a powerful spotlight, and the camera has been instructed to search
+for a variety of different shades of red.
