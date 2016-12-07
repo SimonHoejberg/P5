@@ -1,0 +1,8 @@
+task main(){
+  SetSensorUltrasonic(S2);
+  while(true){
+    string out;
+    ReceiveMessage(MAILBOX1, false, out);
+    TextOut(0,0,out);
+  }
+}

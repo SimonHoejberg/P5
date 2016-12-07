@@ -20,12 +20,7 @@ sensor's technical specifications \citep{Ultrasonic_sensor} can be found below:
 \begin{itemize}
   \item Has a max range of 2.5m
   \item Has a precision of +/- 3cm
-  \fix{\item Loses precision after 1.5m}{Is not stated by the source, found out
-  by us testing}
-  \fix{\item Has a 15ms delay between readings}{Is not stated by the source}
   \item Works best with hard, large-sized objects
-  \fix{\item Each measurement outputs the distance in the form of a single
-  integer with a value between 0 and 255cm}{Is not stated by the source}
 \end{itemize}
 
 % An image of this sensor as mounted in the turret can be seen in
@@ -57,69 +52,75 @@ which is folded around it. This setup can be seen in
 \figx[0.1]{SensorUltraSetup}{The test setup for testing the ultrasonic
 distance sensor.}
 
-\subsection{Ultrasonic Sensor Test - Placement}\label{UltraTestPlacement}
-The first test consists of determining where on the turret the sensor should be
-placed. The purpose of this test is to optimize the quality of the data which
-the sensor collects, and to help determine some design choices for the
-turret.\nl
+\subsection{Ultrasonic Sensor Test - With 1 sensor}\label{UltraTestPlacement}
+% The first test consists of determining where on the turret the sensor should be
+% placed. The purpose of this test is to optimize the quality of the data which
+% the sensor collects, and to help determine some design choices for the
+% turret.\nl
+This first test consists of determining the size and shape of the target. This
+test will help improve the quality of the outputs aswell as helping design the
+target. The test was made in the same way as in \autoref{SensorTest}, the
+only difference was the object itself.\nl
 
 % This test was concucted by placing the ultrasonic sensor at different places on
 % the turret, and then testing the sensors maximum distance. As the test was done
 % as a part of the initial turret design, it does not include any formalized data
 % sets. As such, these were the conclusions which could be drawn:\nl
 
-\subsubsection{\fix{Using Blinders}{Skal skrives om til bare en tst af
-rækkeviden}} At first when testing the ultrasonic sensors, it was determined
-that the sensor's ability to accurately measure the distance was subject to interferance
-by the surroundings. In effect this vastly reduced the maximum distance of the
-sensor, and as such, a lot of different attempts were made in order to solve
-this problem. As this was done as a part of the initial design phase, the
-different turret designs were not recorded. The tests resulted in the
-following conclusion:\nl
+% \subsubsection{\fix{Using Blinders}{Skal skrives om til bare en tst af
+% rækkeviden}} At first when testing the ultrasonic sensors, it was determined
+% that the sensor's ability to accurately measure the distance was subject to interferance
+% by the surroundings. In effect this vastly reduced the maximum distance of the
+% sensor, and as such, a lot of different attempts were made in order to solve
+% this problem. As this was done as a part of the initial design phase, the
+% different turret designs were not recorded. The tests resulted in the
+% following conclusion:\nl
+% 
+% \textit{\textbf{The ultrasonic sensors can use blinders to increase their
+% maximum sensing distance.}}\nl
+% 
+% In order to determine the importance of using blinders, this subsection will be
+% used to present data which compares the distance tests of the ultrasonic sensor,
+% both with and without blinders.
 
-\textit{\textbf{The ultrasonic sensors can use blinders to increase their
-maximum sensing distance.}}\nl
-
-In order to determine the importance of using blinders, this subsection will be
-used to present data which compares the distance tests of the ultrasonic sensor,
-both with and without blinders.
-
-\graphL{Actual distance [cm]}{Measured distance
-[cm]}{shieldedBoxStanding,shieldedBoxLandscape}{Box vertical, Box
-horizontal}{Results with a shielded sensor and a box h.
-14.2cm and w. 9cm}{shieldedTestBox}
+% \graphL{Actual distance [cm]}{Measured distance
+% [cm]}{shieldedBoxStanding,shieldedBoxLandscape}{Box vertical, Box
+% horizontal}{Results with a shielded sensor and a box h.
+% 14.2cm and w. 9cm}{shieldedTestBox}
 
 \graphL{Actual distance [cm]}{Measured distance
 [cm]}{unshieldedBoxStanding,unshieldedBoxLandscape}{Box vertical, Box
-horizontal}{Results with a unshielded sensor and a box h.
+horizontal}{Results with a sensor and a box h.
 14.2cm and w. 9cm}{unshieldedTestBox}
 
-\graphL{Actual distance [cm]}{Measured distance
-[cm]}{shieldedPaperStanding,shieldedPaperLandscape}{Paper vertical, Paper
-horizontal}{Results with a shielded sensor and a A4 Paper}{shieldedTestPaper}
+% \graphL{Actual distance [cm]}{Measured distance
+% [cm]}{shieldedPaperStanding,shieldedPaperLandscape}{Paper vertical, Paper
+% horizontal}{Results with a shielded sensor and a A4 Paper}{shieldedTestPaper}
 
 \graphL{Actual distance [cm]}{Measured distance
 [cm]}{unshieldedPaperStanding,unshieldedPaperLandscape}{Paper vertical, Paper
-horizontal}{Results with a unshielded sensor and a A4 Paper}{unshieldedTestPaper}
+horizontal}{Results with a sensor and a A4 Paper}{unshieldedTestPaper}
 
+In \autoref{unshieldedTestBox} and \autoref{unshieldedTestPaper} the test
+results can be seen, the actual distance is on the x axis and the measured
+distance is on the y axis. As it can be seen in the graphs the target needs to
+be wider than taller. Furthermore, it was found that the size of the target does
+not influence the results much it should however be noted that the orientation
+of the target is important. \nl
+% As seen in \autoref{graph:shieldedTestBox}, \autoref{graph:unshieldedTestBox},
+% \autoref{graph:shieldedTestPaper} and \autoref{graph:unshieldedTestPaper} the
+% sensor was able to determine the distance with better precision when it is
+% shielded and the object was in the landscape position. \nl
+% 
+% It can then be concluded that the shielded sensor performed a lot better than
+% the unshielded, it can also be concluded that the dimensions of the object can
+% have a big impact. This is due to the fact that the sensor does not have a very
+% large field of view. Therefore, the object should be wider rather than taller.
 
-As seen in \autoref{graph:shieldedTestBox}, \autoref{graph:unshieldedTestBox},
-\autoref{graph:shieldedTestPaper} and \autoref{graph:unshieldedTestPaper} the
-sensor was able to determine the distance with better precision when it is
-shielded and the object was in the landscape position. \nl
-
-It can then be concluded that the shielded sensor performed a lot better than
-the unshielded, it can also be concluded that the dimensions of the object can
-have a big impact. This is due to the fact that the sensor does not have a very
-large field of view. Therefore, the object should be wider rather than taller.
-
-\subsubsection{Additional Design notes}
-These tests also found the following conclusion:\nl
-
-\fix{The sensor should not be placed close to the ground.}{The small height
-distance from the ground matters and how do we see this?} While testing it was
-determined that the sensor should not be placed close to the ground, as this resulted in a vast degredation of the data. Compared to the technical specification which stated that the maximum range is 255cm, this design resulted
-in a maximum distance of ~100cm.\nl
+During the testing a hypothesis was formed based on observations that the sensor
+should not be placed close to the ground due to the fact that the reflection of
+the ground corrupted the data. This was not tested, but still has an effect on the
+final design. 
 
 \subsection{Ultrasonic Sensor Test - Distance}
 The second test on the ultrasonic sensor is designed to determine the accuracy
