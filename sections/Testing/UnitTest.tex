@@ -1,0 +1,60 @@
+\chapter{Unit test}
+
+To test the \name software we decided to make unit tests, however since have no
+knowledge of any integrated framework for unit testing in the NXT IDE, we
+have chosen to make our own. The setup is quite simple and is build on the same
+principle as unit testing in fx. C\#. When testing an object oriented
+language, the testing is done on class by class level as this gives a clear
+distinction between the different methods. This however is not the case in NXC,
+as the language follows the imperative programming paradigm. In our testing
+setup, only functions with a return value is tested and functions which uses
+input from the sensors are not tested. The basic principle is Arrange, Act and
+Assert. In the arrange step the input data is constucted as well as what the
+expected output is. In the act step, the functions are called and the inputs are
+saved. Then finaly in the assert step the outputs are verified arcording to the
+expected output. \nl
+
+\begin{minipage}[H]{\linewidth}
+\begin{lstlisting}[caption =Unit Test for Combine Vectors,label=combineVectorsTest] 
+bool CombineVectorsTest(){
+  DirectionVector input1;
+  DirectionVector input2;
+  input1.speedX = 10;
+  input1.speedY = 10;
+  input1.xPos = 15;
+  input1.yPos = 15;
+  
+  input2.speedX = 25;
+  input2.speedY = 25;
+  input2.xPos = 20;
+  input2.yPos = 20;
+  DirectionVector dirVecArray[2];
+  dirVecArray[0] = input1;
+  dirVecArray[1] = input2;
+  DirectionVector out = CombineVectors(dirVecArray, 2);
+  
+  if(out.speedX == 22.5 && out.speedY == 22.5 && out.xPos == 20, out.yPos == 20){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+\end{lstlisting}
+\end{minipage}
+
+In \autoref{combineVectorsTest} the basic setup can be seen, on \textbf{Line
+2-15} the needed information is arranged, however the expected output is not
+defined yet. This is defined in the assert part as this was the easiest way to
+do it. On \textbf{Line 16}, the tested function is called and in this case the
+output is put into a struct called DirectionVector. Then finaly we use an if
+statement to check the output against the expected and if the output coresponds
+to the expected we return true. This return value is then used to print the
+value on the screen of the NXT to have a way of representing the test results.
+\nl
+
+To conclude all the tests succeeded, one of the tests we had some issues as our
+calculations differed a little bit from the calculations made by the NXT. These
+differences was so small that they were likely caused by a rounding error. As
+the accuracy of the varibles in this part of the program is not deemed
+essential, we choose to call it a success.

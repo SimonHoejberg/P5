@@ -1,6 +1,6 @@
-\section{Representation Scheme}\label{RepScheme}
+\section{Data Representation}\label{RepScheme}
 As \name needs to track the location of an object in a three dimensional world,
-it needs a consistant way to represnent this data. This data comes in the form
+it needs a consistant way to represent this data. This data comes in the form
 of images from the camera, distance readings from the ultrasonic sensors and
 the turrets relative angle, which is read from the motors. Given that all of
 this data is relative to the turret location, we can create a representation
@@ -36,10 +36,10 @@ When the turret has registered a number of data points, a vector is
 calculated to get the distance that the target has travelled. This vector is
 then divided by the time it takes the target to travel the distance, to get a
 new vector that represents the velocity of the target in $\frac{cm}{ms}$. This
-vector is then multiplied by a given number of miliseconds, in order to
+vector is then multiplied by a given number of milliseconds, in order to
 calculate a point in the coordinate system where the target is going to be in
-the future. Again, normally tangens could be used to calculate the distance to
-this point, but because our coordiante system is rotated 90 degrees, we need two
+the future. Normally the tangent could be used to calculate the distance
+to this point, but because our coordiante system is rotated 90 degrees, we need two
 different equations. For this purpose \autoref{locEq4} is used if the angle is
 negative, or \autoref{locEq3} if positive.
 \begin{equation}\label{locEq3}
@@ -64,10 +64,12 @@ angle the following equation is used:
 a_{vertical}=0.2573*distance-22.85
 \end{equation} 
 
-This function based on a best fit line that was extrapolated from a set of test
-data, where the angle was plotted against how far the projectile travelled. This
-function is an estimate of the function needed in order to get the angle. This
-is because the exact function is too complex for the NXT to calculate in the available time.\nl
+\fix{This function based on a best fit line that was extrapolated from a set of
+test data, where the angle was plotted against how far the projectile
+travelled.}{Need a reference to a test} This function is an estimate of the
+function needed in order to get the angle. This is because the exact function
+is \fix{too complex for the NXT to calculate}{maybe mention why / refere to
+physics} in the available time.\nl
 
 \name also needs to know when to shoot in order to hit the target.
 This is calculated by subtracting the value of \autoref{TimeEq}, which is described in

@@ -1,13 +1,17 @@
-\section{Main}
-The execution of the program begins in the \textbf{Main} thread, which is shown
+\section{Tasks}
+
+\fix{something}{}
+
+\subsection{Main}
+The execution of the program begins in the \textc{Main} thread, which is shown
 in \autoref{MainThread}. First, the library method
-\textbf{\textit{PosRegEnable}} is used to enable the motors ability to set an absolute position using a PID controller. This is used to
-allow the turret to set its angle instead of simply turning on/off the motor.
+\textc{PosRegEnable} is used to enable the motors ability to set
+an absolute position using a PID controller. This is used to allow the turret to set its angle instead of simply turning on/off the motor.
 The \textc{SetMotorRegulationTime} method is used to determine the
 time in which the motor should regulate its angle. This allows the turret to
-move to the target angle in a single swift motion, and then making a hard break
+move to the target angle in a single swift motion, and then make a hard break
 when the target angle has been reached. This hard break can cause stress to the
-lego, but is not a problem in the current setup.\nl
+lego, but is not a problem in the current setup.
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Entry point for the program execution., label = MainThread] 
@@ -26,11 +30,11 @@ task main(){
 \end{minipage}
 
 On \textbf{lines 5-7} the NXTCam is initialized, and two commands are
-sent to the camera. The first command on \textbf{line 6} confingures the camera
+sent to the camera. The command on \textbf{line 6} configures the camera
 to sort the returned blobs by size, such that the largest blob is the first
-element of the returned arrays. The second command is used to enable the camera,
-and start the blob tracking. The next commands on \textbf{line 8-9} are used to
+element of the returned arrays. \textbf{Line 7} is used to enable the camera,
+and start the blob tracking. \textbf{Line 8-9} are used to
 initialize the two sensor ports \textc{SENSOR\_LEFT} and
-\textc{SENSOR\_RIGHT} as being used for ultrasonic distance sensors.
+\textc{SENSOR\_RIGHT} as they are used for ultrasonic distance sensors.
 Finally, the \textc{Precedes} method is used to initialize the
 threads: \textc{Track} and \textc{GetDataAndCalculate}.

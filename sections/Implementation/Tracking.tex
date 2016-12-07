@@ -1,6 +1,6 @@
-\section{Tracking}
-The first main thread of the program is Track(), which is responsible for using
-the NXTCam to track a target. As described in \autoref{SensorTheory}, the camera
+\subsection{Tracking}
+The first main thread of the program is \textc{Track()}, which is responsible
+for using the NXTCam to track a target. As described in \autoref{SensorTheory}, the camera
 is capable of identifying blobs of a given colour, and then output data relating to where
 in the cameras field of view the object is located. Whenever the camera
 registers a target, it returns data specifying the position of the blob in the
@@ -37,14 +37,17 @@ which is executed based on the value of the boolean variable
 \textc{track} which defines whether or not the tracking phase is still
 ongoing. The behaviour starts on \textbf{line 3} by using the
 \textc{NXTCam\_GetBlobs} function to update the blob variables with
-the newest frame from the camera. If the number of blobs found was more than
-zero, the center of the largest blob (first entry in array) is determined on
-\textbf{line 7}. On \textbf{line } he difference in pixels between the blob's
-and the cameras centers is stored in \textc{temp} for future
-calculations.\nl
+the newest frame from the camera. If the number of blobs was found to be more
+than zero, the center of the largest blob (first entry in array) is determined on
+\textbf{line 6}. On \textbf{line 7} the difference in pixels between the blob's
+and the cameras centers is stored in \textc{temp} for use in future
+calculations. The boolean on \textbf{line 3} tells that the blob is in the view
+of the camera, this boolean is used in the \textc{GetDataAndCalculate} task
+\autoref{GetDataAndCalc} to gather data.\nl
   
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = First part of the general tracking behaviour., label = TrackFirst] while(track){
+\begin{lstlisting}[caption = First part of the general tracking behaviour., label = TrackFirst] 
+while(track){        
         NXTCam_GetBlobs(CAM_PORT, CAM_ADDR, nblobs, bc, bl, bt, br, bb);
         if(nblobs > 0){
             blobInCam = true;
@@ -65,9 +68,9 @@ After recieving data from the camera, the turret attempts to track the target by
 rotating at a speed matching the targets movement. This is shown in
 \autoref{DetSpeed}. This operation can first be done after the turret has
 determined in which direction the target is moving. Assuming this is the case
-(\textbf{lib\_direction!=0}), the GetSpeed function is called in order to
-determine the targets speed. This function is shown in \autoref{}. On
-\textbf{lines 3-6}, if the determined rotation speed matches the direction in
+(\textbf{lib\_direction!=0}), the \textc{GetSpeed} function is called in order
+to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
+On \textbf{lines 3-6}, if the determined rotation speed matches the direction in
 which the target is moving, the motor is set to rotate at this speed.\nl
 
 \begin{minipage}[H]{\linewidth}

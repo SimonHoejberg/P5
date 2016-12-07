@@ -1,0 +1,51 @@
+\section{Calculate Future Position}
+As the turret needs to calculate the future position of the target, we need to
+implement a model for executing these computations to an acceptable degree. In
+\name this is done by calculating vectors between different points where the
+target was observed, and then using these to predict its future location. All
+code used to implement this feature can be found in the CalcFPos library.\nl
+
+The first step is to observe the target in a number of positions. These
+positions are represented as coordiates in a x,y coordinate system as described
+in \autoref{RepScheme}. Positions are saved with information about coordiates,
+timestamp and turret-angle. These positions are exemplified below in
+\autoref{FPosCalc1}.
+
+\figx[0.35]{FPosCalc1}{A number of target positions have been observed.}
+
+After observing a number of locations, vectors are defined between each set
+locations. Each vector is assigned a speed based on the length of the vector and
+the time diffence between the two used points. The assignment of these vectors
+are shown below in \autoref{FPosCalc2}, where the last variable is the time
+difference.
+
+\figx[0.35]{FPosCalc2}{Vectors are made between sets of positions.}
+
+Each of the vectors can now be seen as having a direction and a speed. These
+vectors are then added together, and an average direction and speed is found.
+The purpose of this is average is mostly to use multiple locations to accurately
+determine the direction, as misreadings cause greater inaccuracy the less number
+of observations are used. The average of the vectors can be seen in
+\autoref{FPosCalc3}.
+
+\figx[0.35]{FPosCalc3}{The average vector is calculated.}
+
+Now, having found the average direction and speed between all observed points,
+we will have create a function which can be used to predict a future position.
+In order to do this, the speed and direction is divided by the average time
+interval. As such, we can create a unit vector, which indicates the distance on
+the x,y-axis per milisecond. This vector can now simply be multiplicated with
+the time in which we want to determine a location. 
+
+\figx[0.35]{FPosCalc4}{The unit vector is multiplied, and a future position is
+calculated.}
+
+In order to calculate the future position, it is important to add the last
+observed target position to the result, such that the multiplied vector has its
+start in this point rather than the center of the turret. In the example in
+\autoref{FPosCalc4} the unit vector is multiplied by 1000 miliseconds appended
+to the last known location. This results in the future position (57,22).
+
+
+
+

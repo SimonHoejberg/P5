@@ -22,25 +22,34 @@ knowledge in a suitable way that allows it to work it into a suitable solution.
 \subsection{Knowledge Representation}\label{KR}
 %See MI book chapter 1.4 p.12
 
-\name needs to be able to represent the problem of hitting a
-moving target as a suitable representation. This representation can then be
-computed into a suitable output which in turn can be interpreted as
-a solution, whether or not the target is actually hit. This can be seen in
-\autoref{MIRep}.
+In order to be able to intelligently control the turret, \name needs to be able
+to model the problem of hitting a moving target into a suitable representation,
+which can be understood by the computer. By modelling the problem into a
+representation on which computational operations can be executed, it is possible
+to use a computer to determine a solution. The result of this computation is a
+suitable output which in turn can be interpreted as a solution, whether or not
+the target is actually hit. The model below in \autoref{MIRep}, presents the
+correlation between the informal and formal representation, where the informal
+models the problem domain, and the formal the computational domain.
 
 \figxs[0.8]{MIRep}{An illustration of how a problem is converted into a
 solution}{\citep[ch. 1.4 p.12]{MIBook}}
 
-The representation is a piece of knowledge from the representation
-scheme. The representation scheme is used to make sure the individual
+% The representation is a piece of knowledge from the representation
+% scheme. 
+When modelling a problem, we make use of knowledge as a means of choosing the
+right solution. In the field of machine intelligence, knowledge is defined as
+the information which can be used to solve problems in a specific
+domain. When implementing knowledge into a system, it will take the form of a
+representation scheme, which defines the computational form this knowledge will
+be represented by. The representation scheme is used to make sure the individual
 representations are detailed and close to the problem, such that the necessary
-knowledge can be used to solve said problem \fix{\citep[ch.1.4.1]{MIBook}}{Not
-the right ch?}.
+knowledge can be used to solve said problem \citep[ch.1.4]{MIBook}.
 Examples of knowledge that \name has is: the targets speed and how much the turret has
 turned. When the turret has a sufficient amount of knowledge, it should be used
 in a way that makes it possible to compute an output. Whether this output is a
-solution or not, depends on what a solution is. There are 4 different categories
-of solutions \citep[ch.1.4.1]{MIBook}:
+solution or not, depends on what a solution is. For this purpose, there are 4
+different categories of solutions \citep[ch.1.4.1]{MIBook}:
 
 \begin{itemize}
   \item \textbf{Optimal solution} - A solution which has been deemed optimal
@@ -60,11 +69,13 @@ certain limits to how much time can be spent searching and waiting for the
 optimal shot.
 
 \subsection{Design Space}
-The design space of an intelligent agent can be considered a series of 8
-factors, which are used to give an estimation of the system \citep[ch.1.5]{MIBook}. 
-These factors are: modularity, representation scheme, planning
-horizon, uncertainty, preference, number of agents, learning and computational
-limits.
+When designing intelligent agents, we have a number of design dimensions which
+form a coarse framework for the design process. This framework represents the
+design space of an intelligent agent, and can be considered a series of 8
+factors, which are used to give an estimation of the system
+\citep[ch.1.5]{MIBook}. These factors are: modularity, representation scheme,
+planning horizon, uncertainty, preference, number of agents, learning and
+computational limits.
 
 \subsubsection{Modularity}
 Modularity describes how easily the system can be divided into modules, as well
@@ -227,79 +238,90 @@ the best solution. In addition to just the calculations, \name also needs to
 move into a proper position, and the shot itself has a certain travel time. All
 of this leads to a system which uses bounded rationality.
 
-\subsection{Belief Network}\KT
-\name is only able to partially observe where the target is and how fast it is
-moving and will thus need to be able to reason under uncertainty. This means
-that it will need a way to consider different possibilities for each world.
-This can be done with a belief network which is an acyclic directed graph
-consisting of a set of random variables, which is variables which has a domain
-that is a set of the values the varibale can have, and a set of conditional
-probability distributions for each variable given its parents. From these
-conditional probality distributions it is given that evidence is a formula that
-represnts the union of all the observations that an agent makes of the world
-\citep[ch.6.3]{MIBook}.
-These variables and their domains are usually derived from the features in the
-representation scheme, although some random variables can be created to act as intermidiate variables. The
-variables that make up the belief network are connected via either a
+\subsection{Belief Network}
+\name is only is able to see the
+target and determine the distance between them, it does not know where the
+target is going nor how fast it is. This can lead to alot of different possible
+situations, as it will need to try and determine the speed and direction through
+additional observations of the distance. A belief network is a way to model
+this conditional dependency. It is an acyclic directed graph, consisting of a
+set of random variables functioning as nodes. These variables represent the
+various features the model has, usually based on the features of
+the representation scheme. Nodes can also be created to act as
+intermediary variables, which are created in order to either simplify the model
+or to make the conditional dependency more logical. These variables affect each
+other, this is modelled by the direction of the arc going between the nodes,
+such as the targets position being affected by its speed. The variables each
+have a set of the values as well as a set of conditional probability
+distributions for each variable given its parents. \citep[ch.6.3]{MIBook}.
+
+The variables make up the belief network and are connected via either a
 \textbf{serial}, \textbf{convergent} or \textbf{divergent} connection. These
 connections dictate how information is able flow through the network given
-evidence on a node. 
+evidence on a node. Evidence occurs when a specific value in a node is observed,
+which allows the probability of that value to be set to 1, while the others in
+that node are set to 0.
 \begin{itemize}
   \item A \textbf{serial} connection is a set of nodes connected in a sequence.
-  This kind of connection represnts that each node is affected by the node prior
-  to it. These connections allow information to flow as long as the middle
-  node is not blocked by evidence. If evidence is present on the middle node, it is not
-  possible to say anything new about first node given more evidence further down
-  the sequence. An example of a serial connection can be seen in
-  \autoref{Serial2}.
+  This kind of connection represents that each node is affected by the node
+  prior to it. These connections allow information to flow as long as the middle
+  node is not blocked by evidence. If evidence is present on the middle node,
+  \textit{Node2}, it is becomes impossible to say anything new about
+  \textit{Node1} given more evidence further down the sequence. An example of a
+  serial connection can be seen in \autoref{Serial2}.
  \figx[0.8]{Serial2}{An example of a serial connection}
   \item A \textbf{convergent} connection consists of a child node with two or
   more parents. This kind of connection represents that one node is affected by
   more than one node. In this connection the absence of evidence on the child
-  node, or one of its descendants, makes it impossible to transmit information between
-  the parent nodes. If however evidence is present on the child node, or one of
-  its descendants, it is possible to transmit evidence between the
-  parent nodes. An example of a convergent connection can be seen in
- \autoref{Convergent2}.
+  node, \textit{Node3}, or one of its descendants makes it impossible to
+  transmit information between the parent nodes. If however evidence is present
+  on \textit{Node3}, or one of its descendants, it is possible to transmit
+  evidence between the parent nodes. An example of a convergent connection can
+  be seen in \autoref{Convergent2}.
  \figx[0.8]{Convergent2}{An example of convergent connection}
   \item A \textbf{divergent} connection is a parent node connected to two or
-  more children. This kind of connection reprensts that one node affects more
-  than one node. In this kind of connection it is only possible to transmit
-  information between the children if the parent node has evidence. An example of a divergent connection can be seen in \autoref{Divergent2}.
+  more children. This kind of connection represents that one node affects more
+  than two or more nodes. In this kind of connection it is only possible to
+  transmit information between the children if the parent node, \textit{Node1}
+  has evidence. An example of a divergent connection can be seen in
+  \autoref{Divergent2}.
  \figx[0.8]{Divergent2}{An example of a divergent connection}
 \end{itemize}
 
-The independence assumption \citep[p.240]{MIBook} says:
 
-\begin{center}
-\begin{minipage}{0.8\linewidth}
-\textit{Each random variable is conditionally independent of its non-descendants
-given its parents.}
-\end{minipage}
-\end{center}
-
-This means that if the node has few parents, the number of variables that can
-directly affect it are few. It also means that the fewer parents each node has
-the fewer probabilities need to be specified, since all the influence of
-variables that are not descendants of a given variable is given when the value
-of the variables parents are known.
 
 \subsection{Hidden Markov Model}
 
 A belief network can be made to model a dynamic system by using a \textbf{Markov
-chain} to represent a feature at different points in time as random variables.
-By adding observations to the Markov chain, it becomes a \textbf{hidden Markov
-model (HMM)}. If more than one state maps to the same observation it
-becomes partial and if the same state maps to different observations at
-different times it becomes noisy \citep[ch.6.5.2]{MIBook}. A Markov chain and by
-extension an HMM, can be extendeded indefinitely, meaning that a small number
-of parameters can provide an infinite network\citep[ch.6.5.1]{MIBook}. For
-example: A man observes an airplane taking off northbound therefore adding
-evidence at $O_0$, then at $O_1$ he observes that the airplane has turned
-eastward, at $O_2$ he observes that it has turned southward and at $O_3$ he
-sees that it continues south. This allows him to guess the position of the
-plane at $P_4$, see \autoref{HMM}.
- \figx[0.9]{HMM}{A belief network as a hidden Markov model}
+chain} to represent a feature at different points in time as random
+variables. By adding random variables called observation to the
+Markov chain, it becomes a \textbf{hidden Markov model (HMM)}. This is done to
+model how multiple observations allow for a prediction
+\citep[ch.6.5.2]{MIBook}, see \autoref{HMM}.
+\figx[0.9]{HMM}{A belief network as a hidden Markov model}
+
+This way of modelling a system is aided by the independence assumption
+\citep[p.240]{MIBook}, which states:
+ 
+ \begin{center}
+ \begin{minipage}{0.8\linewidth}
+ \say{Each random variable is conditionally independent of its non-descendants
+ given its parents.}
+ \end{minipage}
+ \end{center}
+ 
+For a Markov chain it means that when we want to consider a variable at time
+\textit{t+1}, we only need to also consider the variable at time
+\textit{t}. The same principle applies to an HMM, if the node has few parents,
+the number of variables that it directly affect it are few.\nl
+
+A Markov chain and by extension an HMM, can be extendeded endlessly, meaning
+that a small number of parameters can provide an infinite network
+\citep[ch.6.5.1]{MIBook}. For example: A man observes an airplane taking off
+northbound therefore adding evidence at random variable $O_0$, then at $O_1$ he
+observes that the airplane has turned eastward, at $O_2$ he observes that it
+has turned southward and at $O_3$ he sees that it continues south. This allows
+him to guess the position of the plane at $P_4$, see \autoref{HMM}. 
 
 
 
