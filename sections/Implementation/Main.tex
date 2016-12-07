@@ -1,6 +1,9 @@
 \section{Tasks}
-
-\fix{something}{}
+The developed software is controlled by the execution of a number of
+tasks. On the NXT system a task is simply a collection of code which can be
+executed on a thread. The turret makes use of four central threads:
+\texttt{Main}, \texttt{GetDataAndCalculate}, \texttt{WaitAndFire} and
+\texttt{Tracking}.
 
 \subsection{Main}
 The execution of the program begins in the \textc{Main} thread, which is shown
