@@ -1,15 +1,18 @@
 \chapter{System Description}\label{SystemDescription}
-As a part of this semester project the developed products must take the form of
-embedded systems, which makes use of the techiques taught in the 'Real Time
-Systems (RTS)' course, or the 'Machine Intelligence (MI)' course. In order to
-implement these techniques we will need to gain a deeper understanding of these
-concepts. As such, this chapter will be used to describe what an embedded system
-is, how real-time systems incorporate deadlines and schedules and examine what
-elements from machine intelligence could be used by an autonomous turret.
+As a part of this semesters requirements, the developed product must take the
+form of an embedded systems. In addition, the system must also make use of the
+techiques taught in either the 'Real Time Systems (RTS)' course, or the 'Machine
+Intelligence (MI)' course. As none of the group's participants are partaking in
+the RTS course, this project will be focused on the techniques and models taught in
+the MI course. In order to implement these techniques we will need to gain a
+deeper understanding of these concepts. As such, this chapter will be used to
+describe what an embedded system is, how real-time systems incorporate deadlines
+and schedules and examine what elements from machine intelligence can be used
+by an autonomous turret.
 
 \section{Embedded Systems}
 As explained by the embedded systems manufacturer BarrGroup
-\citep{Barr_Embedded}, an embedded system is: \nl
+\citep{Barr_Embedded}, an embedded system can be defined as: \nl
 
 \begin{center}
 \begin{minipage}{0.8\linewidth}
@@ -28,25 +31,25 @@ of an antilock braking system in a car.}
 % \textit{An  embedded  system  is  nearly  any computing system other than a desktop,
 % laptop, or  mainframe  computer.}\nl
 
-This means that embedded systems cover alot of different types of computers, for example
-the antilock braking system(ABS) in a modern car, the cash registers in retailstores, washing machines, etc.
-The requirements can therefore differ alot between systems, although they do
-share some characteristics \citep[ch.1.1]{vahid1999embedded}:
+This means that embedded systems cover alot of different types of systems, for
+example the antilock braking system (ABS) in a modern car, the cash registers in
+retail stores and washing machines. The requirements can therefore differ alot
+between systems, although they do share some characteristics \citep[ch.1.1]{vahid1999embedded}:
 
 \begin{enumerate}
   \item \textbf{Single-functioned}: Most embedded systems only have a single
   purpose, running the same program over and over again. An example could be a
   washing machine. The computer inside it will always have the same
-  function(control the washing machine), and although it might have a variety of
-  different programs to execute(wool, synthetics, different temperatures) it is
-  still considered single-functioned.
+  function (control the washing machine), and although it might have a variety
+  of different programs to execute (wool, synthetics, different temperatures),
+  it is still considered single-functioned.
   \item \textbf{Tightly constrained}: All systems have some limits, but embedded
   systems are much more tightly constrained when it comes to cost, size,
   performance and power. These are to be understood as a compromise between the
   different aspects, for example it could be impossible to make the embedded
   system smaller without making it more expensive.
   \item \textbf{Reactive and real-time}: Many embedded systems have to react to
-  some kind of external stimuli. If an embedded system has to tak into account
+  some kind of external stimuli. If an embedded system has to take into account
   this external dyniamic information, it is considered a real-time system. We
   will further expand upon what this means in \autoref{rts}.
 \end{enumerate}
