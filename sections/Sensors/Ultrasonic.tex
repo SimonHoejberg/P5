@@ -35,14 +35,14 @@ to gain a deeper understanding of how the sensor operates and what
 problems could occur when using it. As such, the tests will consist of
 clarifying the following points:
 \begin{itemize}
-  \item Where and how is the sensor best placed on the turret?
+  %\item Where and how is the sensor best placed on the turret?
   \item What is the sensors maximum distance?
   \item At what distance is the data no longer accurate?
 \end{itemize}
 
 \subsection{Ultrasonic Sensor Test - Setup}\label{UltraTestSetup}
 The setup for testing the ultrasonic sensor consists of placing the turret on
-the floor along a wall, and pointing towards a target at various distances along
+the floor along a wall, and pointing toward a target at various distances along
 the wall. This wall is marked with a number of lines each representing a
 distance of 10cm from the turret's location. The target for this test is a
 rectangular cardboard cutout, which is used to hold a sheet of coloured paper
@@ -52,13 +52,13 @@ which is folded around it. This setup can be seen in
 \figx[0.1]{SensorUltraSetup}{The test setup for testing the ultrasonic
 distance sensor.}
 
-\subsection{Ultrasonic Sensor Test - With 1 sensor}\label{UltraTestPlacement}
+\subsection{Ultrasonic Sensor Test - 1 Sensor}\label{UltraTestPlacement}
 % The first test consists of determining where on the turret the sensor should be
 % placed. The purpose of this test is to optimize the quality of the data which
 % the sensor collects, and to help determine some design choices for the
 % turret.\nl
 This first test consists of determining the size and shape of the target. This
-test will help improve the quality of the outputs aswell as helping design the
+test will help improve the quality of the outputs as well as helping design the
 target. The test was made in the same way as in \autoref{SensorTest}, the
 only difference was the object itself.\nl
 
@@ -122,18 +122,22 @@ should not be placed close to the ground due to the fact that the reflection of
 the ground corrupted the data. This was not tested, but still has an effect on the
 final design. 
 
-\subsection{Ultrasonic Sensor Test - Distance}
+\subsection{Ultrasonic Sensor Test - 2 Sensors}
+
 The second test on the ultrasonic sensor is designed to determine the accuracy
 of the sensors measurements compared to the actual distance. As such, the test
 was conducted using test setup explained in \autoref{UltraTestSetup} using the
 two ultrasonic sensors. The measurements were done at varying distances with an
-interval of 25cm, and were measured 5 times at each distance. The results from
-this test is presented below in \autoref{table:UltDistTestDat}. The complete
-data sets can be found in \autoref{UltraDistTestData}.
+interval of 25cm, and were measured 8 times at each distance. The results from
+this test is presented below in \autoref{table:UltDistTestData}. 
 
 \dataTable{UltrasonicDistanceTestData}{Average measured distance compared to
 the actual distance.}{UltDistTestData}
-
+\subsection{Conclusion}
+Using the two tests it was concluded that the target needs to be in a horizontal
+alignment and two sensors are better than one. As it can be seen in
+\autoref{table:UltDistTestData} between the two sensors, there was always one
+of the sensors which got some usable data. 
 
 % \subsection{Ultrasonic Sensor Test - Cone of Vision}
 % The third test is intended to determine the sensors cone of vision, that is, how
