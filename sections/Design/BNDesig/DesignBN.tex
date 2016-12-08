@@ -18,7 +18,7 @@ added as an observation as we have not implemented proper scheduling, as such
 the observations cannot be guaranteed to be received at regular
 intervals.}{Hvad synes i?}
 
-\figx{SimplifiedBN}{The model for the belief network}
+\figx[0.8]{SimplifiedBN}{The model for the belief network}
 
 The nodes are, as mentioned in \autoref{LabelBN}, variables and the edges are
 the dependencies. The nodes \texttt{Vector\_0} and \texttt{Vector\_1} are used
@@ -26,12 +26,13 @@ to represent to possible directional vectors the target can have. The edges movi
 from \texttt{Vector\_0} to \texttt{S\_0} and \texttt{S\_1} represent both of
 these nodes are dependant on \texttt{Vector\_0}. Since the sensor nodes are
 comprised of distance, angle and time, we need two of such sets in order to reliably
-determine a direction vector. \texttt{Vector\_1} has edges to \texttt{S\_1},
+determine a vector. \texttt{Vector\_1} has edges to \texttt{S\_1},
 \texttt{S\_2}, this represent that the we use the previous observation to
 determine a new direction vector. The edge going from \texttt{Vector\_0} to
 \texttt{Vector\_1} represent that the previous direction vector can be compare
 the new vector to the old.
 
+\subsection{Domains}
 
 
 
