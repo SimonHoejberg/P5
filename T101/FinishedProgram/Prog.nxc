@@ -5,8 +5,8 @@
 task Track();
 task GetDataAndCalculate();
 task WaitAndFire();
-PosData data[10];
-int dataCounter = 0;
+PosData posData[10];
+int posDataCounter = 0;
 FireData fire;
 bool track = true; //Used to stop the tracking from the other tasks
 bool collecting = true; //Used to stop the collecting of data from the other tasks
@@ -31,16 +31,16 @@ task GetDataAndCalculate(){
         if(blobInCam){
             length = GetDistance();
             if(length != NO_DATA){
-                PosData temp;
-                if(MakePosData(length,GetMotorAngle(),CurrentTick(),temp)){
+                PosData tempPosData;
+                if(MakePosData(length,GetMotorAngle(),CurrentTick(),tempPosData)){
                     PlaySound(SOUND_LOW_BEEP);
-                    data[dataCounter] = temp;
-                    dataCounter++;
+                    posData[posDataCounter] = tempPosData;
+                    posDataCounter++;
                 }
 
-                if(dataCounter == DATASETS_NEEDED_TO_CALCULATE){
+                if(posDataCounter == DATASETS_NEEDED_TO_CALCULATE){
                     track = false;
-                    DirectionVector vector = CalcDirVector(data,dataCounter);
+                    DirectionVector vector = CalcDirVector(posData,posDataCounter);
                     fire = CalcFireData(CalcFuturePos(vector,MILLISECONDS_TO_HIT));
                     StartTask(WaitAndFire);
                 }
@@ -68,8 +68,8 @@ task WaitAndFire(){
     track = true;
     blobInCam = false;
     collecting = true;
-    data =  NULL;
-    dataCounter = 0;
+    posData =  NULL;
+    posDataCounter = 0;
     ResetLibVariables();
     Wait(4000);
     StartTask(Track);
@@ -83,7 +83,7 @@ task Track(){
     int bb[10];
     int br[10];
     int nblobs;
-    int counter = 0;
+    int blobsMissedCounter = 0;
     int oldBlobCenter = 0;
     int blobCenter = 0;
     lib_direction = 0; // [-1]Left, [1]Right, [0]Nothing
@@ -93,14 +93,13 @@ task Track(){
         NXTCam_GetBlobs(CAM_PORT, CAM_ADDR, nblobs, bc, bl, bt, br, bb);
         if(nblobs > 0){
             blobInCam = true;
-            counter = 0;
+            blobsMissedCounter = 0;
             oldBlobCenter = blobCenter;
             blobCenter = (bl[0] + UpperBound(br[0]))/2;
-            int temp = CAM_CENTER - blobCenter;
             int tempSpeed = 0;
             Off(ROTATE_MOTOR);
             if(lib_direction!=0){
-                tempSpeed = GetSpeed(blobCenter + (lib_direction * SECRET_VAR3));
+                tempSpeed = GetSpeed(blobCenter );
                 if(tempSpeed > 0 && lib_direction > 0)
                     OnFwd(ROTATE_MOTOR, tempSpeed);
                 else if(tempSpeed < 0 && lib_direction < 0)
@@ -108,11 +107,11 @@ task Track(){
             }
         }else{
             blobInCam = false;
-            counter++;
-            if(counter == MAX_COUNTER_TO_PURGE_DATA){
-                counter = 0;
-                data =  NULL;
-                dataCounter = 0;
+            blobsMissedCounter++;
+            if(blobsMissedCounter == MAX_COUNTER_TO_PURGE_DATA){
+                blobsMissedCounter = 0;
+                posData =  NULL;
+                posDataCounter = 0;
                 ResetLibVariables();
                 directionCount = 0;
             }

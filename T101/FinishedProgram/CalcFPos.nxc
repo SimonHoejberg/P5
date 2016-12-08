@@ -104,8 +104,8 @@ DirectionVector CalcDirVector(PosData dataArray[],   int length){
 PosData CalcFuturePos(DirectionVector vector, unsigned long time){
    PosData futurePosition;
    float tanInput = 0;
-   futurePosition.xPos = vector.xPos + vector.speedX * time * SECRET_VAR;
-   futurePosition.yPos = vector.yPos + vector.speedY * time * SECRET_VAR;
+   futurePosition.xPos = vector.xPos + vector.speedX * time;
+   futurePosition.yPos = vector.yPos + vector.speedY * time;
    futurePosition.time = CurrentTick() + time;
 
    tanInput = futurePosition.yPos / futurePosition.xPos;
@@ -121,7 +121,7 @@ FireData CalcFireData(PosData futurePos){
    FireData returnData;
    returnData.angleH = futurePos.angle;
    float dist = sqrt(pow(futurePos.xPos,2)+pow(futurePos.yPos,2));
-   returnData.angleV = abs(0.2573*dist - 22.85) * SECRET_VAR2; //Formel baseret på tendenslinje fra testresultater
+   returnData.angleV = abs(0.2573*dist - 22.85); //Formel baseret på tendenslinje fra testresultater
    returnData.timeToHit = futurePos.time - (dist/(MUZZLE_SPEED*cosd(returnData.angleV))); //Formel for tid for y=0
    
    return returnData;
