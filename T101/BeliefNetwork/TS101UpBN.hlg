@@ -1,0 +1,920 @@
+Thu Dec 08 10:18:38 2016
+
+
+Moral links:
+
+
+
+Triangulating prime component with 2 members:
+    Vector_1, A_2
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    D_2, Vector_1
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    T_2, Vector_1
+This component is a clique of cost 12
+
+Triangulating prime component with 2 members:
+    D_0, Vector_0
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    A_0, Vector_0
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    T_0, Vector_0
+This component is a clique of cost 12
+
+Triangulating prime component with 3 members:
+    Vector_1, A_1, Vector_0
+This component is a clique of cost 80
+
+Triangulating prime component with 3 members:
+    Vector_1, Velocity, Vector_0
+This component is a clique of cost 48
+
+Triangulating prime component with 3 members:
+    D_1, Vector_1, Vector_0
+This component is a clique of cost 80
+
+Triangulating prime component with 3 members:
+    T_1, Vector_1, Vector_0
+This component is a clique of cost 48
+
+
+Total cost of triangulation for all prime components is 360
+
+
+Elimination sequence:
+
+    A_2
+    D_2
+    T_2
+    A_1
+    D_1
+    Velocity
+    T_1
+    Vector_1
+    D_0
+    A_0
+    T_0
+    Vector_0
+
+
+Cliques:
+
+Clique 10, 2 members, table size = 12:
+    Vector_0, T_0
+
+Clique 9, 2 members, table size = 20:
+    Vector_0, A_0
+
+Clique 8, 2 members, table size = 20:
+    Vector_0, D_0
+
+Clique 7, 3 members, table size = 48:
+    Vector_0, Vector_1, T_1
+
+Clique 6, 3 members, table size = 48:
+    Vector_0, Vector_1, Velocity
+
+Clique 5, 3 members, table size = 80:
+    Vector_0, Vector_1, D_1
+
+Clique 4, 3 members, table size = 80:
+    Vector_0, Vector_1, A_1
+
+Clique 3, 2 members, table size = 12:
+    Vector_1, T_2
+
+Clique 2, 2 members, table size = 20:
+    Vector_1, D_2
+
+Clique 1, 2 members, table size = 20:
+    Vector_1, A_2
+
+Total clique table size: 360
+
+
+The junction forest:
+
+Creating junction tree with clique 10 as root ...
+
+Cliques 9 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 8 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 7 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 6 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 5 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 4 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 3 and 7 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+Cliques 2 and 3 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+Cliques 1 and 3 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+
+Assignment of potentials to cliques:
+
+    Node T_2 assigned to clique 3
+    Node T_1 assigned to clique 7
+    Node T_0 assigned to clique 10
+    Node D_2 assigned to clique 2
+    Node D_1 assigned to clique 5
+    Node Vector_1 assigned to clique 6
+    Node Velocity assigned to clique 6
+    Node A_2 assigned to clique 1
+    Node A_1 assigned to clique 4
+    Node A_0 assigned to clique 9
+    Node D_0 assigned to clique 8
+    Node Vector_0 assigned to clique 6
+
+
+Checking conditional probability potentials:
+
+    No errors found
+
+
+Beliefs for chance nodes:
+
+    T_2:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    T_1:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    T_0:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    D_2:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    D_1:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    Vector_1:
+	(-2;-2)    0.25
+	(-3;-4)    0.25
+	(-5,-4)    0.25
+	(-8,-7)    0.25
+
+    Velocity:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    A_2:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    A_1:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    A_0:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    D_0:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    Vector_0:
+	(-2;-2)    0.25
+	(-3;-4)    0.25
+	(-5,-4)    0.25
+	(-8,-7)    0.25
+Thu Dec 08 10:21:25 2016
+
+
+Moral links:
+
+
+
+Triangulating prime component with 2 members:
+    Vector_1, A_2
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    D_2, Vector_1
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    T_2, Vector_1
+This component is a clique of cost 12
+
+Triangulating prime component with 2 members:
+    D_0, Vector_0
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    A_0, Vector_0
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    T_0, Vector_0
+This component is a clique of cost 12
+
+Triangulating prime component with 3 members:
+    Vector_1, A_1, Vector_0
+This component is a clique of cost 80
+
+Triangulating prime component with 3 members:
+    Vector_1, Velocity, Vector_0
+This component is a clique of cost 48
+
+Triangulating prime component with 3 members:
+    D_1, Vector_1, Vector_0
+This component is a clique of cost 80
+
+Triangulating prime component with 3 members:
+    T_1, Vector_1, Vector_0
+This component is a clique of cost 48
+
+
+Total cost of triangulation for all prime components is 360
+
+
+Elimination sequence:
+
+    A_2
+    D_2
+    T_2
+    A_1
+    D_1
+    Velocity
+    T_1
+    Vector_1
+    D_0
+    A_0
+    T_0
+    Vector_0
+
+
+Cliques:
+
+Clique 10, 2 members, table size = 12:
+    Vector_0, T_0
+
+Clique 9, 2 members, table size = 20:
+    Vector_0, A_0
+
+Clique 8, 2 members, table size = 20:
+    Vector_0, D_0
+
+Clique 7, 3 members, table size = 48:
+    Vector_0, Vector_1, T_1
+
+Clique 6, 3 members, table size = 48:
+    Vector_0, Vector_1, Velocity
+
+Clique 5, 3 members, table size = 80:
+    Vector_0, Vector_1, D_1
+
+Clique 4, 3 members, table size = 80:
+    Vector_0, Vector_1, A_1
+
+Clique 3, 2 members, table size = 12:
+    Vector_1, T_2
+
+Clique 2, 2 members, table size = 20:
+    Vector_1, D_2
+
+Clique 1, 2 members, table size = 20:
+    Vector_1, A_2
+
+Total clique table size: 360
+
+
+The junction forest:
+
+Creating junction tree with clique 10 as root ...
+
+Cliques 9 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 8 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 7 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 6 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 5 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 4 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 3 and 7 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+Cliques 2 and 3 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+Cliques 1 and 3 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+
+Assignment of potentials to cliques:
+
+    Node T_2 assigned to clique 3
+    Node T_1 assigned to clique 7
+    Node T_0 assigned to clique 10
+    Node D_2 assigned to clique 2
+    Node D_1 assigned to clique 5
+    Node Vector_1 assigned to clique 6
+    Node Velocity assigned to clique 6
+    Node A_2 assigned to clique 1
+    Node A_1 assigned to clique 4
+    Node A_0 assigned to clique 9
+    Node D_0 assigned to clique 8
+    Node Vector_0 assigned to clique 6
+
+
+Checking conditional probability potentials:
+
+    No errors found
+
+
+Beliefs for chance nodes:
+
+    T_2:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    T_1:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    T_0:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    D_2:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    D_1:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    Vector_1:
+	(-2;-2)    0.25
+	(-3;-4)    0.25
+	(-5,-4)    0.25
+	(-8,-7)    0.25
+
+    Velocity:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    A_2:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    A_1:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    A_0:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    D_0:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    Vector_0:
+	(-2;-2)    0.25
+	(-3;-4)    0.25
+	(-5,-4)    0.25
+	(-8,-7)    0.25
+Thu Dec 08 10:22:54 2016
+
+
+Moral links:
+
+
+
+Triangulating prime component with 2 members:
+    Vector_1, A_2
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    D_2, Vector_1
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    T_2, Vector_1
+This component is a clique of cost 12
+
+Triangulating prime component with 2 members:
+    D_0, Vector_0
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    A_0, Vector_0
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    T_0, Vector_0
+This component is a clique of cost 12
+
+Triangulating prime component with 3 members:
+    Vector_1, A_1, Vector_0
+This component is a clique of cost 80
+
+Triangulating prime component with 3 members:
+    Vector_1, Velocity, Vector_0
+This component is a clique of cost 48
+
+Triangulating prime component with 3 members:
+    D_1, Vector_1, Vector_0
+This component is a clique of cost 80
+
+Triangulating prime component with 3 members:
+    T_1, Vector_1, Vector_0
+This component is a clique of cost 48
+
+
+Total cost of triangulation for all prime components is 360
+
+
+Elimination sequence:
+
+    A_2
+    D_2
+    T_2
+    A_1
+    D_1
+    Velocity
+    T_1
+    Vector_1
+    D_0
+    A_0
+    T_0
+    Vector_0
+
+
+Cliques:
+
+Clique 10, 2 members, table size = 12:
+    Vector_0, T_0
+
+Clique 9, 2 members, table size = 20:
+    Vector_0, A_0
+
+Clique 8, 2 members, table size = 20:
+    Vector_0, D_0
+
+Clique 7, 3 members, table size = 48:
+    Vector_0, Vector_1, T_1
+
+Clique 6, 3 members, table size = 48:
+    Vector_0, Vector_1, Velocity
+
+Clique 5, 3 members, table size = 80:
+    Vector_0, Vector_1, D_1
+
+Clique 4, 3 members, table size = 80:
+    Vector_0, Vector_1, A_1
+
+Clique 3, 2 members, table size = 12:
+    Vector_1, T_2
+
+Clique 2, 2 members, table size = 20:
+    Vector_1, D_2
+
+Clique 1, 2 members, table size = 20:
+    Vector_1, A_2
+
+Total clique table size: 360
+
+
+The junction forest:
+
+Creating junction tree with clique 10 as root ...
+
+Cliques 9 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 8 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 7 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 6 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 5 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 4 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 3 and 7 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+Cliques 2 and 3 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+Cliques 1 and 3 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+
+Assignment of potentials to cliques:
+
+    Node T_2 assigned to clique 3
+    Node T_1 assigned to clique 7
+    Node T_0 assigned to clique 10
+    Node D_2 assigned to clique 2
+    Node D_1 assigned to clique 5
+    Node Vector_1 assigned to clique 6
+    Node Velocity assigned to clique 6
+    Node A_2 assigned to clique 1
+    Node A_1 assigned to clique 4
+    Node A_0 assigned to clique 9
+    Node D_0 assigned to clique 8
+    Node Vector_0 assigned to clique 6
+
+
+Checking conditional probability potentials:
+
+    No errors found
+
+
+Beliefs for chance nodes:
+
+    T_2:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    T_1:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    T_0:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    D_2:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    D_1:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    Vector_1:
+	(-2;-2)    0.25
+	(-3;-4)    0.25
+	(-5,-4)    0.25
+	(-8,-7)    0.25
+
+    Velocity:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    A_2:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    A_1:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    A_0:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    D_0:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    Vector_0:
+	(-2;-2)    0.25
+	(-3;-4)    0.25
+	(-5,-4)    0.25
+	(-8,-7)    0.25
+Thu Dec 08 10:22:56 2016
+
+
+Moral links:
+
+
+
+Triangulating prime component with 2 members:
+    Vector_1, A_2
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    D_2, Vector_1
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    T_2, Vector_1
+This component is a clique of cost 12
+
+Triangulating prime component with 2 members:
+    D_0, Vector_0
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    A_0, Vector_0
+This component is a clique of cost 20
+
+Triangulating prime component with 2 members:
+    T_0, Vector_0
+This component is a clique of cost 12
+
+Triangulating prime component with 3 members:
+    Vector_1, A_1, Vector_0
+This component is a clique of cost 80
+
+Triangulating prime component with 3 members:
+    Vector_1, Velocity, Vector_0
+This component is a clique of cost 48
+
+Triangulating prime component with 3 members:
+    D_1, Vector_1, Vector_0
+This component is a clique of cost 80
+
+Triangulating prime component with 3 members:
+    T_1, Vector_1, Vector_0
+This component is a clique of cost 48
+
+
+Total cost of triangulation for all prime components is 360
+
+
+Elimination sequence:
+
+    A_2
+    D_2
+    T_2
+    A_1
+    D_1
+    Velocity
+    T_1
+    Vector_1
+    D_0
+    A_0
+    T_0
+    Vector_0
+
+
+Cliques:
+
+Clique 10, 2 members, table size = 12:
+    Vector_0, T_0
+
+Clique 9, 2 members, table size = 20:
+    Vector_0, A_0
+
+Clique 8, 2 members, table size = 20:
+    Vector_0, D_0
+
+Clique 7, 3 members, table size = 48:
+    Vector_0, Vector_1, T_1
+
+Clique 6, 3 members, table size = 48:
+    Vector_0, Vector_1, Velocity
+
+Clique 5, 3 members, table size = 80:
+    Vector_0, Vector_1, D_1
+
+Clique 4, 3 members, table size = 80:
+    Vector_0, Vector_1, A_1
+
+Clique 3, 2 members, table size = 12:
+    Vector_1, T_2
+
+Clique 2, 2 members, table size = 20:
+    Vector_1, D_2
+
+Clique 1, 2 members, table size = 20:
+    Vector_1, A_2
+
+Total clique table size: 360
+
+
+The junction forest:
+
+Creating junction tree with clique 10 as root ...
+
+Cliques 9 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 8 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 7 and 10 linked, separator has 1 member and table size = 4:
+    Vector_0
+
+Cliques 6 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 5 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 4 and 7 linked, separator has 2 members and table size = 16:
+    Vector_0, Vector_1
+
+Cliques 3 and 7 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+Cliques 2 and 3 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+Cliques 1 and 3 linked, separator has 1 member and table size = 4:
+    Vector_1
+
+
+Assignment of potentials to cliques:
+
+    Node T_2 assigned to clique 3
+    Node T_1 assigned to clique 7
+    Node T_0 assigned to clique 10
+    Node D_2 assigned to clique 2
+    Node D_1 assigned to clique 5
+    Node Vector_1 assigned to clique 6
+    Node Velocity assigned to clique 6
+    Node A_2 assigned to clique 1
+    Node A_1 assigned to clique 4
+    Node A_0 assigned to clique 9
+    Node D_0 assigned to clique 8
+    Node Vector_0 assigned to clique 6
+
+
+Checking conditional probability potentials:
+
+    No errors found
+
+
+Beliefs for chance nodes:
+
+    T_2:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    T_1:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    T_0:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    D_2:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    D_1:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    Vector_1:
+	(-2;-2)    0.25
+	(-3;-4)    0.25
+	(-5,-4)    0.25
+	(-8,-7)    0.25
+
+    Velocity:
+	state0   0.333333
+	state1   0.333333
+	state2   0.333333
+
+    A_2:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    A_1:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    A_0:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    D_0:
+	state0   0.2
+	state1   0.2
+	state2   0.2
+	state3   0.2
+	state4   0.2
+
+    Vector_0:
+	(-2;-2)    0.25
+	(-3;-4)    0.25
+	(-5,-4)    0.25
+	(-8,-7)    0.25
