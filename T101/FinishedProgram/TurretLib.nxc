@@ -80,7 +80,7 @@ int GetAngle(int distance){
 
 float GetSpeed(int bcenter){
     int length = bcenter - CAM_CENTER;
-    float lib_speed = sind(1.25*length)*100;
+    float lib_speed = sind(1.25*length)* MAX_HORIZONAL_SPEED;
     return lib_speed;
 }
 

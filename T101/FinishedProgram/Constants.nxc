@@ -16,6 +16,7 @@ const byte FIRE_MOTOR = OUT_B;
 const int CAM_CENTER = 72;
 const int ANGLE_OFFSET_V = 4;
 const int MAX_DISTANCE = 230;
+const int MAX_HORIZONAL_SPEED = 60;
 
 //CalcFPos
 const float MUZZLE_SPEED = 4.82; //meters per second
