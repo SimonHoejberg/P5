@@ -9,12 +9,12 @@ executed on a thread. The turret makes use of four central threads:
 The execution of the program begins in the \textc{Main} thread, which is shown
 in \autoref{MainThread}. First, the library method
 \textc{PosRegEnable} is used to enable the motors ability to set
-an absolute position using a PID controller. This is used to allow the turret to set its angle instead of simply turning on/off the motor.
-The \textc{SetMotorRegulationTime} method is used to determine the
-time in which the motor should regulate its angle\fix{}{why 10}. This allows the
-turret to move to the target angle in a single \fix{swift motion, and then make
-a hard break} when the target angle has been reached. This hard break can cause
-stress to the lego, but is not a problem in the current setup.
+an absolute position using a PID controller. This is used to allow the turret to
+set its angle instead of simply turning on/off the motor.
+The \textc{SetMotorRegulationTime} method determines the interval between when
+the motor should attempt to regulate its angle to the respective value. This
+value is set to 10 milliseconds, as we have observed that higher values result
+in the turret being incapable of standing still.
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Entry point for the program execution., label = MainThread] 
