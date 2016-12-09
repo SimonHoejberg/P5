@@ -13,15 +13,16 @@ const byte SENSOR_RIGHT = S2;
 const byte ANGLE_MOTOR = OUT_C;
 const byte ROTATE_MOTOR = OUT_A;
 const byte FIRE_MOTOR = OUT_B;
-const int CAM_HIGHT = 144;
-const int CAM_WIDTH = 88;
-const int CAM_CENTER = 44;
+const int CAM_HIGHT = 88;
+const int CAM_WIDTH = 144;
+const int CAM_CENTER = 72;
 const int ANGLE_OFFSET_V = 4;
 const int MAX_DISTANCE = 230;
 const int NO_DIRECTION = 0;
 const int LEFT_DIRECTION = -1;
 const int RIGHT_DIRECTION = 1;
 const int MAX_HORIZONAL_SPEED = 60;
+const float MODIFIER = 90/CAM_CENTER;
 
 //CalcFPos
 const float MUZZLE_SPEED = 4.82; //meters per second

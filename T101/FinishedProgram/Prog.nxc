@@ -42,7 +42,9 @@ task GetDataAndCalculate(){
 
                 if(posDataCounter == DATASETS_NEEDED_TO_CALCULATE){
                     //Stops tracking and calculate the vectors and fire data
-                    track = false;
+                    track = false;     //Break the track loop
+                    Off(ROTATE_MOTOR); //Stop the motor
+                    StopTask(Track);   //Kill the track task to stop it from controlling the rotate motor
                     DirectionVector vector = CalcDirVector(posData,posDataCounter);
                     fire = CalcFireData(CalcFuturePos(vector,MILLISECONDS_TO_HIT));
                     StartTask(WaitAndFire);
