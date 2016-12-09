@@ -67,9 +67,9 @@ while(track){
 After recieving data from the camera, the turret attempts to track the target by
 rotating at a speed matching the targets movement. This is shown in
 \autoref{DetSpeed}. This operation can first be done after the turret has
-determined in which direction the target is moving. \fix{Assuming}{assuming
-what} this is the case (\textbf{lib\_direction!=0}), the \textc{GetSpeed} function is called in order
-to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
+determined in which direction the target is moving. If the direction is
+determined (\textbf{lib\_direction!=0}), the \textc{GetSpeed} function
+is called in order to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
 On \textbf{lines 3-6}, if the determined rotation speed matches the direction in
 which the target is moving, the motor is set to rotate at this speed.\nl
 
@@ -161,10 +161,16 @@ Aside from determining the direction, the turret also needs to determine at
 which speed it should rotate to match the target. This is calculated in the
 \textc{GetSpeed method}, as shown in \autoref{GetZeSpeed}. This method
 takes the pixel count between the center of the camera and the blob, and outputs
-the resulting rotating speed. The \fix{sine function maps}{how?} the 144 pixel
-width of the camera to 90 degrees for a sine function. This way the speed should follow a
-sine curve, and as such should get slower the closer to the target, and faster
-the farther away.\nl
+the resulting rotating speed between 1 and \texttt{MaxSpeed}. The sine function
+maps the 144 pixel width of the camera to 90 degrees for a sine function. This is shown below in
+\autoref{sineF}.
+
+\begin{equation}\label{sineF}
+speed = sin(\frac{90}{PixelWidth})*MaxSpeed
+\end{equation} 
+
+By using this approach, the speed should follow a sine curve, and as such
+should get slower the closer to the target, and faster the farther away.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Determine speed to rotate using a sine function, label = GetZeSpeed] 

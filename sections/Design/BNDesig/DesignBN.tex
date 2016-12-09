@@ -6,18 +6,24 @@ the target is travelling at. This can then be used to hit the target at a
 specified point in time. \fix{This chapter will be used to describe the network
 and explain the variables and their domain.}{}
 
+\fix{}{Do we need to talk about creating our own version of
+hugin? --> i would say it is outside the scope of the project}
+\fix{}{Do we need to discuss a simpler model? --> maybe able to run on NXT but
+must be very simple}
+
 \section{Network Structure}
-The network, see \autoref{SimplifiedBN}, displays a simplified version
-of the network. In this network the sensor observations, \texttt{S\_0} to
-\texttt{S\_2}, are simplified representations of the 3 sensor observations
-distance, angle and time. Worth noting is that the observations does not occur
-on fixed intervals, but are instead provided once the NXT has found acceptable
-data. This creates an unpredictable behavior regarding when the observations
-occur, and thus we need to contain a time-variable in our observation feature.
-Since the actual model receives time in the observations it cannot be
-considered a true HMM, since in an HMM time is considered as an implicit part
-of the variables, in the sense that \texttt{S\_0} would be taken at time 0
-while \texttt{S\_2} would be at time 2.
+\fix{The network}{change to non-simple so we can better explain }, see
+\autoref{SimplifiedBN}, displays a simplified version of the network. In this
+network the sensor observations, \texttt{S\_0} to \texttt{S\_2}, are simplified
+representations of the 3 sensor observations distance, angle and time. Worth
+noting is that the observations does not occur on fixed intervals, but are
+instead provided once the NXT has found acceptable data. This creates an
+unpredictable behavior regarding when the observations occur, and thus we need
+to contain a time-variable in our observation feature. Since the actual model
+receives time in the observations it cannot be considered a true HMM, since in
+an HMM time is considered as an implicit part of the variables, in the sense
+that \texttt{S\_0} would be taken at time 0 while \texttt{S\_2} would be at
+time 2.
 
 \figx[0.8]{SimplifiedBN}{The model for the belief network}
 
@@ -33,111 +39,3 @@ determine a new direction vector. The edge going from \texttt{Vector\_0} to
 \texttt{Vector\_1} represents that the previous direction vector can be compared
 the new vector to the old. This vector can then be used in conjunction with the
 last observation set to find the targets position at a given time.
-
-\section{Domains and Probability}
-
-The model is designed to be used to predict \texttt{Vector\_1}, to get an
-accurate read on \texttt{Vector\_1} we need to model how the vectors relate to
-the observations and each other, as well as what their domains are. There are
-however limitations we need to consider. The model is constructed using Hugin
-Lite \citep{Hugin}, this allows the model to be constructed easily but causes
-limits the total number of nodes to 50 and the number of cases to 500, an
-example of a case is a specific \texttt{S\_0} given a specific
-\texttt{Vector\_0}. This limitation causes problems for how precise the model
-can be. This can be especially problematic when we would like to use a variable
-to represent the distance between the target and turret. To work around these
-limits we have:
-
-\begin{itemize}
-  \item Partioned the domain into intervals.
-  \item Removed the intervals that were deemed to very unlikely to ever be used.
-\end{itemize}
-
-Partioning the domain into intervals means the model loses some precision, but
-it allows us to work around the limit of 500 cases. This means that instead of
-having only a few nodes with a continues set of variables we can consider
-multiple types, which can potentially make up for the loss of accuracy.\nl
-
-By removing certain intervals, such as distance values below 50 cm, we can 
-reduce the number of cases.
-
-\fix{}{Do we need to talk about creating our own version of hugin? --> i
-would say it is outside the scope of the project}
-\fix{}{Do we need to discuss a simpler model? --> maybe able to run on NXT but
-must be very simple}
-
-
-
--velocity - maaske fjernes
--vector - This variable contains the actual vector for the target at time S\_0.t
-. This value directly influences our sensor readings as can be seen in the edges
-going from the vector nodes to two corresponding sensor observations(Vector\_0
-to S\_0 and S\_1). This feature contains two variables, x\_speed and y\_speed
-detailing the direction and speed of the target on each axis. In order to
-calculate a speed, it needs two observations over time which is why a vector
-node is linked to two observations
-
-
-The S node contains all our sensor input information, and each S node
-corresponds to a observation at a specific point in time. The S node contains
-the 3 variables given to us by the NXT in order to calculate the vectors we
-need. The values contained herein are as follows:
-\begin{itemize}
-\item distance - This variable contains the value from our ultrasonic sensor reading 
-\item angle - This value is given from the NXT, calculated from the angle of the motor powering the horizontal platform. 
-\item time - the NXT also provides a timestamp to the observation. 
-\end{itemize}
-The distance and angle variable can be used to calculate a position relative to our turret. These variables can then be used in combination with the time of the observation to compare two vectors in order to calculate a trajectory and speed.
-The network is constructed as a HMM. 
-
-
-Worth noting is that the observations does not occur on fixed intervals, but
-are instead provided once the NXT has found good data. This creates an
-unpredictable behavior regarding when the observations occur, and thus we need
-to contain a time-variable in our observation feature
-
-
-
-% -Problems with the model:
-% tjek - problemer med hugin og deres max number of states
-% problemer med precision da der bliver lavet grove tilnærmelser
-% begrænset antal af vektorer
-
-
-\section{Partitioning the Domains}
-
-\subsection{Constructing Probability Tables}
-
-
-\subsection{inference}
-Since a bayesian network has been constructed we can abuse the property of
-inference to reduce the size of our probability table. Instead of a joint
-probability-table, it is sufficient instead to just look at the tables we are
-interested in. Since our evidence will be inserted at our S-node and the
-value we are looking for is contained in the node Vector it is thus enough to
-provide the conditional probability table P(Vector\_0|S\_0,S\_1). This reduces
-the overall statespace of our model
-
-\subsection{Using the Network}
-
-
-
-The domains
-limitations on the domains
-
-
--Problems with the model:
-problemer med hugin og deres max number of states
-problemer med precision da der bliver lavet grove tilnaermelser
-begraenset antal af vektorer
-
-
-% \subsection{features}
-% -velocity - måske fjernes
-% -vector - This variable contains the actual vector for the target at time
-% S_0.t . This value directly influences our sensor readings as can be seen in
-% the edges going from the vector nodes to two corresponding sensor
-% observations(Vector_0 to S_0 and S_1). This feature contains two variables,
-% x_speed and y_speed detailing the direction and speed of the target on each
-% axis. In order to calculate a speed, it needs two observations over time
-% which is why a vector node is linked to two observations
