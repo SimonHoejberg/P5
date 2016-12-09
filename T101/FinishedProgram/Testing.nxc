@@ -153,7 +153,18 @@ bool GetSpeedTest(int bcenter, int expected){
 
 task main(){
   PosData pos;
-  CalcDirVectorTest();
+  PosData pos2;
+  MakePosData(50,-15, 0, pos);
+  MakePosData(75, 0, 1000, pos2);
+
+  PosData posA[2];
+  posA[0] = pos;
+  posA[1] = pos2;
+  DirectionVector dirVec = CalcDirVector(posA, 2);
+  
+  TextOut(0, LCD_LINE1, NumToStr(dirVec.xPos)+":"+NumToStr(dirVec.yPos));
+  TextOut(0, LCD_LINE2, NumToStr(dirVec.speedX)+":"+NumToStr(dirVec.speedY));
+  //CalcDirVectorTest();
   /*
   if(UpperBoundTest(130, 130)){
     TextOut(0, LCD_LINE1, "true");
