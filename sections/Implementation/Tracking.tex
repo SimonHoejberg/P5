@@ -67,9 +67,9 @@ while(track){
 After recieving data from the camera, the turret attempts to track the target by
 rotating at a speed matching the targets movement. This is shown in
 \autoref{DetSpeed}. This operation can first be done after the turret has
-determined in which direction the target is moving. \fix{Assuming}{assuming
-what} this is the case (\textbf{lib\_direction!=0}), the \textc{GetSpeed} function is called in order
-to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
+determined in which direction the target is moving. If the direction is
+determined (\textbf{lib\_direction!=0}), the \textc{GetSpeed} function
+is called in order to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
 On \textbf{lines 3-6}, if the determined rotation speed matches the direction in
 which the target is moving, the motor is set to rotate at this speed.\nl
 
