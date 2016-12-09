@@ -11,6 +11,7 @@ FireData fire;
 bool track = true; //Used to stop the tracking from the other tasks
 bool collecting = true; //Used to stop the collecting of data from the other tasks
 bool blobInCam = false; //Used to tell when the ultra sonic sensor should measure distance
+bool alreadyFired = false;
 
 task main(){
     PosRegEnable(ROTATE_MOTOR);
@@ -56,10 +57,10 @@ task WaitAndFire(){
     Off(ROTATE_MOTOR);
     int angleH = fire.angleH;
     RotateH(angleH);
-    Wait(150);
     Angle(fire.angleV);
     while(true){
-        if(CurrentTick() >= fire.timeToHit){
+        if(CurrentTick() >= fire.timeToHit && !alreadyFired){
+            alreadyFired = true;
             Fire();
             break;
         }
@@ -71,6 +72,7 @@ task WaitAndFire(){
     posData =  NULL;
     posDataCounter = 0;
     ResetLibVariables();
+    alreadyFired = false;
     Wait(4000);
     StartTask(Track);
     StartTask(GetDataAndCalculate);
