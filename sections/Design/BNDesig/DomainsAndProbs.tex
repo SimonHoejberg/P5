@@ -1,0 +1,117 @@
+\section{Domains and Probability}
+
+The model is designed to be used to predict \texttt{Vector\_1}, to get an
+accurate read on \texttt{Vector\_1} we need to model how the vectors relate to
+the observations and each other, as well as what their domains are. There are
+however limitations we need to consider. The model is constructed using Hugin
+Lite \citep{Hugin}, this allows the model to be constructed easily but limits the total number of nodes to 50 and the number of cases to 500, an
+example of a case is a specific \texttt{S\_0} given a specific
+\texttt{Vector\_0}. This limitation causes problems for how precise the model
+can be. This can be especially problematic when we would like to use a variable
+to represent the distance between the target and turret. To work around these
+limits we have:
+
+\begin{itemize}
+  \item Partitioned the domain into intervals.
+  \item Removed the intervals that were deemed very unlikely to ever be used.
+\end{itemize}
+
+Partitioning the domain into intervals means the model loses some precision, but
+it allows us to work around the limit of 500 cases. This means that instead of
+having only a few nodes with a continuous set of variables we can consider
+additional variables, which can potentially make up for the loss of
+accuracy.
+By removing certain intervals, such as distance values below 50 cm, we can 
+reduce the number of cases.\nl
+
+Most of the domains are easy to determine. The domains for each of the sensors
+are determined by what they can output. For instance, the domain for distance
+needs to between 0 and 255, as this is what the ultrasound sensor can sense. The
+domain for angle is likewise determined by how far the turret can turn, 180
+degrees. The domain for time is the difference in time between the
+first observation and subsequent observations. By determining the domain
+this way, we can reduce the available domain to a more manageable size. \fix{The
+domains for velocity is set to be three seperate speeds, 30cm/s, 36cm/s and
+42cm/s}{Is velocity used as a node, and are these the correct speeds?}. The
+domain for the vectors is a bit more difficult to determine. \fix{In order to
+determine this domain we have conducted a tests where the vectors and the data
+used were measured.}{Perform tests to determine vectors and their likely hoods
+as well as all the other chances} By determining the vectors this way, along
+with gathering the other data, get a rough estimate of the domain and construct
+the probability tables for the other nodes.
+
+\subsection{Constructing the Probability Tables}
+
+
+% -velocity - maaske fjernes
+% -vector - This variable contains the actual vector for the target at time S\_0.t
+% . This value directly influences our sensor readings as can be seen in the edges
+% going from the vector nodes to two corresponding sensor observations(Vector\_0
+% to S\_0 and S\_1). This feature contains two variables, x\_speed and y\_speed
+% detailing the direction and speed of the target on each axis. In order to
+% calculate a speed, it needs two observations over time which is why a vector
+% node is linked to two observations
+% 
+% 
+% The S node contains all our sensor input information, and each S node
+% corresponds to a observation at a specific point in time. The S node contains
+% the 3 variables given to us by the NXT in order to calculate the vectors we
+% need. The values contained herein are as follows:
+% \begin{itemize}
+% \item distance - This variable contains the value from our ultrasonic sensor reading 
+% \item angle - This value is given from the NXT, calculated from the angle of the motor powering the horizontal platform. 
+% \item time - the NXT also provides a timestamp to the observation. 
+% \end{itemize}
+% The distance and angle variable can be used to calculate a position relative to our turret. These variables can then be used in combination with the time of the observation to compare two vectors in order to calculate a trajectory and speed.
+% The network is constructed as a HMM. 
+% 
+% 
+% Worth noting is that the observations does not occur on fixed intervals, but
+% are instead provided once the NXT has found good data. This creates an
+% unpredictable behavior regarding when the observations occur, and thus we need
+% to contain a time-variable in our observation feature
+
+
+
+% -Problems with the model:
+% tjek - problemer med hugin og deres max number of states
+% problemer med precision da der bliver lavet grove tilnærmelser
+% begrænset antal af vektorer
+
+
+%\section{Partitioning the Domains}
+
+
+
+\subsection{inference}
+Since a bayesian network has been constructed we can abuse the property of
+inference to reduce the size of our probability table. Instead of a joint
+probability-table, it is sufficient instead to just look at the tables we are
+interested in. Since our evidence will be inserted at our S-node and the
+value we are looking for is contained in the node Vector it is thus enough to
+provide the conditional probability table P(Vector\_0|S\_0,S\_1). This reduces
+the overall statespace of our model
+
+\subsection{Using the Network}
+
+
+
+The domains
+limitations on the domains
+
+
+-Problems with the model:
+problemer med hugin og deres max number of states
+problemer med precision da der bliver lavet grove tilnaermelser
+begraenset antal af vektorer
+
+
+% \subsection{features}
+% -velocity - måske fjernes
+% -vector - This variable contains the actual vector for the target at time
+% S_0.t . This value directly influences our sensor readings as can be seen in
+% the edges going from the vector nodes to two corresponding sensor
+% observations(Vector_0 to S_0 and S_1). This feature contains two variables,
+% x_speed and y_speed detailing the direction and speed of the target on each
+% axis. In order to calculate a speed, it needs two observations over time
+% which is why a vector node is linked to two observations
