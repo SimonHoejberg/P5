@@ -63,14 +63,16 @@ for what distance is accepted. When reading from the sensor, if a target is not
 registered, the sensor will return 255, which is the maximum value. As such,
 \textc{MAX\_DISTANCE} is a value which is less than 255 to make sure that
 useless data is not used. If the left sensors reading is accepted, the right
-sensor is ignored. If no valid reading is found, the method returns -1, which
-indicates an error.\nl
+sensor is ignored. This approach is chosen as both sensors seldom get data at
+the same time, and because the left sensor has been observed to be more
+accurate. If no valid reading is found, the method returns -1, which indicates
+an error.\nl
 
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = CheckLength method which chooses the best
-\fix{input distance}{Filters out invalid readings?!Could be AVG?}., label =
-CheckLengthEx] 
-int CheckLength(int right, int left){ if(left < MAX_DISTANCE){
+\begin{lstlisting}[caption = CheckLength method which chooses the best input distance., label = CheckLengthEx] 
+int CheckLength(int right, int left)
+{ 
+if(left < MAX_DISTANCE){
         return left;
     }
     else if(right < MAX_DISTANCE){
