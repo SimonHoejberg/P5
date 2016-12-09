@@ -1,32 +1,20 @@
 #include "CalcFPos.nxc"
 bool loaded = false;
 unsigned long currentTime = 0;
-int lib_direction = 0;
+int lib_direction = NO_DIRECTION;
 
 float GetMotorAngle(){
-    return MotorRotationCount(ROTATE_MOTOR)*0.73;
-}
-
-void TurnTurret(float angle){
-    RotateMotor(ROTATE_MOTOR,25,angle*1.375);
-}
-
-void Left(int power, int angle){
-    RotateMotor(ROTATE_MOTOR, power, angle);
-}
-
-void Right(int power, int angle){
-    RotateMotor(ROTATE_MOTOR, power, angle);
+    return MotorRotationCount(ROTATE_MOTOR)*0.73;  //Returns how much the turret has turned in degrees
 }
 
 void Angle(int angle){
     int pos = (5 * angle)-ANGLE_OFFSET_V;
-    PosRegSetAngle(ANGLE_MOTOR, -pos);
+    PosRegSetAngle(ANGLE_MOTOR, -pos);  //Angles the turrets cannon to a certain angle
 }
 
 void RotateH(float angle){
     float pos = (angle - GetMotorAngle());
-    RotateMotor(ROTATE_MOTOR, 100, pos);
+    RotateMotor(ROTATE_MOTOR, 100, pos);   //Rotates the turret to a certain angle
     
 }
 
@@ -42,13 +30,16 @@ void Fire(){
     RotateMotor(FIRE_MOTOR, 100, 90);
 }
 
-int UpperBound(int normal){
-    if(normal > 148)
-        return 148;
+//If the right coordinat is greater than the width of the camera, return the width.
+int UpperBound(int right){
+    if(right > CAM_WIDTH)
+        return CAM_WIDTH;
     else
-        return normal;
+        return right;
 }
 
+//Returns the right if it has good data or the left is that has good data
+//If both does not contain good data return NO_DATA
 int CheckLength(int right, int left){
     if(left < MAX_DISTANCE){
         return left;
@@ -57,33 +48,30 @@ int CheckLength(int right, int left){
         return right;
     }
     else{
-        return -1;
+        return NO_DATA;
     }
 }
 
+//Returns the length to the target or NO_DATA if the length could not be measured
 int GetDistance(){
-    WriteI2CRegister(SENSOR_RIGHT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    WriteI2CRegister(SENSOR_RIGHT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);  //Turns on the right ultrasonic sensor
     int right = SensorUS(SENSOR_RIGHT);
-    WriteI2CRegister(SENSOR_RIGHT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+    WriteI2CRegister(SENSOR_RIGHT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);         //Turns off the right ultrasonic sensor
 
-    WriteI2CRegister(SENSOR_LEFT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);
+    WriteI2CRegister(SENSOR_LEFT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_CONTINUOUS);   //Turns on the left ultrasonic sensor
     int left = SensorUS(SENSOR_LEFT);
-    WriteI2CRegister(SENSOR_LEFT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);
+    WriteI2CRegister(SENSOR_LEFT, I2C_ADDR_DEFAULT, I2C_REG_CMD, US_CMD_OFF);          //Turns off the left ultrasonic sensor
     return CheckLength(right,left);
 }
 
-int GetAngle(int distance){
-    float dis = distance/100;
-    int res = 6.5593*(dis*dis)-(0.9564*dis)+0.0607;
-    return res;
-}
-
-float GetSpeed(int bcenter){
-    int length = bcenter - CAM_CENTER;
+//Returns the speed based on the blob center
+float GetSpeed(int blobcenter){
+    int length = blobcenter - CAM_CENTER;
     float lib_speed = sind(1.25*length)* MAX_HORIZONAL_SPEED;
     return lib_speed;
 }
 
+//Resets the lib variable such that the turret can be used again
 void ResetLibVariables(){
     calcLib_currentAngle = 0;
     calcLib_currentGroup = 0;
@@ -91,7 +79,7 @@ void ResetLibVariables(){
 
 void DetermineDirection(int center, int oldCenter, int &directionCount){
     //If direction not found. Check if blob-center has moved left/right for directionTreshold * frames
-    if(lib_direction == 0){
+    if(lib_direction == NO_DIRECTION){
         //Check what direction the target is moving
         if(center > oldCenter){
             directionCount++;
@@ -101,10 +89,10 @@ void DetermineDirection(int center, int oldCenter, int &directionCount){
         }
         //Set direction if count above threshold
         if(directionCount > DIRECTION_THRESHOLD){
-            lib_direction = 1;
+            lib_direction = RIGHT_DIRECTION;
         }
         else if(directionCount < DIRECTION_THRESHOLD * (-1)){
-            lib_direction = -1;
+            lib_direction = LEFT_DIRECTION;
         }
     }
 }
