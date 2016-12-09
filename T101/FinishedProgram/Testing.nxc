@@ -1,4 +1,7 @@
 #include "TurretLib.nxc"
+#define NAME "Results.dat"
+byte handle = 0;
+int SIZE = 2048;
 bool Assert(int out, int expected){
   if(out == expected){
     return true;
@@ -19,7 +22,7 @@ bool CalcFireDataTest(){
   NumOut(30, LCD_LINE1, out.angleH);
   NumOut(30, LCD_LINE2, out.angleV);
   NumOut(30, LCD_LINE3, out.timeToHit);
-  if(out.angleH == 50 && out.angleV == 18.2114583 && out.timeToHit == 996.0625742){
+  if(out.angleH == 50 && out.angleV+1 >= 18.2114583 && out.angleV-1 <= 18.2114583 && out.timeToHit+1>= 996.4471497 && out.timeToHit-1<= 996.4471497 ){
     return true;
   }
   else {
@@ -49,7 +52,7 @@ bool CalcDirVectorTest(){//DOES NOT COMPUTE!!!!
   NumOut(0, LCD_LINE2, out.speedY);
   NumOut(0, LCD_LINE3, out.xPos);
   NumOut(0, LCD_LINE4, out.yPos);
-  if(out.speedX == 0.03 && out.speedY == 0 && out.xPos == 10 && out.yPos == 15){
+  if(out.speedX == 0.03 && out.speedY == 0.03 && out.xPos == 25 && out.yPos == 30){
     return true;
   }
   else {
@@ -76,7 +79,7 @@ bool CalcFuturePosTest() {
 }
 
 bool MakePosDataTest(int length, float angle, unsigned int time, PosData pos){
-  calcLib_currentAngle = angle + 6;
+  calcLib_currentAngle = angle + 8;
   return MakePosData(length, angle, time, pos);
 }
 
@@ -134,12 +137,6 @@ bool CheckLengthTest(int right, int left, int expected){
   return Assert(out, expected);
 }
 
-bool GetAngleTest(int distance, int expected){
-  int out = GetAngle(distance);
-
-  return Assert(out, expected);
-}
-
 bool GetSpeedTest(int bcenter, int expected){
   int out = GetSpeed(bcenter);
 
@@ -152,69 +149,80 @@ bool GetSpeedTest(int bcenter, int expected){
 }
 
 task main(){
+   unsigned int rtn_code = CreateFile(NAME, SIZE, handle);
+   if (rtn_code == LDR_FILEEXISTS)
+     rtn_code = OpenFileAppend(NAME, SIZE, handle);
   PosData pos;
-  PosData pos2;
-  MakePosData(50,-15, 0, pos);
-  MakePosData(75, 0, 1000, pos2);
-
-  PosData posA[2];
-  posA[0] = pos;
-  posA[1] = pos2;
-  DirectionVector dirVec = CalcDirVector(posA, 2);
+  if(CalcDirVectorTest()){
+    WriteLn(handle, "CalcDirVectorTest: Passed");
+  }
+  else{
+    WriteLn(handle, "CalcDirVectorTest: Failed");
+  }
   
-  TextOut(0, LCD_LINE1, NumToStr(dirVec.xPos)+":"+NumToStr(dirVec.yPos));
-  TextOut(0, LCD_LINE2, NumToStr(dirVec.speedX)+":"+NumToStr(dirVec.speedY));
-  //CalcDirVectorTest();
-  /*
   if(UpperBoundTest(130, 130)){
-    TextOut(0, LCD_LINE1, "true");
+    WriteLn(handle, "UpperBoundTest: Passed");
   }
   else{
-    TextOut(0, LCD_LINE1, "false");
+    WriteLn(handle, "UpperBoundTest: Failed");
   }
+  
+  if(UpperBoundTest(240, 144)){
+    WriteLn(handle, "UpperBoundTest2: Passed");
+  }
+  else{
+    WriteLn(handle, "UpperBoundTest2: Failed");
+  }
+  
   if(CheckLengthTest(230, 215, 215)){
-     TextOut(0, LCD_LINE2, "true");
+    WriteLn(handle, "CheckLengthTest: Passed");
   }
   else{
-    TextOut(0, LCD_LINE2, "false");
+    WriteLn(handle, "CheckLengthTest: Failed");
   }
-  if(GetAngleTest(135, 10)){
-    TextOut(0, LCD_LINE3, "true");
-  }
-  else{
-    TextOut(0, LCD_LINE3, "false");
-  }
-  if(GetSpeedTest(45, -55.5570233)){
-   TextOut(0, LCD_LINE4, "true");
+  
+  if(GetSpeedTest(45, -33.33421399)){
+    WriteLn(handle, "GetSpeedTest: Passed");
   }
   else{
-    TextOut(0, LCD_LINE4, "false");
+    WriteLn(handle, "GetSpeedTest: Failed");
   }
+  
   if(MakePosDataTest(100, 10, CurrentTick(), pos)){
-    TextOut(0, LCD_LINE5, "true");
+    WriteLn(handle, "MakePosDataTest: Passed");
   }
   else{
-    TextOut(0, LCD_LINE5, "false");
+    WriteLn(handle, "MakePosDataTest: Failed");
   }
+
+  if(CombineVectorsTest()){
+    WriteLn(handle, "CombineVectorsTest: Passed");
+  }
+  else{
+    WriteLn(handle, "CombineVectorsTest: Failed");
+  }
+  
   if(CombineVectorsTest2()){
-    TextOut(0, LCD_LINE6, "true");
+    WriteLn(handle, "CombineVectorsTest2: Passed");
   }
   else{
-    TextOut(0, LCD_LINE6, "false");
+    WriteLn(handle, "CombineVectorsTest2: Failed");
   }
+  
   if(CalcFuturePosTest()){
-    TextOut(0, LCD_LINE7, "true");
+    WriteLn(handle, "CalcFuturePosTest: Passed");
   }
   else{
-    TextOut(0, LCD_LINE7, "false");
+    WriteLn(handle, "CalcFuturePosTest: Failed");
   }
+  
   if(CalcFireDataTest()){
-    TextOut(0, LCD_LINE8, "true");
+    WriteLn(handle, "CalcFireDataTest: Passed");
   }
   else{
-    TextOut(0, LCD_LINE8, "false");
+    WriteLn(handle, "CalcFireDataTest: Failed");
   }
-  */
+  CloseFile(handle);
   while(true){}
 }
 

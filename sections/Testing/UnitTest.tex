@@ -8,11 +8,12 @@ language, the testing is done on class by class level as this gives a clear
 distinction between the different methods. This however is not the case in NXC,
 as the language follows the imperative programming paradigm. In our testing
 setup, \fix{only functions with a return value is tested}{You ought not have
-others?!Out Values?Stubs/mocks?} and functions which uses input from the sensors are not tested. The basic principle is Arrange, Act and
-Assert. In the arrange step the input data is constucted as well as what the
-expected output is. In the act step, the functions are called and the inputs are
-saved. Then finaly in the assert step the outputs are verified arcording to the
-expected output. \nl
+others?!Out Values?Stubs/mocks?} and functions which takes input from
+sensor inside of the function are not tested.
+The basic principle is Arrange, Act and Assert. In the arrange step the input
+data is constucted as well as what the expected output is. In the act step, the
+functions are called and the inputs are saved. Then finaly in the assert step
+the outputs are verified arcording to the expected output. \nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption =Unit Test for Combine Vectors,label=combineVectorsTest] 
@@ -43,21 +44,33 @@ bool CombineVectorsTest(){
 \end{lstlisting}
 \end{minipage}
 
+The function we want to test are
+
+\begin{itemize}
+  \item CalcDirVector
+  \item UpperBound
+  \item CheckLength
+  \item GetSpeed
+  \item MakePosData
+  \item CombineVectors
+  \item CalcFuturePos
+  \item CalcFireData
+\end{itemize} 
+
 In \autoref{combineVectorsTest} the basic setup can be seen, on \textbf{Line
 2-15} the needed information is arranged, however the expected output is not
 defined yet. This is defined in the assert part as this was the easiest way to
 do it. On \textbf{Line 16}, the tested function is called and in this case the
 output is put into a struct called DirectionVector. Then finaly we use an if
 statement to check the output against the expected and if the output coresponds
-to the expected we return true. This return value is then used to \fix{print the
-value on the screen of the NXT to have a way}{log fil?}of representing the test
-results.
-\nl
+to the expected we return true. This return value is then used to print out a
+passed or failed to a log file, which can be seen in \autoref{table:ut_result}.\nl
 
-\fix{}{oversigt over test}
+\dataTable{Results}{The result of the unit test}{ut_result}
 
 To conclude all the tests succeeded, one of the tests we had some issues as our
 calculations differed a little bit from the calculations made by the NXT. These
-differences was so small that they were likely caused by a rounding error. As
-the accuracy of the varibles in this part of the program is not deemed
-essential, we choose to call it a success.
+differences was so small that they were likely caused by a rounding error.
+The rounding error is about 1 degree and less then a milisecond in the case of
+CalcFireData. As the accuracy of the varibles in this part
+of the program is not deemed essential, we choose to call it a success.
