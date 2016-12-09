@@ -5,9 +5,9 @@
 task Track();
 task GetDataAndCalculate();
 task WaitAndFire();
-PosData posData[10];
-int posDataCounter = 0;
-FireData fire;
+PosData posData[10];     //Used to store the data collected from the sensor
+int posDataCounter = 0;  //How many elements there are in the posData array
+FireData fire;           //The final fire data used to shoot at the target
 bool track = true; //Used to stop the tracking from the other tasks
 bool collecting = true; //Used to stop the collecting of data from the other tasks
 bool blobInCam = false; //Used to tell when the ultra sonic sensor should measure distance
@@ -18,21 +18,22 @@ task main(){
     PosRegEnable(ANGLE_MOTOR);
     SetMotorRegulationTime(10);
     NXTCam_Init(CAM_PORT, CAM_ADDR);
-    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'A');
-    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'E');
+    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'A');  //Sort blobs command
+    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'E');  //Start camera tracking
     SetSensorUltrasonic(SENSOR_LEFT);
     SetSensorUltrasonic(SENSOR_RIGHT);
-    Precedes(Track,GetDataAndCalculate);
+    Precedes(Track,GetDataAndCalculate);  //Starts both tasks
 }
 
 task GetDataAndCalculate(){
-    string input;
     int length;
     while(collecting){
         if(blobInCam){
             length = GetDistance();
             if(length != NO_DATA){
                 PosData tempPosData;
+                //Tries to create a position data from the length and angle
+                //If it can returns the position data in the temPosData
                 if(MakePosData(length,GetMotorAngle(),CurrentTick(),tempPosData)){
                     PlaySound(SOUND_LOW_BEEP);
                     posData[posDataCounter] = tempPosData;
@@ -40,7 +41,10 @@ task GetDataAndCalculate(){
                 }
 
                 if(posDataCounter == DATASETS_NEEDED_TO_CALCULATE){
-                    track = false;
+                    //Stops tracking and calculate the vectors and fire data
+                    track = false;     //Break the track loop
+                    Off(ROTATE_MOTOR); //Stop the motor
+                    StopTask(Track);   //Kill the track task to stop it from controlling the rotate motor
                     DirectionVector vector = CalcDirVector(posData,posDataCounter);
                     fire = CalcFireData(CalcFuturePos(vector,MILLISECONDS_TO_HIT));
                     StartTask(WaitAndFire);
@@ -55,9 +59,10 @@ task WaitAndFire(){
     collecting = false;
     LoadRound();
     Off(ROTATE_MOTOR);
-    int angleH = fire.angleH;
-    RotateH(angleH);
+    //Rotate and angles the turret
+    RotateH(fire.angleH);
     Angle(fire.angleV);
+    //Waits for the right time to fire
     while(true){
         if(CurrentTick() >= fire.timeToHit && !alreadyFired){
             alreadyFired = true;
@@ -65,7 +70,8 @@ task WaitAndFire(){
             break;
         }
     }
-    Angle(START_ANGLE);
+    Angle(START_ANGLE); //Resets the angle back to 0
+    //Sets all the different global values such that the turret can run again
     track = true;
     blobInCam = false;
     collecting = true;
@@ -73,19 +79,19 @@ task WaitAndFire(){
     posDataCounter = 0;
     ResetLibVariables();
     alreadyFired = false;
-    Wait(4000);
+    Wait(4000);     //Waits 4 seconds such that it does not fire at the same target again
     StartTask(Track);
     StartTask(GetDataAndCalculate);
 }
 
 task Track(){
-    int bt[10];
-    int bl[10];
-    int bc[10];
-    int bb[10];
-    int br[10];
-    int nblobs;
-    int blobsMissedCounter = 0;
+    int bt[10]; //Blob top coordinat
+    int bl[10]; //Blob left coordinat
+    int bc[10]; //Blob color
+    int bb[10]; //Blob bottom coordinat
+    int br[10]; //Blob right coordinat
+    int nblobs; //Number of blobs
+    int blobsMissedCounter = 0;  //How many times a call to the camera has returned no blobs
     int oldBlobCenter = 0;
     int blobCenter = 0;
     lib_direction = 0; // [-1]Left, [1]Right, [0]Nothing
@@ -100,16 +106,18 @@ task Track(){
             blobCenter = (bl[0] + UpperBound(br[0]))/2;
             int tempSpeed = 0;
             Off(ROTATE_MOTOR);
-            if(lib_direction!=0){
+            if(lib_direction != NO_DIRECTION){
                 tempSpeed = GetSpeed(blobCenter );
-                if(tempSpeed > 0 && lib_direction > 0)
+                //Makes sure that the turret can only turn in the direction the target is driveing
+                if(tempSpeed > 0 && lib_direction == RIGHT_DIRECTION)
                     OnFwd(ROTATE_MOTOR, tempSpeed);
-                else if(tempSpeed < 0 && lib_direction < 0)
+                else if(tempSpeed < 0 && lib_direction == LEFT_DIRECTION)
                     OnFwd(ROTATE_MOTOR, tempSpeed);
             }
         }else{
             blobInCam = false;
             blobsMissedCounter++;
+            //If enough blobs are missed sets all the different global values such that the turret can run again
             if(blobsMissedCounter == MAX_COUNTER_TO_PURGE_DATA){
                 blobsMissedCounter = 0;
                 posData =  NULL;
@@ -119,6 +127,7 @@ task Track(){
             }
             Off(ROTATE_MOTOR);
         }
+        //Used to determine what direction the target er driveing in
         DetermineDirection(blobCenter, oldBlobCenter, directionCount);
 
     }

@@ -34,7 +34,7 @@ struct DirectionVector {
 };
 
 
-bool MakePosData(int length, float angle, unsigned int time, PosData &pos){
+bool MakePosData(int length, float angle, unsigned long time, PosData &pos){
     bool result = false;
     pos.xPos = length*sind(angle);
     pos.yPos = length*cosd(angle);
