@@ -67,9 +67,10 @@ sensor is ignored. If no valid reading is found, the method returns -1, which
 indicates an error.\nl
 
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = CheckLength method which chooses the best input distance., label = CheckLengthEx] 
-int CheckLength(int right, int left){
-    if(left < MAX_DISTANCE){
+\begin{lstlisting}[caption = CheckLength method which chooses the best
+\fix{input distance}{Filters out invalid readings?!Could be AVG?}., label =
+CheckLengthEx] 
+int CheckLength(int right, int left){ if(left < MAX_DISTANCE){
         return left;
     }
     else if(right < MAX_DISTANCE){
