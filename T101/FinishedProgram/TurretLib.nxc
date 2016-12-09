@@ -67,7 +67,8 @@ int GetDistance(){
 //Returns the speed based on the blob center
 float GetSpeed(int blobcenter){
     int length = blobcenter - CAM_CENTER;
-    float lib_speed = sind(1.25*length)* MAX_HORIZONAL_SPEED;
+    //float lib_speed = sind(1.25*length)* MAX_HORIZONAL_SPEED;
+    float lib_speed = sind(90/CAM_CENTER*length)* MAX_HORIZONAL_SPEED;
     return lib_speed;
 }
 
