@@ -11,7 +11,7 @@ FireData fire;
 bool track = true; //Used to stop the tracking from the other tasks
 bool collecting = true; //Used to stop the collecting of data from the other tasks
 bool blobInCam = false; //Used to tell when the ultra sonic sensor should measure distance
-bool alreadyFired = false;
+bool alreadyFired = false; //Used to prevent the turret from shooting multiple times per run
 
 task main(){
     PosRegEnable(ROTATE_MOTOR);
