@@ -20,8 +20,3 @@ const int MAX_DISTANCE = 230;
 //CalcFPos
 const float MUZZLE_SPEED = 4.82; //meters per second
 const int ANGLE_TO_GROUP = 7;
-
-//Secret
-const float SECRET_VAR = 0.85; /*Multiplier for determining future position (1 = neutral)*/
-const float SECRET_VAR2 = 1; /*Multiplier for determining distance to target (1 = neutral)*/
-const float SECRET_VAR3 = 0; /*Added value to percieved blobcenter (0 = neutral)*/

@@ -5,15 +5,15 @@ is capable of identifying blobs of a given colour, and then output data relating
 in the cameras field of view the object is located. Whenever the camera
 registers a target, it returns data specifying the position of the blob in the
 frame. These variables are stored in arrays which can contain data for 10
-different blobs per frame. This can be seen under section 1 in the code exaple
-in \autoref{TrackVar}. Based on the data recieved over time, the turret is
+different blobs per frame. This can be seen under \fix{section 1}{} in the code
+exaple in \autoref{TrackVar}. Based on the data recieved over time, the turret is
 capable of determining the direction of the target. The variables
-for this feature can be found under section 2 in \autoref{TrackVar}.\nl
+for this feature can be found \fix{under section 2}{} in \autoref{TrackVar}.\nl
  
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = Variables used on the Track() thread., label = TrackVar, style = nc] 
+\begin{lstlisting}[caption = Variables used on the Track() thread., label = TrackVar] 
 task Track(){
-    int bt[10];
+    int bt[10];	//hey test
     int bl[10];
     int bc[10];
     int bb[10];
@@ -67,8 +67,8 @@ while(track){
 After recieving data from the camera, the turret attempts to track the target by
 rotating at a speed matching the targets movement. This is shown in
 \autoref{DetSpeed}. This operation can first be done after the turret has
-determined in which direction the target is moving. Assuming this is the case
-(\textbf{lib\_direction!=0}), the \textc{GetSpeed} function is called in order
+determined in which direction the target is moving. \fix{Assuming}{assuming
+what} this is the case (\textbf{lib\_direction!=0}), the \textc{GetSpeed} function is called in order
 to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
 On \textbf{lines 3-6}, if the determined rotation speed matches the direction in
 which the target is moving, the motor is set to rotate at this speed.\nl
@@ -161,8 +161,8 @@ Aside from determining the direction, the turret also needs to determine at
 which speed it should rotate to match the target. This is calculated in the
 \textc{GetSpeed method}, as shown in \autoref{GetZeSpeed}. This method
 takes the pixel count between the center of the camera and the blob, and outputs
-the resulting rotating speed. The sine function maps the 144 pixel width of the
-camera to 90 degrees for a sine function. This way the speed should follow a
+the resulting rotating speed. The \fix{sine function maps}{how?} the 144 pixel
+width of the camera to 90 degrees for a sine function. This way the speed should follow a
 sine curve, and as such should get slower the closer to the target, and faster
 the farther away.\nl
 

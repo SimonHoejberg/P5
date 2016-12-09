@@ -12,22 +12,26 @@ the time in seconds it took for the target to travel the distance.Using this dat
 we can also calculate the speed in meters per second and an average of time it takes to
 travel a meter.
 \subsection{Test results}
+\fix{}{should this not be inside testing chapter}
 
-\begin{table}[ht]
-\caption{Target speed results} % title of Table
-\centering % used for centering table
-\begin{tabular}{c c c c} % centered columns (4 columns)
-\hline\hline %inserts double horizontal lines
-Meters & Speed 50 & Speed 75 & Speed 100 \\ [0.5ex] % inserts table
-%heading
-\hline % inserts single horizontal line
-1 & 2.72 & 2.1 & 970 \\ % inserting body of the table
-2 & 2.86 & 1.72 & 230 \\
-3 & 2.88 & 1.79 & 415 \\
-4 & 2.88 & 1.88 & 2356 \\
-5 & 2.95 & 1.93 & 556 \\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
-Speed(m/s) & 0.3498950315 & 0.53078556 & 0.75987841 \\
-\end{tabular}
-\label{table:speed} % is used to refer this table in the text
-\end{table}
+\dataTable{speed}{Target speed results}{speed}
+\dataTable{avgSpeed}{Target speed in m/s}{speedMS}
+
+% \begin{table}[ht]
+% \caption{} % title of Table
+% \centering % used for centering table
+% \begin{tabular}{c c c c} % centered columns (4 columns)
+% \hline\hline %inserts double horizontal lines
+% Meters & Speed 50 & Speed 75 & Speed 100 \\ [0.5ex] % inserts table
+% %heading
+% \hline % inserts single horizontal line
+% 1 & 2.72 & 2.1 & 970 \\ % inserting body of the table
+% 2 & 2.86 & 1.72 & 230 \\
+% 3 & 2.88 & 1.79 & 415 \\
+% 4 & 2.88 & 1.88 & 2356 \\
+% 5 & 2.95 & 1.93 & 556 \\ [1ex] % [1ex] adds vertical space
+% \hline %inserts single line
+% Speed(m/s) & 0.3498950315 & 0.53078556 & 0.75987841 \\
+% \end{tabular}
+% \label{table:speed} % is used to refer this table in the text
+% \end{table}

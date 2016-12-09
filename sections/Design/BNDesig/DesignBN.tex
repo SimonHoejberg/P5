@@ -3,12 +3,68 @@
 The purpose of the belief network is to predict the directional vector of the
 target. This allows us to make a general prediction of the direction and speed
 the target is travelling at. This can then be used to hit the target at a
-specified point in time. This chapter will be used to describe the network and
-explain the variables and their domain.
+specified point in time. \fix{This chapter will be used to describe the network
+and explain the variables and their domain.}{}
 
 \section{Network Structure}
+The network, see \autoref{SimplifiedBN}, displays a simplified version
+of the network. In this network the sensor observations, \texttt{S\_0} to
+\texttt{S\_2}, are simplified representations of 3 sensor observations each,
+distance, angle and time. Since the actual model receives time in the
+observations it cannot be considered a true HMM, since in an HMM time is
+considered as an implicit part of the variables, in the sense that \texttt{S\_0}
+would be taken at time 0 while \texttt{S\_2} would be at time 2. \fix{Time is
+added as an observation as we have not implemented proper scheduling, as such
+the observations cannot be guaranteed to be received at regular
+intervals.}{Hvad synes i?}
 
-The network is designed
+\figx[0.8]{SimplifiedBN}{The model for the belief network}
+
+The nodes are, as mentioned in \autoref{LabelBN}, variables and the edges are
+the dependencies. The nodes \texttt{Vector\_0} and \texttt{Vector\_1} are used
+to represent to possible directional vectors the target can have. The edges moving
+from \texttt{Vector\_0} to \texttt{S\_0} and \texttt{S\_1} represent both of
+these nodes are dependant on \texttt{Vector\_0}. Since the sensor nodes are
+comprised of distance, angle and time, we need two of such sets in order to reliably
+determine a vector. \texttt{Vector\_1} has edges to \texttt{S\_1},
+\texttt{S\_2}, this represent that the we use the previous observation to
+determine a new direction vector. The edge going from \texttt{Vector\_0} to
+\texttt{Vector\_1} represent that the previous direction vector can be compare
+the new vector to the old.
+
+\subsection{Domains}
 
 
-\figx{SimplifiedBN}{The model for the belief network}
+
+
+
+
+
+
+
+
+
+
+
+% 
+% \subsection{features}
+% -velocity - måske fjernes
+% -vector - This variable contains the actual vector for the target at time S_0.t . This value directly influences our sensor readings as can be seen in the edges going from the vector nodes to two corresponding sensor observations(Vector_0 to S_0 and S_1). This feature contains two variables, x_speed and y_speed detailing the direction and speed of the target on each axis. In order to calculate a speed, it needs two observations over time which is why a vector node is linked to two observations
+% 
+% 
+% The S node contains all our sensor input information, and each S node
+% corresponds to a observation at a specific point in time. The S node contains
+% the 3 variables given to us by the NXT in order to calculate the vectors we
+% need. The values contained herein are as follows:
+% \begin{itemize}
+% \item distance - This variable contains the value from our ultrasonic sensor reading 
+% \item angle - This value is given from the NXT, calculated from the angle of the motor powering the horizontal platform. 
+% \item time - the NXT also provides a timestamp to the observation. 
+% \end{itemize}
+% The distance and angle variable can be used to calculate a position relative to our turret. These variables can then be used in combination with the time of the observation to compare two vectors in order to calculate a trajectory and speed.
+% The network is constructed as a HMM. 
+% 
+% 
+% Worth noting is that the observations don’t occur on fixed intervals, but are instead provided once the NXT has found good data. This creates an unpredictable behavior regarding when the observations occur, and thus we need to contain a time-variable in our observation feature
+% \subsection{inference}
+% Since a bayesian network has been constructed we can abuse the property of inference to reduce the size of our probability table. Instead of a joint probability-table, it is sufficient instead to just look at the tables we are interested in. Since our evidence will be inserted at our S-node and the value we are looking for is contained in the node Vector it is thus enough to provide the conditional probability table P(Vector_0|S_0,S_1). This reduces the overall statespace of our model

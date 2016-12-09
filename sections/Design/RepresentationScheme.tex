@@ -1,14 +1,27 @@
-\section{Data Representation}\label{RepScheme}
+\section{Target Tracking Model}\label{RepScheme}
 As \name needs to track the location of an object in a three dimensional world,
 it needs a consistant way to represent this data. This data comes in the form
 of images from the camera, distance readings from the ultrasonic sensors and
-the turrets relative angle, which is read from the motors. Given that all of
-this data is relative to the turret location, we can create a representation
-scheme where the turret is the center of a 2-dimensional coordinate system. An
-example of this can be seen below in \autoref{CoordinateSystem}.\nl
+the turrets relative angle, which is read from the motors. This is shown
+below in \autoref{SensorsVsDataType}.
 
-\figx[0.35]{CoordinateSystem}{Example of the turret standing in the middle of an
-x,y coordinate system.}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{12cm}|}
+\hline
+Sensor     & Data/Unit                                                                                                                                        \\ \hline
+Camera     & The frame is a coordinate system of pixels, and the data is given as the coordinates of the edges of the recognized rectangular blobs of colour. \\ \hline
+Ultrasonic & Data is an integer between 1 and 255 centimeters.                                                                                                \\ \hline
+Motor      & Angle of the motor based on its starting position. Data is given in degrees.                                                                     \\ \hline
+\end{tabular}
+\caption{Sensors and their respective data types.}
+\label{SensorsVsDataType}
+\end{table}
+
+Given that all of this data is relative to the turret location, we can create a
+representation scheme where the turret is the center of a 2-dimensional
+coordinate system. An example of this can be seen below in
+\autoref{CoordinateSystem2}.\nl
 
 By using the distance to the target and the angle of the turret, we are able to
 calculate the location of the target in our 2-dimensional coordinate system.
@@ -33,7 +46,7 @@ of 0 degrees. This calculation is shown below in \autoref{CoordinateSystem2}.
 in the representation scheme.}
 
 When the turret has registered a number of data points, a vector is
-calculated to get the distance that the target has travelled. This vector is
+calculated to compute the distance that the target has travelled. This vector is
 then divided by the time it takes the target to travel the distance, to get a
 new vector that represents the velocity of the target in $\frac{cm}{ms}$. This
 vector is then multiplied by a given number of milliseconds, in order to
@@ -64,19 +77,32 @@ angle the following equation is used:
 a_{vertical}=0.2573*distance-22.85
 \end{equation} 
 
-\fix{This function based on a best fit line that was extrapolated from a set of
-test data, where the angle was plotted against how far the projectile
-travelled.}{Need a reference to a test} This function is an estimate of the
-function needed in order to get the angle. This is because the exact function
-is \fix{too complex for the NXT to calculate}{maybe mention why / refere to
-physics} in the available time.\nl
+This function based on a best fit line that was extrapolated from a the distance
+test in \autoref{AppendixAccTest}, where the angle was plotted against how far
+the projectile travelled. This approach was chosen because of the complexity
+involved in determining the angle based on the distance. This is shown below in
+\autoref{RSEQ}, which is the formula determined in \autoref{ProjMotion}. In this
+equation, isolating for the angle \texttt{a} has proven to be quite difficult,
+as any attempt has resulted in the inclusion of imaginary numbers.
+  
+\begin{equation}\label{RSEQ}
+x\ =\ \frac{v_0*cos(a)}{g}* \left(
+v_0*sin(a)+\sqrt{v_0^2*sin(a)^2+2*g*(h+r*sin(a))}\right)+r*cos(a)
+\end{equation}
 
 \name also needs to know when to shoot in order to hit the target.
-This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
+This is calculated by subtracting the value of \autoref{RSTimeEq}, which is described in
 \autoref{ProjMotion}, from the time where the target is at the desired point.
+\begin{equation}\label{RSTimeEq}
+t=\frac{x}{v_0*cos(a)}
+\end{equation}
 This gives the time where \name needs to shoot to be able to hit the target.
-This is calculated in the function CalcFireData.
+This is calculated in the function CalcFireData.\nl
 
 In conclusion, by using a combination of this representation scheme and
 trigonometry, the turret is capable of modelling the world around it such that
-it can accurately determine and predict the location of the target.
+it can accurately determine and predict the location of the target. This
+approach of mapping data to determine a function does cause som inaccuracies, as
+the resulting function is linear, while the actual function would be a parabola.
+While this is a problem, the resulting function is still based on data from our
+tests, and as such should be accurate enough for this project.

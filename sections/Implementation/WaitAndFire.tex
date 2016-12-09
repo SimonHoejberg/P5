@@ -13,8 +13,7 @@ the canon vertically based on the distance to the target. These three function c
 \autoref{Funccall}\nl
 
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = Function calls in WaitAndFire, label = Funccall,
-style = nc] 
+\begin{lstlisting}[caption = Function calls in WaitAndFire, label = Funccall] 
 task WaitAndFire(){
     collecting = false;
     LoadRound();
@@ -38,7 +37,8 @@ in \autoref{Whentofire}\nl
  
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = While loop that determines when to fire, label =
-Whentofire, style = nc] ...
+Whentofire]
+ ...
 while(true){
         if(CurrentTick() >= fire.timeToHit){
             Fire();

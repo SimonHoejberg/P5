@@ -1,4 +1,4 @@
-\section{Tasks}
+\section{Tasks}\fix{}{quite a low level walk though}
 The developed software is controlled by the execution of a number of
 tasks. On the NXT system a task is simply a collection of code which can be
 executed on a thread. The turret makes use of four central threads:
@@ -11,10 +11,10 @@ in \autoref{MainThread}. First, the library method
 \textc{PosRegEnable} is used to enable the motors ability to set
 an absolute position using a PID controller. This is used to allow the turret to set its angle instead of simply turning on/off the motor.
 The \textc{SetMotorRegulationTime} method is used to determine the
-time in which the motor should regulate its angle. This allows the turret to
-move to the target angle in a single swift motion, and then make a hard break
-when the target angle has been reached. This hard break can cause stress to the
-lego, but is not a problem in the current setup.
+time in which the motor should regulate its angle\fix{}{why 10}. This allows the
+turret to move to the target angle in a single \fix{swift motion, and then make
+a hard break} when the target angle has been reached. This hard break can cause
+stress to the lego, but is not a problem in the current setup.
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Entry point for the program execution., label = MainThread] 

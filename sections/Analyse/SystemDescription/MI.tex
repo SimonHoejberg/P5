@@ -237,7 +237,7 @@ the best solution. In addition to just the calculations, \name also needs to
 move into a proper position, and the shot itself has a certain travel time. All
 of this leads to a system which uses bounded rationality.
 
-\subsection{Belief Network}
+\subsection{Belief Network}\label{LabelBN}
 \name is only is able to see the
 target and determine the distance between them, it does not know where the
 target is going nor how fast it is. This can lead to alot of different possible
@@ -249,8 +249,8 @@ various features the model has, usually based on the features of
 the representation scheme. Nodes can also be created to act as
 intermediary variables, which are created in order to either simplify the model
 or to make the conditional dependency more logical. These variables affect each
-other, this is modelled by the direction of the arc going between the nodes,
-such as the targets position being affected by its speed. The variables each
+other, this is modelled by the direction of the edge going between the nodes,
+such as the targets position being dependant on its speed. The variables each
 have a set of the values as well as a set of conditional probability
 distributions for each variable given its parents. \citep[ch.6.3]{MIBook}.
 

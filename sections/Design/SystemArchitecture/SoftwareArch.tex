@@ -1,4 +1,4 @@
-\section{Software Architecture}
+\section{Software Architecture}\fix{Well, more like a concrete design}
 In order to present an overview of the developed software, this section will be
 used to present the implemented call stack. In \autoref{CallStack}, it can be
 seen how the calls through software is handled, and what threads make use of
@@ -10,7 +10,11 @@ While useful to get an overview, this model of the software architecture is also
 helpful, as it can help improve the software by showing the nesting of methods
 in our call stack.
 
-\figx[0.6]{CallStack}{The call stack from the software}
+\fix{}{Decomposition into tasks, and task synchronizationDecomposition of tasks
+into functionsProgram modules, Central data structures?}
+
+\figx[0.6]{CallStack}{The call \fix{stack}{This is not a stack} from the
+software}
 
 It should be noted, that this model can not take into account the firmware
 implemented on the various sensors. This is the case, as this software is not

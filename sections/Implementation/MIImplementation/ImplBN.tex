@@ -1,3 +1,19 @@
 \chapter{Implementing a Belief Network}
 This chapter will be used to describe how the belief network could be
-implemented.
+implemented. There will also be a discussion of the pros and cons compared to
+the current setup. 
+
+\section{Implemantation}
+Our idea for implementing the network is using a computer running a program
+written in C\# which takes an input from the NXT, this input would be gotten
+via serial communication. This communication should also be used for
+communicating the results from the belief network. In the suggested
+implementation Hugin API will be doing the calculations and the program will act
+as an interface between the calculations made by Hugin and the NXT. \nl
+
+Another way of potentially implementing the network, would be to implement it
+directly on the NXT. This however presents a new set of issues, the first
+issue being the runtime of the calculations. This is an issue since the NXT is
+not a very powerfull platform and doing complex calculations might take a long
+time. The second issue is how much RAM and flash memory the NXT has. Because of these
+issues the network would have to be very simplified and thus not as effective 

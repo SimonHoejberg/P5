@@ -1,0 +1,62 @@
+\chapter{Accuracy Test}\label{AppendixAccTest}
+During development of the turret, a test was made in order to determine the
+accuracy of shots fired by the turret. That is, given a number of shots at the
+same location, what is the chance that the turret hits the specified location.
+
+\section{Test Setup}
+In this test the turret is placed next to a wall which have been marked with
+distance indicators. In essence this test setup is the same as in
+\autoref{AppendixDistTest}, but the area in which the projectiles land is
+covered in flour. This flour is used to indicate exactly where the projectile
+landed.
+
+\subsection{Test Execution}
+At the beginning of a test, the turret is set to angle itself to the designated
+angle. The turret is manually set to fire a single projectile, and the location
+which the projectile hit is then noted down. This is repeated 5 times for each
+angle, and for 6 different angles. The whole test has been repeated once, such
+that the resulting data is split into two different sets.
+
+\section{Resulting Data}
+The resulting data consists of a number of tests. Each test results in an angle
+coupled with all the respective distances. Each test is also complemented with
+width between the middle of the turret, and the point the projectile hit.
+
+\subsection{Set 1}
+The data from the first data set can be seen below in \autoref{table:FTest1}. 
+\dataTable{FlourTest1}{Angle/Distance relationship coupled with spread.}{FTest1} 
+
+\subsection{Set 2}
+The data from the second data set can be seen below in \autoref{table:FTest2}. 
+\dataTable{FlourTest2}{Angle/Distance relationship coupled with
+spread.}{FTest2}
+
+\section{Data Interpretation: Width Spread}
+From the data it can be seen that the distance the projectile has to travel
+decreases the chances of accurately hitting the target.The average spread for
+each set is shown below in \autoref{table:AVGSpread}.
+
+\dataTable{AVGSpread}{Average spread recorded in the two data sets.}{AVGSpread}
+
+While it is not a linear increase in spread, the locations further away had
+considerably more spread that those which were closer. 
+
+\section{Data Interpretation: Length Spread}
+Another problem with the accuracy of the turret lies in the fact that there is a
+variety in the distance the projectile will travel at a given angle. This is shown below in
+\autoref{AngleVsDistSpread}, where the average spread in distance increases the
+farther the projectile should be fired. In addition it has also been noted that
+the turret has a chance to misfire. When this happens, the projectile will not
+follow its usual arch, and will travel a considerately shorter distance.
+
+\dataTable{AngleVsDistSpread}{Average spread recorded in the two data
+sets.}{AngleVsDistSpread}
+
+The data shown in \autoref{AngleVsDistSpread} was calculated by looking at all
+of the recorded distances.
+As stated, the turret has a chance to misfire. 
+
+
+\section{Conclusion}
+It appears that the theoretical data is off from the test data. We need to
+figure out why!
