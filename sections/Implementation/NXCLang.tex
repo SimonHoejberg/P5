@@ -4,11 +4,12 @@ which is a domain specific language specialized for writing programs for the
 Lego NXT platform \cite{NXCIntro}. NXC is similar to the language C, and as such
 uses many of the same constructs, including the imperative programming approach. As the
 language is domain specific, it comes with its own libraries and their
-respective documentation \cite{NXCIntro}. As described in the NXC documentation,
-the langage has a limited selection of data types \cite{NXCVariables}. An exaple
-of a short program written in NXC can be seen below in \autoref{NXCExample}.\nl
-
-\fix{}{more precise restrictions/changes!}
+respective documentation \cite{NXCIntro}. While NXC is similar to C, the main
+downside is that it is not possible to make use of the standard C libraries, due
+to the syntactical differences in elements such as pointers. As described in the NXC documentation,
+the language has a limited selection of data types \cite{NXCVariables}. An
+example of a short program written in NXC can be seen below in
+\autoref{NXCExample}.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Exaple of a program written in the NXC language, label = NXCExample] 
@@ -30,7 +31,6 @@ task search(){
 }
 \end{lstlisting}
 \end{minipage}
-\fix{}{Should be your program}
 
 As exemplified in \autoref{NXCExample} the NXC language is reminiscent of C, and
 the most notable differences come in the form of the inclusion of standard
