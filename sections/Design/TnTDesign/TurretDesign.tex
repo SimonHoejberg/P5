@@ -1,7 +1,7 @@
 \section{Turret Design}
 The turret can be considered the product of 3 different design choices, the
 cannon, the frame and the sensor placement. These 3 parts of the
-turret not only has to work on their own, but also come together as a whole.\nl
+turret not only have to work on their own, but also come together as a whole.\nl
 
 The final design of the turret uses a cannon with a piston
 that pushes the projectile through a mouthpiece that clamps around it. The
@@ -9,8 +9,8 @@ piston is mounted on an angling mechanism, which is positioned on top of
 the base. The NXT is mounted inside the frame in order to distribute weight. Two
 ultrasonic sensors and a camera are positioned on the front of the frame,
 allowing \name to track and measure the distance to a target. All of this sits
-on top of turning mechanism, a cog connected to a motor which is placed on the
-outside, allowing the base to turn. The turret can be seen in \autoref{turret}. 
+on top of the turning mechanism, a cog connected to a motor which is placed on the
+outside, allowing the base to turn. The turret can be seen in \autoref{turret}.
 
 \figx[0.16]{turret}{The final turret and its parts.}
 
@@ -21,8 +21,7 @@ design of each part will be presented.
 The goal of the cannon is to be able to shoot at least
 200 cm, as this is one of the requirements. It thus needs a lot of power behind
 each shot. It also needs to be able to fire multiple times without reloading,
-which can allow to fire again if it misses. Three different design were
-considered:
+so that the turret can fire again in case it misses. It will also allow the potential extension of the turret by enabling other firing modes such as burst-fire or the ability to fire at multiple enemies, although it is beyond the scope of the project at the moment. Three different designs were considered:
 
 \begin{itemize}
   \item A ballista design
@@ -32,10 +31,10 @@ considered:
 
 \begin{figure}[H]
 \begin{minipage}{.31\textwidth}
-\figx[0.4]{ballista}{A sketch of the ballista design.} 
+\figx[0.4]{ballista}{A sketch of the ballista design.}
 \end{minipage}
 \begin{minipage}{.29\linewidth}
-\figx[0.4]{tennisball}{A sketch of the spinning wheel design.} 
+\figx[0.4]{tennisball}{A sketch of the spinning wheel design.}
 \end{minipage}
 \begin{minipage}{.29\linewidth}
 \figx[0.45]{piston}{A sketch of the piston design.}
@@ -84,9 +83,9 @@ the precision of this design is tested, the result can be seen in
 \begin{tikzpicture}
 	\begin{axis}[xlabel={Angle}, ylabel={Distance}, xmin=0,
 	ymin=0,xmax=60,ymax=350, minor tick num = 3, /pgfplots/grid = both, axis lines
-	= left,legend style={ at={(1.3,0.5)}, anchor=center}] 
+	= left,legend style={ at={(1.3,0.5)}, anchor=center}]
 	\addplot[blue] expression[domain=0:50,samples=300]{-0.0035*x^3 + 0.2498*x^2 -
-	1.957*x + 114.27}; 
+	1.957*x + 114.27};
 	\addlegendentry{Average}
 	\addplot[red,only marks]table {data/DistVSAngleTestset1.dat}
 	[xshift=4pt,yshift=8pt]
@@ -204,7 +203,7 @@ the precision of this design is tested, the result can be seen in
 	}
 	node[pos=0.98]{%
 		\pgfplotspointplotattime
-		\footnotesize	
+		\footnotesize
 		$(\pgfmathprintnumber
 		{\pgfkeysvalueof{/data point/x}},
 		\pgfmathprintnumber
@@ -222,7 +221,7 @@ the precision of this design is tested, the result can be seen in
 \label{graph:Accuracy}
 \end{graphEnv}
 
-\fix{This shows that The precision of these shoots can be seen in 
+\fix{This shows that The precision of these shoots can be seen in
 This shows that the turret is fairly accurate, since the points on
 the graph somewhat follows .. . The tests conducted in \autoref{SensorTest} also
 shows that the sensors that \name makes use can not sense any longer than the piston design can shoot, which makes the power that
@@ -290,7 +289,7 @@ false positives, see \autoref{CamTest}.
 
 \subsection{Turning Mechanism}
 The turret needs to be able to turn in order to be able to track a moving
-target. For this purpose three designs were considered: 
+target. For this purpose three designs were considered:
 
 \begin{itemize}
   \item A spiral gear design
@@ -326,6 +325,4 @@ the motor and the turning mechanism.\nl
 The gear design is similar to the design with the turret directly connected to
 the gear that turns the turret, the difference being that the motor is placed on
 the outside of the base and the motor is geared which makes it more precise when
-stopping since it does not over turn as much as the design whitout a gear. 
-
-
+stopping since it does not over turn as much as the design whitout a gear.
