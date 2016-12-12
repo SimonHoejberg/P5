@@ -56,14 +56,13 @@ two alternatives. The NXT is capable of communicating with the computer either
 via either USB or Bluetooth. The USB approach would require a cable connecting
 the NXT to the computer.
 This could complicate certain things like the horizontal rotation, since the
-cable could potentially restrict the movement by adding more resistance.
-On the other hand, the USB connection is faster than Bluetooth although we do not consider transfer speed in our choice.\nl
+cable could potentially restrict the movement by adding more resistance.\nl
 
-Using bluetooth for communication would have been preferred, since there is
-no cables which can stop or slow down the turret when it turns. 
-This approach would require a PC with bluetooth communication. Once a connection has
-been established, it uses the NXT built-in mailbox system for transferring
-messages between brick and the PC.\nl
+Using Bluetooth for communication would have been preferred, since there is
+no cables to restrict the turret when it turns. 
+This approach would require a PC with Bluetooth connectivity. Once a connection
+has been established, it uses the NXT built-in mailbox system for transferring
+messages between the brick and the PC.\nl
 
 Next step would be to figure out in what format the communication should occur.
 The NXT should send the sensor input needed for evidence to the PC. Since our
@@ -76,7 +75,7 @@ being fed as evidence to the model.\nl
 The other part of the communication is the response the PC should generate. The
 network generates a vector that needs to be sent back to the NXT, to be used for
 calculating a firing position. The idea was to use the NXT mailbox system's
-builtin \texttt{SendString}, so we send the information as strings and then
+built in \texttt{SendString}, so we send the information as strings and then
 construct functions to package and unwrap the information.
 
 % Our idea for implementing the network is using a computer running a program
