@@ -1,21 +1,50 @@
 \chapter{Target Speed Test}\label{speedotesto}
-In order to test the speed of the target a test was devised.
-hvad er det for en test og vhvad vil vi have ud af det
+Following the design of the target in \autoref{targetDesign}, a test was
+conducted in order to determine the tagets ability to move. This test tries to
+answer two questions about the target, namely:
+\begin{itemize}
+  \item Does the target move at a constant speed?
+  \item Does the target move in a straight line?
+\end{itemize}
+
+These questions will be answered as the requirements in \autoref{FeatAndReq}
+state that the target needs to move at a constant speed, and because calculating
+future positions require the target to move in a straight line.
+
 \subsection{Test setup}
-First a track was constructed. The track is simply a 5 meter long line of chalk,
-with a indicator for every meter on the line.
+The is test was conducted by placing the target on the floor, turning it on, and
+letting it run for 5 meters. A chalk line was marked on the floor for every
+meter, and a stopwatch was used to measure the time.
+
 \subsection{Test execution}
-The target is then turned on the speed setting to be tested. Using a stopwatch
-the target starts on the track and everytime it passes a meter indicator, we note
-the mean-time. For a track with a length of 5 meters, we get 5 measuring points indicating
-the time in seconds it took for the target to travel the distance.Using this data
-we can also calculate the speed in meters per second and an average of time it takes to
-travel a meter.
+The target is turned on, and the speed is set to the specified value for the
+test. The target is then placed on the floor, and the stopwatch is started.
+Everytime the target passes one of the meter indicators, the mean-time is noted.
+For a track with a length of 5 meters, we get 5 measuring points indicating the
+time in seconds it took for the target to travel that distance. Using this data
+we can calculate the speed in meters per second, and an average of time it
+takes to travel a meter.
+
 \subsection{Test results}
-\fix{}{should this not be inside testing chapter}
+The results from the test can be seen below in \autoref{table:speed}, and the
+resulting average speed is shown in \autoref{table:speedMS}. 
 
 \dataTable{speed}{Target speed results}{speed}
 \dataTable{avgSpeed}{Target speed in m/s}{speedMS}
+
+The data in \autoref{table:speed} indicates that more or less constant, or at
+least that there is no consistant acceleration. While it appears as if there is
+an acceleration at 50\% speed, this is not shown at the other two speed
+thresholds.
+
+\section{Conclusion}
+Based on the collected data, and observations made during the test, we can
+conclude that the target almost moves at a constant speed, and that the target
+moves in a straight line. While the data does not support the conclusion that
+the target moves at a constant speed, any observed acceleration is so small,
+that we conclude that it does not have an impact on the turrets ability to
+accurately hit the target.
+
 
 % \begin{table}[ht]
 % \caption{} % title of Table
