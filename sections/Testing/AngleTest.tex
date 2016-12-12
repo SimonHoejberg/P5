@@ -1,0 +1,87 @@
+\chapter{Angle Test}\label{angleTest}
+The turret has one main variable it can change in order to accurately hit the
+target, namely the angle of firing. Due to the importance of being able to
+precisely set the angle of firing, tests have been made to ensure that the
+turrets accuracy is within an acceptable margain of error.
+
+\subsection{Test Setup}
+The setup for this test was to use a protractor to measure the angle of the
+turret in relation to the horizontal. In order to have a stable and
+consistant position to measure the angle from, a lego structure was added to the
+turrets base. As the turret is shifted in relation to the pivot point, a lego
+brick was added which connects to the pivot point and is parallel to the turret.
+This brick is used to measure the turrets angle. This setup can be seen in
+\autoref{AngleTestSetup}.
+
+\figx[0.13]{AngleTestSetup}{Setup for testing the turrets angle.}
+
+In order to test the turrets ability to set its angle correctly, two different
+tests were used to test the most likely scenarios. The first test has the turret
+retract to its resting position before setting the angle of firing. The second
+test has the turret set the angle of firing without retracting to the resting
+position before the next test. For these tests the resting position is measured
+to be 5 degrees.
+
+\subsection{Results: Resting Position}
+This test had the turret retract to its resting position before setting the
+specified angle of fire. The data presented below in \autoref{AngleTest1Result}
+is the average of five repetitions.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\multicolumn{1}{l|}{Expected} & Actual \\ \hline
+\multicolumn{1}{l|}{7}        & 7     \\
+\multicolumn{1}{l|}{14}       & 13     \\
+\multicolumn{1}{l|}{21}       & 20     \\
+\multicolumn{1}{l|}{28}       & 27     \\
+\multicolumn{1}{l|}{35}       & 34     \\
+\multicolumn{1}{l|}{42}       & 42     \\
+\multicolumn{1}{l|}{49}       & 49     \\
+\multicolumn{1}{l|}{56}       & 55     \\
+\multicolumn{1}{l|}{63}       & 64     \\
+\multicolumn{1}{l|}{70}       & 72
+\end{tabular}
+\caption{Test results from resetting the position between tests.}
+\label{AngleTest1Result}
+\end{table}
+
+From these data we can determine that the maximum difference in angles is 3
+degrees.  
+
+\subsection{Results: Dynamic Position}
+This test had the turret set the angle as an offset based on the previously set
+angle. This means that the turret is not reset to its resting position between
+tests. This is done in order to determine the turrets ability to dynamically and
+accurately set its angle of fire. The data presented below in
+\autoref{AngleTest2Result} is the average from 5 repetitions.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+Test Num:                     & 4      \\ \hline
+\multicolumn{1}{l|}{Expected} & Actual \\ \hline
+\multicolumn{1}{l|}{7}        & 9     \\
+\multicolumn{1}{l|}{14}       & 16     \\
+\multicolumn{1}{l|}{21}       & 23     \\
+\multicolumn{1}{l|}{28}       & 29     \\
+\multicolumn{1}{l|}{35}       & 35     \\
+\multicolumn{1}{l|}{42}       & 43     \\
+\multicolumn{1}{l|}{49}       & 49     \\
+\multicolumn{1}{l|}{56}       & 57     \\
+\multicolumn{1}{l|}{63}       & 64     \\
+\multicolumn{1}{l|}{70}       & 71
+\end{tabular}
+\caption{Test results from dynamically setting the angle.}
+\label{AngleTest1Result}
+\end{table}
+
+From these data we can determine that the maximum difference in angles is 2
+degrees, which is slightly more accurate than the previous test.
+
+\subsection{Conclusion: Angle Test}
+From the 10 tests we can conclude that the turret capabilities when it comes to
+setting the correct angle are satisfactory. While there is a difference of up to
+3 degrees between the expected and actual angle, we conclude that this is well
+within the acceptable variance, especaially since the turret will not have to
+hit a target over a longer distance.   
