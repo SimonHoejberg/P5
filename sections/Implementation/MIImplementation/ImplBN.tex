@@ -28,22 +28,22 @@ In order to implement the network on the NXT, it is necessary to reduce the
 complexity of the model or else it wont be possible to implement it on the NXT.
 Since the first network had a state space of $3^2*5^6 = 140625$ states, this
 would theoretically need 560KB of RAM given that each state is 4 byte. The 4
-bytes are assumed as the NXT uses 16 bit to represent integers which in terms
-are the largest type used. However if we remove some of the states which are not
+bytes are assumed as the NXT uses 32 bit to represent floating point which is
+the largest type used. However if we remove some of the states which are not
 necessary according to the implementation, the state space could be reduced to
 $3^1*5^4 = 1875$ which given a size of the state of each space at 4KB would need
 7.5KB in the worst case. Given this state space it would be possible to
 implement the belief network on the NXT.
 
 \subsection{Option Two}
-The second option involves using a computer as the computational module for the
-belief network. Using this approach requires the computational to be fully
-automatic in order to still consider the system embedded.
+The second option involves using a computer for computing the
+belief network. Using this approach would require the computation to be fully
+automated in order to still consider the system embedded.\nl
 
-This approach requires the following things to be setup first
+This approach requires the following things to be setup
 \begin{itemize}
 \item The belief network modeled on the computer
-\item Establish communication between the NXT and the PC
+\item Establish a serial connection between the NXT and the PC
 \item Figure out what data structures should be sent and received
 \end{itemize}
 
@@ -51,13 +51,13 @@ The first part was realized using Hugin Lite to model the network described
 in \autoref{MID}. The model of the network is exported via Hugin as a file.
 Using the Hugin API the logic for the network was constructed in C\#.\nl
 
-In order to establish a connection between the NXT and the PC, there are two
-alternatives. The NXT is capable of transmitting data via either USB or
-Bluetooth.
-The USB approach would require a cable connecting the NXT and the PC. This could
-complicate certain things like the horizontal rotation, since our NXT is capable
-of moving 360 degrees. On the other hand, the USB connection is faster than
-Bluetooth although we do not consider transfer speed in our choice.\nl
+In order to establish a serial connection between the NXT and the PC, there are
+two alternatives. The NXT is capable of communicating with the computer either
+via either USB or Bluetooth. The USB approach would require a cable connecting
+the NXT to the computer.
+This could complicate certain things like the horizontal rotation, since the
+cable could potentially restrict the movement by adding more resistance.
+On the other hand, the USB connection is faster than Bluetooth although we do not consider transfer speed in our choice.\nl
 
 Using bluetooth for communication would have been preferred, since there is
 no cables which can stop or slow down the turret when it turns. 
