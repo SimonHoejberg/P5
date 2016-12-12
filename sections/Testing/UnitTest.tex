@@ -7,9 +7,10 @@ principle as unit testing in fx. C\#. When testing an object oriented
 language, the testing is done on class by class level as this gives a clear
 distinction between the different methods. This however is not the case in NXC,
 as the language follows the imperative programming paradigm. In our testing
-setup, \fix{only functions with a return value is tested}{You ought not have
-others?!Out Values?Stubs/mocks?} and functions which takes input from
-sensor inside of the function are not tested.
+setup, only functions with a return value is tested and functions which takes input from
+sensor inside of the function are not tested, also functions that controls
+motors are not tested in this chapter those are tested by condunting tests in
+the physical world.
 The basic principle is Arrange, Act and Assert. In the arrange step the input
 data is constucted as well as what the expected output is. In the act step, the
 functions are called and the inputs are saved. Then finaly in the assert step
@@ -47,14 +48,14 @@ bool CombineVectorsTest(){
 The function we want to test are
 
 \begin{itemize}
-  \item CalcDirVector
-  \item UpperBound
-  \item CheckLength
-  \item GetSpeed
-  \item MakePosData
-  \item CombineVectors
-  \item CalcFuturePos
-  \item CalcFireData
+  \item \textc{CalcDirVector}
+  \item \textc{UpperBound}
+  \item \textc{CheckLength}
+  \item \textc{GetSpeed}
+  \item \textc{MakePosData}
+  \item \textc{CombineVectors}
+  \item \textc{CalcFuturePos}
+  \item \textc{CalcFireData}
 \end{itemize} 
 
 In \autoref{combineVectorsTest} the basic setup can be seen, on \textbf{Line

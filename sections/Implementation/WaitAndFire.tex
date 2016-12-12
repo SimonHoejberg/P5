@@ -15,13 +15,14 @@ the canon vertically based on the distance to the target. These three function c
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Function calls in WaitAndFire, label = Funccall] 
 task WaitAndFire(){
-    collecting = false;
+	collecting = false;
     LoadRound();
     Off(ROTATE_MOTOR);
-    int angleH = fire.angleH;
-    RotateH(angleH);
+    //Rotate and angles the turret
+    RotateH(fire.angleH);
     Angle(fire.angleV);
     ...
+}
 \end{lstlisting}
 \end{minipage}
 
@@ -38,12 +39,14 @@ in \autoref{Whentofire}\nl
 \begin{lstlisting}[caption = While loop that determines when to fire, label =
 Whentofire]
  ...
+//Waits for the right time to fire
 while(true){
-        if(CurrentTick() >= fire.timeToHit){
-            Fire();
-            break;
-        }
+	if(CurrentTick() >= fire.timeToHit && !alreadyFired){
+    	alreadyFired = true;
+        Fire();
+        break;
     }
+}
 \end{lstlisting}
 \end{minipage}
 

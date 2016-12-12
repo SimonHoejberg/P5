@@ -1,4 +1,4 @@
-\section{Tasks}\fix{}{quite a low level walk though}
+\section{Tasks}
 The developed software is controlled by the execution of a number of
 tasks. On the NXT system a task is simply a collection of code which can be
 executed on a thread. The turret makes use of four central threads:
@@ -23,11 +23,11 @@ task main(){
     PosRegEnable(ANGLE_MOTOR);
     SetMotorRegulationTime(10);
     NXTCam_Init(CAM_PORT, CAM_ADDR);
-    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'A');
-    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'E');
+    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'A');  //Sort blobs command
+    NXTCam_SendCommand(CAM_PORT, CAM_ADDR, 'E');  //Start camera tracking
     SetSensorUltrasonic(SENSOR_LEFT);
     SetSensorUltrasonic(SENSOR_RIGHT);
-    Precedes(Track,GetDataAndCalculate);
+    Precedes(Track,GetDataAndCalculate);  //Starts both tasks
 }
 \end{lstlisting}
 \end{minipage}

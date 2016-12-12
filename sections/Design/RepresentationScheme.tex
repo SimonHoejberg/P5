@@ -81,21 +81,23 @@ This function based on a best fit line that was extrapolated from a the distance
 test in \autoref{AppendixAccTest}, where the angle was plotted against how far
 the projectile travelled. This approach was chosen because of the complexity
 involved in determining the angle based on the distance. This is shown below in
-\autoref{RSEQ}, which is the formula determined in \autoref{ProjMotion}. In this
-equation, isolating for the angle \texttt{a} has proven to be quite difficult,
+\autoref{FinEg3}, which is the formula determined in \autoref{ProjMotion}. In
+this equation, isolating for the angle \texttt{a} has proven to be quite difficult,
 as any attempt has resulted in the inclusion of imaginary numbers.
-  
-\begin{equation}\label{RSEQ}
+
+\begin{equation*}
 x\ =\ \frac{v_0*cos(a)}{g}* \left(
 v_0*sin(a)+\sqrt{v_0^2*sin(a)^2+2*g*(h+r*sin(a))}\right)+r*cos(a)
-\end{equation}
+\tag{\ref*{FinEq3}}
+\end{equation*}
 
 \name also needs to know when to shoot in order to hit the target.
-This is calculated by subtracting the value of \autoref{RSTimeEq}, which is described in
+This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
 \autoref{ProjMotion}, from the time where the target is at the desired point.
-\begin{equation}\label{RSTimeEq}
+\begin{equation*}
 t=\frac{x}{v_0*cos(a)}
-\end{equation}
+\tag{\ref{TimeEq}}
+\end{equation*}
 This gives the time where \name needs to shoot to be able to hit the target.
 This is calculated in the function CalcFireData.\nl
 
