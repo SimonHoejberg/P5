@@ -1,23 +1,33 @@
-\section{Software Architecture}\fix{Well, more like a concrete design}
-In order to present an overview of the developed software, this section will be
-used to present the implemented call stack. In \autoref{CallStack}, it can be
-seen how the calls through software is handled, and what threads make use of
-which functionality. The software has been implemented in a modular fashion such
-that each thread has its own varibles and methods, which for the most part are
-not shared between threads.\nl
+\section{Software Architecture}
+When designing the software for the turret, we decided to split the program
+into four tasks, which each control a part of the turret's behaviour. These are
+listed below in \autoref{softArchOver}.
 
-While useful to get an overview, this model of the software architecture is also
-helpful, as it can help improve the software by showing the nesting of methods
-in our call stack.
+\begin{itemize}\label{softArchOver}
+  \item \textc{Main} - Initializes sensors and starts \textc{Track} and
+  \textc{GetDataAndCalculate}.
+  \item \textc{Track} - Read input from camera, and rotate turret to follow the
+  target.
+  \item \textc{GetDataAndCalculate} - Read input from distance sensor, and
+  calculate future position of the target.
+  \item \textc{WaitAndFire} - Recieves data from \textc{GetDataAndCalculate},
+  positions the turret and fires at the correct time.
+\end{itemize}
 
-\fix{}{Decomposition into tasks, and task synchronizationDecomposition of tasks
-into functionsProgram modules, Central data structures?}
+In order to present an overview of the explained program flow, a sequence
+diagram is shown below in \autoref{SequenceDiagram}.
 
-\figx[0.6]{CallStack}{The call \fix{stack}{This is not a stack} from the
-software}
+\figx{SequenceDiagram}{Flow of the \name software.}
+
+In addition to the sequence diagram, a model has been made which presents how
+different tasks and methods can call each other. This is shown in
+\autoref{CallStack}, where it can be seen how the calls in the software are
+made, and what tasks make use of which functionality. The software has been
+implemented in a modular fashion such that each task has its own varibles and
+methods, which for the most part are not shared between tasks.\nl
+
+\figx[0.6]{CallStack}{The method/task call structure of the \name software.}
 
 It should be noted, that this model can not take into account the firmware
 implemented on the various sensors. This is the case, as this software is not
 well documented, and as such, we do not know how it functions.
-\fix{}{Make Sequence diagram!}
-
