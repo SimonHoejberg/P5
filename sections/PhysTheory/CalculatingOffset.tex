@@ -19,5 +19,24 @@ target. This topic is further explained during the implementation in
 \section{Conclusion}
 Based on the mathematical and physical models explained in this chapter, it
 should be possible to predict the trajectory of the projectile when fired from
-the turret. With this in mind, the following chapters will be used to present
+the turret. Based on this assumption, a test (\autoref{AppendixDistTest}) was
+conducted in order to determine the accuracy of the formula. The test concluded
+the following:
+\begin{itemize}
+  \item The muzzle speed of the projectile is 4.82m/s.
+  \item Using the determined muzzle speed, \autoref{FinEq3} is unable to
+  accurately calculating the distance of the projectile.
+  \item An alternate approach can be used to determine the angle, namely mapping
+  the test data into a formula using a trendline.  
+\end{itemize}
+
+Based on this tests conclusions, we have chosen to use the following formula for
+determining which angle should be used to hit the taret:
+
+\begin{equation}\label{angleCalc}
+Angle\ =\ abs(0.2573 * distance - 22.85)
+\end{equation}
+
+
+With all of this in mind, the following chapters will be used to present
 and discuss hardware choices and turret designs.

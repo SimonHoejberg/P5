@@ -53,163 +53,187 @@ design has several advantages, first and foremost LEGO Technic has a ball shoote
 
 
 The piston was chosen as the final cannon design, as it is able to shoot up to
-required range of 200 cm and able to store up to 6 shots. In \autoref{FlourTest}
-the precision of this design is tested, the result can be seen in
-\label{graph:Accuracy}.
+required range of 200 cm and able to store up to 6 shots. The precision of this
+design was tested in \autoref{AppendixAccTest}, and the following conclusions
+were reached:
 
-\begin{graphEnv}
-\begin{graphFloat}
-\centering
-\begin{tikzpicture}
-	\begin{axis}[xlabel={Angle}, ylabel={Distance}, xmin=0,
-	ymin=0,xmax=60,ymax=350, minor tick num = 3, /pgfplots/grid = both, axis lines
-	= left,legend style={ at={(1.3,0.5)}, anchor=center}]
-	\addplot[blue] expression[domain=0:50,samples=300]{-0.0035*x^3 + 0.2498*x^2 -
-	1.957*x + 114.27};
-	\addlegendentry{Average}
-	\addplot[red,only marks]table {data/DistVSAngleTestset1.dat}
-	[xshift=4pt,yshift=8pt]
-	node[pos=0]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.07]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.14]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.21]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.28]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.35]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.42]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.49]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.56]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.63]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.7]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.77]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.84]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.91]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	node[pos=0.98]{%
-		\pgfplotspointplotattime
-		\footnotesize
-		$(\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/x}},
-		\pgfmathprintnumber
-		{\pgfkeysvalueof{/data point/y}})$
-	}
-	;
-	\node at(400,340){\scriptsize$y=-0.0035*x^3 + 0.2498*x^2$};
-	\node at(400,320){\scriptsize$-1.957*x + 114.27$};
-	\node at(400,300){\scriptsize$R^2=0.682$};
-	\addlegendentry{Data}
-	\end{axis}
-\end{tikzpicture}
-\caption{Results from accuracy test}
-\end{graphFloat}
-\label{graph:Accuracy}
-\end{graphEnv}
+\begin{itemize}
+  \item The turret has an average chance to misfire of 13.3\%.
+  \item In the recorded lengths, the hit location has a spread of between 9cm
+  and 107cm.
+  \item In the recorded widths, the hit location has a spread of between 0.25cm
+  and 8.55cm.
+\end{itemize}
 
-\fix{This shows that The precision of these shoots can be seen in
-This shows that the turret is fairly accurate, since the points on
-the graph somewhat follows .. . The tests conducted in \autoref{SensorTest} also
-shows that the sensors that \name makes use can not sense any longer than the piston design can shoot, which makes the power that the two other designs has obslete.\nl}{need an update flour test}
+This test shows that the turret is fairly accurate, but it does have a
+considerable chance of misfireing. In addition, the tests conducted in
+\autoref{SensorTest} also show that the sensors on the turret are incapable
+of sensing the target any further than the piston design can shoot. Due to this
+fact, the possible distances of the other designs are considerably less
+impactful.\nl
 
-The cannon is mounted on a motor that is used to control the vertical angle of the cannon, such that it is able to shoot a target at varying distances. This is done by having a
-high gearing on a motor and connecting the platform that the cannon
-is mounted on to the big gear. This makes the platform rise when the motor
-turns.
+The final design of the the turret has the cannon mounted on a motor that is
+used to control its vertical angle. This way it is able to angle itself in order
+to shoot a target at varying distances. The accuracy of this mechanism is
+ensured by having a high gearing on the motor and connecting the
+platform to the cannon.
+
+
+% the result can be seen in
+% \label{graph:Accuracy}.
+
+% \begin{graphEnv}
+% \begin{graphFloat}
+% \centering
+% \begin{tikzpicture}
+% 	\begin{axis}[xlabel={Angle}, ylabel={Distance}, xmin=0,
+% 	ymin=0,xmax=60,ymax=350, minor tick num = 3, /pgfplots/grid = both, axis lines
+% 	= left,legend style={ at={(1.3,0.5)}, anchor=center}]
+% 	\addplot[blue] expression[domain=0:50,samples=300]{-0.0035*x^3 + 0.2498*x^2 -
+% 	1.957*x + 114.27};
+% 	\addlegendentry{Average}
+% 	\addplot[red,only marks]table {data/DistVSAngleTestset1.dat}
+% 	[xshift=4pt,yshift=8pt]
+% 	node[pos=0]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.07]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.14]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.21]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.28]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.35]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.42]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.49]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.56]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.63]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.7]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.77]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.84]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.91]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	node[pos=0.98]{%
+% 		\pgfplotspointplotattime
+% 		\footnotesize
+% 		$(\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/x}},
+% 		\pgfmathprintnumber
+% 		{\pgfkeysvalueof{/data point/y}})$
+% 	}
+% 	;
+% 	\node at(400,340){\scriptsize$y=-0.0035*x^3 + 0.2498*x^2$};
+% 	\node at(400,320){\scriptsize$-1.957*x + 114.27$};
+% 	\node at(400,300){\scriptsize$R^2=0.682$};
+% 	\addlegendentry{Data}
+% 	\end{axis}
+% \end{tikzpicture}
+% \caption{Results from accuracy test}
+% \end{graphFloat}
+% \label{graph:Accuracy}
+% \end{graphEnv}
+% 
+% \fix{This shows that The precision of these shoots can be seen in
+% This shows that the turret is fairly accurate, since the points on
+% the graph somewhat follows .. . The tests conducted in \autoref{SensorTest}
+% also shows that the sensors that \name makes use can not sense any longer than
+% the piston design can shoot, which makes the power that the two other designs
+% has obslete.\nl}{need an update flour test}
+
+
 
 \subsection{Design of the Frame}
 The frame of the turret is designed with two requirements in mind: it should
@@ -302,4 +326,16 @@ the motor and the turning mechanism.\nl
 The gear design is similar to the design with the turret directly connected to
 the gear that turns the turret, the difference being that the motor is placed on
 the outside of the base and the motor is geared which makes it more precise when
-stopping since it does not over turn as much as the design without a gear.
+stopping since it does not over turn as much as the design whitout a gear.
+
+\subsection{Conclusion: Turret Design}
+After designing the turret, a number of tests were conducted in order to
+determine the quality of the the turrets individual parts. These tests are
+presented in \autoref{AppendixTesting}, and have reached the following
+conclusions:\nl
+
+\begin{itemize}
+  \item The test in \autoref{angleTest} determined that the turret is capable of
+  accurately setting its angle of fire.
+  \item 
+\end{itemize}
