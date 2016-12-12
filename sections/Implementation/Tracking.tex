@@ -5,28 +5,25 @@ is capable of identifying blobs of a given colour, and then output data relating
 in the cameras field of view the object is located. Whenever the camera
 registers a target, it returns data specifying the position of the blob in the
 frame. These variables are stored in arrays which can contain data for 10
-different blobs per frame. This can be seen under \fix{section 1}{} in the code
-exaple in \autoref{TrackVar}. Based on the data recieved over time, the turret is
-capable of determining the direction of the target. The variables
-for this feature can be found \fix{under section 2}{} in \autoref{TrackVar}.\nl
+different blobs per frame. This can be seen under \textbf{lines 2-7} in the code
+example in \autoref{TrackVar}. Based on the data recieved over time, the turret
+is capable of determining the direction of the target. The variables
+for this feature can be found \textbf{lines 9-12} in \autoref{TrackVar}.\nl
  
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Variables used on the Track() thread., label = TrackVar] 
 task Track(){
-    int bt[10];	//hey test
-    int bl[10];
-    int bc[10];
-    int bb[10];
-    int br[10];
-    int nblobs;
-
-    lib_direction = 0;
-    int directionCount = 0;
+    int bt[10]; //Blob top coordinat
+    int bl[10]; //Blob left coordinat
+    int bc[10]; //Blob color
+    int bb[10]; //Blob bottom coordinat
+    int br[10]; //Blob right coordinat
+    int nblobs; //Number of blobs
+    int blobsMissedCounter = 0;  //How many times a call to the camera has returned no blobs
     int oldBlobCenter = 0;
     int blobCenter = 0;
-
-    int counter = 0;
-    dataCounter = 0;
+    lib_direction = 0; // [-1]Left, [1]Right, [0]Nothing
+    int directionCount = 0; //How many times have we seen movement in a direction
     ...
 }
 \end{lstlisting}
@@ -46,21 +43,20 @@ of the camera, this boolean is used in the \textc{GetDataAndCalculate} task
 \autoref{GetDataAndCalc} to gather data.\nl
   
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = First part of the general tracking behaviour., label = TrackFirst] 
-while(track){        
-        NXTCam_GetBlobs(CAM_PORT, CAM_ADDR, nblobs, bc, bl, bt, br, bb);
-        if(nblobs > 0){
-            blobInCam = true;
-            counter = 0;
-            oldBlobCenter = blobCenter;
-            blobCenter = (bl[0] + UpperBound(br[0]))/2;
-            int temp = CAM_CENTER - blobCenter;
-            Off(ROTATE_MOTOR);
-            ...
-        }
+\begin{lstlisting}[caption = First part of the general tracking behaviour., label = TrackFirst]
+ while(track){
+	NXTCam_GetBlobs(CAM_PORT, CAM_ADDR, nblobs, bc, bl, bt, br, bb);
+    if(nblobs > 0){
+    	blobInCam = true;
+        blobsMissedCounter = 0;
+        oldBlobCenter = blobCenter;
+        blobCenter = (bl[0] + UpperBound(br[0]))/2;
+        int tempSpeed = 0;
+        Off(ROTATE_MOTOR);
+        ...
+	}
 ...
-}        
-            
+}          
 \end{lstlisting}
 \end{minipage}
 
@@ -68,19 +64,20 @@ After recieving data from the camera, the turret attempts to track the target by
 rotating at a speed matching the targets movement. This is shown in
 \autoref{DetSpeed}. This operation can first be done after the turret has
 determined in which direction the target is moving. If the direction is
-determined (\textbf{lib\_direction!=0}), the \textc{GetSpeed} function
-is called in order to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
+determined (\textbf{lib\_direction!= NO\_DIRECTION}), the \textc{GetSpeed}
+function is called in order to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
 On \textbf{lines 3-6}, if the determined rotation speed matches the direction in
 which the target is moving, the motor is set to rotate at this speed.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Determine the targets speed at rotate to match it, label = DetSpeed] 
-if(lib_direction!=0){
-	int tempSpeed = GetSpeed(blobCenter);
-	if(tempSpeed > 0 && lib_direction > 0)
-		nFwd(ROTATE_MOTOR, tempSpeed);
-	else if(tempSpeed < 0 && lib_direction < 0)
-		OnFwd(ROTATE_MOTOR, tempSpeed);
+if(lib_direction != NO_DIRECTION){
+	tempSpeed = GetSpeed(blobCenter );
+    //Makes sure that the turret can only turn in the direction the target is driveing
+    if(tempSpeed > 0 && lib_direction == RIGHT_DIRECTION)
+    	OnFwd(ROTATE_MOTOR, tempSpeed);
+    else if(tempSpeed < 0 && lib_direction == LEFT_DIRECTION)
+    	OnFwd(ROTATE_MOTOR, tempSpeed);
 }
 \end{lstlisting}
 \end{minipage}
@@ -96,14 +93,15 @@ in tracking are reset, such that the turret can start a new tracking phase.\nl
 ...
 }else{
 	blobInCam = false;
-    counter++;
-    if(counter == MAX_COUNTER_TO_PURGE_DATA){
-    	counter = 0;
-        data =  NULL;
-        dataCounter = 0;
+    blobsMissedCounter++;
+    //If enough blobs are missed sets all the different global values such that the turret can run again
+    if(blobsMissedCounter == MAX_COUNTER_TO_PURGE_DATA){
+    	blobsMissedCounter = 0;
+        posData =  NULL;
+        posDataCounter = 0;
         ResetLibVariables();
         directionCount = 0;
-    }
+	}
     Off(ROTATE_MOTOR);
 }
 \end{lstlisting}
@@ -123,6 +121,7 @@ if(nblobs > 0){
 }else{
 ...
 }
+//Used to determine what direction the target er driveing in
 DetermineDirection(blobCenter, oldBlobCenter, directionCount);
 \end{lstlisting}
 \end{minipage}
@@ -139,19 +138,22 @@ is determined.\nl
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Determine the targets direction., label = DeterDir]
 void DetermineDirection(int center, int oldCenter, int &directionCount){
-	if(lib_direction == 0){
-		if(center > oldCenter){
-    		directionCount++;
-		}
-    	else if (center < oldCenter) {
-    		directionCount--;
-   		}
-    	if(directionCount > DIRECTION_THRESHOLD){
-    		lib_direction = 1;
-    	}
-    	else if(directionCount < DIRECTION_THRESHOLD * (-1)){
-    		lib_direction = -1;
-    	}
+    //If direction not found. Check if blob-center has moved left/right for directionTreshold * frames
+    if(lib_direction == NO_DIRECTION){
+        //Check what direction the target is moving
+        if(center > oldCenter){
+            directionCount++;
+        }
+        else if (center < oldCenter) {
+            directionCount--;
+        }
+        //Set direction if count above threshold
+        if(directionCount > DIRECTION_THRESHOLD){
+            lib_direction = RIGHT_DIRECTION;
+        }
+        else if(directionCount < DIRECTION_THRESHOLD * (-1)){
+            lib_direction = LEFT_DIRECTION;
+        }
     }
 }
 \end{lstlisting}
@@ -174,9 +176,9 @@ should get slower the closer to the target, and faster the farther away.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Determine speed to rotate using a sine function, label = GetZeSpeed] 
-float GetSpeed(int bcenter){
-    int length = bcenter - CAM_CENTER;
-    float lib_speed = sind(1.25*length)*100;
+float GetSpeed(int blobcenter){
+    int length = blobcenter - CAM_CENTER;
+    float lib_speed = sind(MODIFIER*length)* MAX_HORIZONAL_SPEED;
     return lib_speed;
 }
 \end{lstlisting}
