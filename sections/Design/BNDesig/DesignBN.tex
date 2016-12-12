@@ -12,30 +12,34 @@ hugin? --> i would say it is outside the scope of the project}
 must be very simple}
 
 \section{Network Structure}
-\fix{The network}{change to non-simple so we can better explain }, see
-\autoref{SimplifiedBN}, displays a simplified version of the network. In this
-network the sensor observations, \texttt{S\_0} to \texttt{S\_2}, are simplified
-representations of the 3 sensor observations distance, angle and time. Worth
-noting is that the observations does not occur on fixed intervals, but are
-instead provided once the NXT has found acceptable data. This creates an
-unpredictable behavior regarding when the observations occur, and thus we need
-to contain a time-variable in our observation feature. Since the actual model
-receives time in the observations it cannot be considered a true HMM, since in
-an HMM time is considered as an implicit part of the variables, in the sense
-that \texttt{S\_0} would be taken at time 0 while \texttt{S\_2} would be at
-time 2.
+The network, see \autoref{BNDone}, displays a the final version of the network.
+In this network the nodes \texttt{SA\_0-2} and \texttt{SD\_0-2} represent
+observations of distance and angle. The numbers next to the nodes represent the
+time at which they happen.
 
-\figx[0.8]{SimplifiedBN}{The model for the belief network}
+%  Worth noting is that the observations does
+% not occur on fixed intervals, but are instead provided once the NXT has found
+% acceptable data. This creates an unpredictable behavior regarding when the
+% observations occur, and thus we need to contain a time-variable in our
+% observation feature. Since the actual model receives time in the observations
+% it cannot be considered a true HMM, since in an HMM time is considered as an
+% implicit part of the variables, in the sense that \texttt{S\_0} would be taken
+% at time 0 while \texttt{S\_2} would be at time 2.
+
+\figx[0.8]{BNDone}{The model for the belief network}
 
 The nodes are, as mentioned in \autoref{LabelBN}, variables and the edges are
-the dependencies. The nodes \texttt{Vector\_0} and \texttt{Vector\_1} are used
+the dependencies. The nodes \texttt{Vector\_1} and \texttt{Vector\_2} are used
 to represent possible directional vectors the target can have. The edges moving
-from \texttt{Vector\_0} to \texttt{S\_0} and \texttt{S\_1} represent both of
-these nodes are dependant on \texttt{Vector\_0}. Since the sensor nodes are
-comprised of distance, angle and time, we need two of such sets in order to reliably
-determine a vector. \texttt{Vector\_1} has edges to \texttt{S\_1},
-\texttt{S\_2}, this represent that the we use the previous observation to
-determine a new direction vector. The edge going from \texttt{Vector\_0} to
-\texttt{Vector\_1} represents that the previous direction vector can be compared
-the new vector to the old. This vector can then be used in conjunction with the
-last observation set to find the targets position at a given time.
+from \texttt{Vector\_1} to \texttt{SA\_0}, \texttt{SD\_0}, \texttt{SA\_1} and
+\texttt{SD\_1} represent that all of these nodes are dependant on
+\texttt{Vector\_0}. 
+Since the sensor nodes are comprised of distance and angle, we need two
+of such sets in order to reliably determine a vector. \texttt{Vector\_2} has
+edges to \texttt{SA\_1}, \texttt{SD\_1}, \texttt{SA\_2} and
+\texttt{SD\_2}, this represent that the we use the
+previous observation to determine a new direction vector. The edge going from
+ \texttt{Vector\_1} to \texttt{Vector\_2} represents that the previous direction
+vector can be compared the new vector to the old. This vector can then be used
+in conjunction with the last observation set to find the targets position at a
+given time.

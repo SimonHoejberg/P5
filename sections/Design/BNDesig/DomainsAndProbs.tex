@@ -1,177 +1,223 @@
 \section{Domains and Probability}\label{MID}
 
-The model is designed to predict \texttt{Vector\_1}, and to do this we need to
-model how the vectors relate to the observations, other vectors and the
-velocity, as well as what their domains are. There are however limitations we
-need to consider. The model is constructed using Hugin Lite \citep{Hugin}, this
-allows the model to be constructed easily but limits the total number of nodes
-to 50 and the number of cases to 500. An example of a case is a specific
-value in \texttt{SD\_0} given a specific value in \texttt{Vector\_0}. This
-limitation decreases how precise the model can be, it can be especially problematic when we want to
-have variables that represent the distance between the target and turret as
-well as the current angle of the turret. To work around these limits we have
-divided the domains into intervals. This means the model lose some precision,
-but it allows us to work around the limit of 500 cases. Instead of having
-only a few nodes with a continuous set of values, we can consider additional
-variables, which can  make up for the loss of accuracy. It also allows us group
-the values that seem unlikely to be used often into big intervals.
+The model is designed to predict \texttt{Vector\_2}, and to do this we need to
+model how the vectors relate to the observations and each other, as well as
+what their domains are. There are however limitations we can consider. The
+model is constructed using Hugin Lite \citep{Hugin}, this allows the model to
+be constructed easily, but it limits the total number of nodes to 50 and the
+number of cases to 500. An example of a case is a specific value in \texttt{SD\_0}
+given a specific value in \texttt{Vector\_1}. This limitation decreases how
+precise the model can be, it becomes problematic if we want to have
+variables that represent the distance between the target and turret, as well as
+the current angle of the turret. To work around these limits we have divided
+the domains into intervals. This means the model lose some precision, but it
+allows us to work around the limit of 500 cases. Instead of having only a few
+nodes with a continuous set of values, we can consider additional variables,
+which can  make up for the loss of accuracy. It also allows us group the values
+that seem unlikely to be used often into big intervals.
 
 \subsection{Constructing the Probability Tables}
 
 Most of the domains are easy to determine, for instance the domains for each of
 the sensors are determined by what they can output. As such the domain for
 distance has values between 0 and 255, as this is what the ultrasound sensor
-can sense. It is much harder to determine the domain for the vectors, as such we
-have gathered data about the vectors and sensor observations. This data is not
-only used to determine the domain for the vectors, it is also used to determine
-the probability tables.\nl
+can sense. The domain for the vectors was determined by gathering data about the
+vectors and sensor observations by outputting the observed values. This data is
+not only used to determine the domain for the vectors, it is also used to
+determine the probability tables.\nl
 
-The domain for distance is divided into 7 intervals, with the first and the last
-intervals being the biggest, while the remaining 5 divide the rest of the
-distance evenly between them, see \autoref{SDtable}.
+\fix{}{tables need to be updated to better illustrate the possibility of bad
+observations}
+
+The domain for distance is divided into 5 intervals, with the first and the last
+intervals being the biggest. This ensures that we can have improved precision
+for the remaining 3 intervals. The probability for each of the intervals were
+determined by the results of the tests, see \fix{}{insert ref to tests}. As such
+the probability table for \texttt{SD\_0} and \texttt{SD\_2} can be seen in see
+\autoref{SDtable}.
 
 \begin{center}
 \begin{table}[H]
-\label{SDtable}
 \begin{tabular}{|l|l|l|l|}
 \hline
-\multicolumn{4}{|l|}{P(SD\_0|Vector\_0)} \\ \hline
-Vector\_0     & (-0.15,-0.10) & (-0.15,-0.10)    & (-0.15,-0.10)  \\\hline   
-[0 - 75]      &     &     &     \\ \hline 
-[76 - 100]    &     &     &     \\ \hline
-[101 - 125]   &     &     &     \\ \hline
-[126 - 150]   &     &     &     \\ \hline
-[151 - 175]   &     &     &     \\ \hline
-[176 - 200]   &     &     &     \\ \hline
-[201 - 255]   &     &     &     \\ \hline
+\multicolumn{4}{|l|}{P(SD\_0|Vector\_1)} \\ \hline
+Vector\_0     & (0.028; -0.013) & (-0.005; -0.028) & (0.028,-0.028)  \\\hline   
+[0 - 60]      & 0    & 0    & 0.11 \\ \hline 
+[60 - 75]    & 0.33 & 0.33 & 0.44 \\ \hline
+[75 - 90]   & 0.33 & 0.33 & 0.22 \\ \hline
+[90 - 105]   & 0    & 0.11 & 0.17 \\ \hline
+[105 - 255]   & 0.34 & 0.23 & 0.06   \\ \hline
 \end{tabular}
-\caption{The probability table for sensing the distance given the angle}
+\caption{The probability table for sensing the distance given the vector.}
+\label{SDtable}
 \end{table}
 \end{center}
 
-The domain for angle is likewise determined by how far the turret can turn,
-which is 180 degrees. It is of note that the angle is set as 0 at the start of
-program, in practice this means that domain for sensing the angle is from -15 to
-165 degrees. \fix{}{explain -15 degrees is due to camera spotting and moving
-too quickly}. 
+\texttt{SD\_1} is a special case, since it is dependant on
+both \texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
+\autoref{SDtable2}.
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{10}{|l|}{P(SD\_1|Vector\_1, Vector\_2)} \\\hline 
+Vector\_2 & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} &
+\multicolumn{3}{l|}{}\\\hline 
+ &       &       &       &       &       &       &       &       &       \\
+\hline &       &       &       &       &       &       &       &       &       \\ \hline
+ &       &       &       &       &       &       &       &       &       \\ \hline
+ &       &       &       &       &       &       &       &       &       \\ \hline
+ &       &       &       &       &       &       &       &       &       \\ \hline
+ &       &       &       &       &       &       &       &       &       \\ \hline
+\end{tabular}
+\caption{The probability table for sensing the distance given two vectors.}
+\label{SDtable2}
+\end{table}
+
+% Vector\_0     & (0.028; -0.013) & (-0.005; -0.028) & (0.028,-0.028)  \\\hline   
+% [0 - 60]      & 0    & 0    & 2    \\ \hline 
+% [60 - 75]    & 3    & 3    & 8    \\ \hline
+% [75 - 90]   & 3    & 3    & 4    \\ \hline
+% [90 - 105]   & 0    & 1    & 3    \\ \hline
+% [105 - 255]   & 3    & 2    & 1    \\ \hline
+
+The domain for angle is likewise determined by how far the turret can turn,
+which is 360 degrees. It is of note that the angle is set as 0 at the start of
+program, which results in a negative angle if it turns towards the target at the
+start, instead of following it. This means that domain for sensing the angle is
+adjusted slight to -30 to 330 degrees. Like distance, \autoref{SAtable} is
+the probability for \texttt{SA\_0} and \texttt{SA\_2}.
 \begin{center}
 \begin{table}[H]
-\label{SA_table}
+\label{SAtable}
 \begin{tabular}{|l|l|l|l|}
 \hline
-\multicolumn{4}{|l|}{P(SA\_0|Vector\_0)} \\ \hline
-Vector\_0     & (-0.15,-0.10) & (-0.15,-0.10)    & (-0.15,-0.10)  \\\hline   
-[-15 - 15]      &     &     &     \\ \hline 
-[16 - 45]    &     &     &     \\ \hline
-[46 - 75]   &     &     &     \\ \hline
-[76 - 105]   &     &     &     \\ \hline
-[106 - 135]   &     &     &     \\ \hline
-[136 - 165]   &     &     &     \\ \hline
+\multicolumn{4}{|l|}{P(SA\_0|Vector\_1)} \\ \hline
+Vector\_0     & (0.028; -0.013) & (-0.005; -0.028) & (0.028,-0.028)  \\\hline   
+[-30 - 0]   & 0.78 & 0    & 0.28    \\ \hline 
+[0 - 30]    & 0.22 & 0    & 0.33    \\ \hline
+[30 - 60]   & 0    & 0    & 0.39    \\ \hline
+[60 - 90]   & 0    & 0    & 0    \\ \hline
+[90- 330]   & 0    & 0    & 0    \\ \hline
 \end{tabular}
 \caption{The probability table for sensing the angle given the vector}
 \end{table}
 \end{center}
 
-The domain for time is considered the difference in time between the first
-observation and subsequent observations, see \autoref{ST_table}. This means
-that at most we will need to consider time for it takes for the target to
-travel from one end of the shooting range to other at the slowest speed.
+The probability table for \texttt{SA\_1} is given as:
 
-\begin{center}
 \begin{table}[H]
-\label{ST_table}
-\begin{tabular}{|l|l|l|l|}
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 \hline
-\multicolumn{4}{|l|}{P(ST\_0|Vector\_0)} \\ \hline
-Vector\_0     & (-0.15,-0.10) & (-0.15,-0.10)    & (-0.15,-0.10)  \\\hline   
-[0 - 1500]      &     &     &     \\ \hline 
-[1501 - 3000]    &     &     &     \\ \hline
-[3001 - 4500]   &     &     &     \\ \hline
+\multicolumn{10}{|l|}{P(SD\_1|Vector\_1, Vector\_2)} \\\hline 
+Vector\_2 & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} &
+\multicolumn{3}{l|}{}\\\hline 
+ &       &       &       &       &       &       &       &       &       \\
+\hline &       &       &       &       &       &       &       &       &       \\ \hline
+ &       &       &       &       &       &       &       &       &       \\ \hline
+ &       &       &       &       &       &       &       &       &       \\ \hline
+ &       &       &       &       &       &       &       &       &       \\ \hline
+ &       &       &       &       &       &       &       &       &       \\ \hline
 \end{tabular}
-\caption{The probability table for sensing time given a vector}
+\caption{The probability table for sensing the angle given two vectors.}
+\label{SDtable2}
 \end{table}
-\end{center}
 
-The domains for velocity is set to be three seperate speeds, 30cm/s and 42cm/s,
-which correspond to the target moving at 40\% and 60\% of its maximum speed,
-see \autoref{Velo_table}.
 
-\begin{center}
-\begin{table}[H]
-\label{Velo_table}
-\begin{tabular}{|l|l|l|l|}
-\hline
-\multicolumn{4}{|l|}{P(Velocity)} \\ \hline
-30cm/s   & 0.50   \\\hline   
-42cm/s   & 0.50   \\ \hline
-\end{tabular}
-\caption{The probability table for velocity of the target.}
-\end{table}
-\end{center}
+% The domain for time is considered the difference in time between the first
+% observation and subsequent observations, see \autoref{ST_table}. This means
+% that at most we will need to consider time for it takes for the target to
+% travel from one end of the shooting range to other at the slowest speed.
+% \begin{center}
+% \begin{table}[H]
+% \label{ST_table}
+% \begin{tabular}{|l|l|l|l|}
+% \hline
+% \multicolumn{4}{|l|}{P(ST\_0|Vector\_0)} \\ \hline
+% Vector\_0     & (-0.15,-0.10) & (-0.15,-0.10)    & (-0.15,-0.10)  \\\hline   
+% [0 - 1500]      &     &     &     \\ \hline 
+% [1501 - 3000]    &     &     &     \\ \hline
+% [3001 - 4500]   &     &     &     \\ \hline
+% \end{tabular}
+% \caption{The probability table for sensing time given a vector}
+% \end{table}
+% \end{center}
+% 
+% The domains for velocity is set to be three seperate speeds, 30cm/s and 42cm/s,
+% which correspond to the target moving at 40\% and 60\% of its maximum speed,
+% see \autoref{Velo_table}.
+% \begin{center}
+% \begin{table}[H]
+% \label{Velo_table}
+% \begin{tabular}{|l|l|l|l|}
+% \hline
+% \multicolumn{4}{|l|}{P(Velocity)} \\ \hline
+% 30cm/s   & 0.50   \\\hline   
+% 42cm/s   & 0.50   \\ \hline
+% \end{tabular}
+% \caption{The probability table for velocity of the target.}
+% \end{table}
+% \end{center}
 
-The domain for the vectors are determined by 
-\fix{}{determine vectors}
+The vectors are used to provide both the direction as well as the speed of the
+target, this value is show in cm/millisecond along the x and y axis. The
+vectors are found by taking the average of the vectors which are clumped
+together. Three different vectors are found, an average for the target going at
+80\%, an average 60\% and finally a vector that is faulty.
+
+\fix{This means that the vectors domain consist of 3 values,}{might
+need to  be updated} see \autoref{Vector0_table}. 
 
 \begin{center}
 \begin{table}[H]
 \label{Vector0_table}
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|l|l|}
 \hline
-\multicolumn{4}{|l|}{P(Vector\_0|Velocity)} \\ \hline
-Vector\_0     & (-0.15,-0.10) & (-0.15,-0.10)    & (-0.15,-0.10)  \\\hline   
-[0 - 1500]      &     &     &     \\ \hline 
-[1501 - 3000]    &     &     &     \\ \hline
-[3001 - 4500]   &     &     &     \\ \hline
+P(Vector\_1) &\\ \hline
+(0.028; -0.013) & 0.25   \\ \hline 
+(-0.005; -0.028) & 0.25  \\ \hline
+(0.028,-0.028)   & 0.50  \\ \hline
 \end{tabular}
-\caption{The probability table for a vector given the velocity}
+\caption{The probability table for a vector\_1}
 \end{table}
 \end{center}
 
+The probability for \texttt{Vector\_2} is given as the following conditional
+probability table: \fix{}{needs to be updated}
 \begin{center}
 \begin{table}[H]
-\label{Vector1_table}
+\label{SAtable}
 \begin{tabular}{|l|l|l|l|}
 \hline
-\multicolumn{4}{|l|}{P(Vector\_1|Vector\_0,Velocity)} \\ \hline
-Vector\_0     & (-0.15,-0.10) & (-0.15,-0.10)    & (-0.15,-0.10)  \\\hline   
-[0 - 1500]      &     &     &     \\ \hline 
-[1501 - 3000]    &     &     &     \\ \hline
-[3001 - 4500]   &     &     &     \\ \hline
+\multicolumn{4}{|l|}{P(SA\_0|Vector\_1)} \\ \hline
+Vector\_0     & (0.028; -0.013) & (-0.005; -0.028) & (0.028,-0.028)  \\\hline   
+(0.028; -0.013)   & 0 & 0    & 0    \\ \hline 
+(-0.005; -0.028)    & 0 & 0    & 0    \\ \hline
+(0.028,-0.028)   & 0    & 0    & 0   \\ \hline
 \end{tabular}
-\caption{The probability table for a vector given the velocity and the previous
-vector}
+\caption{The probability table for sensing the angle given the vector}
 \end{table}
 \end{center}
 
-
-% Perform tests to determine vectors and their likely
-% hoods as well as all the other chances.
-% 
-% By determining the vectors this way, along with gathering the other data, get a
-% rough estimate of the domain and construct the probability tables for the other
-% nodes.
-
-
-
-\subsection{inference}
-
-
-
-
-
-Since a bayesian network has been constructed we can abuse the property of
-inference to reduce the size of our probability table. Instead of a joint
-probability-table, it is sufficient instead to just look at the tables we are
-interested in. Since our evidence will be inserted at our S-node and the
-value we are looking for is contained in the node Vector it is thus enough to
-provide the conditional probability table P(Vector\_0|S\_0,S\_1). This reduces
-the overall statespace of our model
+% Since a bayesian network has been constructed we can abuse the property of
+% inference to reduce the size of our probability table. Instead of a joint
+% probability-table, it is sufficient instead to just look at the tables we are
+% interested in. Since our evidence will be inserted at our S-node and the
+% value we are looking for is contained in the node Vector it is thus enough to
+% provide the conditional probability table P(Vector\_0|S\_0,S\_1). This reduces
+% the overall statespace of our model
 
 \subsection{Using the Network}
 
+In order to use the model we need to insert evidence, ``e'', unto the sensor
+nodes of network. This information is then able to flow to both of the vector
+nodes through the connections mentioned in \autoref{LabelBN}.
 
+\figx{BNEvidence}{The network with evidence on its sensor nodes.}
 
-
+We can look at \texttt{Vector\_2} and find the most likely outcome of it, and
+see if it a is likely to be a bad vector.
 
 
