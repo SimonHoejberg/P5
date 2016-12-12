@@ -9,15 +9,24 @@ Introduction: We didnt really implement the MI-part.
 \textbf{If} it was to be implemented we had two options:
 
 \begin{enumerate}
-\item Implement the bayesian network on the NXT.
+\item Implement the belief network on the NXT.
 \item Run the MI-agent on a computer and establish communication between the brick and the computer.
 \end{enumerate}
 
 \subsection{Option One}
-One of the first issues with implementing the model on the NXT is the available RAM for the computing of the network. The primary limitation for the NXT is the low amount of RAM, namely 64KB, see \autoref{PlatformC}. Although the flash storage on the NXT is larger, at 256KB, it is still necessary to load the code onto the RAM, so the real limiting factor is still the amount of available RAM. \todo{Do a calculation of how many states}
-In order to implement the network on the NXT, it is necessary to reduce the complexity of the model or else it wont be possible to
+One of the first issues with implementing the model on the NXT is the available
+RAM for the computing of the network. The primary limitation for the NXT is the
+low amount of RAM, namely 64KB, see \autoref{PlatformC}. Although the flash
+storage on the NXT is larger, at 256KB, it is still necessary to load the code
+into the RAM, so the real limiting factor is still the amount of available RAM.
+\fix{}{Do a calculation of how many states} In order to implement the network
+on the NXT, it is necessary to reduce the complexity of the model or else it wont
+be possible to \fix{}{finsh the sentence}
+
 \subsection{Option Two}
-The second option involves using a computer as the computational module for the belief network. Using this approach requires the computational to be fully automatic in order to still consider the system embedded.
+The second option involves using a computer as the computational module for the
+belief network. Using this approach requires the computational to be fully
+automatic in order to still consider the system embedded.
 
 This approach requires the following things to be setup first
 \begin{itemize}
@@ -26,17 +35,37 @@ This approach requires the following things to be setup first
 \item Figure out what data structures should be sent and received
 \end{itemize}
 
-The first part was realized using Hugin Lite to model the network described in\label{MID}. The model of the network is exported via Hugin as a file. Using the Hugin API the logic for the network was constructed in C\#.\nl
+The first part was realized using Hugin Lite to model the network described
+in \autoref{MID}. The model of the network is exported via Hugin as a file.
+Using the Hugin API the logic for the network was constructed in C\#.\nl
 
-In order to establish a connection between the NXT and the PC, there are two alternatives. The NXT is capable of transmitting data via either USB or Bluetooth.
-The USB approach would require a cable connecting the NXT and the PC. This could complicate certain things like the horizontal rotation, since our NXT is capable of moving 360 degrees. On the other hand, the USB connection is faster than its Bluetooth counterpart.\nl
+In order to establish a connection between the NXT and the PC, there are two
+alternatives. The NXT is capable of transmitting data via either USB or
+Bluetooth.
+The USB approach would require a cable connecting the NXT and the PC. This could
+complicate certain things like the horizontal rotation, since our NXT is capable
+of moving 360 degrees. On the other hand, the USB connection is faster than
+Bluetooth although we do not consider transfer speed in our choice.\nl
 
-Using bluetooth for communication would have been preferred, since there is no fuss with cables and the data transfer speed wasn't considered a factor. This approach would require a PC with bluetooth communication. Once a connection has been established, it uses the NXT built-in mailbox system for transferring messages between brick and
-the PC.\nl
+Using bluetooth for communication would have been preferred, since there is
+no cables which can stop or slow down the turret when it turns. 
+This approach would require a PC with bluetooth communication. Once a connection has
+been established, it uses the NXT built-in mailbox system for transferring
+messages between brick and the PC.\nl
 
-Next step would be to figure out in what format the communication should occur. The NXT should send the sensor input needed for evidence to the PC. Since our sensor values are defined in intervals, we need to convert the sensor value to the corresponding interval in the node. This can be achieved two ways. Either the NXT does the conversion and sends the modified value to the PC, or the NXT sends the full sensor value and the conversion is done on the computer before being fed as evidence to the model.\nl
+Next step would be to figure out in what format the communication should occur.
+The NXT should send the sensor input needed for evidence to the PC. Since our
+sensor values are defined in the model in intervals, we need to convert the
+sensor value to the corresponding interval in the node. This can be achieved two ways. Either
+the NXT does the conversion and sends the modified value to the PC, or the NXT
+sends the full sensor value and the conversion is done on the computer before
+being fed as evidence to the model.\nl
 
-The other part of the communication is the response the PC should generate. The network generates a vector that needs to be sent back to the NXT, to be used for calculating a firing position. The idea was to use the NXT mailbox system's builtin \texttt{SendString}, so we send the information as strings and then construct functions to package and unwrap the information.
+The other part of the communication is the response the PC should generate. The
+network generates a vector that needs to be sent back to the NXT, to be used for
+calculating a firing position. The idea was to use the NXT mailbox system's
+builtin \texttt{SendString}, so we send the information as strings and then
+construct functions to package and unwrap the information.
 
 % Our idea for implementing the network is using a computer running a program
 % written in C\# which takes an input from the NXT, this input would be gotten
