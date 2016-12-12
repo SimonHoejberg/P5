@@ -1,14 +1,8 @@
-\section{Target Design}
+\section{Target Design}\label{targetDesign}
 In this section the design decisions of the target will be explained. First the
 requirements of the target will be presented again. Then the different design
 aspects of the target will be discussed along with the reasoning for choosing them.
 \subsection{introduction}
-
-Using these requirements from \autoref{FeatAndReq} two aspects of the target can be identified
-\begin{itemize}
-  \item The turret needs to be able to see the target
-  \item The target should be able to move
-\end{itemize}
 
 \subsection{making the target trackable}
 Since the primary method of tracking is tracking colours using the camera, the
@@ -36,9 +30,15 @@ Since our problem statement says that the target is always travelling the same d
 at a constant speed, there is no need for the target to be able to turn. This allows
 for a simple design for the vehicle, using only 3 wheels, fixed in place. The cart
 is powered by a NXT brick used to control the motors. The cart has 4 different speeds including standing:
-25, 50,75,100 indicating the percentage of power being fed to the motors. In order to
-calculate the speed a test was conducted\autoref{speedotesto}
-although the speed with a value of 25 was never tested since it was observed that
-it was travelling too slow for our requirement from \autoref{FeatAndReq} that states
-that the target must travel at a speed such that the turret will miss if it fires when
-it sees a target.
+25, 50,75,100 indicating the percentage of power being fed to the motors. \nl
+
+In order to determine whether or not the target adheres to the requirements, a
+test was conducted, which can be found in \autoref{speedotesto}. 
+
+In the test, a number of speeds were tested, but it should be noted that speeds
+at a power-value of less than 25 was never tested since it was observed that it
+was travelling too slow for our requirement from \autoref{FeatAndReq} that
+states that the target must travel at a speed such that the turret will miss if
+it fires when it sees a target.\nl
+The test concluded that the target moves at a near constant speed, and that it
+moves in a straight line.
