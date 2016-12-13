@@ -5,11 +5,86 @@ unsatisfactory parts of the developed product and the project process, and
 suggesting improvements for potential future development.
 
 \section{Sensor Quality}\label{DSQ}
-A major problem was the quality of the sensor input\ldots
+One of the major problems encountered throughout the project, was the
+general quality of the sensors. From the start of the project, we have been
+limited in what the sensors could output, and as the project went along, the
+sensor quality started to degrade. Originally the ultrasonic distance sensors
+could measure up to 250cm and do this in a cone in front of it. At the end
+of the project the sensor would struggle to observe an object 150cm away, and
+any cone of vision had disappeared. In much the same way, at the start of the
+project the camera could easily identify a coloured object at a distance of just
+over 2m, while at the end of the project, it would still be able to identify the
+object, but not as clearly as before.\nl
+
+The distance sensor's user guide states that it works best on large objects with
+hard surfaces, which is one of the reasons why our target is a large red metal
+can. Considering that the target should be ideal, that the sensor's
+abilities to identify it has degraded over time and that the program used
+is a simple piece of software designed to test the sensor, we are drawn to the
+conclusion, that the quality of the sensors are too low, and that they are
+considerably worse now, that they were at the start of the project.\nl
+
+While the camera has not decreased much in quality over the span of the project,
+the quality of the sensor as a whole has not been satisfactory. While the sensor
+is easy to use, the quality of the output is lower that what we originally
+expected. The first problem lies in the fact that the resolution of the camera
+is too low, which results in problems when it comes to accurately identifying
+objects, and telling objects apart from the background. In addition, we have
+found that the camera needs a bright light source in order to be able to
+identify the target at a distance of 2m. This has turned out to be a big
+problem, as it has limited the turret severely and has reduced our ability to
+accurately test the turret, as many tests have been unsuccesful due to the
+camera not being able to identify the target.\nl
+
+For another project, it could be possible to use a cheap camera sensor with a
+higher resolution, and do the colour recognition ourselves. While the NXTCam has
+a dedicated microcontroller for this process, it could be possible to simplify
+the colour recognition enough to be able to implement it on the NXT. An example
+of this could be that the NXTCam has the ability to observe 8 different blobs of
+colour at the same time. If this was reduced to one, which we believe would
+still be acceptable for this project, it could be possible to reduce the
+processing power required, an as such be able to implement it on the NXT.\nl
+
+While the ultrasonic distance sensors have not been satisfactory, we have been
+unable to identify any alternative sensors which would be both easy to integrate
+into the NXT and which are capable of identifying targets at the desired range
+of up to 2m.
 
 \section{Quantity of Data}
 As discussed above in \autoref{DSQ}, the quality of the received data was not
-satisfactory\ldots
+satisfactory, which has led to problems with gathering the required information
+in order to calculate the targets future position. The current implementation of
+the \name software requires the turret to observe the target at at least 2
+different points, but preferrably at a much higher amount.\nl
+The fact that we have only two points to calculate the future position from,
+creates a lot of problems when it comes to drawing an accurate conclusion. This
+is because two points results in only a single speed and directional vector, on
+which no further analysis can be done in order to determine the accuracy of the
+data.\nl
+
+Given a larger amount of data, it would be possible to determine which data to
+use, and to analyze this data in order to get an average direction and speed.
+This way, any misreadings from the sensors would even out, and a more accurate
+conclusion could be drawn.\nl
+
+From our observations, the reason for the low amount of data mostly comes down
+to the poor quality of the sensors, but it is possible that the current
+implementation could be optimized to work under these conditions. In the current
+implementation, the ultrasonic sensors are the limiting factor when it comes to
+gathering data, as a data point can only be made when the sensor observes the
+target.\nl
+A problem with the implementation could be that the distance sensors are only
+activated once the camera returns information about the target being in its
+vision. Considering that we have no control over the scheduling of the NXT, it
+could be possible that this dependency between the two sensors causes the
+distance sensor to somtimes miss its window of opportunity to observe the
+target.\nl
+In an alternate implementation, we could try a solution where the distance
+sensors are always on, such that the commands to turn them on/off would not
+interfere with its ability to locate the target in time. In this implementation,
+we could simple sort the data such that only the useful data is saved, while
+circumventing the possible problems of scheduling the on/off commands to the
+sensors.
 
 \section{Implementation of Machine Intelligence}
 Due to problems with the management of the project, the machine intelligence has
