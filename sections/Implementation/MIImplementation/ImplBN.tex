@@ -34,7 +34,15 @@ $3^1*5^4 = 1875$ which given a size of the state of each space at 4 bytes would
 need 7.5KB in the worst case. Given this state space it would be possible to
 implement the belief network on the NXT.\nl
 
-However\ldots
+A possible way to implement the network on the NXT would be to choose another
+programming language for the brick. If for example a programming language such
+as leJos was used on the NXT it would in theory be possible to implement the
+Hugin API directly on the NXT. This language could potentially be used as the
+language is a tiny Java Virtual Machine \cite{LeJos}. This solution however
+does present some issues, the first being the amount of flash memory on the NXT and the second
+being that there are no guaranties that the Hugin API will work with it. Another
+example of a language that might work could be the RobotC language, which
+presents the same issues as the leJos language \cite{RobotC}.
 
 \subsection{Option Two}
 The second option involves using a computer for computing the
@@ -78,6 +86,15 @@ network generates a vector that needs to be sent back to the NXT, to be used for
 calculating a firing position. The idea was to use the NXT mailbox system's
 built in \textc{SendString}, so we send the information as strings and then
 construct functions to package and unwrap the information.
+
+\subsection{Conclusion}
+The two solutions each present some issues, option 1 might not solve the problem
+as there is a lot of uncertainty since there are no guarantees that the Hugin
+API will work. Another issue with option 1 is the limited memory and storage on
+the NXT. Option 2 has a greater chance of working as the only issue we
+encountered was establishing serial communication between the NXT and the PC.
+This problem could however with some more time and research be solved.
+Therefore, the second option is a better way to implement it. 
 
 % Our idea for implementing the network is using a computer running a program
 % written in C\# which takes an input from the NXT, this input would be gotten
