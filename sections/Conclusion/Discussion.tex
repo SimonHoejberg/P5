@@ -103,7 +103,6 @@ In an attempt to implement serial communication to the NXT, we tried to
 establish a bluetooth connection between the NXT and a PC. This implementation
 never succeded as none of the bluetooth enabled PCs in the group were able to
 establish a conncetion to the NXT.\nl
-
 One of the likely reasons we never succeded to implement bluetooth
 communications are beacuse we did not devote enough time to research and test
 methods for doing so. In an alternate project, it would be a good idea to focus
@@ -112,17 +111,21 @@ encountered during the project. One such problem is, that all transfer of files
 between the NXT and the PC was done using a USB cable. This posed a problem, as
 the turret rotates during its operation, which means that the cable can not
 always be connected. This resulted in a lot of annoyances, as we needed a
-connection to read the NXT screen, 
-
+connection to read the NXT screen, upload new software and download data logs,
+which could all be done using a bluetooth connection.
 
 \subsection{USB}
-In the case of using USB to communicate with the NXT, we tried to use MonoBrick
-\cite{MonoBrick} in C\# to read and send messages to the NXT's mailbox, we had 3
-different group members to use their own PC and their understanding on MonoBrick
-to send messages to the NXT, this worked and then they tried to read messages
-from the NXT which all 3 was not able to succed in doing that. 
- 
-
+While we were able to use a USB connection to share files between the NXT and a
+PC, we were never able to share a continious stream of information between the
+two. We tried to implement a communication system by using the NXT's mailbox
+system, which is basically a set of variables or strings, which can be read
+through a serial connection. Our attempt was done using MonoBrick
+\cite{MonoBrick}, which is a library for C\# which implements methods for
+reading and writing to the NXT's mailbox. Our attempt to implement a serial
+connection consisted of having 3 group members try to use their individual
+understanding and implementation of MonoBrick, to establish a connection to the
+NXT mailbox. While we succeded in writing data from a PC to the NXT, we were
+unable to read data from the NXT.
 
 \section{Should have refactored the code}
 As a group we decided to use an agile software engineering paradigm. This means that
