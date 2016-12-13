@@ -157,10 +157,22 @@ would not be a problem when using LeJos, which can be run in the JVM on the
 computer. The only problem with doing it like this, is the ability to get sensor
 input and send outputs to the motors. Thus, this part would still have been run
 on the NXT itself, which is not that big of an issue.\\
-
 To conclude, using a different programming language, along with different
 firmware, could have helped us in developing the program, along with having
 better opportunities for involving all the group members in the process.
+
+
+\subsection{Scheduling}
+Another aspect of choosing which language to write in and the associated
+firmware is scheduling. Since the firmware from NXC is not very well documented
+we do not know how the scheduler works, thus we do not have any control over how
+the task are scheduled. If we had chosen another language we would have had more
+options in terms of scheduling. For example if we had chosen LeJos it would have
+been possible to create periodic tasks, this has the advantage of giving more
+control of the flow in the program. The LeJos also has support for choosing when
+threads are started, this in terms gives us the option to more or less make our
+own scheduler. 
+
 
 \section{Less Multithreading}
 During evaluation of the 
