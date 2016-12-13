@@ -9,8 +9,10 @@ distinction between the different methods. This however is not the case in NXC,
 as the language follows the imperative programming paradigm. In our testing
 setup, only functions with a return value is tested and functions which takes input from
 sensor inside of the function are not tested, also functions that controls
-motors are not tested in this chapter those are tested by condunting tests in
+motors are not tested in this chapter, those are tested by condunting tests in
 the physical world.
+
+\section{Testing Model}
 The basic principle is Arrange, Act and Assert. In the arrange step the input
 data is constucted as well as what the expected output is. In the act step, the
 functions are called and the inputs are saved. Then finaly in the assert step
@@ -45,7 +47,7 @@ bool CombineVectorsTest(){
 \end{lstlisting}
 \end{minipage}
 
-The function we want to test are
+The function we want to test are:
 
 \begin{itemize}
   \item \textc{CalcDirVector}
@@ -69,6 +71,7 @@ passed or failed to a log file, which can be seen in \autoref{table:ut_result}.\
 
 \dataTable{Results}{The result of the unit test}{ut_result}
 
+\section{Conclusion}
 To conclude all the tests succeeded, one of the tests we had some issues as our
 calculations differed a little bit from the calculations made by the NXT. These
 differences was so small that they were likely caused by a rounding error.
