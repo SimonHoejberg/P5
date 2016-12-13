@@ -88,7 +88,11 @@ sensors.
 
 \section{Implementation of Machine Intelligence}
 Due to problems with the management of the project, the machine intelligence has
-not been implemented.
+not been implemented. Several problems were identified during our construction of the intelligent agent. First and foremost our scheduling of the design activity was inadequate. Which means that at first we didn't really plan the MI resulting in us starting the design of the intelligent agent way too late. This complicated other things in the project for example the serial communication, which resulted in us not having time to get the USB connection to work. Another consequence of our late planning, was that the MI-agent was built around our NXT code, and not in conjunction with. This resulted in some oddities and simplifications regarding our design of the network. 
+
+
+\section{MI-Model Design}
+One of the inconsistencies of our belief network is the probability tables that we are operating on, which are based on a limited amount of learning data. That means that we have certain states where the probabilities are quite uncertain. A simple solution for this would have been more training data, as that would increase the precision of our probabilities. Another factor that could have increased our precision is modeling more possible states on our features, although the hardware did restrict us.
 
 \section{Serial Communication to the NXT}
 When trying to implement the machine intelligence, we found that an complex
@@ -171,7 +175,7 @@ options in terms of scheduling. For example if we had chosen LeJos it would have
 been possible to create periodic tasks, this has the advantage of giving more
 control of the flow in the program. The LeJos also has support for choosing when
 threads are started, this in terms gives us the option to more or less make our
-own scheduler. 
+own scheduler.
 
 
 \section{Less Multithreading}
