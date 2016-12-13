@@ -1,13 +1,12 @@
 \chapter{Implementing a Belief Network}
 This chapter will be used to describe how the belief network could be
 implemented. There will also be a discussion of the pros and cons compared to
-the current setup.
+the different solutions.
 
 \section{Implementation}
-
 We did not implement a belief network, therefor this section will be used to
-show how it could be implemented. To implement the network there are two
-options, one where it could be implemented on the NXT and the other where it is
+discuss how it could have been implemented. To implement the network there are
+two options, one where it could be implemented on the NXT and the other where it is
 implemented on a PC.
 
 % Introduction: We didnt really implement the MI-part.
@@ -31,9 +30,11 @@ would theoretically need 560KB of RAM given that each state is 4 byte. The 4
 bytes are assumed as the NXT uses 32 bit to represent floating points which is
 the largest type used. However if we remove some of the states which are not
 necessary according to the implementation, the state space could be reduced to
-$3^1*5^4 = 1875$ which given a size of the state of each space at 4KB would need
-7.5KB in the worst case. Given this state space it would be possible to
-implement the belief network on the NXT.
+$3^1*5^4 = 1875$ which given a size of the state of each space at 4 bytes would
+need 7.5KB in the worst case. Given this state space it would be possible to
+implement the belief network on the NXT.\nl
+
+However\ldots
 
 \subsection{Option Two}
 The second option involves using a computer for computing the
@@ -75,7 +76,7 @@ being fed as evidence to the model.\nl
 The other part of the communication is the response the PC should generate. The
 network generates a vector that needs to be sent back to the NXT, to be used for
 calculating a firing position. The idea was to use the NXT mailbox system's
-built in \texttt{SendString}, so we send the information as strings and then
+built in \textc{SendString}, so we send the information as strings and then
 construct functions to package and unwrap the information.
 
 % Our idea for implementing the network is using a computer running a program
