@@ -91,14 +91,29 @@ Due to problems with the management of the project, the machine intelligence has
 not been implemented.
 
 \section{Serial Communication to the NXT}
-As a part of the machine intelligence, we would have liked to implement
-communication via either bluetooth or USB such that calculations could be made
-on a PC instead of the NXT.
+When trying to implement the machine intelligence, we found that an complex
+machine intelligence model would require more processing power and memory than
+what was available on the NXT. As such, as a part of the machine intelligence,
+we would have liked to implement communication via either bluetooth or USB, such
+that the NXT could gather data, which it then sent to a PC, which would compute
+all complex calculations, and then simply send the results to the NXT.
 
 \subsection{Bluetooth}
-In the case of using bluetooth, we tried but we were not able to pair and
-have a stable connection to the NXT, we tried all the PC's in the group that
-have bluetooth connectivity and the result was the same.
+In an attempt to implement serial communication to the NXT, we tried to
+establish a bluetooth connection between the NXT and a PC. This implementation
+never succeded as none of the bluetooth enabled PCs in the group were able to
+establish a conncetion to the NXT.\nl
+
+One of the likely reasons we never succeded to implement bluetooth
+communications are beacuse we did not devote enough time to research and test
+methods for doing so. In an alternate project, it would be a good idea to focus
+on this functionality early on, as is alleviates some of the problems we
+encountered during the project. One such problem is, that all transfer of files
+between the NXT and the PC was done using a USB cable. This posed a problem, as
+the turret rotates during its operation, which means that the cable can not
+always be connected. This resulted in a lot of annoyances, as we needed a
+connection to read the NXT screen, 
+
 
 \subsection{USB}
 In the case of using USB to communicate with the NXT, we tried to use MonoBrick
@@ -119,7 +134,7 @@ refactoring should be a recurring event in our development strategy. Ideally, af
 As we have no control over the scheduling of the different threads on the NXT\ldots
 
 \section{Less Multithreading}
-During evaluation of the
+
 
 (HINT: Track og GetDataAndCalculate bør ikke køre samtidigt. Den ene starter
   den anden, og holder den kun åben i et tidsinterval.)
