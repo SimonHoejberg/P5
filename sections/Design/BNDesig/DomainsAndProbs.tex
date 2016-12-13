@@ -16,25 +16,21 @@ nodes with a continuous set of values, we can consider additional variables,
 which can  make up for the loss of accuracy. It also allows us group the values
 that seem unlikely to be used often into big intervals.
 
-\fix{}{explain possible issues with 0 probabilities}
-
 \subsection{Constructing the Probability Tables}
 
 Most of the domains are easy to determine, for instance the domains for each of
 the sensors are determined by what they can output. As such the domain for
 distance has values between 0 and 255, as this is what the ultrasound sensor
-can sense. The domain for the vectors was determined by gathering data about the
+can sense. The domain for the vectors is determined by gathering data about the
 vectors and sensor observations by outputting the observed values, see
 \autoref{AppendixMIData}. This data is used to construct the
-probability tables by constructing the vectors between each of the
-observations. These vectors are then used to construct the domain for vectors by creating an average vector for
-the target at moving at 60\%, 80\% and when the observations are deemed flawed.
-These vectors are then used in conjuction with observations themselves to create
-the probability table.\nl
-
-
-\fix{}{tables need to be updated to better illustrate the possibility of bad
-observations}
+probability tables, first by constructing the vectors between each
+observation and the one after, and then normalizing by dividing with the
+difference in time between the observations. These vectors are then used to
+construct the domain for vectors by creating an average vector for the target
+at moving at 60\%, 80\% and when the observations are deemed flawed. These
+vectors are then used in conjuction with observations themselves to create the
+probability table.\nl
 
 The domain for distance is divided into 5 intervals, with the first and the last
 intervals being the biggest. This ensures that we can have improved precision
@@ -59,7 +55,7 @@ Vector\_0     & (0.033; -0.029)-80\% & (0.012; -0.014)-Bad observations &
 \end{table}
 \end{center}
 
-\texttt{SD\_1} is a special case, since it is dependant on
+\texttt{SD\_1} is a special case, since it is dependent on
 both \texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
 \autoref{SDtable2}.
 
@@ -111,7 +107,7 @@ Vector\_0     & (0.033; -0.029)-80\% & (0.012; -0.014)-Bad observations &
 [-30 - 0]   & 5/22 = 0.23 & 0    & 3/20 = 0.15   \\ \hline 
 [0 - 30]    & 8/22 = 0.36 & 8/30 = 0.27 & 9/20 = 0.45 \\ \hline
 [30 - 60]   & 8/22 = 0.36 & 10/30 = 0.33 & 8/20 = 0.40 \\ \hline
-[60 - 90]   & 1/22 = 5 & 5/30 = 0.17 & 0    \\ \hline
+[60 - 90]   & 1/22 = 0.05 & 5/30 = 0.17 & 0    \\ \hline
 [90- 330]   & 0    & 7/30 = 0.23   & 0    \\ \hline
 \end{tabular}
 \caption{The probability table for sensing the angle given the vector}
@@ -122,17 +118,22 @@ The probability table for \texttt{SA\_1} is given as:
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}[|c|c|c|c|c|c|c|c|c|c|]
+Vector_1&\multicolumn{3}{|c|}{(0.033;-0.029)}\multicolumn{3}{|c|}{(0.012;-0.014)}\multicolumn{3}{|c|}{60\%}\\
 \hline
-\multicolumn{10}{|l|}{P(SD\_1|Vector\_1, Vector\_2)} \\\hline 
-Vector\_2 & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} &
-\multicolumn{3}{l|}{}\\\hline 
- &       &       &       &       &       &       &       &       &       \\
-\hline &       &       &       &       &       &       &       &       &       \\ \hline
- &       &       &       &       &       &       &       &       &       \\ \hline
- &       &       &       &       &       &       &       &       &       \\ \hline
- &       &       &       &       &       &       &       &       &       \\ \hline
- &       &       &       &       &       &       &       &       &       \\ \hline
+Vector_2 & (0.033;-0.029) 80\% & (0.012;-0.014) Bad & 60\% &(0.033;-0.029) 80\%
+& (0.012;0.014) Bad & 60\% & (0.033;0.029) 80\% & (0.012;-0.014) Bad & 60\% \\
+\hline
+[-30 - 0] & 5/12 =  & 0/3 = & 0/1 = & 0/12 = & 0/6 = & 0/3 = & 0/1 = & 0/15 = &
+0/9 = \\ \hline
+[0 - 30] & 3/12 = & 2/3 = & 1/1 = 1 & 4/12 = & 0/6 = & 0/3 = & 0/1 = & 6/15 = &
+2/9 = \\ \hline
+[30 - 60] & 4/12 = & 1/3 = & 0/1 = & 6/12 = & 2/6 = & 1/3 = & 1/1 = 1 & 7/15 = &
+4/9 = \\ \hline
+[60 - 90] & 0/12 = & 0/3 = & 0/1 = & 1/12 = & 0/6 = & 2/3 = & 0/1 = & 2/15 = &
+3/9 = \\ \hline
+[90 - 330] & 0/12 = & 0/3 = & 0/1 = & 1/12 = & 4/6 = & 0/3 = & 0/1 = & 0/15 =
+0/9 = \\ \hline
 \end{tabular}
 \caption{The probability table for sensing the angle given two vectors.}
 \label{SDtable2}
@@ -189,9 +190,9 @@ need to  be updated} see \autoref{Vector0_table}.
 \begin{tabular}{|l|l|}
 \hline
 P(Vector\_1) &\\ \hline
-(0.033; -0.029) & 0.39   \\ \hline 
-(0.012; -0.014) & 0.21  \\ \hline
-(60\%)   & 0.39  \\ \hline
+(0.033; -0.029) & 13/33 = 0.39   \\ \hline 
+(0.012; -0.014) & 7/33 = 0.22  \\ \hline
+(60\%)   & 13/33 = 0.39  \\ \hline
 \end{tabular}
 \caption{The probability table for a vector\_1}
 \end{table}
@@ -199,22 +200,25 @@ P(Vector\_1) &\\ \hline
 
 The probability for \texttt{Vector\_2} is given as the following conditional
 probability table: \fix{}{needs to be updated}
-\begin{center}
-\begin{table}[H]
-\label{SAtable}
-\begin{tabular}{|l|l|l|l|}
-\hline
-\multicolumn{4}{|l|}{P(SA\_0|Vector\_1)} \\ \hline
-Vector\_0     & (0.033; -0.029) 80\% & (0.012; -0.014) Bad observation & 60\%  \\\hline 
-(-30:0)   & 0.23 & 0    & 0    \\ \hline 
-(0; 30)    & 0.36 & 0.27 & 0.15    \\ \hline
-(30,60)   & 0.36    & 0.33 & 0.45   \\ \hline
-(60:90)   & 0.045	& 0.17 & 0.4 	\\ \hline
-(90:330)  & 0	& 	0.23		& 0 		\\ \hline
-\end{tabular}
-\caption{The probability table for sensing the angle given the vector}
-\end{table}
-\end{center}
+
+
+
+% \begin{center}
+% \begin{table}[H]
+% \label{SAtable}
+% \begin{tabular}{|l|l|l|l|}
+% \hline
+% \multicolumn{4}{|l|}{P(SA\_0|Vector\_1)} \\ \hline
+% Vector\_0     & (0.033; -0.029) 80\% & (0.012; -0.014) Bad observation & 60\%  \\\hline 
+% (-30:0)   & 0.23 & 0    & 0    \\ \hline 
+% (0; 30)    & 0.36 & 0.27 & 0.15    \\ \hline
+% (30,60)   & 0.36    & 0.33 & 0.45   \\ \hline
+% (60:90)   & 0.045	& 0.17 & 0.4 	\\ \hline
+% (90:330)  & 0	& 	0.23		& 0 		\\ \hline
+% \end{tabular}
+% \caption{The probability table for sensing the angle given the vector}
+% \end{table}
+% \end{center}
 
 % Since a bayesian network has been constructed we can abuse the property of
 % inference to reduce the size of our probability table. Instead of a joint
