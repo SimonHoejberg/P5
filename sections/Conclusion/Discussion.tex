@@ -175,7 +175,17 @@ own scheduler.
 
 
 \section{Less Multithreading}
-During evaluation of the 
+During evaluation of the final software that have been developed two different
+task (\textc{Track} and \textc{GetDataAndCalculate}) the should be running
+both at the same time for as long as the program itself is running. The problem
+with this implementation is that \textc{GetDataAndCalculate} is buzy waiting while it waits for the camera to
+tell it to collect data from the ultrasonic sensors. The problem is the buzy
+waiting, if it was implemented using mutexs where the task whould sleep if
+another task has takken that mutex, another solution whould be to only have one
+task \textc{Track} which is running for as long as the program is running and
+the, while it whould then start a task called \textc{GetData} which whould only
+collect one set of data, without stopping the tracking, then when it has enough
+data it will start the calculate task such that we will shoot at the target.\nl
 
-(HINT: Track og GetDataAndCalculate bør ikke køre samtidigt. Den ene starter
-  den anden, og holder den kun åben i et tidsinterval.)
+One aspect which would be better is that the NXT is not using as much of its cpu
+time on buzy waiting.
