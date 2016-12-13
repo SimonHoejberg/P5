@@ -90,10 +90,24 @@ sensors.
 Due to problems with the management of the project, the machine intelligence has
 not been implemented.
 
-\section{Communication Using Bluetooth}
+\section{Serial Communication to the NXT}
 As a part of the machine intelligence, we would have liked to implement
-communication via bluetooth such that calculations could be made on a PC instead
-of the NXT. But we were able not 
+communication via either bluetooth or USB such that calculations could be made
+on a PC instead of the NXT.
+
+\subsection{Bluetooth}
+In the case of using bluetooth, we tried but we were not able to pair and
+have a stable connection to the NXT, we tried all the PC's in the group that
+have bluetooth connectivity and the result was the same.
+
+\subsection{USB}
+In the case of using USB to communicate with the NXT, we tried to use MonoBrick
+\cite{MonoBrick} in C\# to read and send messages to the NXT's mailbox, we had 3
+different group members to use their own PC and their understanding on MonoBrick
+to send messages to the NXT, this worked and then they tried to read messages
+from the NXT which all 3 was not able to succed in doing that. 
+ 
+
 
 \section{Should have refactored the code}
 As a group we decided to use an agile software engineering paradigm. This means that
