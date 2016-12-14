@@ -289,14 +289,68 @@ probability table:
 % the overall statespace of our model
 
 \subsection{Using the Network}
+In order to present the model in action, we can create a concrete example of the
+model determining the direction/speed of the target.\nl
 
-In order to use the model we need to insert evidence, ``e'', unto the sensor
-nodes of network. This information is then able to flow to both of the vector
-nodes through the connections mentioned in \autoref{LabelBN}.
+The turret starts its operation by looking straight ahead while waiting for the
+target to appear. The target enters the turret's field of vision, and the turret
+tracks the target. During the tracking, the turret observes the target at 3
+locations, which in this case is an angle/distance pair: (9,104), (20,76) and
+(46,65).\nl
 
-\figx[1.15]{BNEvidence}{The network with evidence on its sensor nodes.}
+This information is used as evidence for the model in Hugin, which allows
+us to determine a probability for \texttt{Vector\_1} and \texttt{Vector\_2}
+based on our test-data, which is presented in \autoref{AppendixMIData}. For
+\texttt{Vector\_1}, given our 3 locations, this results in the following
+probalities:
 
-We can look at \texttt{Vector\_2} and find the most likely outcome of it, and
-see if it is likely to be a bad vector.
+\begin{itemize}
+  \item 80\% speed - 78.57\% chance.
+  \item 60\% speed - 14.86\% chance.
+  \item Bad Observation - 6.57\% chance.
+\end{itemize}
+
+In this case, the model would conclude that \texttt{Vector\_1} would be most
+likely to have the target moving at 80\% speed. Now, given the same information,
+the model would assign \texttt{Vector\_2} the following probabilities:
+
+\begin{itemize}
+  \item 80\% speed - 24.84\% chance.
+  \item 60\% speed - 55.00\% chance.
+  \item Bad Observation - 20.16\% chance.
+\end{itemize}
+
+The probability for \texttt{Vector\_2} indicates that the most likely conclusion
+is that something went wrong with the data. This does not mean that the target's
+behavior is unknown, but that the gathered data does not correlate to previous
+experience. In case the two vectors do not reach the same conclusion, the
+resulting speed will be based on the following reasoning:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Case                                                                                 & Conclusion \\ \hline
+Both vectors agree                                                                   & Vector\_2  \\ \hline
+The vectors disagree                                                                 & Vector\_2  \\ \hline
+\begin{tabular}[c]{@{}l@{}}First vector is bad,\\ second vector is good\end{tabular} & Vector\_2  \\ \hline
+\begin{tabular}[c]{@{}l@{}}First vector is good,\\ second vector is bad\end{tabular} & Vector\_1  \\ \hline
+\end{tabular}
+\caption{Speed conclusion based on vector\_1 and vector\_2.}
+\end{table}
+
+While this model may not always output the correct result, with enough previous
+data to base the probabilities on, some of the cases of disagreement between the
+vectors would be eliminated.
+
+
+
+%This information is then able to flow to both of the vector
+% nodes through the connections mentioned in \autoref{LabelBN}.
+% 
+% \figx[1.15]{BNEvidence}{The network with evidence on its sensor nodes.}
+% 
+% We can look at \texttt{Vector\_2} and find the most likely outcome of it, and
+% see if it is likely to be a bad vector.
 
 
