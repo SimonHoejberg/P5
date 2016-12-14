@@ -12,12 +12,38 @@ the variables.
 %must be very simple}
 
 \section{Network Structure}
-The network, see \autoref{BNDone}, displays the final version of the network.
-In this network the nodes \texttt{SA\_0-2} and \texttt{SD\_0-2} represent
-observations of distance and angle at time 0-2. The numbers next to the nodes
-represent the time at which they happen.
+\autoref{BNDone} displays the final version of the network. In this network the
+nodes \texttt{SA\_0-2} represent angle observations while \texttt{SD\_0-2}
+represent the distance observations.
 
-%  Worth noting is that the observations does
+\figx[0.8]{BNDone}{The model for the belief network}
+
+Time is represented implicitly in the model by numbering the nodes 0-2, as such
+\texttt{SD\_1} is taken at time 1. The actual time interval between each of
+these observations is irrelevant, but can be used to provide a consistent data.
+The interaction between the the observations and how they are used by the
+network can be seen in \autoref{mwr}.
+
+\figx[0.8]{mwr}{An example of how the observations are translated and inserted
+into the nodes}
+
+The network represents how the observations, angle and distance, are dependent
+on the vector of the target. The nodes are, as mentioned in \autoref{LabelBN},
+variables and the edges represent the dependencies. The nodes
+\texttt{Vector\_1} and \texttt{Vector\_2} are used to represent possible
+vectors the target can have. The edges moving from \texttt{Vector\_1} to
+\texttt{SA\_0}, \texttt{SD\_0}, \texttt{SA\_1} and \texttt{SD\_1} represent
+that all of these nodes are dependent on \texttt{Vector\_0}. Since the sensor
+nodes are comprised of distance and angle, we need two of such sets in order to
+reliably determine a vector. \texttt{Vector\_2} has edges to \texttt{SA\_1},
+\texttt{SD\_1}, \texttt{SA\_2} and \texttt{SD\_2}, this represent that the we
+use the previous observation to determine a new direction vector. The edge
+going from \texttt{Vector\_1} to \texttt{Vector\_2} represents that new vector
+is dependent on the old, in the sense that the vector should not change wildly,
+unless a faulty observation has occured.
+
+ 
+ %  Worth noting is that the observations does
 % not occur on fixed intervals, but are instead provided once the NXT has found
 % acceptable data. This creates an unpredictable behavior regarding when the
 % observations occur, and thus we need to contain a time-variable in our
@@ -25,20 +51,4 @@ represent the time at which they happen.
 % it cannot be considered a true HMM, since in an HMM time is considered as an
 % implicit part of the variables, in the sense that \texttt{S\_0} would be taken
 % at time 0 while \texttt{S\_2} would be at time 2.
-
-\figx[0.8]{BNDone}{The model for the belief network}
-
-The nodes are, as mentioned in \autoref{LabelBN}, variables and the edges
-represent the dependencies. The nodes \texttt{Vector\_1} and \texttt{Vector\_2}
-are used to represent possible vectors the target can have. The edges moving
-from \texttt{Vector\_1} to \texttt{SA\_0}, \texttt{SD\_0}, \texttt{SA\_1} and
-\texttt{SD\_1} represent that all of these nodes are dependent on
-\texttt{Vector\_0}. 
-Since the sensor nodes are comprised of distance and angle, we need two
-of such sets in order to reliably determine a vector. \texttt{Vector\_2} has
-edges to \texttt{SA\_1}, \texttt{SD\_1}, \texttt{SA\_2} and
-\texttt{SD\_2}, this represent that the we use the
-previous observation to determine a new direction vector. The edge going from
- \texttt{Vector\_1} to \texttt{Vector\_2} represents that new vector is
- dependent on the old, in the sense that the vector should not change wildly,
- unless a faulty observation has occured. 
+ 
