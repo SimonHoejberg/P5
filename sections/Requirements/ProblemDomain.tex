@@ -1,7 +1,8 @@
 \chapter{Problem Domain}\label{ProblemDomain}
 As the project has no actual customer to set the requirements for the project,
-the product requirements will be based on the Ren\'e's proposed challenge and
-the educational goals for the semester.\nl 
+the product requirements will be based on Ren\'e's proposed challenge and
+the educational goals for the semester.\nl
+
 As such, this chapter will be used to construct an ideal scenario for the
 turrets operation, which will then be analyzed in order to define the problem
 domain and initial goals for the project.
@@ -10,25 +11,25 @@ domain and initial goals for the project.
 Based on the proposed challenge, it is possible to describe an ideal scenario
 of how the turret should operate. We construct an ideal scenario in order to better
 visualize the initial problem and to serve as a basis for specifying the
-requirements. The ideal scenario involves the two actors the \textbf{Turret} and
-the \textbf{Target}, and describes how they should interact with each other.
+requirements. The ideal scenario involves the two actors, the \textbf{Turret}
+and the \textbf{Target}, and describes how they should interact in relation to
+each other.
 
 \begin{center}
 \colorbox{diff}{
 \begin{minipage}{0.8\linewidth}
 \textbf{Ideal Scenario:}
 
-The turret is set down on an even floor and activated. It then rotates
-horizontally while searching for a target by turning left and right, scanning an
-area for possible targets.\nl
+The turret is placed on an even surface and activated. It then rotates
+horizontally while searching for a target by turning left and right.\nl
 
-The target is moving on an even plane at a constant but unknown speed, while
-driving in a straight line. It enters the turrets the firing zone from an
-unknown angle. The target moves at a speed such that the turret will miss if it
-fires when the target is directly in front of the turret.\nl
+The target is moving on an even plane at a constant but unknown speed while
+driving in a straight line. It enters the turrets firing zone from an
+unknown angle. The target moves at a speed such that it will miss the target if
+it fires when the target is directly in front of the turret.\nl
 
-The turret detects a target, and begins to track its movements. The turret then
-begins to predict the targets movements in order to anticipate the targets
+The turret detects a target and begins to track its movements. The turret then
+begins to predict the target's movements in order to anticipate the targets
 position at any future point in time.\nl
 
 The turret moves into a firing position based on the predicted position. It then
@@ -46,46 +47,47 @@ of finding and shooting a target.
 \figx[0.45]{turretScenario}{A representation of the ideal scenario.}
 
 \section{Phases}
-Based on the ideal scenario three distrinct phases are identified,
+Based on the ideal scenario three distinct phases are identified,
 \textbf{Scanning}, \textbf{Tracking} and \textbf{Shooting}. The Scanning phase
 consists of the turret turning left and right in order to search for a target.
 The Tracking phase is where the turret collects data and calculates the
 trajectory for the target. The Shooting phase consists of the turret moving to
-a firing position and shoots at the predicted location at the correct time.
+a firing position and shooting at the predicted location at the correct time.
 These phases represent the turrets entire behaviour, and will now be examined in
 order to identify any problems in the respective phases.
 
 \subsection{Scanning}
 The \textbf{Scanning} phase, where the turret monitors an area, presents two
 different outcomes. The first outcome is when no target is detected and it
-keeps continuosly scanning for a target. The second outcome is when a target
+keeps continuously scanning for a target. The second outcome is when a target
 is detected, and the turret switches to the \textbf{Tracking} phase.\nl
 
-This leads to the following problems:
+This leads to the following design issues:
 \begin{itemize}
   \item How can an area for the turret to monitor be defined?
   \item How does the turret identify a target?
 \end{itemize}
 
 \subsection{Tracking}
-The \textbf{Tracking} phase which occurs when a target is found, is used to
+The \textbf{Tracking} phase which occurs when a target is found is used to
 follow a target and gather data about its movements. This information is then used to
-predict where the target will be at any given time as well as to calculate a
+predict where the target will be at any given time, as well as to calculate a
 shooting position.\nl
 
-This leads to the following problems:
+This leads to the following design issues:
 \begin{itemize}
-  \item How can the turret predict a targets movement?
+  \item How can the turret predict a target's movement?
   \item How does the turret track the target?
 \end{itemize}
 
 \subsection{Shooting}
-The \textbf{Shooting} phase begins when the cannon has determined where the
-target will be, when it will be there and how the turret will hit it. With
-these informations, the turret moves into the calculated shooting position and
+The \textbf{Shooting} phase begins when the turret has determined where the
+target will be, when it will be there and how it should position itself in
+order to hit it.
+With this information, the turret moves into the calculated shooting position and
 proceeds to shoot at the determined time.\nl
 
-This leads to the following problems:
+This leads to the following design issues:
 \begin{itemize}
   \item How does the turret move into a shooting position?
   \item How does the turret shoot?
@@ -95,20 +97,20 @@ This leads to the following problems:
 
 \section{Summary}
 In conclusion, we have constructed an ideal scenario based on the initial
-problem, and analyzed this scenario in order to gain an insight into what
+problem and analyzed this scenario in order to gain an insight into what
 design problems must be overcome. We already determined the following as hard
 requirements based on the semester topic:
 
 \begin{enumerate}
 	\item The developed system must be classifiable as an embedded system.
-	\item The developed system must use techniques and models taught in either the
-	machine intelligence or real-time systems courses.
+	\item The developed system must make use of techniques and models from the
+	fields of machine intelligence and real-time systems.
 \end{enumerate}
 
 During the analysis, three distinct phases were identified, \textbf{Scanning},
-\textbf{Tracking} and \textbf{Shooting}. Each phase was analysed in order to
-determine what design problems could be associated with it. These problems
+\textbf{Tracking} and \textbf{Shooting}. Each phase was analyzed in order to
+determine what design problems could be associated with it. These problems,
 which are mechanical, real-time and reasoning based problems, are used as the
-foundation for the analysis. In the next chapter we will examine what an
+foundation for the analysis. In the next chapter, we will examine what an
 embedded system is, what constitutes a real-time system and how machine
 intelligence can be integrated with the project.
