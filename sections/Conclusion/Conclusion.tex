@@ -6,6 +6,53 @@ and likewise the hardware and software for the turret has been based on the LEGO
 NXT platform.\nl
 
 Following the discussion of the project process in \autoref{projDiscus}, this
-chapter will be used to conclude on the succes of the project, based on the
-requirements established in \autoref{FeatAndReq}, and the product testing
-presented in \autoref{TurretAcc}. 
+chapter will be used to conclude on the success of the project, based on the
+requirements in \autoref{FeatAndReq} and the ideal scenario in \autoref{ProblemDomain},
+and the test of the turret's accuracy presented in \autoref{TurretAcc}. \nl
+
+To conclude on the success on the project, there are some points from the
+requirements which are not met and some points which are. The requirements and
+if they are met or not can be seen in \autoref{RequirementTable}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{\textwidth/2}|p{\textwidth/2}|}
+\hline
+Requirements & Fulfilled\\ \hline
+ The system needs to use the Lego NXT as the embedded system. & This
+ requirement was met.\\
+ \hline 
+ The system must be an intelligent agent. & This requirement was not met
+ since there is no Machine Intelligence implemented.\\ \hline
+ Since the turret should monitor an area and be able to hit a moving target,
+it needs to be able to turn. If it is not able to turn, line of sight as well
+as the timing in order to hit a target will be severely limited. In regards
+to how far it should be able to turn, a minimum is set to 90 degrees, as
+this will provide a decent sized area in front of the turret. & This requirement
+was met, since the turret is able to turn 360 degrees. \\ \hline
+In order to perceive the target without receiving information from an
+outside source, the turret will need to be able to sense the target. Based
+on the results from the sensor tests, see \autoref{SensorTest}, the sensors will
+be able to see approximately 200 cm. & This requirement was only partially met,
+this is due to the fact that the quality of the measurements was of varying
+quality. \\ \hline
+ The turret needs to be able to shoot in order to hit a target. This has to
+be done within a range of 200 cm as it is the max capability of the sensors. &
+This requirements was met as the turret is able to shoot approcimately 2.5 m. \\
+\hline
+ In addition to the target moving fast enough to require a firing offset, the
+target also needs to move on an even plane and with a constant speed. & This
+requirement was met. \\ \hline
+The turret needs to be able to calculate the firing offset to ensure a high
+accuracy. It is not enough to hit the target sometimes, the turret should
+be able to hit it reliably. It should be able to hit a moving target at least
+80\% of the time. & This requirement was not met since the turret only has a hit
+accuracy 12.5\%, see \autoref{TurretAcc}. However, the hit accuracy was higher
+when the target was 50 cm away. This was due to the fact that the offset was not
+properly calculated or the data from the sensor was bad. \\ \hline
+\end{tabular}
+\caption{Requirements}
+\label{RequirementTable}
+\end{table}
+\section{Final Conclusion}
+The project was partially successfull, 
