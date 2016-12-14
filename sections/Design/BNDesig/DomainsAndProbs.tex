@@ -1,258 +1,253 @@
 \section{Domains and Probability}\label{MID}
+The purpose of the model is to predict \texttt{Vector\_2} when given information
+about \texttt{Vector\_1}. In order to do this, we need to model how the two
+vectors relate to each other, and how they are affected by information about the
+targets location. The first step to this approach is to define what this
+information's domains is, that is, how the data is represented and used.
+There are however limitations we need to consider in relation to the
+implementation of this model. The model is constructed using Hugin Lite
+\citep{Hugin} which allows it to be constructed easily, but it limits the total
+number of states to 50 and the number of cases to 500. For our model, an example
+of a case, is a specific value in \texttt{SD\_0} given a specific value in
+\texttt{Vector\_1}. This means, that in order to represent our vectors and
+observations of the target, we need to simplify this information in order to
+fit the model. While this decreases the accuracy of the model, it is necessary
+for implementing it given the limitations. For example, if we want to model the
+entire domain for the distance, we would need a state for each possible value
+the domain contains. To work around these limits we have divided the domains
+for the observations and vectors into intervals.\nl
 
-The model is designed to predict \texttt{Vector\_2}, to do this we need to
-model how the vectors relate to the observations and each other, as well as
-define their domains are. There are however limitations we need to consider. The
-model is constructed using Hugin Lite \citep{Hugin}, this allows the model to
-be constructed easily, but it limits the total number of state to 50 and
-the number of cases to 500. An example of a case is a specific value in \texttt{SD\_0}
-given a specific value in \texttt{Vector\_1}. This limitation decreases the
-precision of the model. If we want to model the entire domain of for example
-distance, we would need a state for each possible value the domain
-contains. To work around these limits we have divided
-the domains into intervals. This means the model lose some precision, but it
+Most of the domains are easy to determine, for instance the domains for each of
+the sensors are determined by what they can output. As such the domain for
+distance has values between 0 and 255cm, as this is what the ultrasound sensor
+can sense. This domain is divided into 5 intervals, with the first and the last
+intervals being the biggest. This ensures that we can have improved precision
+for the remaining 3 intervals. The domain for angle is determined by how far the
+turret can turn, which is 360 degrees. It is of note that the angle is set as 0
+at the start of program, which results in a negative angle if it turns towards the target at the
+start, instead of following it. This means that domain for sensing the angle is
+adjusted slight to -30 to 330 degrees. These domains for the angles and
+distances are shown below in \autoref{distAngleDom}. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l|l}
+State & Angle (deg) & Distance (cm) \\ \hline
+1     & -30 - 0     & 0 - 60        \\
+2     & 0 - 30      & 60 - 75       \\
+3     & 30 - 60     & 75 - 90       \\
+4     & 60 - 90     & 90 - 105      \\
+5     & 90 - 330    & 105 - 255     
+\end{tabular}
+\caption{Domains for angles and distances respectively.}
+\label{distAngleDom}
+\end{table}
+
+\fix{}{dobbelt tjek target hastighed}
+The states for the vectors consist of the percieved speed of the target, that
+is, how far along the x and y-axis it has moved per millisecond. These vectors
+were found through \fix{}{Ref til BN-learning}, and are for simplicity denoted
+by how fast it is moving, 35cm/s, 50cm/s and when it is a 'bad vector' referred
+to as \textbf{BV}. A 'bad vector' is a vector that is alot different from what
+the expected vector is. If an additional vector is added, one that
+does not drive straight in front of it, we would need to denote them by their
+actual vector for clarity. The vectors are limited to 3 states, as 1 additional
+vector will result in 98 additional cases, due to all the other
+nodes depending on the vectors. The domain for the vectors are presented in
+\autoref{vecDom}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l}
+State & Vector \\ \hline
+1     & 35cm/s \\
+2     & 50cm/s \\
+3     & BV
+\end{tabular}
+\caption{Domain for the vectors.}
+\label{vecDom}
+\end{table}
+
+Using this simplified approach means the model lose some precision, but it
 allows us to work around the limit of 500 cases. Instead of having only a few
 nodes with a continuous set of values, we can consider additional variables,
-which can  make up for the loss of accuracy. It also allows us group the values
+which can make up for the loss of accuracy. It also allows us group the values
 that seem unlikely to be used often into big intervals.
 
 \subsection{Constructing the Probability Tables}
 
-Most of the domains are easy to determine, for instance the domains for each of
-the sensors are determined by what they can output. As such the domain for
-distance has values between 0 and 255, as this is what the ultrasound sensor
-can sense. The domain for the vectors is determined by gathering data about the
-vectors and sensor observations by outputting the observed values, see
-\autoref{AppendixMIData}. This data is used to construct the
-probability tables, first by constructing the vectors between each
-observation and the one after, and then normalizing by dividing with the
-difference in time between the observations. These vectors are then used to
-construct the domain for vectors by creating an average vector for the target
-at moving at 60\%, 80\% and when the observations are deemed flawed. These
-vectors are then used in conjuction with observations themselves to create the
-probability table.\nl
+% The domain for the vectors is determined by gathering data about the
+% vectors and sensor observations by outputting the observed values, see
+% \autoref{AppendixMIData}.
+% These vectors are then used to
+% construct the domain for vectors by creating an average vector for the target
+% at moving at 60\%, 80\% and when the observations are deemed flawed. These
+% vectors are then used in conjuction with observations themselves to create the
+% probability table.\nl
 
-The domain for distance is divided into 5 intervals, with the first and the last
-intervals being the biggest. This ensures that we can have improved precision
-for the remaining 3 intervals. As such the probability table for \texttt{SD\_0}
-and \texttt{SD\_2} can be seen in see \autoref{SDtable}.
+The conditional probabilities were found by \fix{}{Ref to MIDATA-behandlet}.
+This data is used to fill the tables below. For instance, in \autoref{SDtable}
+there were a total of 9 times the distance between the target and turret were in
+the [60-75] interval out of the 22 times distance was used by a viable
+50cm/s vector. By adding an evidence to one of the sensor nodes, we can infere
+the likelyhood of given vector variables. The more nodes are filled with
+evidence, the clearer we can infere which vector the target is using to
+travel. As such, the probability table for \texttt{SD\_0} and \texttt{SD\_2} can
+be seen in seen \autoref{SDtable}. While it seems there is little difference
+between the probabilities, there should be a more distinct difference if the
+sample size was alot bigger.
 
 \begin{center}
 \begin{table}[H]
 \begin{tabular}{|l|l|l|l|}
 \hline
 \multicolumn{4}{|l|}{P(SD\_0|Vector\_1)} \\ \hline
-Vector\_0     & (0.033; -0.029)-80\% & (0.012; -0.014)-Bad observations &
-(0.020,-0.018)-60\% \\\hline
-[0 - 60]      & 3/22 = 0.14 & 3/27 = 0.11 & 0 \\ \hline
+Vector\_1     & 50cm/s & BV & 35cm/s \\\hline 
+[0 - 60]      & 3/22 = 0.14 & 3/27 = 0.11 & 0 \\ \hline 
 [60 - 75]    & 9/22 = 0.41 & 12/27 = 0.44 & 14/24 = 0.58 \\ \hline
 [75 - 90]   & 5/22 = 0.23 & 8/27 = 0.30 & 6/24 = 0.25 \\ \hline
 [90 - 105]   & 4/22 = 0.18 & 1/27 = 0.04 & 3/24 = 0.13 \\ \hline
 [105 - 255]   & 1/22 =0.04 & 3/22 = 0.11 & 1/24 = 0.04   \\ \hline
 \end{tabular}
-\caption{The probability table for sensing the distance given the vector.}
+\caption{The conditional probability table for sensing the distance given the
+vector.}
 \label{SDtable}
 \end{table}
 \end{center}
-
-\texttt{SD\_1} is a special case, since it is dependent on
-both \texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
-\autoref{SDtable2}.
+  
+\texttt{SD\_1} is a special case, since it is dependent on both
+\texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
+\autoref{SDtable2}. This means that we need to consider how the observation
+relates to both of the vectors it is used to create.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|p{1.2cm}|p{1.2cm}|l|p{1.2cm}|p{1.2cm}|p{1.2cm}|l|p{1.2cm}|p{1.2cm}|}
 \hline
-\multicolumn{10}{|l|}{P(SD\_1|Vector\_1, Vector\_2)} \\\hline
-Vector\_2 & \multicolumn{3}{l|}{80\%} & \multicolumn{3}{l|}{Bad} &
-\multicolumn{3}{l|}{60\%}\\\hline
-Vector\_1 & 80\%      &  Bad     & 60\%      & 80\%      & Bad      & 60\%
-& 80\% & Bad & 60\% \\\hline
-[0-60]&1/12 = 0.08 & 1/3 = 0.33 & 0      & 2/12 = 0.17 & 1/6 = 0.17 & 0 & 0
+\multicolumn{10}{|l|}{P(SD\_1|Vector\_1, Vector\_2)} \\\hline 
+Vector\_2 & \multicolumn{3}{l|}{50cm/s} & \multicolumn{3}{l|}{BV} &
+\multicolumn{3}{l|}{35cm/s}\\\hline 
+Vector\_1 & 50cm/s      &  BV     & 35cm/s      & 50cm/s      & BV      & 35cm/s     
+& 50cm/s & BV & 35cm/s \\\hline
+[0-60]&1/12 = 0.08 & 1/3 = 0.33 & 0      & 2/12 = 0.17 & 1/6 = 0.17 & 0 & 0  
 & 0 & 0 \\ \hline
-[60-75]&4/12 = 0.33 & 1/3 = 0.33 & 1      & 7/12 = 0.58 & 3/6 = 0.5 & 0      & 1
+[60-75]&4/12 = 0.33 & 1/3 = 0.33 & 1      & 7/12 = 0.58 & 3/6 = 0.5 & 0      & 1     
 & 7/15 = 0.47 & 5/9 = 0.56\\ \hline
-[75-90] & 4/12 = 0.33 & 0 & 0 & 2/12 = 0.17 & 1/6 = 0.17 & 2/3 = 0.67 & 0
+[75-90] & 4/12 = 0.33 & 0 & 0 & 2/12 = 0.17 & 1/6 = 0.17 & 2/3 = 0.67 & 0 
 & 5/15 = 0.33 &1/9 = 0.11\\\hline
-[90-105] & 2/12 = 0.17 & 1/3 = 0.33 & 0 & 1/12 = 0.08 & 0 & 0 & 0
+[90-105] & 2/12 = 0.17 & 1/3 = 0.33 & 0 & 1/12 = 0.08 & 0 & 0 & 0 
 & 2/15 = 0.07  & 3/9 = 0.33\\\hline
-[105-255] & 1/12 = 0.08 & 0 & 0 & 0 & 1/6 = 0.17 & 1/3 = 0.33 & 0 & 1/15 = 0.07
+[105-255] & 1/12 = 0.08 & 0 & 0 & 0 & 1/6 = 0.17 & 1/3 = 0.33 & 0 & 1/15 = 0.07     
 &0\\\hline
 \end{tabular}
-\caption{The probability table for sensing the distance given two vectors.}
+\caption{The conditional probability table for sensing the distance given two
+vectors.}
 \label{SDtable2}
 \end{table}
 
+Similar tables are made for \texttt{SA\_0-2}, these can be seen in \autoref{PT}.
 
-% Vector\_0     & (0.028; -0.013) & (-0.005; -0.028) & (0.028,-0.028)  \\\hline
-% [0 - 60]      & 0    & 0    & 2    \\ \hline
-% [60 - 75]    & 3    & 3    & 8    \\ \hline
-% [75 - 90]   & 3    & 3    & 4    \\ \hline
-% [90 - 105]   & 0    & 1    & 3    \\ \hline
-% [105 - 255]   & 3    & 2    & 1    \\ \hline
 
-The domain for angle is likewise determined by how far the turret can turn,
-which is 360 degrees. It is of note that the angle is set as 0 at the start of
-program, which results in a negative angle if it turns towards the target at the
-start, instead of following it. This means that domain for sensing the angle is
-adjusted slight to -30 to 330 degrees. Like distance, \autoref{SAtable} is
-the probability for \texttt{SA\_0} and \texttt{SA\_2}.
-\begin{center}
-\begin{table}[H]
-\label{SAtable}
-\begin{tabular}{|l|l|l|l|}
-\hline
-\multicolumn{4}{|l|}{P(SA\_0|Vector\_1)} \\ \hline
-Vector\_0     & (0.033; -0.029)-80\% & (0.012; -0.014)-Bad observations &
-(0.020,-0.018)-60\% \\\hline
-[-30 - 0]   & 5/22 = 0.23 & 0    & 3/20 = 0.15   \\ \hline
-[0 - 30]    & 8/22 = 0.36 & 8/30 = 0.27 & 9/20 = 0.45 \\ \hline
-[30 - 60]   & 8/22 = 0.36 & 10/30 = 0.33 & 8/20 = 0.40 \\ \hline
-[60 - 90]   & 1/22 = 0.05 & 5/30 = 0.17 & 0    \\ \hline
-[90- 330]   & 0    & 7/30 = 0.23   & 0    \\ \hline
-\end{tabular}
-\caption{The probability table for sensing the angle given the vector}
-\end{table}
-\end{center}
 
-The probability table for \texttt{SA\_1} is given as:
 
-\begin{table}[H]
-\centering
-%{|l|l|l|l|l|l|l|l|l|l|}
-\begin{tabular}{|l|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|}
-\hline
-\multicolumn{10}{|l|}{P(SA\_1|Vector\_1, Vector\_2)} \\\hline
-Vector\_1 & \multicolumn{3}{l|}{80\%} & \multicolumn{3}{l|}{Bad} &
-\multicolumn{3}{l|}{60\%}\\\hline
-Vector\_2 & 80\% & Bad & 60\% & 80\% & Bad & 60\% & 80\% & Bad & 60\% \\
-\hline
-[-30 - 0] & 5/12 = 0.42  & 0/3 = 0 & 0/1 = 0 & 0/12 = 0 & 0/6 = 0 & 0/3 = 0 &
-0/1 = 0 & 0/15 = 0 & 0/9 = 0 \\ \hline
-[0 - 30] & 3/12 = 0.25 & 2/3 = 0.67 & 1/1 = 1 & 4/12 = 0.33 & 0/6 = 0 & 0/3 = 0
-& 0/1 = 0 & 6/15 = 0.4 & 2/9 = 0.22 \\ \hline
-[30 - 60] & 4/12 = 0.33 & 1/3 = 0.33 & 0/1 = 0 & 6/12 = 0.5 & 2/6 = 0.33 & 1/3 =
-0.33 & 1/1 = 1 & 7/15 = 0.47 & 4/9 = 0.44 \\ \hline
-[60 - 90] & 0/12 = 0 & 0/3 = 0 & 0/1 = 0 & 1/12 = 0.08 & 0/6 = 0 & 2/3 = 0.67 &
-0/1 = 0 & 2/15 = 0.13 & 3/9 = 0.33 \\ \hline
-[90 - 330] & 0/12 = 0 & 0/3 = 0 & 0/1 = 0 & 1/12 = 0.08 & 4/6 = 0.67 & 0/3 = 0 &
-0/1 = 0 & 0/15 = 0 & 0/9 = 0 \\ \hline
-\end{tabular}
-\caption{The probability table for sensing the angle given two vectors.}
-\label{SDtable2}
-\end{table}
 
-\subsection{Filling in the probability tables}
-For each speed we want to implement in the model, we need a dataset, based on the sensor readings from turret. In order to gather datasets a test was performed. The test was conducted such that the observations were grouped into a set: each set consists of 3 sensor readings, the first two observations of a set are used to construct a vector V1 and the last two observations are used to construct a vector V2. Using this method we end up with a set of vectors based upon sensor observations, which means we know the values that resulted in the vector, which will come in handy in the next step.
-Next step is to group the resulting vectors according to whether or not it was deemed a good vector or a bad vector. After going through the vectors for each speed, we end up with two sorted list of vectors, one containing all the good vectors and one containing the faulty ones. Next step is plotting the  measurements that resulted in a given vector into a table, based on the sensor readings - the way this was accomplished was to look at a given vector and then reference the sensor readings. For example, we wanted to know the probability of a vector given an angle - so what we did was make a table with two columns - good and bad indicating the quality of the vector. We then referenced the specific vector and then plotted in the two angle values used to calculate the given vector. Doing this for each vector, we end up with a probability table. The same method is used to construct a probability table for distance.
-
-% The domain for time is considered the difference in time between the first
-% observation and subsequent observations, see \autoref{ST_table}. This means
-% that at most we will need to consider time for it takes for the target to
-% travel from one end of the shooting range to other at the slowest speed.
-% \begin{center}
-% \begin{table}[H]
-% \label{ST_table}
-% \begin{tabular}{|l|l|l|l|}
-% \hline
-% \multicolumn{4}{|l|}{P(ST\_0|Vector\_0)} \\ \hline
-% Vector\_0     & (-0.15,-0.10) & (-0.15,-0.10)    & (-0.15,-0.10)  \\\hline
-% [0 - 1500]      &     &     &     \\ \hline
-% [1501 - 3000]    &     &     &     \\ \hline
-% [3001 - 4500]   &     &     &     \\ \hline
-% \end{tabular}
-% \caption{The probability table for sensing time given a vector}
-% \end{table}
-% \end{center}
-%
-% The domains for velocity is set to be three seperate speeds, 30cm/s and 42cm/s,
-% which correspond to the target moving at 40\% and 60\% of its maximum speed,
-% see \autoref{Velo_table}.
-% \begin{center}
-% \begin{table}[H]
-% \label{Velo_table}
-% \begin{tabular}{|l|l|l|l|}
-% \hline
-% \multicolumn{4}{|l|}{P(Velocity)} \\ \hline
-% 30cm/s   & 0.50   \\\hline
-% 42cm/s   & 0.50   \\ \hline
-% \end{tabular}
-% \caption{The probability table for velocity of the target.}
-% \end{table}
-% \end{center}
-
-The vectors are used to provide both the direction as well as the speed of the
-target, this value is show in cm/millisecond along the x and y axis. The
-vectors are found by taking the average of the vectors which are clumped
-together. Three different vectors are found, an average for the target going at
-80\%, an average 60\% and finally a vector that is faulty.
-
-This means that the vectors domain consist of 3 values, a vector for moving
-at 80\%, 60\% and a bad vector, see \autoref{Vector0_table}.
+ see \autoref{Vector0Table}. 
 
 \begin{center}
 \begin{table}[H]
-\label{Vector0_table}
 \begin{tabular}{|l|l|}
 \hline
 P(Vector\_1) &\\ \hline
-(0.033; -0.029) & 13/33 = 0.39   \\ \hline
-(0.012; -0.014) & 7/33 = 0.22  \\ \hline
-(60\%)   & 13/33 = 0.39  \\ \hline
+50cm/s & 13/33 = 0.39   \\ \hline 
+BV & 7/33 = 0.22  \\ \hline
+35cm/s & 13/33 = 0.39  \\ \hline
 \end{tabular}
 \caption{The probability table for a Vector\_1}
+\label{Vector0Table}
 \end{table}
 \end{center}
 
 The probability for \texttt{Vector\_2} is given as the following conditional
-probability table:
+probability table: 
 \begin{table}[]
 \centering
-\label{vector2tab}
 \begin{tabular}{|l|l|l|l|}
 \hline
 \multicolumn{4}{|l|}{P(Vector\_2|Vector\_1)} \\ \hline
- Vector\_1 & 80    & bad    & 60    \\ \hline
- 80    & 4/8 = 0.5    & 1/8 = 0.13    & 0    \\ \hline
- bad   & 4/8 = 0.5    & 2/8 = 0.25    & 1/4 = 0.25  \\ \hline
- 60    & 0            & 5/8 = 0.62    & 3/4 = 0.75  \\ \hline
+ Vector\_1 & 50cm/s    & BV    & 35cm/s    \\ \hline
+ 50cm/s    & 4/8 = 0.5    & 1/8 = 0.13    & 0    \\ \hline
+ BV   & 4/8 = 0.5    & 2/8 = 0.25    & 1/4 = 0.25  \\ \hline
+ 35cm/s    & 0            & 5/8 = 0.62    & 3/4 = 0.75  \\ \hline
 \end{tabular}
 \caption{The conditional probability table of Vector\_2 given Vector\_1}
+\label{vector2tab} 
 \end{table}
 
 
-% \begin{center}
-% \begin{table}[H]
-% \label{SAtable}
-% \begin{tabular}{|l|l|l|l|}
-% \hline
-% \multicolumn{4}{|l|}{P(SA\_0|Vector\_1)} \\ \hline
-% Vector\_0     & (0.033; -0.029) 80\% & (0.012; -0.014) Bad observation & 60\%  \\\hline
-% (-30:0)   & 0.23 & 0    & 0    \\ \hline
-% (0; 30)    & 0.36 & 0.27 & 0.15    \\ \hline
-% (30,60)   & 0.36    & 0.33 & 0.45   \\ \hline
-% (60:90)   & 0.045	& 0.17 & 0.4 	\\ \hline
-% (90:330)  & 0	& 	0.23		& 0 		\\ \hline
-% \end{tabular}
-% \caption{The probability table for sensing the angle given the vector}
-% \end{table}
-% \end{center}
-
-% Since a bayesian network has been constructed we can abuse the property of
-% inference to reduce the size of our probability table. Instead of a joint
-% probability-table, it is sufficient instead to just look at the tables we are
-% interested in. Since our evidence will be inserted at our S-node and the
-% value we are looking for is contained in the node Vector it is thus enough to
-% provide the conditional probability table P(Vector\_0|S\_0,S\_1). This reduces
-% the overall statespace of our model
 
 \subsection{Using the Network}
+In order to present the model in action, we can create a concrete example of the
+model determining the direction/speed of the target.\nl
 
-In order to use the model we need to insert evidence, ``e'', unto the sensor
-nodes of network. This information is then able to flow to both of the vector
-nodes through the connections mentioned in \autoref{LabelBN}.
+The turret starts its operation by looking straight ahead while waiting for the
+target to appear. The target enters the turret's field of vision, and the turret
+tracks the target. During the tracking, the turret observes the target at 3
+locations, which in this case is an angle/distance pair: (9,104), (20,76) and
+(46,65).\nl
 
-\figx{BNEvidence}{The network with evidence on its sensor nodes.}
+This information is used as evidence for the model in Hugin, which allows
+us to determine a probability for \texttt{Vector\_1} and \texttt{Vector\_2}
+based on our test-data, which is presented in \autoref{AppendixMIData}. For
+\texttt{Vector\_1}, given our 3 locations, this results in the following
+probalities:
 
-We can look at \texttt{Vector\_2} and find the most likely outcome of it, and
-see if it is likely to be a bad vector.
+\begin{itemize}
+  \item 80\% speed - 78.57\% chance.
+  \item 60\% speed - 14.86\% chance.
+  \item Bad Observation - 6.57\% chance.
+\end{itemize}
+
+In this case, the model would conclude that \texttt{Vector\_1} would be most
+likely to have the target moving at 80\% speed. Now, given the same information,
+the model would assign \texttt{Vector\_2} the following probabilities:
+
+\begin{itemize}
+  \item 80\% speed - 24.84\% chance.
+  \item 60\% speed - 55.00\% chance.
+  \item Bad Observation - 20.16\% chance.
+\end{itemize}
+
+The probability for \texttt{Vector\_2} indicates that the most likely conclusion
+is that something went wrong with the data. This does not mean that the target's
+behavior is unknown, but that the gathered data does not correlate to previous
+experience. In case the two vectors do not reach the same conclusion, the
+resulting speed will be based on the following reasoning:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Case                                                                                 & Conclusion \\ \hline
+Both vectors agree                                                                   & Vector\_2  \\ \hline
+The vectors disagree                                                                 & Vector\_2  \\ \hline
+\begin{tabular}[c]{@{}l@{}}First vector is bad,\\ second vector is good\end{tabular} & Vector\_2  \\ \hline
+\begin{tabular}[c]{@{}l@{}}First vector is good,\\ second vector is bad\end{tabular} & Vector\_1  \\ \hline
+\end{tabular}
+\caption{Speed conclusion based on vector\_1 and vector\_2.}
+\end{table}
+
+While this model may not always output the correct result, with enough previous
+data to base the probabilities on, some of the cases of disagreement between the
+vectors would be eliminated.
+
+
+
+%This information is then able to flow to both of the vector
+% nodes through the connections mentioned in \autoref{LabelBN}.
+% 
+% \figx[1.15]{BNEvidence}{The network with evidence on its sensor nodes.}
+% 
+% We can look at \texttt{Vector\_2} and find the most likely outcome of it, and
+% see if it is likely to be a bad vector.
+
+

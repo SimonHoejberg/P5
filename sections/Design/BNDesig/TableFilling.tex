@@ -1,12 +1,13 @@
-\subsection{Filling in the tables}
-For each speed we want to implement in the model, we need a dataset, based on
-the sensor readings from turret. In order to gather datasets a test was
-performed. The test was conducted such that the observations were grouped into a
-set: each set consists of 3 sensor readings, the first two observations of a set
-are used to construct a vector V1 and the last two observations are used to
-construct a vector V2. Using this method we end up with a set of vectors based
-upon sensor observations, which means we know the values that resulted in the
-vector, which will come in handy in the next step.
+\subsection{Finding the beliefs}\label{filltable}
+For each speed we want to implement in the model, we need a dataset, see
+\autoref{AppendixMIData}, which is based on the sensor readings from turret. In
+order to gather datasets a test was performed. The test was conducted such that
+the observations were grouped into a set: each set consists of 3 sensor
+readings, the first two observations of a set are used to construct a vector V1
+and the last two observations are used to construct a vector V2, these vectors
+are then normalized by dividing each with time difference between each of the observations. Using this method we end up
+with a set of vectors based upon sensor observations, which means we know the
+values that resulted in the vector, which will come in handy in the next step.
 Next step is to group the resulting vectors according to whether or not it was
 deemed a good vector or a bad vector. After going through the vectors for each
 speed, we end up with two sorted list of vectors, one containing all the good
