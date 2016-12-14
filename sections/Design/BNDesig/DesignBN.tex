@@ -40,8 +40,9 @@ reliably determine a vector. \texttt{Vector\_2} has edges to \texttt{SA\_1},
 use the previous observation to determine a new direction vector. The edge
 going from \texttt{Vector\_1} to \texttt{Vector\_2} represents that new vector
 is dependent on the old, in the sense that the vector should not change wildly,
-unless a faulty observation has occured.
+unless a faulty observation has occurred.
 
+\input{sections/Design/BNDesig/TableFilling.tex}
  
  %  Worth noting is that the observations does
 % not occur on fixed intervals, but are instead provided once the NXT has found
@@ -51,4 +52,3 @@ unless a faulty observation has occured.
 % it cannot be considered a true HMM, since in an HMM time is considered as an
 % implicit part of the variables, in the sense that \texttt{S\_0} would be taken
 % at time 0 while \texttt{S\_2} would be at time 2.
- 
