@@ -1,26 +1,65 @@
-\section{Domains and Probability}\label{MID}
+targets location. The first step to this approach is to define what this
+information's domains is, that is, how the data is represented and used.
+There are however limitations we need to consider in relation to the
+implementation of this model. The model is constructed using Hugin Lite
+\citep{Hugin} which allows it to be constructed easily, but it limits the total
+number of states to 50 and the number of cases to 500. This means, that in order
+to represent our vectors and observations of the target, we need to simplify
+this information in order to fit the model. While this decreases the accuracy of
+the model, it is necessary for implementing it given the limitations. For our
+model, an example of a case, is a specific value in \texttt{SD\_0} given a
+specific value in \texttt{Vector\_1}. For example, if we want to model the
+entire domain for the distance, we would need a state for each possible value
+the domain contains. To work around these limits we have divided the domains
+for the observations and vectors into intervals. These domains for the angles
+and distances are shown below in \autoref{distAngleDom}, and the domain for
+\texttt{Vector\_1} and \texttt{Vector\_2} are presented in \autoref{vecDom}.
+Both the angles and vectors are limited to 5 different states. The angles have
+states representing the values between -30 degrees and 330 degrees, and the
+distances represent values between 0cm and 255cm.
 
-The model is designed to predict \texttt{Vector\_2}, to do this we need to
-model how the vectors relate to the observations and each other, as well as
-define their domains are. There are however limitations we need to consider. The
-model is constructed using Hugin Lite \citep{Hugin}, this allows the model to
-be constructed easily, but it limits the total number of state to 50 and
-the number of cases to 500. An example of a case is a specific value in \texttt{SD\_0}
-given a specific value in \texttt{Vector\_1}. This limitation decreases the
-precision of the model. If we want to model the entire domain of for example
-distance, we would need a state for each possible value the domain
-contains. To work around these limits we have divided
-the domains into intervals. This means the model lose some precision, but it
-allows us to work around the limit of 500 cases. Instead of having only a few
-nodes with a continuous set of values, we can consider additional variables,
-which can  make up for the loss of accuracy. It also allows us group the values
+\begin{table}[H]
+\centering
+\caption{Domains for angles and distances respectively.}
+\label{distAngleDom}
+\begin{tabular}{l|l|l}
+State & Angle (deg) & Distance (cm) \\ \hline
+1     & -30 - 0     & 0 - 60        \\
+2     & 0 - 30      & 60 - 75       \\
+3     & 30 - 60     & 75 - 90       \\
+4     & 60 - 90     & 90 - 105      \\
+5     & 90 - 330    & 105 - 255     
+\end{tabular}
+\end{table}
+
+The states for the vectors consist of the percieved speed of the target, that
+is, at what power threshold the target is moving at. This information is
+represented as either 60\%, 80\% or 'bad observation'.
+
+\begin{table}[H]
+\centering
+\caption{Domain for \texttt{Vector\_1} and \texttt{Vector\_2}.}
+\label{vecDom}
+\begin{tabular}{l|l}
+State & Vector (\%power) \\ \hline
+1     & 60\%             \\
+2     & 80\%             \\
+3     & Bad Observation
+\end{tabular}
+\end{table}
+
+Using this simplified approach  means the model lose some precision, but it allows us to
+work around the limit of 500 cases. Instead of having only a few nodes with a
+continuous set of values, we can consider additional variables, which can
+make up for the loss of accuracy. It also allows us group the values
 that seem unlikely to be used often into big intervals.
+
 
 \subsection{Constructing the Probability Tables}
 
 Most of the domains are easy to determine, for instance the domains for each of
 the sensors are determined by what they can output. As such the domain for
-distance has values between 0 and 255, as this is what the ultrasound sensor
+distance has values between 0 and 255cm, as this is what the ultrasound sensor
 can sense. The domain for the vectors is determined by gathering data about the
 vectors and sensor observations by outputting the observed values, see
 \autoref{AppendixMIData}. This data is used to construct the
