@@ -2,9 +2,8 @@
 In this section the design decisions of the target will be explained. First the
 requirements of the target will be presented again. Then the different design
 aspects of the target will be discussed along with the reasoning for choosing them.
-\subsection{introduction}
 
-\subsection{making the target trackable}
+\subsection{Making the target trackable}
 Since the primary method of tracking is tracking colours using the camera, the
 tests in \autoref{CamTest} were conducted in order to find the most suitable
 colour for the target. From these tests we came to the conclusion that the target
@@ -25,7 +24,7 @@ ultrasonic sensors needing to be pointed directly at the target, due to the
 fact that the angle is the same all around the target. The cylindrical design
 also ensures that the camera always sees the target as the same size.\nl
 
-\subsection{making the target move}
+\subsection{Making the target move}
 Since our problem statement says that the target is always travelling the same direction
 at a constant speed, there is no need for the target to be able to turn. This allows
 for a simple design for the vehicle, using only 3 wheels, fixed in place. The cart
@@ -33,7 +32,7 @@ is powered by a NXT brick used to control the motors. The cart has 4 different s
 25, 50,75,100 indicating the percentage of power being fed to the motors. \nl
 
 In order to determine whether or not the target adheres to the requirements, a
-test was conducted, which can be found in \autoref{speedotesto}. 
+test was conducted, which can be found in \autoref{speedotesto}.
 
 In the test, a number of speeds were tested, but it should be noted that speeds
 at a power-value of less than 25 was never tested since it was observed that it
