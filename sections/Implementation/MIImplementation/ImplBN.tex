@@ -27,8 +27,8 @@ available RAM. In order to implement the network on the NXT, it is necessary to
 reduce the complexity of the model or else it wont be possible to implement it on the NXT.
 Since the first network had a joint probability of $3^2*5^6 = 140625$, the
 calculation is made using the number of states in each node. In this case it
-means that there are 2 nodes with 3 states and 6 node with 5 states, the
-grouping of these can be seen in \autoref{BNGrouped}. The joint probability
+means that there are 2 nodes (Red) with 3 states and 6 nodes (Green) with 5
+states, the grouping of these can be seen in \autoref{BNGrouped}. The joint probability
 yields a theoretical size of 560KB given that each state is 4 bytes. But
 since this is the joint probability for the entire network, this calculation is
 the worst case. It would thus be possible to use variable elimination to simplify the needed
