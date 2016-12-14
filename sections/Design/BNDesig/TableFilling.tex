@@ -1,3 +1,21 @@
 \subsection{Filling in the tables}
-For each speed we want to implement in the model, we need a dataset, based on the sensor readings from turret. In order to gather datasets a test was performed. The test was conducted such that the observations were grouped into a set: each set consists of 3 sensor readings, the first two observations of a set are used to construct a vector V1 and the last two observations are used to construct a vector V2. Using this method we end up with a set of vectors based upon sensor observations, which means we know the values that resulted in the vector, which will come in handy in the next step.
-Next step is to group the resulting vectors according to whether or not it was deemed a good vector or a bad vector. After going through the vectors for each speed, we end up with two sorted list of vectors, one containing all the good vectors and one containing the faulty ones. Next step is plotting the  measurements that resulted in a given vector into a table, based on the sensor readings - the way this was accomplished was to look at a given vector and then reference the sensor readings. For example, we wanted to know the probability of a vector given an angle - so what we did was make a table with two columns - good and bad indicating the quality of the vector. We then referenced the specific vector and then plotted in the two angle values used to calculate the given vector. Doing this for each vector, we end up with a probability table. The same method is used to construct a probability table for distance.
+For each speed we want to implement in the model, we need a dataset, based on
+the sensor readings from turret. In order to gather datasets a test was
+performed. The test was conducted such that the observations were grouped into a
+set: each set consists of 3 sensor readings, the first two observations of a set
+are used to construct a vector V1 and the last two observations are used to
+construct a vector V2. Using this method we end up with a set of vectors based
+upon sensor observations, which means we know the values that resulted in the
+vector, which will come in handy in the next step.
+Next step is to group the resulting vectors according to whether or not it was
+deemed a good vector or a bad vector. After going through the vectors for each
+speed, we end up with two sorted list of vectors, one containing all the good
+vectors and one containing the faulty ones. Next step is plotting the 
+measurements that resulted in a given vector into a table, based on the sensor
+readings - the way this was accomplished was to look at a given vector and then
+reference the sensor readings. For example, we wanted to know the probability of
+a vector given an angle - so what we did was make a table with two columns -
+good and bad indicating the quality of the vector. We then referenced the
+specific vector and then plotted in the two angle values used to calculate the
+given vector. Doing this for each vector, we end up with a probability table.
+The same method is used to construct a probability table for distance.
