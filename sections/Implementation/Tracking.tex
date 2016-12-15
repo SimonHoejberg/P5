@@ -1,23 +1,23 @@
 \subsection{Tracking}
-The first main thread of the program is \textc{Track()}, which is responsible
-for using the NXTCam to track a target. As described in \autoref{SensorTheory}, the camera
-is capable of identifying blobs of a given colour, and then output data relating to where
-in the cameras field of view the object is located. Whenever the camera
-registers a target, it returns data specifying the position of the blob in the
-frame. These variables are stored in arrays which can contain data for 10
-different blobs per frame. This can be seen under \textbf{lines 2-7} in the code
-example in \autoref{TrackVar}. Based on the data recieved over time, the turret
-is capable of determining the direction of the target. The variables
+Another important task of the program is \textc{Track}, which is responsible
+for using the NXTCam to track a target. As described in \autoref{SensorTheory},
+the camera is capable of identifying blobs of a given colour, and then output
+data relating to where in the camera's field of view the object is located.
+Whenever the camera registers a target, it returns data specifying the position
+of the blob in the frame. These variables are stored in arrays which can contain
+data for 10 different blobs per frame. This can be seen on \textbf{lines 2-7}
+in the code example in \autoref{TrackVar}. Based on the data received over time,
+the turret is capable of determining the direction of the target. The variables
 for this feature can be found \textbf{lines 9-12} in \autoref{TrackVar}.\nl
  
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = Variables used on the Track() thread., label = TrackVar] 
-task Track(){
-    int bt[10]; //Blob top coordinat
-    int bl[10]; //Blob left coordinat
-    int bc[10]; //Blob color
-    int bb[10]; //Blob bottom coordinat
-    int br[10]; //Blob right coordinat
+\begin{lstlisting}[caption = Variables used on the \texttt{Track} task., label
+= TrackVar] task Track(){
+    int bt[10]; //Blob top coordinate
+    int bl[10]; //Blob left coordinate
+    int bc[10]; //Blob colour
+    int bb[10]; //Blob bottom coordinate
+    int br[10]; //Blob right coordinate
     int nblobs; //Number of blobs
     int blobsMissedCounter = 0;  //How many times a call to the camera has returned no blobs
     int oldBlobCenter = 0;
@@ -34,13 +34,12 @@ which is executed based on the value of the boolean variable
 \textc{track} which defines whether or not the tracking phase is still
 ongoing. The behaviour starts on \textbf{line 3} by using the
 \textc{NXTCam\_GetBlobs} function to update the blob variables with
-the newest frame from the camera. If the number of blobs was found to be more
-than zero, the center of the largest blob (first entry in array) is determined on
-\textbf{line 6}. On \textbf{line 7} the difference in pixels between the blob's
-and the cameras centers is stored in \textc{temp} for use in future
-calculations. The boolean on \textbf{line 3} tells that the blob is in the view
-of the camera, this boolean is used in the \textc{GetDataAndCalculate} task
-\autoref{GetDataAndCalc} to gather data.\nl
+the newest frame from the camera. If the number of blobs are greater than zero,
+the center of the largest blob, corresponding to the first entry in the array,
+is determined on \textbf{line 6}.\\ 
+The boolean on \textbf{line 3} indicates that the blob is in the view of the
+camera, this boolean is used in the \textc{GetDataAndCalculate} task
+in \autoref{GetDataAndCalc} to gather data.\nl
   
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = First part of the general tracking behaviour., label = TrackFirst]
@@ -60,20 +59,21 @@ of the camera, this boolean is used in the \textc{GetDataAndCalculate} task
 \end{lstlisting}
 \end{minipage}
 
-After recieving data from the camera, the turret attempts to track the target by
-rotating at a speed matching the targets movement. This is shown in
-\autoref{DetSpeed}. This operation can first be done after the turret has
-determined in which direction the target is moving. If the direction is
-determined (\textbf{lib\_direction!= NO\_DIRECTION}), the \textc{GetSpeed}
-function is called in order to determine the targets speed. This function is shown in \autoref{GetZeSpeed}.
-On \textbf{lines 3-6}, if the determined rotation speed matches the direction in
-which the target is moving, the motor is set to rotate at this speed.\nl
+After receiving data from the camera, the turret attempts to track the target by
+rotating at a speed matching the target's movement. This is shown in
+\autoref{DetSpeed}. This operation is executed after the turret has
+determined in which direction the target is moving. If the direction has
+been determined (\texttt{lib\_direction!= NO\_DIRECTION}), the
+\textc{GetSpeed} function is called in order to determine the speed of the
+target. This function is shown in \autoref{GetZeSpeed}.\\
+In \autoref{DetSpeed} on \textbf{lines 3-6}, if the determined rotation speed
+matches the direction in which the target is moving, the motor is set to rotate at this speed.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Determine the targets speed at rotate to match it, label = DetSpeed] 
 if(lib_direction != NO_DIRECTION){
 	tempSpeed = GetSpeed(blobCenter );
-    //Makes sure that the turret can only turn in the direction the target is driveing
+    //Makes sure that the turret can only turn in the direction the target is driving
     if(tempSpeed > 0 && lib_direction == RIGHT_DIRECTION)
     	OnFwd(ROTATE_MOTOR, tempSpeed);
     else if(tempSpeed < 0 && lib_direction == LEFT_DIRECTION)
@@ -82,11 +82,13 @@ if(lib_direction != NO_DIRECTION){
 \end{lstlisting}
 \end{minipage}
 
-If the camera is not able to register any targets, a counter is incremented, and
-the turrets rotation is stopped. This is shown in \autoref{PurgeData}. This
-counter is incremented continually, until its value matches the variable
-\textc{MAX\_COUNTER\_TO\_PURGE\_DATA}, after which all values involved
-in tracking are reset, such that the turret can start a new tracking phase.\nl
+If the camera is not able to register any targets, the
+\texttt{blobsMissedCounter} is incremented, and the turrets rotation is stopped.
+This is shown in \autoref{PurgeData}. This counter is incremented continually, until its value
+matches the variable \\
+\textc{MAX\_COUNTER\_TO\_PURGE\_DATA}, after which all
+values involved in tracking are reset, such that the turret can start a new
+tracking phase.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Reset data and turn off motor is no targets are found., label = PurgeData] 
@@ -94,7 +96,7 @@ in tracking are reset, such that the turret can start a new tracking phase.\nl
 }else{
 	blobInCam = false;
     blobsMissedCounter++;
-    //If enough blobs are missed sets all the different global values such that the turret can run again
+    //If enough blobs are missed set all the different global values such that the turret can run again
     if(blobsMissedCounter == MAX_COUNTER_TO_PURGE_DATA){
     	blobsMissedCounter = 0;
         posData =  NULL;
@@ -107,21 +109,22 @@ in tracking are reset, such that the turret can start a new tracking phase.\nl
 \end{lstlisting}
 \end{minipage}
 
-After recieving data from the camera, the turret uses this data to determine the
+After receiving data from the camera, the turret uses this data to determine the
 direction in which the target is moving, either left or right. This is done by
 calling the \textc{DetermineDirection} function as shown in
 \autoref{TrackDir}. This is only done once for each tracking phase, which is
 indicated by the 'if' statement in \autoref{DetSpeed} where the direction
-must not be equal to zero.\nl
+must not be equal to \texttt{NO\_DIRECTION}.\nl
 
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = Call DetermineDirection., label = TrackDir]
+\begin{lstlisting}[caption = Call \texttt{DetermineDirection}., label =
+TrackDir] 
 if(nblobs > 0){
 ...
 }else{
 ...
 }
-//Used to determine what direction the target er driveing in
+//Used to determine what direction the target is driving in
 DetermineDirection(blobCenter, oldBlobCenter, directionCount);
 \end{lstlisting}
 \end{minipage}
@@ -131,7 +134,7 @@ whether or not a direction has already been determined. Whenever a blob is
 registered by the camera, it is determined in what direction the blob has
 moved. This is done on \textbf{lines 3-7} where the center of the
 current blob is compared to the old one. When the blob moves in a given
-direction \textc{directionCount} is either incremented or decremented.
+direction, \textc{directionCount} is either incremented or decremented.
 When this variable reaches a certain positive/negative threshold, the direction
 is determined.\nl
 
@@ -161,7 +164,7 @@ void DetermineDirection(int center, int oldCenter, int &directionCount){
 
 Aside from determining the direction, the turret also needs to determine at
 which speed it should rotate to match the target. This is calculated in the
-\textc{GetSpeed method}, as shown in \autoref{GetZeSpeed}. This method
+\textc{GetSpeed} method, as shown in \autoref{GetZeSpeed}. This method
 takes the pixel count between the center of the camera and the blob, and outputs
 the resulting rotating speed between 1 and \texttt{MaxSpeed}. The sine function
 maps the 144 pixel width of the camera to 90 degrees for a sine function. This is shown below in
@@ -185,6 +188,6 @@ float GetSpeed(int blobcenter){
 \end{minipage}
 
 In conclusion, the tracking phase consists of reading input from the camera, and
-using this data to track the target. This is done by determining the targets
+using this data to track the target. This is done by determining the target's
 direction, and using a sine function to map the pixel-difference in blob
 positions to a respective rotational speed.

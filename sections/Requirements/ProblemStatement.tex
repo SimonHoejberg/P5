@@ -12,8 +12,8 @@ ultrasonic sensor for determining the distance to the target.\nl
 The system is an embedded system which means that it is constrained due to
 hardware limitations, and that it should be constructed for a single purpose,
 in this case: hitting a moving target. The system also needs to have some
-intelligence, this should be done through a belief network in the form a hidden
-markov model. This allows it to make predictions based on what it can
+intelligence, this should be done through a belief network in the form of a
+hidden Markov model. This allows it to make predictions based on what it can
 observe. It needs to have a timer, which can be used along with the data from
 the sensors so the turret can shoot at the predicted time as seen in
 \autoref{SystemDescription}.\nl
@@ -24,11 +24,11 @@ establish a formula for predicting where and when a projectile will hit. This
 formula was tested in \autoref{AppendixDistTest} and can be used by the turret
 during its operation.\nl
 
-In \autoref{PlatformC} the Arduino and NXT were compared, and Lego NXT
-platform was chosen as the prefered choice for this project. This choice was
+In \autoref{PlatformC} the Arduino and NXT were compared, and the LEGO NXT
+platform was chosen for this project. This choice was
 based on the following conclusions:
 \begin{itemize}
-  \item Constructing a physical prototype is easily done using Lego.
+  \item Constructing a physical prototype is easily done using LEGO.
   \item The cost of the platform/sensors is irrelevant, as all parts are
   supplied by the university.
   \item As the modules are specifically made for the platform, more time can be
@@ -41,7 +41,7 @@ problem statement:
 \begin{center}
 \begin{minipage}{0.8\linewidth}
 \textit{How can an autonomous turret be constructed, designed and implemented
-using the NXT a camera and a pair of ultrasonic distance sensors. Furthermore,
+using the NXT, a camera and a pair of ultrasonic distance sensors. Furthermore,
 how can a belief network be constructed and used for predicting the position
 of the target.}
 \end{minipage}

@@ -1,43 +1,48 @@
 \section{Target Design}\label{targetDesign}
-In this section the design decisions of the target will be explained. First the
-requirements of the target will be presented again. Then the different design
-aspects of the target will be discussed along with the reasoning for choosing them.
+In this section the design decisions of the target will be explained. Then the
+different design aspects of the target will be discussed along with the
+reasoning for choosing them.
 
-\subsection{Making the target trackable}
-Since the primary method of tracking is tracking colours using the camera, the
-tests in \autoref{CamTest} were conducted in order to find the most suitable
-colour for the target. From these tests we came to the conclusion that the target
-needs to be orange in order to get the best results from the camera. However it
-was also determined that oranges gives to many false positives and therefore red
-was chosen as the target colour since it performed second best in the camera test.
+\subsection{Tracking the Target}
+Since the primary method of tracking is recognizing colours using the camera,
+the tests in \autoref{CamTest} were conducted in order to find the most suitable
+colour for the target. From these tests we reached the conclusion that the
+target needs to be orange in order to get the best results from the camera. However it
+was also determined that orange produces to many false positives and therefore,
+red was chosen as the colour for the target since it performed second best in
+the camera test.
 \nl
+
 Both a flat and cylindrical design for the target have been considered. The
 advantage of the flat design is that it is large and therefore easy for the ultrasonic
 sensors to sense when they are pointed directly at the target. The disadvantage
 is that if it is at an angle to the ultrasonic sensors line of sight it
-becomes less likely that the soundwaves gets catched by the sensor when they
-bounce back. Another disadvantage is that if the target is at an angle with the
-cameras line of sight it appears smaller to the camera.\nl
+becomes less likely that the sound waves are caught by the sensor when they
+bounce back. The disadvantage of this design is that if the target not
+perpendicular with the camera's line of sight, it appears smaller to
+the camera.\nl
 
 The cylindrical design should in theory counteract the problem with the
 ultrasonic sensors needing to be pointed directly at the target, due to the
 fact that the angle is the same all around the target. The cylindrical design
 also ensures that the camera always sees the target as the same size.\nl
 
-\subsection{Making the target move}
-Since our problem statement says that the target is always travelling the same direction
-at a constant speed, there is no need for the target to be able to turn. This allows
-for a simple design for the vehicle, using only 3 wheels, fixed in place. The cart
-is powered by a NXT brick used to control the motors. The cart has 4 different speeds including standing:
-25, 50,75,100 indicating the percentage of power being fed to the motors. \nl
+\subsection{Moving the Target}
+Since our problem statement states that the target is always travelling in the
+same direction and at a constant speed, there is no need for the target to be
+able to turn. This allows for a simple design of the vehicle, using only 3
+wheels, fixed in place. The cart is powered by an NXT brick used to control the
+motors. The target can move at a speed between 0\% and 100\% in intervals of
+10.
+\nl
 
 In order to determine whether or not the target adheres to the requirements, a
-test was conducted, which can be found in \autoref{speedotesto}.
-
+test was conducted, which can be found in \autoref{speedotesto}.\\
 In the test, a number of speeds were tested, but it should be noted that speeds
-at a power-value of less than 25 was never tested since it was observed that it
-was travelling too slow for our requirement from \autoref{FeatAndReq} that
+at a power-value of less than 25\% were never tested since it was observed that
+it was travelling too slow for our requirement from \autoref{FeatAndReq} that
 states that the target must travel at a speed such that the turret will miss if
 it fires when it sees a target.\nl
-The test concluded that the target moves at a near constant speed, and that it
-moves in a straight line.
+
+The test concluded that the target moves with an almost constant speed, and that
+it moves in a straight line.

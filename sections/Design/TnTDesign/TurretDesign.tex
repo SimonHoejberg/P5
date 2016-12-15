@@ -1,16 +1,17 @@
 \section{Turret Design}
-The turret can be considered the product of 3 different design choices, the
-cannon, the frame and the sensor placement. These 3 parts of the
-turret not only have to work on their own, but also come together as a whole.\nl
+The turret can be considered the product of 3 different design choices:
+\textbf{the cannon}, \textbf{the frame} and \textbf{the sensor placement}. These
+3 parts of the turret not only have to work on their own, but also work in conjunction with
+each other.\nl
 
-The final design of the turret uses a cannon with a piston
-that pushes the projectile through a mouthpiece that clamps around it. The
-piston is mounted on an angling mechanism, which is positioned on top of
-the base. The NXT is mounted inside the frame in order to distribute weight. Two
-ultrasonic sensors and a camera are positioned on the front of the frame,
-allowing \name to track and measure the distance to a target. All of this sits
-on top of the turning mechanism, a cog connected to a motor which is placed on the
-outside, allowing the base to turn. The turret can be seen in \autoref{turret}.
+The final design of the turret uses a cannon with a piston that pushes the
+projectile through a mouthpiece that clamps around it. The piston is mounted on
+an angling mechanism, which is positioned on top of the base. The NXT is mounted
+inside the frame in order to distribute the weight. Two ultrasonic sensors and a
+camera are positioned on the front of the frame, allowing \name to track and
+measure the distance to a target. All of this sits on top of the turning
+mechanism which is a gear connected to a motor placed on the outside, allowing
+the base to turn. The turret can be seen in \autoref{turret}.
 
 \figx[0.16]{turret}{The final turret and its parts.}
 
@@ -18,61 +19,85 @@ In the following subsections the design process and arguments for the
 design of each part will be presented.
 
 \subsection{Design of the Cannon}
-The goal of the cannon is to be able to shoot at least
-200 cm, as this is one of the requirements. It thus needs a lot of power behind
-each shot. It also needs to be able to fire multiple times without reloading,
-so that the turret can fire again in case it misses. It will also allow the potential extension of the turret by enabling other firing modes such as burst-fire or the ability to fire at multiple enemies, although it is beyond the scope of the project at the moment. Three different designs were considered:
+The goal of the cannon is to be able to shoot at least 200cm, as this is one of
+the requirements see \autoref{FeatAndReq}. Thus it needs a lot of power behind
+each shot. It also needs to be able to fire multiple times without any human
+interaction, so the turret can fire again in case it misses. It will also allow
+the potential extension of the turret by enabling other firing modes such as
+burst-fire or the ability to fire at multiple enemies, although it is beyond the
+scope of the project. Three different designs were considered: a
+\textbf{ballista design}, a \textbf{launcher design} and a \textbf{piston
+design}.
 
-\begin{itemize}
-  \item A ballista design
-  \item A launcher design
-  \item A piston design
-\end{itemize}
+% \begin{itemize}
+%   \item A ballista design
+%   \item A launcher design
+%   \item A piston design
+% \end{itemize}
 
-\begin{figure}[H]
-\begin{minipage}{.31\textwidth}
+\subsubsection{The Ballista}
+
+The ballista, see \autoref{ballista}, was considered as depending on how far
+back the projectile can be pulled, a shot can be fired with a lot of power. The
+obvious drawback is that it cannot fire more than 1 shot before it needs to be
+reloaded. Another drawback is that this design requires a separate mechanism for
+pulling back the projectile after reloading. This results in a low rate of fire,
+which means that in case the turret misses, it will not be able to shoot again.
+This design was dismissed in the conceptual phase because of these drawbacks.
 \figx[0.4]{ballista}{A sketch of the ballista design.}
-\end{minipage}
-\begin{minipage}{.29\linewidth}
+
+\subsubsection{The Launcher}
+
+The launcher, see \autoref{tennisball}, was considered since it is able to
+launch projectiles rapidly, and depending on the quality of the wheels, with a
+lot of force. It utilizes two wheels spinning in opposite directions, placed
+side by side with a small gap in between, for the projectile to be pushed
+through. When trying to build this design, it was determined that the available
+motors were not powerful enough to deliver the necessary momentum for launching
+a projectile, not even if coupled with a gearing. Another problem is that the
+wheels available are made of soft rubber, which absorbs a lot of the force when the
+projectile is pushed through. For this design to work better, the wheels would
+need to be made of a hard material that does not absorb the force and has a lot
+of friction, which makes it easier for the wheels to grip the projectile. This
+design was dismissed because it was not possible to fire with enough force to
+achieve the desired range.
 \figx[0.4]{tennisball}{A sketch of the spinning wheel design.}
-\end{minipage}
-\begin{minipage}{.29\linewidth}
-\figx[0.45]{piston}{A sketch of the piston design.}
-\end{minipage}
-\end{figure}
+\subsubsection{The Piston}
 
-The ballista, see \autoref{ballista}, was considered as
-depending on how far back the projectile can be pulled, a shot can be fired with a lot of power. The obvious drawback is that it cannot fire more than 1 shot before it needs to be reloaded. Another drawback is that this design requires a separate mechanism for pulling back the projectile after reloading. This results in a low rate of fire, which means that in case the turret misses, it will not be able to shoot again. This design was dismissed in the conceptual phase because of these drawbacks.\nl
-
-The launcher, see \autoref{tennisball}, was considered since it is able to launch
-projectiles rapidly, and depending on the quality of the wheels, with a lot of force. It utilizes two wheels spinning in opposite directions, placed side by side with a small gap in between, for the projectile to be pushed through. When trying to build this design, it was determined that the available motors were not powerful enough to deliver the necessary momentum for launching a projectile, not even with a gearing. Another problem is that the wheels available are made of soft rubber, which absorbs a lot of the force when the projectile is pushed through. For this design to work better, the wheels would need to be made of a hard material that does not absorb the force and has a lot of friction, which makes it easier for the wheels to grip the projectile. This design was dismissed because it was not possible to fire with enough force to achieve the desired range.\nl
-
-The piston design, see \autoref{piston}, uses a piston that pushes the
-projectile through a mouth piece that clamps around it. This means that until enough force has been applied to the projectile it is held in the mouth piece. When enough force has been applied by the piston, the projectile will be forced out at high speed. This
-design has several advantages, first and foremost LEGO Technic has a ball shooter available, which can store several small ball projectiles. This allows us to have an easily reloadable and fast firing cannon, which can hold up to 6 shots. Based on tests performed in \autoref{AppendixDistTest}, it can be seen that the cannon is able to shoot the required minimum of 200 cm.
+The piston, see \autoref{piston}, uses a piston that pushes the
+projectile through a mouthpiece that clamps around it. This means that until
+enough force has been applied to the projectile it is held in the mouthpiece.
+When enough force has been applied by the piston, the projectile will be forced
+out at high speed. This design has several advantages, first and foremost LEGO
+Technic has a ball shooter available, which can store several small ball
+projectiles. This allows us to have an easily reloadable and fast firing cannon,
+which can hold up to 6 shots. Based on tests performed in
+\autoref{AppendixDistTest}, it can be seen that the cannon is able to shoot the
+required minimum of 200cm.
+\figx[0.4]{piston}{A sketch of the piston design.}
 
 
 The piston was chosen as the final cannon design, as it is able to shoot up to
-required range of 200 cm and able to store up to 6 shots. The precision of this
-design was tested in \autoref{AppendixAccTest}, and the following conclusions
+required range of 200cm and able to store up to  6 shots. The precision of
+this design was tested in \autoref{AppendixAccTest}, and the following conclusions
 were reached:
 
 \begin{itemize}
-  \item The turret has an average chance to misfire of 13.3\%.
+  \item The turret has a chance of 13.3\% to misfire .
   \item In the recorded lengths, the hit location has a spread of between 9cm
-  and 107cm.
+  and 107cm.\fix{Jones will look}{}
   \item In the recorded widths, the hit location has a spread of between 0.25cm
   and 8.55cm.
 \end{itemize}
 
 This test shows that the turret is fairly accurate, but it does have a
-considerable chance of misfireing. In addition, the tests conducted in
+considerable chance of misfiring. In addition, the tests conducted in
 \autoref{SensorTest} also show that the sensors on the turret are incapable
 of sensing the target any further than the piston design can shoot. Due to this
-fact, the possible distances of the other designs are considerably less
-impactful.\nl
+fact, the possible distances of the other designs has considerably less
+impact.\nl
 
-The final design of the the turret has the cannon mounted on a motor that is
+The final design of the turret has the cannon mounted on a motor that is
 used to control its vertical angle. This way it is able to angle itself in order
 to shoot a target at varying distances. The accuracy of this mechanism is
 ensured by having a high gearing on the motor and connecting the
@@ -245,97 +270,101 @@ considered for the frame:
   \item A design with the NXT mounted laying down
 \end{itemize}
 
-In order to not obstruct turning, the NXT is designed to be a part of the
-frame. This allows the wires to reach the modules, as they are not long
-enough to connect the NXT and modules and not potentially obstruct
-turning.\nl
+In order to not obstruct turning, the frame is designed to acomodate the NXT.
+This allows the wires to reach the modules, as they are otherwise not long
+enough to connect the NXT and modules.\nl
 
+\subsubsection{Upright Design}
 In the upright design the screen and the buttons on the front
-are accessible, but all the I/O ports on the end are hard to reach. This
-design was not chosen, in part because the weight distribution was unbalanced due to its height and also the fact that it is difficult to
-charge the NXT. The height is a factor since the taller the turret gets the
-more unstable it becomes. This is because the base sits in on top of the
-rotating cog, which is a narrow point, which causes the turret to tilt
-slightly when it turns. This is a problem since if the turret were to make a
-fast turn it could be overthrown or be slightly erratic. This design also
-placed a lot of the weight on one side of turret which causes it to be
-unstable.\nl
+are accessible, but all the input ports are hard to reach. This design was not
+chosen, in part because the weight distribution was unbalanced due to its height
+and also the fact that it is difficult to charge the NXT. The height is a factor
+since the taller the turret gets the more unstable it becomes. This is because
+the base sits on top of the rotating gear, which is a narrow point, which causes
+the turret to tilt slightly when it turns. This is a problem, since if the
+turret were to make a fast turn it could potentially tip over. This design also
+places a lot of the weight on one side of turret which causes it to be
+unstable.
 
+\subsubsection{Flat Design}
 In the design where the NXT is lying down, the I/O ports are fully accessible.
 This design also makes the turret a lot shorter, than the upright design, and
-distributes the weight more evenly, which makes the turret more stable. The downside of this design is the access to the LCD screen and buttons is obstructed. As a result the LCD is impossible to read from in practice, and the buttons are hard to reach, although it is possible. In spite of this, the advantages leads us to choosing this design.
+distributes the weight more evenly, which makes the turret more stable. The
+downside of this design is that the access to the screen and buttons is
+obstructed. In spite of this, the advantages leads us to choosing this design.
 
 \subsection{Sensor Placement}
 The sensors are a vital part of the turret and need to placed in such a way that
 the results from the sensors are as good as possible. As the tests described in
-\autoref{UltraTestPlacement} states, it is important that the ultrasonic sensors
-are not placed to close to the ground due to the fact that it interferes with
-the soundwaves. This makes the results imprecise and can potentially make the
-turret unable to hit a target.\nl
+\autoref{UltraTestPlacement}, it is important that the ultrasonic sensors
+are not placed too close to the ground due to the fact that it interferes with
+the sound waves. This makes the results imprecise and can potentially cause
+the turret to miss the target.\nl
 
 The final design makes use of two ultrasonic sensors placed side by side since
 it was determined that the field of view would be too narrow with only one
 sensor. This is due to the fact that the ultrasonic sensor needs to be pointed
-almost perpendicular at the target in order to catch the soundwaves that bounces
-back. The use of two sensors brings up the problem of interference between the
-two sensors, but that was solved by alternating between turning on and off each
-sensor so that when when one sensor is on the other one is off and vice
+almost perpendicular to the target in order to catch the sound waves that
+bounces back. The use of two sensors brings up the problem of interference between the
+two sensors, but this was solved by alternating between turning on and off each
+sensor so that when one sensor is on the other one is off and vice
 versa.\nl
 
-\name also makes use of a camera to track a target. The camera is mounted on
-the front of the base in the middle. This is to give the camera the best
-view of the target. The camera is calibrated to track the colour red, as this is
-the one of he easiest colours to recognize, and unlike orange does not make
+\name also makes use of a camera to track a target. The camera is mounted in
+the middle of the front. This is to give the camera the best view of the target.
+The camera is calibrated to track the colour red, as this is one of the
+easiest colours to recognize, and unlike orange it is not as likely to produce
 false positives, see \autoref{CamTest}.
 
 \subsection{Turning Mechanism}
 The turret needs to be able to turn in order to be able to track a moving
-target. For this purpose three designs were considered:
+target. For this purpose three designs were considered: a \textbf{spiral gear
+design}, a \textbf{direct connection design} and a \textbf{gear design}.
 
-\begin{itemize}
-  \item A spiral gear design
-  \item A direct connection design
-  \item A gear design
-\end{itemize}
-
+\subsubsection{Spiral Design}
 In the spiral gear design a motor was placed beside the turret. This motor was
-connected to a stick with a spiral gear that was connected to a cog on the bottom
-of the base. This design made the turning of the turret precise in the sense
-that the turret was not prone to over turning when stopping. The
-problem with this design is that it limits how much the turret can turn.
-Since the cable connecting the motor to the NXT has to go either
-outside of the turret, which can make wrap around and block it, or go on the
-inside which makes the cable twist which also makes the turret stop turning.\nl
+connected to a stick with a spiral gear that was connected to a gear on the
+bottom of the base. This design made the turning of the turret precise in the
+sense that the turret was not prone to over turning when stopping. The problem
+with is design is that the connecting cable has to go from the turret to the
+external motor, which is problematic if the turret turns too much, as it would
+either cause the cable to wrap around the turret, or twist and possibly damage
+itself.
 
+\subsubsection{Direct Connection Design}
 The direct connection design was considered since the motor was placed inside
 the base of the turret and connected directly to the gear that makes the turret turn. This
 design does not have the problem of the cable limiting how much the turret can
-turn, since the motor is located on the the turret and therefore turns with the
-NXT. This design does have a flaw, that is that it overturns whenever it needs
+turn, since the motor is located on the turret and therefore turns with the
+NXT. This design does have the flaw, that it can overturn whenever it needs
 to stop. This is because the stick that is connected to the turning mechanism
 is made of soft plastic, which makes it twist when the motor applies force to
-it. When the tension in the plastic is great enough the turret begins to turn.
+it. When the tension in the plastic is large enough the turret begins to turn.
 This means that when the motor stops the plastic will untwist which makes the
 turret overturn. This means that the turret is very imprecise which makes it
 difficult to aim correctly. This could be compensated for in the software by
 calculating how much more the turret turns due to the plastic stick twisting,
 but since this is difficult to measure and it is relative to how much force the motor applies it was deemed
 not worth the effort, when it could also be solved by having a gear between
-the motor and the turning mechanism.\nl
+the motor and the turning mechanism.
 
+\subsubsection{Gear Design}
 The gear design is similar to the design with the turret directly connected to
 the gear that turns the turret, the difference being that the motor is placed on
 the outside of the base and the motor is geared which makes it more precise when
-stopping since it does not over turn as much as the design whitout a gear.
+stopping since it does not overturn as much as the design without a gear.
 
 \subsection{Conclusion: Turret Design}
 After designing the turret, a number of tests were conducted in order to
-determine the quality of the the turrets individual parts. These tests are
-presented in \autoref{AppendixTesting}, and have reached the following
-conclusions:\nl
+determine the quality of the turrets individual parts. These tests are
+presented in \autoref{AppendixDistTest} and \autoref{angleTest}, and have
+reached the following conclusions:\nl
 
 \begin{itemize}
   \item The test in \autoref{angleTest} determined that the turret is capable of
   accurately setting its angle of fire.
-  \item 
+  \item The test in \autoref{AppendixDistTest} shows that the firing mechanism
+  is sufficient, as the turret is capable of accurately firing projectiles.
+  \item In general, observations throughout these tests confirm that the
+  turret's mechanical design is satisfactory.
 \end{itemize}

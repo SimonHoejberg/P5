@@ -1,8 +1,8 @@
 \section{Target Tracking Model}\label{RepScheme}
-As \name needs to track the location of an object in a three dimensional world,
-it needs a consistant way to represent this data. This data comes in the form
-of images from the camera, distance readings from the ultrasonic sensors and
-the turrets relative angle, which is read from the motors. This is shown
+As \name needs to track the location of an object in a three-dimensional world,
+it needs a consistent way to represent this data. This data comes in the form
+of coordinates from the camera, distance readings from the ultrasonic sensors
+and the turrets relative angle, which is read from the motors. This is shown
 below in \autoref{SensorsVsDataType}.
 
 \begin{table}[H]
@@ -19,13 +19,13 @@ Motor      & Angle of the motor based on its starting position. Data is given in
 \end{table}
 
 Given that all of this data is relative to the turret location, we can create a
-representation scheme where the turret is the center of a 2-dimensional
+representation scheme where the turret is the center of a two-dimensional
 coordinate system. An example of this can be seen below in
 \autoref{CoordinateSystem2}.\nl
 
 By using the distance to the target and the angle of the turret, we are able to
-calculate the location of the target in our 2-dimensional coordinate system.
-As position is given by an (x,y) set of coordinates, we can calculate its
+calculate the location of the target in our two-dimensional coordinate system.
+As the position is given by an (x,y) set of coordinates, we can calculate its
 position using sine and cosine, as shown in \autoref{locEq1}.
 
 \begin{equation}\label{locEq1}
@@ -39,21 +39,21 @@ In this equation the angle \textc{a} is given in radians, and the distance
 \textc{dist} is given in centimeters. Contrary to what might be expected, sine
 is used to find the x-coordinate and cosine is used to determine the
 y-coordinate. This is because the turrets coordinate system is rotated 90
-degrees counter clockwise, as the turrets starting direction is read as an angle
+degrees counter-clockwise, as the turrets starting direction is read as an angle
 of 0 degrees. This calculation is shown below in \autoref{CoordinateSystem2}.
 
 \figx{CoordinateSystem2}{Sine and cosine are used to calculate positions
-in the representation scheme.}
+in the model.}
 
-When the turret has registered a number of data points, a vector is
+When the turret has registered a specified number of data points, a vector is
 calculated to compute the distance that the target has travelled. This vector is
 then divided by the time it takes the target to travel the distance, to get a
 new vector that represents the velocity of the target in $\frac{cm}{ms}$. This
 vector is then multiplied by a given number of milliseconds, in order to
 calculate a point in the coordinate system where the target is going to be in
 the future. Normally the tangent could be used to calculate the distance
-to this point, but because our coordiante system is rotated 90 degrees, we need two
-different equations. For this purpose \autoref{locEq4} is used if the angle is
+to this point, but because our co-ordinate system is rotated 90 degrees, we need
+two different equations. For this purpose \autoref{locEq4} is used if the angle is
 negative, or \autoref{locEq3} if positive.
 \begin{equation}\label{locEq3}
 a_{positive}=90+(tan^{-1}(\frac{y_{pos}}{x_{pos}}))*(-1)
@@ -70,20 +70,20 @@ a positive and a negative angle.}
 When \name has turned to the desired angle it needs to angle its cannon
 vertically based on the distance to the target. Due to the complexity of using
 the formula for projectile motion to calculate an angle from a distance, we have
-chosen to use data from tests to determine a function. As such, to calculate the
-angle the following equation is used:
+chosen to use data from tests to determine a function. Based on a distance the
+angle is calculated using the following equation:
 
-\begin{equation}\label{locEq4}
+\begin{equation}\label{locEq5}
 a_{vertical}=0.2573*distance-22.85
 \end{equation} 
 
-This function based on a best fit line that was extrapolated from a the distance
-test in \autoref{AppendixAccTest}, where the angle was plotted against how far
+This function is based on a best fit line that was extrapolated from the
+distance test in \autoref{AppendixAccTest}, where the angle was plotted against how far
 the projectile travelled. This approach was chosen because of the complexity
 involved in determining the angle based on the distance. This is shown below in
-\autoref{FinEg3}, which is the formula determined in \autoref{ProjMotion}. In
-this equation, isolating for the angle \texttt{a} has proven to be quite difficult,
-as any attempt has resulted in the inclusion of imaginary numbers.
+\autoref{FinEq3}, which is the formula determined in \autoref{ProjMotion}. In
+this equation, isolating for the angle \texttt{a} has proven to be quite
+difficult, as any attempt has resulted in the inclusion of imaginary numbers.
 
 \begin{equation*}
 x\ =\ \frac{v_0*cos(a)}{g}* \left(
@@ -92,20 +92,20 @@ v_0*sin(a)+\sqrt{v_0^2*sin(a)^2+2*g*(h+r*sin(a))}\right)+r*cos(a)
 \end{equation*}
 
 \name also needs to know when to shoot in order to hit the target.
-This is calculated by subtracting the value of \autoref{TimeEq}, which is described in
-\autoref{ProjMotion}, from the time where the target is at the desired point.
+This is calculated by subtracting \texttt{t} in \autoref{TimeEq}, which is described in
+\autoref{ProjMotion}, from the time where the target is at calculated position.
 \begin{equation*}
 t=\frac{x}{v_0*cos(a)}
-\tag{\ref{TimeEq}}
+\tag{\ref*{TimeEq}}
 \end{equation*}
 This gives the time where \name needs to shoot to be able to hit the target.
-This is calculated in the function CalcFireData.\nl
+This is calculated in the function \texttt{CalcFireData}.\nl
 
 In conclusion, by using a combination of this representation scheme and
 trigonometry, the turret is capable of modelling the world around it such that
 it can accurately determine and predict the location of the target. This
-approach of mapping data to determine a function does cause som inaccuracies, as
-the resulting function is linear, while the actual function would be a parabola.
-While this is a problem, the resulting function is still based on data from our
-tests, and as such should be accurate enough for the smaller scope of this
+approach of mapping data to determine a function does cause some inaccuracies,
+as the resulting function is linear, while the actual function would be a parabola.
+While this is a problem, the resulting function is still based on the data from
+our tests, and as such should be accurate enough for the scope of this
 project.

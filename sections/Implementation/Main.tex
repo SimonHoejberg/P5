@@ -1,20 +1,20 @@
 \section{Tasks}
 The developed software is controlled by the execution of a number of
 tasks. On the NXT system a task is simply a collection of code which can be
-executed on a thread. The turret makes use of four central threads:
+executed on a thread. The turret makes use of four central tasks:
 \texttt{Main}, \texttt{GetDataAndCalculate}, \texttt{WaitAndFire} and
 \texttt{Tracking}.
 
 \subsection{Main}
-The execution of the program begins in the \textc{Main} thread, which is shown
+The execution of the program begins in the \textc{main} task, which is shown
 in \autoref{MainThread}. First, the library method
 \textc{PosRegEnable} is used to enable the motors ability to set
 an absolute position using a PID controller. This is used to allow the turret to
-set its angle instead of simply turning on/off the motor.
+set its angle instead of simply turning the motor on/off.
 The \textc{SetMotorRegulationTime} method determines the interval between when
 the motor should attempt to regulate its angle to the respective value. This
-value is set to 10 milliseconds, as we have observed that higher values result
-in the turret being incapable of standing still.
+value is set to 10 milliseconds, as we have observed that higher values resulted
+in the cannon being incapable of standing still.\nl
 
 \begin{minipage}[H]{\linewidth}
 \begin{lstlisting}[caption = Entry point for the program execution., label = MainThread] 
@@ -40,4 +40,4 @@ and start the blob tracking. \textbf{Line 8-9} are used to
 initialize the two sensor ports \textc{SENSOR\_LEFT} and
 \textc{SENSOR\_RIGHT} as they are used for ultrasonic distance sensors.
 Finally, the \textc{Precedes} method is used to initialize the
-threads: \textc{Track} and \textc{GetDataAndCalculate}.
+tasks: \textc{Track} and \textc{GetDataAndCalculate}.

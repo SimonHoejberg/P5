@@ -1,34 +1,33 @@
 \section{Features and Requirements}\label{FeatAndReq}
-In this section the features and requirements for this project will be formed,
-this is done based on the analysis in \autoref{PlatformC} and
+In this section the features and requirements for this project will be
+formalized, this is done based on the analysis in \autoref{PlatformC} and
 \autoref{SensorTest}.
 
-The following features and requirements where defined for the project:
+The following features and requirements were defined for the project:
 \begin{itemize}
   \item The turret needs to be an embedded system and incorporate elements from
-  the fields of machine intelligence and real time systems. This leads to the
+  the fields of machine intelligence and real-time systems. This leads to the
   following requirement:
   \begin{itemize}
-    \item The system needs to use the Lego NXT as the embedded
+    \item The system needs to use the NXT as the embedded
     system. This platform is chosen based on the findings in
     \autoref{PlatformC}. 
     \item The system must be an intelligent agent.
   \end{itemize}
-  \item The Turret needs to be able to hit a moving target. This leads to the
+  \item The turret needs to be able to hit a moving target. This leads to the
   following requirements:
   \begin{itemize}
     \item Since the turret should monitor an area and be able to hit a moving
-    target, it needs to be able to turn. If it is not able to turn, line of
+    target, it needs to be able to turn. If it is not able to turn, the line of
     sight as well as the timing in order to hit a target will be severely
     limited. In regards to how far it should be able to turn, a minimum is set
-    to 90 degrees, as this will provide a decent sized area in front of the turret.
-    \item In order to perceive the target without receiving information from an
-    outside source, the turret will need to be able to sense the target. Based
-    on the results from the sensor tests, see \autoref{SensorTest}, the sensors
-    will be able to see approximately 200 cm.    
+    to 90 degrees, as this will provide a decently sized area in front of the
+    turret.
+    \item In order to perceive the target, the turret will need to make use of
+    sensors.     
     \item The turret needs to be able to shoot in order to hit a
-    target. This has to be done within a range of 200 cm as it is the max
-    capability of the sensors. 
+    target. This has to be done within a range of 200cm as it is the max
+    capability of the sensors see \autoref{SensorTest}. 
     
 %     \fix{The turret should have a maximum firing range of atleast 250cm.
 %     This number is determined by the maximum sensor range as well as the maximum of
@@ -52,11 +51,11 @@ The following features and requirements where defined for the project:
   \end{itemize}
   \end{itemize}
 
-  Based on these requirements and the anylysis it is now possible to make design
+  Based on these requirements and the analysis it is now possible to make design
   choices about the construction of \namep, such that it is able to hit a
-  target in motion. It is also possible to contruct a target that \name is
-  able both detect and hit, based on the test of the camera and ultrasonic
-  sensor. 
+  target in motion. Based on the tests of the camera and ultrasonic
+  sensors, it is possible to construct a target that \name is
+  able to detect and hit. 
   
   %   \subsection{Need to have}
 % The following requirements have been deemed necessary for an autonomous turret:
