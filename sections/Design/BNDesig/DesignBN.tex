@@ -40,10 +40,18 @@ reliably determine a vector. \texttt{Vector\_2} has edges to \texttt{SA\_1},
 use the previous observation to determine a new direction vector. The edge
 going from \texttt{Vector\_1} to \texttt{Vector\_2} represents that new vector
 is dependent on the old, in the sense that the vector should not change wildly,
-unless a faulty observation has occurred.
-
-\input{sections/Design/BNDesig/TableFilling.tex}
- 
+unless a faulty observation has occurred. As such the network consists of
+following conditional probability tables:
+\begin{itemize}
+  \item P(SD\_0 | Vector\_1)
+  \item P(SA\_0 | Vector\_1)
+  \item P(SD\_1 | Vector\_1, Vector\_2)
+  \item P(SA\_1 | Vector\_1, Vector\_2)
+  \item P(SD\_2 | Vector\_1)
+  \item P(SA\_2 | Vector\_1)
+  \item P(Vector\_1)
+  \item P(Vector\_2|Vector\_1)
+\end{itemize} 
  %  Worth noting is that the observations does
 % not occur on fixed intervals, but are instead provided once the NXT has found
 % acceptable data. This creates an unpredictable behavior regarding when the
