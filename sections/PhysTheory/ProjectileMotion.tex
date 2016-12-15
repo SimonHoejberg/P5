@@ -3,7 +3,7 @@ When firing a projectile it is possible to determine its theoretical trajectory
 by using the formula for projectile motion. This theorem is important to the
 project as it can be used to map the projectiles relative location to the turret
 over a given time frame. This formula is split into two parts, one for
-calculating the x coordinate and one for the y coordinate. The coordinates are
+calculating the x-coordinate and one for the y-coordinate. The coordinates are
 used to represent distance and height of the projectile. The formulas are
 presented in \citep[Ch. 6.2]{OrbitBA} and are as follows:
 
@@ -40,9 +40,9 @@ not take the effect of air resistance on the projectile into account.
 % \fix{\autoref{AirResDisc}}{Where is it?}.
 
 \subsection{Calculating Distance}\label{CalcDist}
-In order to calculate the distance at which the projectile will touch the ground
-we need to combine \autoref{slength} and \autoref{sheight}. This is done in
-order to express the horisontal distance $\mathbf{x}$ as a function of the
+In order to calculate the distance at which the projectile will touch the
+ground, we need to combine \autoref{slength} and \autoref{sheight}. This is done in
+order to express the horizontal distance $\mathbf{x}$ as a function of the
 height $\mathbf{y}$, as the height can then be set to zero in order to determine
 where the projectile will land. This point can be seen at the end of
 arrow $\mathbf{p}$ in \autoref{DistRepresent}. To do this we first need to take
@@ -57,8 +57,8 @@ the resulting formula:
 % skifte det ud med en tegning)
 \figx[0.2]{DistRepresent}{Projectile trajectory on the x- and y-axis.}
 Now we can isolate for $\mathbf{t}$ in \autoref{Eq1}. Using the quadratic
-formula gives two results, but assuming a positive value for $\mathbf{a}$ we get
-the following expression:
+formula gives two results, but assuming a positive value for $\mathbf{a}$, we
+get the following expression:
 \begin{equation}\label{Eq2}
 t=\frac{v_0*sin(a)}{g}+\frac{\sqrt{v_0^2*sin^2(a)+2*g*y_0}}{g}
 \end{equation}
@@ -78,14 +78,14 @@ v_0*sin(a)+\sqrt{v_0^2*sin(a)^2+2*g*y_0}\right)+x_0
 \end{equation}
 
 Another important point is that the variables $\mathbf{y_0}$ and $\mathbf{x_0}$
-changes dynamically based on angle of the turret. This is because the muzzle of
-the turret changes its vertical and horizontal position based on the angle. This
+changes dynamically based on the angle of the turret. This is because the muzzle
+of the turret changes its vertical and horizontal position based on the angle. This
 can be seen in \autoref{FinalPhysTurret}.
 \figx[0.18]{FinalPhysTurret}{Turret marked with the variables a, r, h, $x_0$
 and $y_0$}
 
-In order to calculate $y_0$ for any given angle we can make use of the sine for
-the angle. Looking at \autoref{FinalPhysTurret} we can formulate the following
+In order to calculate $y_0$ for any given angle, we can make use of the sine of
+the angle. Looking at \autoref{FinalPhysTurret}, we can formulate the following
 formula:
 \begin{equation}\label{Y0Eq}
 y_0\ =\ h\ +\ r\ *\ sin(a)
@@ -106,15 +106,14 @@ v_0*sin(a)+\sqrt{v_0^2*sin(a)^2+2*g*(h+r*sin(a))}\right)+r*cos(a)
 
 Now, using \autoref{FinEq3} it is possible to calculate the
 distance the projectile will travel given the initial velocity $\mathbf{v_0}$,
-the angle $\mathbf{a}$, the turrets height $\mathbf{h}$ and the length of the
-turret $\mathbf{r}$.
+the angle $\mathbf{a}$, the height $\mathbf{h}$ and the length $\mathbf{r}$.
 
 \subsection{Angle-Distance Relation}
-When firing, the turret has one primary variable it can use to aim,
-namely the angle at which the projectile is fired. Given a constant, initial
-velocity of the projectile, the travelled distance and air time is proportional
+When firing, the turret has one primary variable it can use to adjust the
+distance, namely the angle at which the projectile is fired. Given a constant
+initial velocity of the projectile, the travelled distance and air time is proportional
 to the firing angle $\mathbf{a}$. This relation is shown in \autoref{FinEq2}
-where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as coeffecients. As
+where $\mathbf{cos(a)}$ and $\mathbf{sin(a)}$ are used as coefficients. As
 such, the furthest possible shot would be achieved using $\mathbf{a=45\
 degrees}$ such that $\mathbf{sin(45)\approx 0.71}$ and $\mathbf{cos(45)\approx
 0.71}$. The relation between firing angle and travelled distance is exemplified
@@ -139,7 +138,7 @@ already determined a value for $\mathbf{x}$, we can simply use
 x=v_0*cos(a)*t
 \end{equation}
 By isolating for the time in this formula, we can use our value for $\mathbf{x}$
-to determine how long it takes for at given projectile to reach the target. This
+to determine how long it takes for a given projectile to reach the target. This
 results in the following formula:
 \begin{equation}\label{TimeEq}
 t=\frac{x}{v_0*cos(a)}

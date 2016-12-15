@@ -10,10 +10,10 @@ calculate the distance to the target, then inputting the result into
 it is possible to determine the distance the target has travelled in the time it
 takes the projectile to get to it, simply by multiplying the air time with the
 velocity of the target. With this information it is then possible to use
-pythagoras theorem to calculate the length from the turret to the current
-position of the target. All of this can be used together with the cosine
-relation to calculate how much the turret should turn to be able to hit the
-target. This topic is further explained during the implementation in
+Pythagoras theorem to calculate the length from the turret to the current
+position of the target. All of this can be used together with the
+\fix{cosine}{Is it sine or cosine} relation to calculate how much the turret
+should turn to be able to hit the target. This topic is further explained during the implementation in
 \autoref{ImplLabel}.
 
 \section{Conclusion}
@@ -25,13 +25,13 @@ the following:
 \begin{itemize}
   \item The muzzle speed of the projectile is 4.82m/s.
   \item Using the determined muzzle speed, \autoref{FinEq3} is unable to
-  accurately calculating the distance of the projectile.
+  accurately calculate the distance of the projectile.
   \item An alternate approach can be used to determine the angle, namely mapping
   the test data into a formula using a trendline.  
 \end{itemize}
 
 Based on this tests conclusions, we have chosen to use the following formula for
-determining which angle should be used to hit the taret:
+determining which angle should be used to hit the target:
 
 \begin{equation}\label{angleCalc}
 Angle\ =\ abs(0.2573 * distance - 22.85)

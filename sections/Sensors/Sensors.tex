@@ -9,25 +9,26 @@ sensors which will be used throughout this project.
 \section{Sensor Choices}\label{SensorChoice}
 Based on the turret's ideal scenario presented in \autoref{ProblemDomain}, it
 was determined that the turrets routine should consist of three main phases:
-scanning, tracking and shooting. These phases posed the questions of how the
-turret should identity a target, measure the distance to the target and then shoot the
-target. For the purpose of this project, these questions will be solved using
-two main sensors: a camera and a distance sensor. The camera will be able to
+\textbf{scanning, tracking and shooting}. These phases posed the questions of
+how the turret should identify a target, measure the distance to the target and then
+shoot the target. For the purpose of this project, these questions will be solved using
+two main sensors: a camera and a distance sensor. \\
+The camera will be able to
 identify and track the target, and the distance sensor will measure the
 distance to said target. While there are a number of different sensors which
 can be classified as ``distance sensors'', we have chosen to use a standard NXT
 ultrasonic distance sensor. This was done due to the limited availability of
-sensors in stock, and the possiblity of waiting a long time for shipping new
-sensors. The contestants regarding the choice of camera was between a
+sensors in stock, and the possibility of waiting a long time for shipping new
+sensors.\\
+The contestants regarding the choice of camera were between a
 ``Microsoft Kinect'' and a ``NXTCam v4''. While the Kinect is vastly more
 powerful, it poses the problems of being a larger device which could not easily
 be placed on a turning turret, and it would need to be connected to a PC in
 order to translate its input into useful data. On the other hand the NXTCam is less
-powerful, but it is easily integrateable with the LEGO NXT platform and it can
+powerful, but it is easily integrated with the LEGO NXT platform and it can
 be placed on the turret itself. In the end, we chose to use the NXTCam, as one
-of the semesters goals is to teach us about designing around the limitations of
-embedded systems. By using a Kinect with an attatched PC, this entire problem is
-nullified, which would counteract the idea of hardware-imposed limitations.
+of the goals of this semester is to teach us about designing around the
+limitations of embedded systems.
 
 % For the purpose of sensing its environment, the turret will need two key
 % features: the ability to identify a target, and the ability to measure the
