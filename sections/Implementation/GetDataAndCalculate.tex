@@ -1,18 +1,19 @@
 \subsection{GetDataAndCalculate}\label{GetDataAndCalc}
-The thread \textc{GetDataAndCalculate} is responsible for reading data
+The task \textc{GetDataAndCalculate} is responsible for reading data
 from the ultrasonic distance sensors, determining if the data is useful,
 grouping data and calculating a future position for the target. As seen in
-\autoref{InitGDAC} the tasks general behaviour is contained within a while loop
-(\textbf{line 5}), which is active while the boolean variable
+\autoref{InitGDAC} the tasks general behaviour is contained within the while
+loop on \textbf{line 3}, which is active as long as the boolean variable
 \textc{collecting} is true. This variable is true as long as the
 turret does not have enough data to fire. Within the loop is a control structure
-(\textbf{line 6}) which is only active when the target is in the middle of the
-camera. As such, when this happens the distance sensors should be able to
-measure the distance to the target, which is done by calling the method
+on \textbf{line 4} which is only active when the target is in the
+camera's view. As such, when this happens the distance sensors should be able
+to measure the distance to the target, which is done by calling the method
 \textc{GetDistance}.\nl
 
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = General behaviour for GetDataAndCalculate, label = InitGDAC] 
+\begin{lstlisting}[caption = General behaviour for \texttt{GetDataAndCalculate},
+label = InitGDAC] 
 task GetDataAndCalculate(){
     int length;
     while(collecting){
@@ -33,7 +34,7 @@ port, device address, device register and command. The command on \textbf{line
 2} calls the sensor with the command \textc{US\_CMD\_CONTINUOUS} which turns on
 the sensor. On \textbf{line 3} the \textc{SensorUS} method is called, which
 returns a single reading from the sensor. On \textbf{line 4}
-\textc{US\_CMD\_OFF} is used to turn off the sensor. This pattern is repeated on
+\textc{US\_CMD\_OFF} is used to turn off the sensor. This pattern is repeated
 for the second ultrasonic distance sensor on \textbf{lines 6-8}. The resulting
 data from these sensors are parsed to the \textc{CheckLength} method, which
 returns an integer containing the distance in centimeters.\nl
@@ -56,17 +57,15 @@ int GetDistance(){
 The \textc{CheckLength} method takes the two distances read from the ultrasonic
 sensors, and chooses which one to use. This is shown in \autoref{CheckLengthEx}.
 Here the distance is compared to \textc{MAX\_DISTANCE}, which is an upper bound
-for what distance is accepted. When reading from the sensor, if a target is not
-registered, the sensor will return 255, which is the maximum value. As such,
-\textc{MAX\_DISTANCE} is a value which is less than 255 to make sure that
-useless data is not used. If the left sensors reading is accepted, the right
-sensor is ignored. This approach is chosen as both sensors seldom get data at
-the same time, and because the left sensor has been observed to be more
-accurate. If no valid reading is found, the method returns \textc{NO\_DATA},
-which indicates an error.\nl
+for what distance is accepted. As such, \textc{MAX\_DISTANCE} is a value less
+than 255 to make sure that useless data is not used. If the left sensor reading
+is accepted, the right sensor is ignored. This approach is chosen as both
+sensors seldom get usable data at the same times. If no valid reading is found,
+the method returns \textc{NO\_DATA}, which indicates an error.\nl
 
 \begin{minipage}[H]{\linewidth}
-\begin{lstlisting}[caption = CheckLength method which chooses the best input distance., label = CheckLengthEx] 
+\begin{lstlisting}[caption = \texttt{CheckLength} method which chooses the best
+input distance., label = CheckLengthEx] 
 int CheckLength(int right, int left){
     if(left < MAX_DISTANCE){
         return left;
