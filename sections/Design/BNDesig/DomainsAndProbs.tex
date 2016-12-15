@@ -76,53 +76,32 @@ that seem unlikely to be used often into big intervals.
 
 \subsection{Learning the Beliefs}
 
+By adding an
+evidence to one of the sensor nodes, we can infere the likelyhood of given
+vector variables. The more nodes are filled with evidence, the clearer we can
+infere which vector the target is using to travel.
 
-For each speed we want to implement in the model, we need a dataset, see
-\autoref{AppendixMIData}, which is based on the sensor readings from turret. In
-order to gather datasets a test was performed. The test was conducted such that
-the observations were grouped into a set: each set consists of 3 sensor
-readings, the first two observations of a set are used to construct a vector V1
-and the last two observations are used to construct a vector V2, these vectors
-are then normalized by dividing each with time difference between each of the observations. Using this method we end up
-with a set of vectors based upon sensor observations, which means we know the
-values that resulted in the vector, which will come in handy in the next step.
-Next step is to group the resulting vectors according to whether or not it was
-deemed a good vector or a bad vector. After going through the vectors for each
-speed, we end up with two sorted list of vectors, one containing all the good
-vectors and one containing the faulty ones. Next step is plotting the 
-measurements that resulted in a given vector into a table, based on the sensor
-readings - the way this was accomplished was to look at a given vector and then
-reference the sensor readings. For example, we wanted to know the probability of
-a vector given an angle - so what we did was make a table with two columns -
-good and bad indicating the quality of the vector. We then referenced the
-specific vector and then plotted in the two angle values used to calculate the
-given vector. Doing this for each vector, we end up with a probability table.
-The same method is used to construct a probability table for distance.
-\subsection{Constructing the Probability Tables}
 
-% The domain for the vectors is determined by gathering data about the
-% vectors and sensor observations by outputting the observed values, see
-% \autoref{AppendixMIData}.
-% These vectors are then used to
-% construct the domain for vectors by creating an average vector for the target
-% at moving at 60\%, 80\% and when the observations are deemed flawed. These
-% vectors are then used in conjuction with observations themselves to create the
-% probability table.\nl
+For each speed we want to implement in the model, we need a dataset which is
+based on the sensor readings from turret for that speed, see
+\autoref{AppendixMIData}. This allows us to create a series of vectors which we
+can used to fill the conditional probability tables. This is done by taking each
+observation, such as distance or angle, and comparing it to the expected vector.
+For instance, we observe an observation at time 0 in the 80\% set which has a
+distance of 94, we then look at the corresponding V1 and see that it is
+classified as an accepted vector for 80\%. We can then note this in the
+conditional probability table for \texttt{SD\_0|Vector\_1}. After this is
+done for both sets of tests we have constructed the table
+which can be seen in \autoref{SDtable}. For instance, there are a total of 9
+times the distance between the target and turret were in the [60-75] interval
+out of the 22 times distance was used by a viable 50cm/s vector. As such, the
+probability table for \texttt{SD\_0} and \texttt{SD\_2} can be seen in seen
+\autoref{SDtable}. While it seems there is little difference in the
+probabilities distribution, this can most likely be attributed to sample size
+and how big the intervals are.
 
-The conditional probabilities were found by \fix{}{Ref to MIDATA-behandlet}.
-This data is used to fill the tables below. For instance, in \autoref{SDtable}
-there were a total of 9 times the distance between the target and turret were in
-the [60-75] interval out of the 22 times distance was used by a viable
-50cm/s vector. By adding an evidence to one of the sensor nodes, we can infere
-the likelyhood of given vector variables. The more nodes are filled with
-evidence, the clearer we can infere which vector the target is using to
-travel. As such, the probability table for \texttt{SD\_0} and \texttt{SD\_2} can
-be seen in seen \autoref{SDtable}. While it seems there is little difference
-between the probabilities, there should be a more distinct difference if the
-sample size was alot bigger.
-
-\begin{center}
 \begin{table}[H]
+\centering
 \begin{tabular}{|l|l|l|l|}
 \hline
 \multicolumn{4}{|l|}{P(SD\_0|Vector\_1)} \\ \hline
@@ -137,7 +116,7 @@ Vector\_1     & 50cm/s & BV & 35cm/s \\\hline
 vector.}
 \label{SDtable}
 \end{table}
-\end{center}
+
   
 \texttt{SD\_1} is a special case, since it is dependent on both
 \texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
@@ -170,15 +149,13 @@ vectors.}
 \end{table}
 
 Similar tables are made for \texttt{SA\_0-2}, these can be seen in \autoref{PT}.
+The probability distribution of vectors is seen below in \autoref{Vector0Table},
+here it is seen that\ldots \fix{}{Create a quick distribution}.
 
 
 
-
-
- see \autoref{Vector0Table}. 
-
-\begin{center}
 \begin{table}[H]
+\centering
 \begin{tabular}{|l|l|}
 \hline
 P(Vector\_1) &\\ \hline
@@ -189,10 +166,14 @@ BV & 7/33 = 0.22  \\ \hline
 \caption{The probability table for a Vector\_1}
 \label{Vector0Table}
 \end{table}
-\end{center}
 
-The probability for \texttt{Vector\_2} is given as the following conditional
-probability table: 
+\texttt{Vector\_2} is given as the following conditional probability table, see
+\autoref{Vector2tab}. the table shows the likelyhood of the second vector
+changing from one state to another. It can be seen that it is up to a coin toss
+whether the secondary vector can be used if the first vector is a 80\% vector.
+It also shows that it is far more likely for 60\% to provide consistently good
+data.
+
 \begin{table}[]
 \centering
 \begin{tabular}{|l|l|l|l|}
