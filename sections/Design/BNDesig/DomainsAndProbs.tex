@@ -27,7 +27,7 @@ turret can turn, which is 360 degrees. It is of note that the angle is set as 0
 at the start of program, which results in a negative angle if it turns towards the target at the
 start, instead of following it. This means that domain for sensing the angle is
 adjusted slight to -30 to 330 degrees. These domains for the angles and
-distances are shown below in \autoref{distAngleDom}. 
+distances are shown below in \autoref{distAngleDom1}. 
 
 \begin{table}[H]
 \centering
@@ -40,7 +40,7 @@ State & Angle (deg) & Distance (cm) \\ \hline
 5     & 90 - 330    & 105 - 255     
 \end{tabular}
 \caption{Domains for angles and distances respectively.}
-\label{distAngleDom}
+\label{distAngleDom1}
 \end{table}
 
 \fix{}{dobbelt tjek target hastighed}
@@ -57,7 +57,7 @@ additional vector is added, one that does not drive perpendicular in front of
 it, we would need to denote them by their actual vector for clarity. The
 vectors are limited to 3 states, as 1 additional vector will result in 98
 additional cases, due to all the other nodes depending on the vectors. The
-domain for the vectors are presented in \autoref{vecDom}.
+domain for the vectors are presented in \autoref{vecDom1}.
 
 \begin{table}[H]
 \centering
@@ -68,7 +68,7 @@ State & Vector \\ \hline
 3     & BV
 \end{tabular}
 \caption{Domain for the vectors.}
-\label{vecDom}
+\label{vecDom1}
 \end{table}
 
 Using this simplified approach means the model lose some precision, but it
@@ -88,11 +88,11 @@ For instance, we observe at time 0 in the 57cm/s set a distance of 94, we then
 look at the corresponding V1 and see that it is classified as an accepted
 vector for 80\%. We can then note this in the conditional probability table for
 \texttt{SD\_0|Vector\_1}. After this is done for both sets of tests, we can
-construct the table which can be seen in \autoref{SDtable}. For instance, there
+construct the table which can be seen in \autoref{SDtable1}. For instance, there
 are a total of 8 times the distance between the target and turret are in the
 [60-75] interval out of the 22 times distance was used by a viable 57cm/s
-vector. As such, the probability table for \texttt{SD\_0} and \texttt{SD\_2}
-can be seen in seen \autoref{SDtable}. While it seems there is little
+vector. As such, the probability table for \texttt{SD\_0}
+can be seen in seen \autoref{SDtable1}. While it seems there is little
 difference in the probabilities distribution, this can most likely be
 attributed to sample size and how big the intervals are.
 
@@ -110,12 +110,12 @@ Vector\_1     & 41cm/s & 57cm/s & BV \\\hline
 \end{tabular}
 \caption{The conditional probability table for sensing the distance given the
 vector.}
-\label{SDtable}
+\label{SDtable1}
 \end{table}
   
 \texttt{SD\_1} is a special case, since it is dependent on both
 \texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
-\autoref{SDtable2}. This means that we need to consider how the observation
+\autoref{SDtable21}. This means that we need to consider how the observation
 relates to both of the vectors it is used to create.
 
 \begin{table}[H]
@@ -139,14 +139,14 @@ Vector\_1 & 41cm/s      &  57cm/s     & BVcm/s      & 41cm/s      & 57cm/s
 \end{tabular}
 \caption{The conditional probability table for sensing the distance given two
 vectors.}
-\label{SDtable2}
+\label{SDtable21}
 \end{table}
 
 As mentioned in \autoref{ModelHMM}, the network can be extended indefinitely,
 as such the tables have been generalized such that \texttt{SD\_0} and
 \texttt{SD\_2} are the same. The same is applied to \texttt{SA\_0} and
 \texttt{SA\_2}, these tables can be seen in in \autoref{PT}. The probability
-distribution of the vectors is seen below in \autoref{Vector0Table}, while the
+distribution of the vectors is seen below in \autoref{Vector0Table1}, while the
 likelyhood of a bad vector is very high, is still less than half of the vectors.
 
 \begin{table}[H]
@@ -159,17 +159,16 @@ P(Vector\_1) &\\ \hline
 BV & 21/40 = 0.52  \\ \hline
 \end{tabular}
 \caption{The probability table for a Vector\_1}
-\label{Vector0Table}
+\label{Vector0Table1}
 \end{table}
 
 
 \texttt{Vector\_2} is given as the following conditional probability table, see
-\autoref{Vector2tab}. The table shows the likelyhood of the second vector
+\autoref{Vector2tab1}. The table shows the likelyhood of the second vector
 direction given the first vector. It can be seen that when the first vector is
 generated it is very likely that the second vector will be a
 bad vector, regardless of how fast the target is moving.
 
-probability table:
 \begin{table}[]
 \centering
 \begin{tabular}{|l|l|l|l|}
@@ -181,7 +180,7 @@ probability table:
  BV        & 2/3 = 0.67 & 5/7 = 0.71 & 4/10 = 0.4  \\ \hline
 \end{tabular}
 \caption{The conditional probability table of Vector\_2 given Vector\_1}
-\label{vector2tab}
+\label{vector2tab1}
 \end{table}
 
 
