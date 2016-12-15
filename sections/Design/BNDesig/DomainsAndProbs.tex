@@ -115,8 +115,12 @@ vector.}
   
 \texttt{SD\_1} is a special case, since it is dependent on both
 \texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
-\autoref{SDtable21}. This means that we need to consider how the observation
-relates to both of the vectors it is used to create.
+\autoref{SDtable21}. There is however a problem with the conditional probability
+table. Due to limited data and design choices, there is no possibility of of a
+vector changing from 41cm/s to 57cm/s and vice versa. This is a problem since we
+need each column to sum to 100\% percent, which means that the table cannot be
+used. A way to work around this would be to add very small chance that such
+a change can occur, but we have not done this presently.
 
 \begin{table}[H]
 \centering
