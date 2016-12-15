@@ -1,5 +1,5 @@
 \section{Ultrasonic Sensor}\label{SensTheoUltra}
-The ultrasonic sensors works by producing sound waves from one of two frontal
+The ultrasonic sensors work by producing sound waves from one of two frontal
 holes, which is then bounced back by an object and received by the second hole.
 This is displayed in the illustration below \autoref{soundWavesSensor}.
 The delay between producing and receiving the sound wave is used to determine
@@ -15,12 +15,12 @@ the distance to a given object.
 
 \figx{soundWavesSensor}{Visualization of the ultrasonic sensor.}
 
-The described sensor is a standardized ultrasonic sensor from Lego NXT. The
-sensor's technical specifications \citep{Ultrasonic_sensor} can be found below:
+The described sensor is a standardized ultrasonic sensor for the NXT. The
+sensor's technical specifications can be found below \citep{Ultrasonic_sensor}:
 \begin{itemize}
   \item Has a max range of 2.5m
   \item Has a precision of +/- 3cm
-  \item Works best with hard, large-sized objects
+  \item Works best with hard, large objects
 \end{itemize}
 
 % An image of this sensor as mounted in the turret can be seen in
@@ -31,7 +31,7 @@ sensor's technical specifications \citep{Ultrasonic_sensor} can be found below:
 \section{Ultrasonic Sensor Testing}\label{SensorTest}
 The first sensor we need to test is the ultrasonic distance sensor. These tests
 will be used to verify the contents of the technical specification, and
-to gain a deeper understanding of how the sensor operates and what
+to better understand how the sensor operates and what
 problems could occur when using it. As such, the tests will consist of
 clarifying the following points:
 \begin{itemize}
@@ -42,7 +42,7 @@ clarifying the following points:
 
 \subsection{Ultrasonic Sensor Test - Setup}\label{UltraTestSetup}
 The setup for testing the ultrasonic sensor consists of placing the turret on
-the floor along a wall, and pointing toward a target at various distances along
+the floor along a wall, and pointing towards a target at various distances along
 the wall. This wall is marked with a number of lines each representing a
 distance of 10cm from the turret's location. The target for this test is a
 rectangular cardboard cutout, which is used to hold a sheet of coloured paper
@@ -58,9 +58,9 @@ distance sensor.}
 % the sensor collects, and to help determine some design choices for the
 % turret.\nl
 This first test consists of determining the size and shape of the target. This
-test will help improve the quality of the outputs as well as helping design the
-target. The test was made in the same way as in \autoref{SensorTest}, the
-only difference was the object itself.\nl
+test will help improve the quality of the outputs as well as assist in the
+design of the target. The test was made in the same way as in
+\autoref{SensorTest}, the only difference was the object itself.\nl
 
 % This test was concucted by placing the ultrasonic sensor at different places on
 % the turret, and then testing the sensors maximum distance. As the test was done
@@ -98,8 +98,8 @@ however be noted that the orientation of the target is important.
 
 \graphL{Actual distance [cm]}{Measured distance
 [cm]}{unshieldedBoxStanding,unshieldedBoxLandscape}{Box vertical, Box
-horizontal}{Results with a sensor and a box h.
-14.2cm and w. 9cm}{unshieldedTestBox}
+horizontal}{Results with a sensor and a box of height
+14.2cm and a width of 9cm.}{unshieldedTestBox}
 
 % \graphL{Actual distance [cm]}{Measured distance
 % [cm]}{shieldedPaperStanding,shieldedPaperLandscape}{Paper vertical, Paper
@@ -107,7 +107,7 @@ horizontal}{Results with a sensor and a box h.
 
 \graphL{Actual distance [cm]}{Measured distance
 [cm]}{unshieldedPaperStanding,unshieldedPaperLandscape}{Paper vertical, Paper
-horizontal}{Results with a sensor and a A4 Paper}{unshieldedTestPaper}
+horizontal}{Results with a sensor and a A4 Paper.}{unshieldedTestPaper}
 
 
 % As seen in \autoref{graph:shieldedTestBox}, \autoref{graph:unshieldedTestBox},
@@ -120,7 +120,7 @@ horizontal}{Results with a sensor and a A4 Paper}{unshieldedTestPaper}
 % have a big impact. This is due to the fact that the sensor does not have a very
 % large field of view. Therefore, the object should be wider rather than taller.
 
-During the testing a hypothesis was formed based on observations that the sensor
+During the tests a hypothesis was formed based on observations that the sensor
 should not be placed close to the ground due to the fact that the reflection of
 the ground corrupted the data. This was not tested, but still has an effect on the
 final design. 
@@ -129,10 +129,12 @@ final design.
 
 The second test on the ultrasonic sensor is designed to determine the accuracy
 of the sensors measurements compared to the actual distance. As such, the test
-was conducted using test setup explained in \autoref{UltraTestSetup} using the
+was conducted using the test setup explained in \autoref{UltraTestSetup} using
 two ultrasonic sensors. The measurements were done at varying distances with an
 interval of 25cm, and were measured 8 times at each distance. The results from
-this test is presented below in \autoref{table:UltDistTestData}. 
+this test are presented below in \autoref{table:UltDistTestData}. \\
+Based on these results, we can conclude that the sensor with the lowest
+distance is usually the most accurate.
 
 \dataTable{UltrasonicDistanceTestData}{Average measured distance compared to
 the actual distance.}{UltDistTestData}
