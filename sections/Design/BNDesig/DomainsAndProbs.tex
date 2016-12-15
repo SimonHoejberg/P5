@@ -46,22 +46,25 @@ State & Angle (deg) & Distance (cm) \\ \hline
 \fix{}{dobbelt tjek target hastighed}
 The states for the vectors consist of the percieved speed of the target, that
 is, how far along the x and y-axis it has moved per millisecond. These vectors
-were determined as an average of vectors which were \fix{reasonable close}{hvad
-er close?} to the expected speed. They are for simplicity denoted by how fast
-the target is moving, 35cm/s, 50cm/s and when it is a 'bad vector', referred to as
-\textbf{BV}. A 'bad vector' is a vector that is exceeds this difference from
-the expected vector. If an additional vector is added, one that does not drive
-perpendicular in front of it, we would need to denote them by their actual
-vector for clarity. The vectors are limited to 3 states, as 1 additional vector
-will result in 98 additional cases, due to all the other nodes depending on the
-vectors. The domain for the vectors are presented in \autoref{vecDom}.
+were determined as an average of vector which were within a 40\% margin of
+error to the expected speed. They are for simplicity denoted by how fast
+the target is moving, 41cm/s, 57cm/s and when it is a 'bad vector', referred to
+as \textbf{BV}. A 'bad vector' is a vector that is different from the length of
+the expected vector by more than 40\%. Due to timeconstraints the margin has
+been set at 40\%, as the difference between the vectors we acquired from the
+tests at 41cm/s, are consistently alot lower than what we expected. If an
+additional vector is added, one that does not drive perpendicular in front of
+it, we would need to denote them by their actual vector for clarity. The
+vectors are limited to 3 states, as 1 additional vector will result in 98
+additional cases, due to all the other nodes depending on the vectors. The
+domain for the vectors are presented in \autoref{vecDom}.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{l|l}
 State & Vector \\ \hline
-1     & 35cm/s \\
-2     & 50cm/s \\
+1     & 41cm/s \\
+2     & 57cm/s \\
 3     & BV
 \end{tabular}
 \caption{Domain for the vectors.}
@@ -76,47 +79,39 @@ that seem unlikely to be used often into big intervals.
 
 \subsection{Learning the Beliefs}
 
-By adding an
-evidence to one of the sensor nodes, we can infere the likelyhood of given
-vector variables. The more nodes are filled with evidence, the clearer we can
-infere which vector the target is using to travel.
-
-
 For each speed we want to implement in the model, we need a dataset which is
-based on the sensor readings from turret for that speed, see
+based on the sensor readings from turret at that speed, see
 \autoref{AppendixMIData}. This allows us to create a series of vectors which we
-can used to fill the conditional probability tables. This is done by taking each
+can use to fill the conditional probability tables. This is done by taking each
 observation, such as distance or angle, and comparing it to the expected vector.
-For instance, we observe an observation at time 0 in the 80\% set which has a
-distance of 94, we then look at the corresponding V1 and see that it is
-classified as an accepted vector for 80\%. We can then note this in the
-conditional probability table for \texttt{SD\_0|Vector\_1}. After this is
-done for both sets of tests we have constructed the table
-which can be seen in \autoref{SDtable}. For instance, there are a total of 9
-times the distance between the target and turret were in the [60-75] interval
-out of the 22 times distance was used by a viable 50cm/s vector. As such, the
-probability table for \texttt{SD\_0} and \texttt{SD\_2} can be seen in seen
-\autoref{SDtable}. While it seems there is little difference in the
-probabilities distribution, this can most likely be attributed to sample size
-and how big the intervals are.
+For instance, we observe at time 0 in the 57cm/s set a distance of 94, we then
+look at the corresponding V1 and see that it is classified as an accepted
+vector for 80\%. We can then note this in the conditional probability table for
+\texttt{SD\_0|Vector\_1}. After this is done for both sets of tests, we can
+construct the table which can be seen in \autoref{SDtable}. For instance, there
+are a total of 8 times the distance between the target and turret are in the
+[60-75] interval out of the 22 times distance was used by a viable 57cm/s
+vector. As such, the probability table for \texttt{SD\_0} and \texttt{SD\_2}
+can be seen in seen \autoref{SDtable}. While it seems there is little
+difference in the probabilities distribution, this can most likely be
+attributed to sample size and how big the intervals are.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|l|}
 \hline
 \multicolumn{4}{|l|}{P(SD\_0|Vector\_1)} \\ \hline
-Vector\_1     & 50cm/s & BV & 35cm/s \\\hline 
-[0 - 60]      & 3/22 = 0.14 & 3/27 = 0.11 & 0 \\ \hline 
-[60 - 75]    & 9/22 = 0.41 & 12/27 = 0.44 & 14/24 = 0.58 \\ \hline
-[75 - 90]   & 5/22 = 0.23 & 8/27 = 0.30 & 6/24 = 0.25 \\ \hline
-[90 - 105]   & 4/22 = 0.18 & 1/27 = 0.04 & 3/24 = 0.13 \\ \hline
-[105 - 255]   & 1/22 =0.04 & 3/22 = 0.11 & 1/24 = 0.04   \\ \hline
+Vector\_1     & 41cm/s & 57cm/s & BV \\\hline 
+[0 - 60]      & 0       & 3/22 = 0.14 & 3/42 = 0.07\\ \hline 
+[60 - 75]    & 7/16 = 0.43 & 8/22 = 0.36 & 22/42 = 0.52\\ \hline
+[75 - 90]   & 5/16 = 0.31 & 8/22 = 0.36 & 10/42 = 0.24\\ \hline
+[90 - 105]   & 2/16 = 0.13 & 2/22 = 0.9 & 6/42 = 0.15\\ \hline
+[105 - 255]   & 2/16 = 0.13& 1/22 = 0.5 & 1/42 = 0.02 \\ \hline
 \end{tabular}
 \caption{The conditional probability table for sensing the distance given the
 vector.}
 \label{SDtable}
 \end{table}
-
   
 \texttt{SD\_1} is a special case, since it is dependent on both
 \texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
@@ -127,20 +122,19 @@ relates to both of the vectors it is used to create.
 \centering
 \begin{tabular}{|l|p{1.2cm}|p{1.2cm}|l|p{1.2cm}|p{1.2cm}|p{1.2cm}|l|p{1.2cm}|p{1.2cm}|}
 \hline
-\multicolumn{10}{|l|}{P(SD\_1|Vector\_1, Vector\_2)} \\\hline 
-Vector\_2 & \multicolumn{3}{l|}{50cm/s} & \multicolumn{3}{l|}{BV} &
-\multicolumn{3}{l|}{35cm/s}\\\hline 
-Vector\_1 & 50cm/s      &  BV     & 35cm/s      & 50cm/s      & BV      & 35cm/s     
-& 50cm/s & BV & 35cm/s \\\hline
-[0-60]&1/12 = 0.08 & 1/3 = 0.33 & 0      & 2/12 = 0.17 & 1/6 = 0.17 & 0 & 0  
-& 0 & 0 \\ \hline
-[60-75]&4/12 = 0.33 & 1/3 = 0.33 & 1      & 7/12 = 0.58 & 3/6 = 0.5 & 0      & 1     
-& 7/15 = 0.47 & 5/9 = 0.56\\ \hline
-[75-90] & 4/12 = 0.33 & 0 & 0 & 2/12 = 0.17 & 1/6 = 0.17 & 2/3 = 0.67 & 0 
-& 5/15 = 0.33 &1/9 = 0.11\\\hline
-[90-105] & 2/12 = 0.17 & 1/3 = 0.33 & 0 & 1/12 = 0.08 & 0 & 0 & 0 
-& 2/15 = 0.07  & 3/9 = 0.33\\\hline
-[105-255] & 1/12 = 0.08 & 0 & 0 & 0 & 1/6 = 0.17 & 1/3 = 0.33 & 0 & 1/15 = 0.07     
+\multicolumn{10}{|l|}{P(SD\_1|Vector\_1, Vector\_2)} \\\hline
+Vector\_2 & \multicolumn{3}{l|}{41cm/s} & \multicolumn{3}{l|}{57cm/s} &
+\multicolumn{3}{l|}{BV}\\\hline
+Vector\_1 & 41cm/s      &  57cm/s     & BVcm/s      & 41cm/s      & 57cm/s     
+& BVcm/s & 41cm/s & 57cm/s & BVcm/s \\\hline
+[0-60]& 0 & 0 & 0 & 0 & 0 & 2/6 = 0.33& 0 & 2/15 = 0.13 & 1/12 = 0.08 \\\hline
+[60-75]& 1/3 = 0.33 & 0 & 5/12 = 0.42 & 0 & 2/6 = 0.33 & 1/6 = 0.17 & 1/6 = 0.17
+& 9/15 = 0.6 & 6/12 = 0.5\\ \hline
+[75-90] & 1/3 = 0.33 & 0 & 4/12 = 0.33 & 0 & 2/6 = 0.33 & 1/6 = 0.17 & 3/6 =
+0.5 & 3/15 = 0.2 &3/12 = 0.25\\\hline
+[90-105] & 0 & 0 & 1/12 = 0.08 & 0 & 1/6 = 0.17 & 2/6 = 0.33 & 1/6 = 0.17
+& 1/15 = 0.07 & 2/12 = 0.17\\\hline
+[105-255] & 1/3 = 0.34 & 0 & 2/12 = 0.17& 0 & 1/6 = 0.17 & 0 & 1/6 = 0.16 & 0
 &0\\\hline
 \end{tabular}
 \caption{The conditional probability table for sensing the distance given two
@@ -148,46 +142,47 @@ vectors.}
 \label{SDtable2}
 \end{table}
 
-Similar tables are made for \texttt{SA\_0-2}, these can be seen in \autoref{PT}.
-The probability distribution of vectors is seen below in \autoref{Vector0Table},
-here it is seen that\ldots \fix{}{Create a quick distribution}.
-
-
+As mentioned in \autoref{ModelHMM}, the network can be extended indefinitely,
+as such the tables have been generalized such that \texttt{SD\_0} and
+\texttt{SD\_2} are the same. The same is applied to \texttt{SA\_0} and
+\texttt{SA\_2}, these tables can be seen in in \autoref{PT}. The probability
+distribution of the vectors is seen below in \autoref{Vector0Table}, while the
+likelyhood of a bad vector is very high, is still less than half of the vectors.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|}
 \hline
 P(Vector\_1) &\\ \hline
-50cm/s & 13/33 = 0.39   \\ \hline 
-BV & 7/33 = 0.22  \\ \hline
-35cm/s & 13/33 = 0.39  \\ \hline
+41cm/s & 8/40 = 0.20   \\ \hline 
+57cm/s & 11/40 = 0.28  \\ \hline
+BV & 21/40 = 0.52  \\ \hline
 \end{tabular}
 \caption{The probability table for a Vector\_1}
 \label{Vector0Table}
 \end{table}
 
-\texttt{Vector\_2} is given as the following conditional probability table, see
-\autoref{Vector2tab}. the table shows the likelyhood of the second vector
-changing from one state to another. It can be seen that it is up to a coin toss
-whether the secondary vector can be used if the first vector is a 80\% vector.
-It also shows that it is far more likely for 60\% to provide consistently good
-data.
 
+\texttt{Vector\_2} is given as the following conditional probability table, see
+\autoref{Vector2tab}. The table shows the likelyhood of the second vector
+direction given the first vector. It can be seen that when the first vector is
+generated it is very likely that the second vector will be a
+bad vector, regardless of how fast the target is moving.
+
+probability table:
 \begin{table}[]
 \centering
 \begin{tabular}{|l|l|l|l|}
 \hline
 \multicolumn{4}{|l|}{P(Vector\_2|Vector\_1)} \\ \hline
- Vector\_1 & 50cm/s    & BV    & 35cm/s    \\ \hline
- 50cm/s    & 4/8 = 0.5    & 1/8 = 0.13    & 0    \\ \hline
- BV   & 4/8 = 0.5    & 2/8 = 0.25    & 1/4 = 0.25  \\ \hline
- 35cm/s    & 0            & 5/8 = 0.62    & 3/4 = 0.75  \\ \hline
+ Vector\_1 & 41cm/s    & 57cm/s    & BV    \\ \hline
+ 41cm/s    & 1/3 = 0.33 & 0     & 4/10 = 0.4    \\ \hline
+ 57cm/s    & 0          & 2/7 = 0.29 & 2/10 = 0.2  \\ \hline
+ BV        & 2/3 = 0.67 & 5/7 = 0.71 & 4/10 = 0.4  \\ \hline
 \end{tabular}
 \caption{The conditional probability table of Vector\_2 given Vector\_1}
-\label{vector2tab} 
+\label{vector2tab}
 \end{table}
-
 
 
 \subsection{Using the Network}
