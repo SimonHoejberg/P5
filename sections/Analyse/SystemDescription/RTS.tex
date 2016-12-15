@@ -6,17 +6,17 @@
 % treated as a real-time system, which we define as:
 
 As \name is an autonomous turret which needs to be capable of hitting a moving
-target, in needs to compute the information from its sensors. In order to
-accomplish this, it will to react to its surroundings and fire at the
-correct time, not too soon or too late. As the turret needs to react to
+target, it needs to compute the information from its sensors. In order to
+accomplish this, it will have to react to its surroundings and fire at the
+correct time. As the turret needs to react to
 information and operate within deadlines, it can be treated as a real-time
 system (RTS), which we define as:
 
 \begin{center}
 \begin{minipage}{0.8\linewidth}
-\textit{A real time system is any information processing system, which needs to
-react within a finite time period to externally generated inputs in order meet
-its deadlines.}
+\textit{A real-time system is any information processing system, which needs to
+react within a finite time period to externally generated inputs in order to
+meet its deadlines.}
 \end{minipage}
 \end{center} 
 
@@ -24,32 +24,33 @@ its deadlines.}
 Real-time systems often consists of several tasks or threads, which work
 together in tandem. These tasks can be run at set intervals, or might have
 individual deadlines for when they must have finished their execution. When a
-task is executed, it works by gathering information about the sorrounding
+task is executed, it works by gathering information about the surrounding
 environment, performing a computation and deciding whether or not to react to
 the input by changing the system state. An example of a task in a real-time
-system, such as Anti-lock braking system (ABS), could be a task which monitors
-the applied pressure on the brakes and the individual speed of the wheels. It
+system, such as the Anti-Lock Braking system (ABS), could be a task which
+monitors the applied pressure on the brakes and the individual speed of the wheels. It
 then performs a computation to see whether or not the brakes have locked, and
-depending on the outcome it will change the state of the system(the brakes) in
+depending on the outcome it will change the state of the system (the brakes) in
 order to prevent locking of the brakes. Tasks can generally be divided into two
 different groups, \textbf{periodic} and \textbf{aperiodic} depending on the
 circumstance of their execution \citep[ch.1A]{Realtime}:
 
 \begin{itemize}
   \item \textbf{Periodic} tasks are those that need to be run at regular
-  intervals in order to keep the system running, these task are often
-  time-critical meaning that if the deadline of such a task is broken then the system cannot work.
+  intervals in order to keep the system running. These tasks are often
+  time-critical, meaning that if the deadline of such a task is broken then the
+  system cannot work.
   \item \textbf{Aperiodic} tasks are those which are activated by an occurrence
   of an event.
 \end{itemize}
 
-An example of the tasks in \name are
+An example of the tasks that could be implemented in \name are:
 \begin{itemize}
-  \item The turret will need a function that takes the data from the camera and
+  \item The turret will need a function that takes data from the sensors and
   converts it to the variables needed in order to calculate a position. This
   task is periodic, since it should do it continuously.
-  \item An example of a aperiodic task is a function that should give the turret
-  an order to shoot. This function should only be called once enough data has
+  \item An example of an aperiodic task is a function that should give the
+  turret an order to shoot. This function should only be called once enough data has
   been gathered in order to calculate a vector for the target.
 \end{itemize}
 % Tasks can generally be divided into two different groups, \textbf{periodic} and
@@ -68,20 +69,20 @@ deadlines which are defined by how severe the consequence of missing it are
 \citep[ch.1A]{Realtime}:
 
 \begin{itemize}
-  \item \textbf{Hard} missing this deadline can cause unacceptable damage to
-  the system, and the consequence are quite severe.
-  \item \textbf{Firm} missing this deadline causes the result of the task to
-  be unusable, although the consequence of missing it is not very severe.
-  \item \textbf{Soft} missing this deadline is not severe at all, and the
+  \item \textbf{Hard} - missing this deadline can cause unacceptable damage
+  to the system, and the consequences are quite severe.
+  \item \textbf{Firm} - missing this deadline causes the result of the task to
+  be unusable, although the consequences of missing it is not very severe.
+  \item \textbf{Soft} - missing this deadline is not severe at all, but the
   usefulness of the result decreases after the deadline has passed.
 \end{itemize}
 
-Using the previous example with an Anti-lock braking system, it is clear that
-the system uses hard deadlines, as it would not be able to function if it did
-not adhere to certain deadlines, since a failure to complete the task may result
+Using the previous example with an Anti-Lock Braking system, it is clear that
+the system can be classified as a hard real-time system, as it would not be able
+to function if it did not adhere to certain deadlines, since a failure to complete the task may result
 in the wheels locking which in turns causes an accident.\nl
 
-We regarded \name as a firm real-time application, since missing a deadline
+We regard \name as a firm real-time application, since missing a deadline
 will render the calculation useless, although the system can still function. In
 a broader scope, the system could be argued as hard if the result of a missed
 deadline is the failure to shoot down a hostile target resulting in friendly

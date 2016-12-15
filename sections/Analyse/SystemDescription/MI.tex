@@ -62,54 +62,55 @@ purpose, there are 4 different categories of solutions \citep[ch.1.4.1]{MIBook}:
   problem, but is not always guaranteed to.
 \end{itemize}
 
-\fix{VI ER NÅET HERTIL!!!}{}
-
 As \name is shooting at a moving target, the developed system needs to be able
-to reliably hit the target. \name is also a real-time system, as such, there
-are certain limits to how much time can be spent searching and waiting for the
-optimal shot.
+to reliably hit the target. Having a moving target means there are certain
+points in time were it is the optimal time to shoot. Therefore, the satisficing
+solution is deemed the best for this project. 
+%  \name is also a real-time
+% system, as such, there are certain limits to how much time can be spent searching and waiting for the
+% optimal shot.
 
 \subsection{Design Space}
-When designing intelligent agents, we have a number of design dimensions which
-form a coarse framework for the design process. This framework represents the
-design space of an intelligent agent, and can be considered a series of 8
-factors, which are used to give an estimation of the system
+When designing intelligent agents we have a number of design dimensions which
+form a crude framework for the design process. This framework represents the
+design space of an intelligent agent and can be considered a series of 8
+factors, which are used to give an estimate of the system
 \citep[ch.1.5]{MIBook}. These factors are: modularity, representation scheme,
 planning horizon, uncertainty, preference, number of agents, learning and
 computational limits.
 
 \subsubsection{Modularity}
 Modularity describes how easily the system can be divided into modules, as well
-as how easy it is to understand these modules separately. Modularity has three
-different levels, flat, modular and hierachical. Flat means that everything is
-contained within a single module. Modular means that the system can be divided
-into several modules that can be understood separately from the system.
-Hierachical means that the modules can recursively have additional modules
+as how easy it is to understand these modules separately. Modularity comes in
+three different types: flat, modular and hierarchical. Flat means that
+everything is contained within a single module. Modular means that the system can be divided into several modules that can be understood separately from the system.
+Hierarchical means that the modules can recursively have additional modules
 inside them \citep[ch.1.5.1]{MIBook}. \name as an autonomous turret needs to
-have several functions, for example it needs to be able to turn, aim and determine the position of a target.
-This means that \name should be a modular system because, while it is a
-relatively simple system, it has distinct parts which can each be considred
-modules of their own.
+have several functions, for example, it needs to be able to turn, aim and
+determine the position of a target. This means that \name should be a modular
+system because, while it is a relatively simple system, it has distinct parts
+which can each be considered individual modules.
 
 \subsubsection{Representation Scheme}
-As mentioned in \autoref{KR} the representation scheme is used to house the
-various knowledge the agent could need to perform. This knowledge is usually
-represented in terms of states. A state is a specific combination of
-the knowledge \citep[ch.1.5.2]{MIBook}. For example a turret with the ability
-to turn 180 degrees and tilt its cannon 45 degrees would have $180 * 45$ states. As an example, a
-specific state would have the turret turned 90 degrees and the cannon tilted at an angle of 42
-degrees. This leads to alot of different states as the amount of possible values
-increases. Instead of reasoning using states it is possible to combine the
-relevant values into features. This means that the state is determined by the
-value of the features, such as a feature, Tilt, could cover how tilted the
-cannon is and have the values covering 0 to 45.
+As mentioned in \autoref{KR} the representation scheme is used to contain the
+various knowledge the agent could need during operation. This knowledge is
+usually represented in terms of states. A state is a specific combination of
+knowledge \citep[ch.1.5.2]{MIBook}. For example a turret with the ability to
+turn 180 degrees and tilt its cannon 45 degrees would have $180 * 45$ states. As
+an example, a specific state would have the turret turned 90 degrees and the
+cannon tilted at an angle of 42 degrees. This leads to a lot of different states
+as the amount of possible values increases. Instead of reasoning using states it
+is possible to combine the relevant values into features. This means that the
+state is determined by the value of the features, such as a feature, tilt,
+which represents how much the cannon is angled as a value between 0 and
+45 degrees.
 
 \subsubsection{Planning Horizon}
 The planning horizon for an intelligent agent governs how far ahead it plans
 when it comes to the consequences of its actions. For example a child might
 only do something if there is an immediate reward, whereas an adult might have
-the foresight to do something for a reward thats some time off. There exist the
-following types of planning horizons \citep[ch.1.5.3]{MIBook}:
+the foresight to do something for a future reward. There
+exist the following types of planning horizons \citep[ch.1.5.3]{MIBook}:
 \begin{itemize}
 	\item \textbf{Non-planning} - The agent either does not consider the
 	future when making decisions, or doesn't use time as a factor.
@@ -120,8 +121,8 @@ following types of planning horizons \citep[ch.1.5.3]{MIBook}:
 	\item \textbf{Infinite horizon} - The agent plans on running forever.	
 \end{itemize}
 
-Considering \name is an autonomous turret, non-planning can already be ruled
-out as that would that would result in a naive approach for the turret where it
+Considering \name is autonomous, non-planning can already be ruled
+out as that would result in a naive approach for the turret where it
 would fire when it sees a target. Given the limited time a target is in range,
 the turret can be considered having a finite horizon as the number of steps it
 needs are limited.
@@ -158,7 +159,7 @@ state based on an action in its current state. There are two possibilities
 \name can not directly observe the current state, it is only able
 to observe some of it through its sensors, as such the system is stochastic.
 Although the system is stochastic, it can be modelled as a deterministic system, where
-the actions can be be detemined by what it can observe.
+the actions can be determined by what it can observe.
  
 \subsubsection{Preferences}
 For an agent to be able to make good decisions it is necessary to provide an
@@ -168,8 +169,8 @@ preferences concerning the trade-off between different solutions
 
 \begin{itemize}
   \item \textbf{Goals} - There are two types of goals, achievement goals and
-  maintenance goals. Maintenance goals must be achieved in all the states it
-  visits. Achievement goals should hold true for the final state. 
+  maintenance goals. Maintenance goals must be achieved in all visited states.
+  Achievement goals should hold true for the final state.
   \item \textbf{Complex preferences} - There are two types of preferences,
   ordinal preferences and cardinal preferences. Ordinal preferences describe
   preferences where only the order of the preferences indicate importance.
@@ -177,7 +178,7 @@ preferences concerning the trade-off between different solutions
   such that more value is better.
 \end{itemize}
 
-For this project, first and foremost an achievement goal is needed in order to
+For this project, an achievement goal is needed in order to
 describe the goal for the agent. This is simply the combined state of features
 that allows us to hit a target in motion. 
 
@@ -203,7 +204,7 @@ consideration in order to actually hit it.
 % agent so it does not need to take any other agents into account.
 
 \subsubsection{Learning}
-There are two ways of handling knowledge: knowledge can given in form of a
+There are two ways of handling knowledge: knowledge can be given in form of a
 model or the agent can be given data to learn from \citep[ch.1.5.7]{MIBook}. 
 \begin{itemize}
   \item \textbf{Knowledge is given} - The agent possesses a model which the
@@ -226,13 +227,13 @@ has \citep[ch.1.5.8]{MIBook}:
 
 \begin{itemize}
   \item \textbf{Perfect rationality} - The agent tries to find the best action
-  allways.
+  always.
   \item \textbf{Bounded rationality} - The agent decides the best action taking
   its limitation into account.
 \end{itemize}
 
-\name has bounded rationality due to the fact that the NXT provides limited
-resources, as well as the limited time the target is in range. This means that
+\name has bounded rationality due to the fact that an embedded system provides
+limited resources, as well as the limited time the target is in range. This means that
 in some situations, like deciding when to shoot, it will have to determine the
 best course of action at the moment instead of spending a lot of time computing
 the best solution. In addition to just the calculations, \name also needs to
@@ -240,9 +241,9 @@ move into a proper position, and the shot itself has a certain travel time. All
 of this leads to a system which uses bounded rationality.
 
 \subsection{Belief Network}\label{LabelBN}
-\name is only is able to see the
+\name is only able to see the
 target and determine the distance between them, it does not know where the
-target is going nor how fast it is. This can lead to alot of different possible
+target is going nor how fast it is. This can lead to a lot of different possible
 situations, as it will need to try and determine the speed and direction through
 additional observations of the distance. A belief network is a way to model
 this conditional dependency. It is an acyclic directed graph, consisting of a
@@ -251,14 +252,14 @@ various features the model has, usually based on the features of
 the representation scheme. Nodes can also be created to act as
 intermediary variables, which are created in order to either simplify the model
 or to make the conditional dependency more logical. These variables affect each
-other, this is modelled by the direction of the edge going between the nodes,
-such as the targets position being dependant on its speed. The variables each
+other which is modelled by the direction of the edge going between the nodes,
+such as the target's position being dependent on its speed. The variables each
 have a set of the values as well as a set of conditional probability
-distributions for each variable given its parents. \citep[ch.6.3]{MIBook}.
+distributions for each variable given its parents \citep[ch.6.3]{MIBook}.\nl
 
-The variables make up the belief network and are connected via either a
+The belief networks is made from the variables and are connected via either a
 \textbf{serial}, \textbf{convergent} or \textbf{divergent} connection. These
-connections dictate how information is able flow through the network given
+connections dictate how information is able to flow through the network given
 evidence on a node. Evidence occurs when a specific value in a node is observed,
 which allows the probability of that value to be set to 1, while the others in
 that node are set to 0.
@@ -267,7 +268,7 @@ that node are set to 0.
   This kind of connection represents that each node is affected by the node
   prior to it. These connections allow information to flow as long as the middle
   node is not blocked by evidence. If evidence is present on the middle node,
-  \textit{Node2}, it is becomes impossible to say anything new about
+  \textit{Node2}, it becomes impossible to say anything new about
   \textit{Node1} given more evidence further down the sequence. An example of a
   serial connection can be seen in \autoref{Serial2}.
  \figx[0.8]{Serial2}{An example of a serial connection}
@@ -281,9 +282,9 @@ that node are set to 0.
   be seen in \autoref{Convergent2}.
  \figx[0.8]{Convergent2}{An example of convergent connection}
   \item A \textbf{divergent} connection is a parent node connected to two or
-  more children. This kind of connection represents that one node affects more
-  than two or more nodes. In this kind of connection it is only possible to
-  transmit information between the children if the parent node, \textit{Node1}
+  more children. This kind of connection represents that one node affects two or
+  more nodes. In this kind of connection it is only possible to transmit
+  information between the children if the parent node, \textit{Node1}
   has evidence. An example of a divergent connection can be seen in
   \autoref{Divergent2}.
  \figx[0.8]{Divergent2}{An example of a divergent connection}
@@ -295,15 +296,15 @@ that node are set to 0.
 
 A belief network can be made to model a dynamic system by using a \textbf{Markov
 chain} to represent a feature at different points in time as random
-variables. By adding random variables called observation to the
+variables. By adding random variables called observations to the
 Markov chain, it becomes a \textbf{hidden Markov model (HMM)}. This is done to
 model how multiple observations allow for a prediction, see \autoref{HMM}. If
 more than one variable maps to the same observation it becomes a partial
 observation, and if the same variable maps to different observations at
-different times it becomes a noisy observation\citep[ch.6.5.2]{MIBook}.
+different times it becomes a noisy observation \citep[ch.6.5.2]{MIBook}.
 \figx[0.9]{HMM}{A belief network as a hidden Markov model}
 
-This way of modelling a system is aided by the independence assumption
+This way of modelling a system exploits the independence assumption
 \citep[p.240]{MIBook}, which states:
  
  \begin{center}
@@ -313,15 +314,15 @@ This way of modelling a system is aided by the independence assumption
  \end{minipage}
  \end{center}
  
-For a Markov chain it means that when we want to consider a variable at time
+For a Markov chain, it means that when we want to consider a variable at time
 \textit{t+1}, we only need to also consider the variable at time
 \textit{t}. The same principle applies to an HMM, if the node has few parents,
-the number of variables that it directly affect it are few.\nl
+the number of variables that affects it directly are few.\nl
 
-A Markov chain and by extension an HMM, can be extendeded endlessly, meaning
+A Markov chain and by extension an HMM, can be extended endlessly, meaning
 that a small number of parameters can provide an infinite network
 \citep[ch.6.5.1]{MIBook}. For example: A man observes an airplane taking off
-northbound therefore adding evidence at random variable $O_0$, then at $O_1$ he
+northbound therefore, adding evidence at random variable $O_0$, then at $O_1$ he
 observes that the airplane has turned eastward, at $O_2$ he observes that it
 has turned southward and at $O_3$ he sees that it continues south. This allows
 him to guess the position of the plane at $P_4$, see \autoref{HMM}. 
