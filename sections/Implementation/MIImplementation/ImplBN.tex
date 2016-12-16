@@ -1,6 +1,6 @@
-\chapter{Implementation of a Belief Network}
+\chapter{Implementation of the Belief Network}
 This chapter will be used to describe how the belief network could be
-implemented. There will also be a discussion of the pros and cons compared to
+implemented. There will also be a discussion of the pros and cons of the
 the different solutions.
 
 \section{Implementation}
@@ -18,24 +18,24 @@ implemented on a PC.
 % \end{enumerate}
 
 \subsection{Option One}
-One of the first issues with implementing the model on the NXT is the amount of
-RAM for the computing the network. The primary limitation for the NXT is the
-low amount of RAM, namely 64KB, see \autoref{PlatformC}. Although the flash
-storage on the NXT is larger, at 256KB, it is still necessary to load the code
-and data into the RAM, so the real limiting factor is still the amount of
-available RAM. In order to implement the network on the NXT, it is necessary to
-reduce the complexity of the model or else it wont be possible to implement it on the NXT.
-Since the first network had a joint probability of $3^2*5^6 = 140625$, the
-calculation is made using the number of states in each node. In this case it
-means that there are 2 nodes (Red) with 3 states and 6 nodes (Green) with 5
-states, the grouping of these can be seen in \autoref{BNGrouped}. The joint probability
-yields a theoretical size of 560KB given that each state is 4 bytes. But
-since this is the joint probability for the entire network, this calculation is
-the worst case. It would thus be possible to use variable elimination to simplify the needed
-tables. Another thing to consider is loading some of the tables into the flash
-storage of the NXT, this could potentially make it possible to implement a more
+One of the first issues with implementing the model on the NXT is the available
+system resources for computing the network. The primary limitation being the
+amount of RAM, namely 64KB, see \autoref{PlatformC}. Although the flash storage
+on the NXT is larger, at 256KB, it is still necessary to load the code and data
+into the RAM, so the real limiting factor is still the amount of available
+RAM.\nl
+
+In order to implement the network on the NXT, it is necessary to reduce
+the complexity of the model. The network, see \autoref{BNDone} has a joint
+probability of $3^2*5^6 = 140625$ states, this means that there are 2 nodes (Red)
+with 3 states and 6 nodes (Green) with 5 states, this grouping can be seen in
+\autoref{BNGrouped}. The joint probability yields a theoretical size of 560KB given that each state has a size of 4 bytes. But since this is the joint
+probability for the entire network, this calculation is the worst case. It
+would thus be possible to use variable elimination to construct the needed
+conditional probability tables, thus reducing the size of the tables. Another
+thing to consider is loading some of the tables into the flash storage of the NXT, this could potentially make it possible to implement a more
 complex network. However this also introduces the need for swapping in and out
-of memory.
+of memory.\nl
 %  if we remove some of
 % the states which are not necessary according to the implementation, the state space could be reduced
 % to $3^1*5^4 = 1875$ which given a size of the state of each space at 4 bytes
@@ -44,26 +44,27 @@ of memory.
 
 A possible way to implement the network on the NXT would be to choose another
 programming language for the brick. If for example a programming language such
-as leJos was used on the NXT it would in theory be possible to implement the
-Hugin API directly on the NXT. This language could potentially be used as the
-language is a tiny Java Virtual Machine (JVM) \cite{LeJos}. One of the
-advantages of using the JVM is that it is platform independent, This means
-that the JVM uses the same instruction set on the PC and on the brick. This
-solution however does present some issues, the first being the amount of flash
-memory on the NXT and the second being the runtime, this is an issue since the
-processor in the NXT is not very powerful compared to a PC.
+as leJOS was used on the NXT it would in theory be possible to implement the
+Hugin API directly on the NXT. This language could potentially be used as it
+runs in a tiny Java Virtual Machine (JVM) on the NXT \cite{LeJos}. One of the
+advantages of using the JVM is that it is platform independent, this means that
+the JVM uses the same instruction set on the PC and on the brick. This solution
+however does present some issues, the first being the amount of flash memory on
+the NXT as the Hugin API takes up 129KB of memory and the second being the
+runtime. This is an issue since the processor on the NXT is not very powerful
+compared to a PC.
 The third issue is that there are no guaranties that the Hugin API will work with it.
 
-\figx[1]{BNGrouped}{Done Bayesian Network Grouped}
+\figx[1]{BNGrouped}{The finished grouped belief network}
 
 \subsection{Option Two}
 The second option involves using a PC for computing the
 belief network. Using this approach would require the computation to be fully
 automated in order to still consider the system embedded.\nl
 
-This approach requires the following things to be setup
+This approach requires the following things to be set up:
 \begin{itemize}
-\item The belief network modeled on the computer
+\item The belief network modeled on the PC
 \item Establish a serial connection between the NXT and the PC
 \item Figure out what data structures should be sent and received
 \end{itemize}
@@ -73,9 +74,9 @@ in \autoref{MID}. The model of the network is exported via Hugin as a file.
 Using the Hugin API the logic for the network was constructed in C\#.\nl
 
 In order to establish a serial connection between the NXT and the PC, there are
-two alternatives. The NXT is capable of communicating with the computer either
+two alternatives. The NXT is capable of communicating with the PC either
 via either USB or Bluetooth. The USB approach would require a cable connecting
-the NXT to the computer.
+the NXT to the PC.
 This could complicate certain things like the horizontal rotation, since the
 cable could potentially restrict the movement by adding more resistance.
 Another issue that complicates it even further is how fast we will be able to
@@ -91,23 +92,22 @@ Next step would be to figure out in what format the communication should occur.
 The NXT should send the sensor input needed for evidence to the PC. Since our
 sensor values are defined in the model in intervals, we need to convert the
 sensor value to the corresponding interval in the node. This can be achieved two ways. Either the NXT does the conversion and sends the modified value to the PC, or the NXT
-sends the full sensor value and the conversion is done on the computer before
+sends the full sensor value and the conversion is done on the PC before
 being fed as evidence to the model.\nl
 
 The other part of the communication is the response the PC should generate. The
 network generates a vector that needs to be sent back to the NXT, to be used for
 calculating a firing position. The idea was to use the NXT mailbox system's
-built in \textc{SendString}, so we send the information as strings and then
-construct functions to package and unwrap the information.
+built in \textc{SendString} function. Therefore, the information is sent as
+strings and then functions are needed to pack and unpack the information.
 
 \subsection{Conclusion}
-The two solutions each present some issues, option 1 might not solve the problem
-as there is a lot of uncertainty since there are no guarantees that the Hugin
-API will work. Another issue with option 1 is the limited memory and storage on
-the NXT. Option 2 has a greater chance of working as the only issue we
+The two solutions each present some issues. Option 1 might not solve the
+problem as there is a lot of uncertainty since there are no guarantees that the Hugin
+API will work. Another issue with first option is the limited memory and storage
+on the NXT. Option 2 has a greater chance of working as the only issue we
 encountered was establishing serial communication between the NXT and the PC.
-This problem could however with some more time and research be solved.
-Therefore, the second option is a better way to implement it.
+This problem could be solved with more time and research.
 
 % Our idea for implementing the network is using a computer running a program
 % written in C\# which takes an input from the NXT, this input would be gotten
