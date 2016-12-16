@@ -1,9 +1,9 @@
 \section{Domains and Probability}\label{MID}
 The purpose of the model is to predict \texttt{Vector\_2} when given information
-about \texttt{Vector\_1}. In order to do this, we need to model how the two
-vectors relate to each other, and how they are affected by information about the
+about \texttt{Vector\_1}. In order to accomplish this, we need to model how the
+two vectors relate to each other, and how they are affected by information about the
 targets location. The first step to this approach is to define what this
-information's domains is, that is, how the data is represented and used.
+information's domain is, that is, how the data is represented and used.
 There are however limitations we need to consider in relation to the
 implementation of this model. The model is constructed using Hugin Lite
 \citep{Hugin} which allows it to be constructed easily, but it limits the total
@@ -19,15 +19,15 @@ for the observations and vectors into intervals.\nl
 
 Most of the domains are easy to determine, for instance the domains for each of
 the sensors are determined by what they can output. As such the domain for
-distance has values between 0 and 255cm, as this is what the ultrasound sensor
+distance has values between 0 and 255cm, as this is what the ultrasonic sensor
 can sense. This domain is divided into 5 intervals, with the first and the last
 intervals being the biggest. This ensures that we can have improved precision
 for the remaining 3 intervals. The domain for angle is determined by how far the
-turret can turn, which is 360 degrees. It is of note that the angle is set as 0
-at the start of program, which results in a negative angle if it turns towards the target at the
-start, instead of following it. This means that domain for sensing the angle is
-adjusted slight to -30 to 330 degrees. These domains for the angles and
-distances are shown below in \autoref{distAngleDom1}. 
+turret can turn, which is 360 degrees. It should be noted that the angle is set
+as 0 at the start of the program, which results in a negative angle if it turns
+towards the target in the beginning, instead of following it. This means the
+domain for sensing the angle is adjusted to be between -30 and 330 degrees. The
+domains for the angles and distances are shown below in \autoref{distAngleDom1}. 
 
 \begin{table}[H]
 \centering
@@ -43,21 +43,21 @@ State & Angle (deg) & Distance (cm) \\ \hline
 \label{distAngleDom1}
 \end{table}
 
-\fix{}{dobbelt tjek target hastighed}
-The states for the vectors consist of the percieved speed of the target, that
+The states for the vectors consist of the perceived speed of the target, that
 is, how far along the x and y-axis it has moved per millisecond. These vectors
-were determined as an average of vector which were within a 40\% margin of
-error to the expected speed. They are for simplicity denoted by how fast
-the target is moving, 41cm/s, 57cm/s and when it is a 'bad vector', referred to
-as \textbf{BV}. A 'bad vector' is a vector that is different from the length of
-the expected vector by more than 40\%. Due to timeconstraints the margin has
-been set at 40\%, as the difference between the vectors we acquired from the
-tests at 41cm/s, are consistently alot lower than what we expected. If an
-additional vector is added, one that does not drive perpendicular in front of
-it, we would need to denote them by their actual vector for clarity. The
-vectors are limited to 3 states, as 1 additional vector will result in 98
-additional cases, due to all the other nodes depending on the vectors. The
-domain for the vectors are presented in \autoref{vecDom1}.
+were determined as an average of vectors which were within a 40\% margin of
+error of the expected speed. They are simply denoted by how fast
+the target is moving, \textbf{41cm/s}, \textbf{57cm/s} and when it is a 'bad
+vector', referred to as \textbf{BV}. A 'bad vector' is a vector that is
+different from the length of the expected vector by more than 40\%. Due to
+time constraints the margin has been set at 40\% as the difference between the
+vectors acquired from the tests with the target running at 41cm/s, the speed of
+the target is consistently lower than what we expected. If an additional
+vector is added that is not perpendicular to the turret, we would
+need to denote them by their actual vector for clarity. The vectors are limited
+to 3 states, as 1 additional vector will result in 98 additional cases, due to
+dependencies between the other nodes and the vectors.
+The domain for the vectors are presented in \autoref{vecDom1}.
 
 \begin{table}[H]
 \centering
@@ -74,27 +74,25 @@ State & Vector \\ \hline
 Using this simplified approach means the model lose some precision, but it
 allows us to work around the limit of 500 cases. Instead of having only a few
 nodes with a continuous set of values, we can consider additional variables,
-which can make up for the loss of accuracy. It also allows us group the values
-that seem unlikely to be used often into big intervals.
+which can make up for the loss of accuracy. It also allows us to group the
+values that seem unlikely to be used often into big intervals.
 
-\subsection{Learning the Beliefs}
+\subsection{Constructing the Probability Tables}
 
 For each speed we want to implement in the model, we need a dataset which is
-based on the sensor readings from turret at that speed, see
+based on the sensor readings from the turret at that speed, see
 \autoref{AppendixMIData}. This allows us to create a series of vectors which we
 can use to fill the conditional probability tables. This is done by taking each
 observation, such as distance or angle, and comparing it to the expected vector.
-For instance, we observe at time 0 in the 57cm/s set a distance of 94, we then
-look at the corresponding V1 and see that it is classified as an accepted
-vector for 80\%. We can then note this in the conditional probability table for
-\texttt{SD\_0|Vector\_1}. After this is done for both sets of tests, we can
-construct the table which can be seen in \autoref{SDtable1}. For instance, there
-are a total of 8 times the distance between the target and turret are in the
-[60-75] interval out of the 22 times distance was used by a viable 57cm/s
-vector. As such, the probability table for \texttt{SD\_0}
-can be seen in seen \autoref{SDtable1}. While it seems there is little
-difference in the probabilities distribution, this can most likely be
-attributed to sample size and how big the intervals are.
+For instance, we make an observation at time 0 in the 57cm/s set a distance of
+94, we then look at the corresponding V1 and see that it is classified as an accepted
+vector for 57cm/s. We can then note this in the conditional probability table
+for \texttt{SD\_0|Vector\_1}. After this is done for both sets of tests, we can
+construct the table which can be seen in \autoref{SDtable1}. From the 22
+observations in the 57cm/s set, 8 of those distances are in the interval [60-75]
+see \autoref{SDtable1}. While it seems there is little difference in the
+probability distribution, this can most likely be attributed to sample size and
+the size of the intervals.
 
 \begin{table}[H]
 \centering
@@ -115,10 +113,10 @@ vector.}
   
 \texttt{SD\_1} is a special case, since it is dependent on both
 \texttt{Vector\_1} and \texttt{Vector\_2}, this can be seen in
-\autoref{SDtable21}. There is however a problem with the conditional probability
-table. Due to limited data and design choices, there is no possibility of of a
+\autoref{SDtable21}. However, there is a problem with the conditional
+probability table. Due to design choices, there is no possibility of a
 vector changing from 41cm/s to 57cm/s and vice versa. This is a problem since we
-need each column to sum to 100\% percent, which means that the table cannot be
+need each column to sum to 1, which means that the table cannot be
 used. A way to work around this would be to add very small chance that such
 a change can occur, but we have not done this presently.
 
@@ -149,9 +147,10 @@ vectors.}
 As mentioned in \autoref{ModelHMM}, the network can be extended indefinitely,
 as such the tables have been generalized such that \texttt{SD\_0} and
 \texttt{SD\_2} are the same. The same is applied to \texttt{SA\_0} and
-\texttt{SA\_2}, these tables can be seen in in \autoref{PT}. The probability
+\texttt{SA\_2}, these tables can be seen in \autoref{AppProbTabs}. The probability
 distribution of the vectors is seen below in \autoref{Vector0Table1}, while the
-likelyhood of a bad vector is very high, is still less than half of the vectors.
+likelihood of a bad vector is very high, it is still less than half of the
+vectors.
 
 \begin{table}[H]
 \centering
@@ -168,10 +167,10 @@ BV & 21/40 = 0.52  \\ \hline
 
 
 \texttt{Vector\_2} is given as the following conditional probability table, see
-\autoref{Vector2tab1}. The table shows the likelyhood of the second vector
-direction given the first vector. It can be seen that when the first vector is
-generated it is very likely that the second vector will be a
-bad vector, regardless of how fast the target is moving.
+\autoref{vector2tab1}. The table shows the likelihood of the second vector given
+the first vector. It can be seen that when the first vector is generated it is
+very likely that the second vector will be a bad vector, regardless of how fast
+the target is moving.
 
 \begin{table}[H]
 \centering
@@ -202,21 +201,21 @@ This information is used as evidence for the model in Hugin, which allows
 us to determine a probability for \texttt{Vector\_1} and \texttt{Vector\_2}
 based on our test-data, which is presented in \autoref{AppendixMIData}. For
 \texttt{Vector\_1}, given our 3 locations, this results in the following
-probalities:
+probabilities:
 
 \begin{itemize}
-  \item 80\% speed - 78.57\% chance.
-  \item 60\% speed - 14.86\% chance.
+  \item 57cm/s - 78.57\% chance.
+  \item 41cm/s - 14.86\% chance.
   \item Bad Observation - 6.57\% chance.
 \end{itemize}
 
 In this case, the model would conclude that \texttt{Vector\_1} would be most
-likely to have the target moving at 80\% speed. Now, given the same information,
-the model would assign \texttt{Vector\_2} the following probabilities:
+likely to have the target moving at a speed of 57cm/s. Now, given the same
+information, the model would assign \texttt{Vector\_2} the following probabilities:
 
 \begin{itemize}
-  \item 80\% speed - 24.84\% chance.
-  \item 60\% speed - 55.00\% chance.
+  \item 57cm/s - 24.84\% chance.
+  \item 41cm/s - 55.00\% chance.
   \item Bad Observation - 20.16\% chance.
 \end{itemize}
 
@@ -232,8 +231,8 @@ resulting speed will be based on the following reasoning:
 \hline
 Case                                                                                 & Conclusion \\ \hline
 Both vectors agree                                                                   & Vector\_2  \\ \hline
-The vectors disagree                                                                 & Vector\_2  \\ \hline
-\begin{tabular}[c]{@{}l@{}}First vector is bad,\\ second vector is good\end{tabular} & Vector\_2  \\ \hline
+Both vectors disagree                                                             
+& Vector\_2  \\ \hline \begin{tabular}[c]{@{}l@{}}First vector is bad,\\ second vector is good\end{tabular} & Vector\_2  \\ \hline
 \begin{tabular}[c]{@{}l@{}}First vector is good,\\ second vector is bad\end{tabular} & Vector\_1  \\ \hline
 \end{tabular}
 \caption{Speed conclusion based on vector\_1 and vector\_2.}

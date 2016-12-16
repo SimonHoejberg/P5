@@ -20,8 +20,8 @@ represent the distance observations.
 
 Time is represented implicitly in the model by numbering the nodes 0-2, as such
 \texttt{SD\_1} is taken at time 1. The actual time interval between each of
-these observations is irrelevant, but can be used to provide a consistent data.
-The interaction between the the observations and how they are used by the
+these observations is irrelevant, but can be used to provide consistent data.
+The interaction between the observations and how they are used by the
 network can be seen in \autoref{mwr}.
 
 \figx[0.8]{mwr}{An example of how the observations are translated and inserted
@@ -33,14 +33,14 @@ variables and the edges represent the dependencies. The nodes
 \texttt{Vector\_1} and \texttt{Vector\_2} are used to represent possible
 vectors the target can have. The edges moving from \texttt{Vector\_1} to
 \texttt{SA\_0}, \texttt{SD\_0}, \texttt{SA\_1} and \texttt{SD\_1} represent
-that all of these nodes are dependent on \texttt{Vector\_0}. Since the sensor
+that all of these nodes are dependent on \texttt{Vector\_1}. Since the sensor
 nodes are comprised of distance and angle, we need two of such sets in order to
 reliably determine a vector. \texttt{Vector\_2} has edges to \texttt{SA\_1},
 \texttt{SD\_1}, \texttt{SA\_2} and \texttt{SD\_2}, this represent that the we
 use the previous observation to determine a new direction vector. The edge
-going from \texttt{Vector\_1} to \texttt{Vector\_2} represents that new vector
-is dependent on the old, in the sense that the vector should not change wildly,
-unless a faulty observation has occurred. As such the network consists of
+going from \texttt{Vector\_1} to \texttt{Vector\_2} represents that the new
+vector is dependent on the old, in the sense that the vector should not change wildly,
+unless a faulty observation has occurred. As such the network consists of the
 following conditional probability tables:
 \begin{itemize}
   \item P(SD\_0 | Vector\_1)
