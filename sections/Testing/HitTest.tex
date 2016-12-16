@@ -2,25 +2,28 @@
 In this chapter the turrets ability to hit the target has been tested.
 
 \section{Test Setup}
-The turret is placed against a wall, and then the floor
-is marked at 0.5m, 1m, 1.5m such that the shortest distance to the turret is when
-the target is right in front of the turret. The target used in the test is the final
-version of the target.
+The turret is placed against a wall, and the floor is marked at 3 different
+distances from the turret: 0.5m, 1m and 1.5m such that the shortest distance to
+the turret is when the target is right in front of it. The target used
+in the test is the final version of the target.
 
 \section{Test Execution}
-The turret is tested at with the target running at three different speeds, 40\%,50\% and 60\%. Each percentage is a measure of how much power the engines are running at.
-For each speed setting, the turret is tested at the 3 different lengths mentioned in the test setup. For each combination of speed and distance the test is run 4 times.
-The turret is placed such that it ``looks'' in the direction of
-the target for every test. The target is then turned on at the speed and distance to be tested, and then it is observed if the turret hits or misses the target.
+The turret is tested with the target running at three different speeds,
+40\%, 50\% and 60\%. Each percentage is a measure of how much power the engines
+are running at. For each speed setting, the turret is tested at the 3 different
+lengths mentioned in the test setup. For each combination of speed and distance the test
+is run 4 times. The turret is placed such that it ``looks'' in the direction of
+the target for every test. The target is then turned on at the speed and distance to be tested,
+and then it is observed whether the turret hits or misses the target.
 
 \section{Test Evaluation}
 The result of the test can be seen in \autoref{table:accuracy}. Here it can be
-seen that the turret only hits 3 out o 24 times it actually fires, and in the case of
-a distance of 1.5m the ultrasonic sensor would not measure a distance to the
-target, and therefor no further tests at that range was conducted. But all of the
-3 shots that hit the target were from
-the dataset where the power was 40\% and the distance 0.5m.\nl
-
-In conclusion \names had an accuracy of 12.5\%.
+seen that the turret only hits 3 out of 24 times, and in the
+case of a distance of 1.5m the ultrasonic sensor would not measure a distance to
+the target, and therefore no further tests at that range was conducted. But all
+of the 3 shots that hit the target were from the dataset where the power was
+40\% and the distance 0.5m. 
 
 \dataTable{accuracy}{Data from the accuracy test}{accuracy}
+
+In conclusion \name had an accuracy of 12.5\%.

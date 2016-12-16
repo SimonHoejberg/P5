@@ -192,14 +192,14 @@ In order to present the model in action, we can create a concrete example of the
 model determining the direction/speed of the target. We need to assume that the
 probability in each column of each conditional probability table sum to 1. In
 the example below this is done by adding a chance for the vectors to change at
-the [60-75] interval. This will help to illustrate the problem with a lack
-of data.\nl
+the [60-75] interval and the [0-30] interval. This will help to illustrate the
+problem with a lack of data.\nl
 
 The turret starts its operation by looking straight ahead while waiting for the
 target to appear. The target enters the turret's field of vision, and the turret
 tracks the target. During the tracking, the turret observes the target at 3
-locations, which in this case is an angle/distance pair: (9,104), (20,76) and
-(46,65).\nl
+locations, which in this example are the following angle/distance pairs:
+(9,104), (20,76) and (46,65).\nl
 
 This information is used as evidence for the model in Hugin, which allows
 us to determine a probability for \texttt{Vector\_1} and \texttt{Vector\_2}

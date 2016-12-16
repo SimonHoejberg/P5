@@ -1,4 +1,4 @@
-{Distance (m)}	{Power (Procent)}	Test1	Test2	Test3	Test4
+{Distance (m)}	{Power (Percent)}	Test1	Test2	Test3	Test4
 0.5		40	hit		hit		hit		miss
 1		40	miss	miss	miss	miss
 1.5 	40	null	null	null	null

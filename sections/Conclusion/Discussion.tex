@@ -1,7 +1,7 @@
 \chapter{Discussion}\label{projDiscus}
-This chapter will be used to examine the project as a whole, and try to identify
-how the project could be improved. This will be done by reflecting upon the
-unsatisfactory parts of the developed product and the project process, and
+This chapter will be used to examine the project in its entirety, and try to
+identify how the project could be improved. This will be done by reflecting upon the
+unsatisfactory parts of the developed product and the development process, and
 suggesting improvements for potential future development.
 
 \section{Sensor Quality}\label{DSQ}
@@ -9,56 +9,61 @@ One of the major problems encountered throughout the project, was the
 general quality of the sensors. From the start of the project, we have been
 limited in what the sensors could output, and as the project went along, the
 sensor quality started to degrade. Originally the ultrasonic distance sensors
-could measure up to 250cm and do this in a cone in front of it. At the end
-of the project the sensor would struggle to observe an object 150cm away, and
-any cone of vision had disappeared. In much the same way, at the start of the
-project the camera could easily identify a coloured object at a distance of just
-over 2m, while at the end of the project, it would still be able to identify the
-object, but not as clearly as before.\nl
+could measure up to 250cm in a cone in front of it. At the end
+of the project it was observed that the sensor would struggle to observe an
+object 150cm away, and any cone of vision had disappeared. In much the same
+way, at the start of the project the camera could easily identify a coloured
+object at a distance of just over 200cm, while at the end of the project, it
+would still be able to identify the object, but not as clearly as before.\nl
 
 The distance sensor's user guide states that it works best on large objects with
-hard surfaces, which is one of the reasons why our target is a large red metal
-can. Considering that the target should be ideal, that the sensor's
-abilities to identify it has degraded over time and that the program used
-is a simple piece of software designed to test the sensor, we are drawn to the
-conclusion, that the quality of the sensors are too low, and that they are
-considerably worse now, that they were at the start of the project.\nl
+hard surfaces, which is one of the reasons why our target is a large hexagonal
+metal can covered in red paper. 
+Considering that the target should be ideal and that the sensors ability to
+identify the target has degraded over time, we are drawn to the conclusion that
+the quality of the sensors is too low. \nl
+% the sensor's
+% abilities to identify it has degraded over time and that the program used is a simple piece of software designed to test the sensor, we are drawn to the
+% conclusion, that the quality of the sensors are too low, and that they are
+% considerably worse now, that they were at the start of the project.\nl
 
-While the camera has not decreased much in quality over the span of the project,
-the quality of the sensor as a whole has not been satisfactory. While the sensor
-is easy to use, the quality of the output is lower that what we originally
-expected. The first problem lies in the fact that the resolution of the camera
-is too low, which results in problems when it comes to accurately identifying
-objects, and telling objects apart from the background. In addition, we have
-found that the camera needs a bright light source in order to be able to
-identify the target at a distance of 2m. This has turned out to be a big
-problem, as it has limited the turret severely and has reduced our ability to
-accurately test the turret, as many tests have been unsuccesful due to the
+While the camera has not decreased much in quality over the course of the
+project, the quality of the camera has not been satisfactory.
+While the camera is easy to use, the quality of the output is lower than what
+we originally expected. The first problem lies in the fact that the resolution
+of the camera is too low, which results in problems when it comes to accurately
+identifying objects, and telling objects apart from the background. In
+addition, we have found that the camera needs good lighting in order to
+be able to identify the target at a distance of 200cm. This has turned out to be
+a big problem, as it has severely limited the turret and has reduced our ability
+to accurately test the turret, as many tests have been unsuccessful due to the
 camera not being able to identify the target.\nl
 
-For another project, it could be possible to use a cheap camera sensor with a
-higher resolution, and do the colour recognition ourselves. While the NXTCam has
-a dedicated microcontroller for this process, it could be possible to simplify
-the colour recognition enough to be able to implement it on the NXT. An example
-of this could be that the NXTCam has the ability to observe 8 different blobs of
-colour at the same time. If this was reduced to one, which we believe would
-still be acceptable for this project, it could be possible to reduce the
-processing power required, an as such be able to implement it on the NXT.\nl
+Another way of implementing it could be to use a camera,
+with a higher resolution, and process the pixels ourselves. While the
+NXTCam has a dedicated micro controller for this process, it could be possible
+to simplify the pixel processing enough to be able to implement it on the
+NXT. An example of this could be that the NXTCam has the ability to observe 8
+different blobs of colour at the same time. If this was reduced to one, which
+we believe would still be acceptable for this project, it could be possible to
+reduce the processing power required, and as such be able to implement it on the
+NXT.\nl
 
 While the ultrasonic distance sensors have not been satisfactory, we have been
 unable to identify any alternative sensors which would be both easy to integrate
-into the NXT and which are capable of identifying targets at the desired range
-of up to 2m.
+into the NXT and capable of identifying targets at the desired range
+of up to 200cm.
 
 \section{Quantity of Data}
 As discussed above in \autoref{DSQ}, the quality of the received data was not
 satisfactory, which has led to problems with gathering the required information
-in order to calculate the targets future position. The current implementation of
-the \name software requires the turret to observe the target at at least 2
-different points, but preferrably at a much higher amount.
+in order to calculate the target's future position. The current implementation
+of the \name software requires the turret to observe the target at at least 2
+different points, but it would be preferred to have more than 2 points.
 The fact that we have only two points to calculate the future position from,
-creates a lot of problems when it comes to drawing an accurate conclusion. This
-is because two points results in only a single speed and directional vector, on
+creates a lot of problems when it comes to drawing an accurate conclusion, this
+is exemplified in \autoref{table:Vec60}.
+This is because two points results in only a single speed and directional vector, on
 which no further analysis can be done in order to determine the accuracy of the
 data.\nl
 
@@ -71,14 +76,14 @@ From our observations, the reason for the low amount of data mostly comes down
 to the poor quality of the sensors, but it is possible that the current
 implementation could be optimized to work under these conditions. In the current
 implementation, the ultrasonic sensors are the limiting factor when it comes to
-gathering data, as a data point can only be made when the sensor observes the
-target.
+gathering data, as a data point can only be made when one the ultrasonic sensors
+observes the target.\\
 A problem with this implementation could be that the distance sensors are only
 activated once the camera returns information about the target being in its
 vision. Considering that we have no control over the scheduling of the NXT, it
 could be possible that this dependency between the two sensors causes the
-distance sensor to somtimes miss its window of opportunity to observe the
-target.
+distance sensor to sometimes miss its window of opportunity to observe the
+target.\\
 In an alternate implementation, we could try a solution where the distance
 sensors are always on, such that the commands to turn them on/off would not
 interfere with its ability to locate the target in time. In this implementation,
@@ -86,17 +91,19 @@ we could simply sort the data such that only the useful data is saved, while
 circumventing the possible problems of scheduling the on/off commands to the
 sensors.
 
-\section{Implementation of Machine Intelligence}
-Due to problems with the management of the project, the machine intelligence has
+\section{Implementation of the Belief Network}
+Due to problems with the management of the project, the belief network has
 not been implemented. Several problems were identified during our construction
-of the intelligent agent. First and foremost our scheduling of the design
-activity was inadequate. Which means that at first we didn't really plan the MI
-resulting in us starting the design of the intelligent agent way too late. This
-complicated other things in the project for example the serial communication,
-which resulted in us not having time to get the USB connection to work. Another
-consequence of our late planning, was that the MI-agent was built around our NXT
-code, and not in conjunction with. This resulted in some oddities and
-simplifications regarding our design of the network.
+of the intelligent agent. Our planning of the design activity was inadequate.
+This means, that at first it was not planned when the belief network should be
+implemented. This resulted in us to start designing the intelligent agent
+too late. 
+% Which means that at first we didn't really plan the MI resulting in
+% us starting the design of the intelligent agent way too late. 
+This complicated other things in the project for example the serial
+communication, which resulted in us not having time to get the USB connection to work. Another consequence of our late
+planning, was that the MI-agent was built around our NXT code, and not in
+conjunction with. This resulted in some oddities and simplifications regarding our design of the network.
 
 
 \section{MI-Model Design}
