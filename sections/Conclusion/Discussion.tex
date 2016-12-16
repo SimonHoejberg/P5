@@ -150,54 +150,57 @@ system, which is basically a set of variables or strings, which can be read
 through a serial connection. Our attempt was done using MonoBrick
 \cite{MonoBrick}, which is a library for C\# which implements methods for
 reading and writing to the NXT's mailbox. Our attempt to implement a serial
-connection consisted of having 3 group members try to use their individual
-understanding and implementation of MonoBrick, to establish a connection to the
-NXT mailbox. While we succeeded in writing data from a PC to the NXT, we were
-unable to read data from the NXT.
+connection consisted of having 3 group members creating their own implementation
+of how to communicate with the mailbox system on the NXT using MonoBrick. While
+we succeeded in writing data from a PC to the NXT, we were unable to read data
+from the NXT.
 
 \section{Code Refactoring}
 As a group we decided to use an agile software engineering paradigm. This means
-that refactoring should be a recurring event in our development strategy.
+that refactoring should be a recurring event in our development cycle.
 Ideally, after each iteration, the code should be refactored. Although we did
 refactor our code from time to time, there was no schedule to it at all,
 resulting in a lack of refactoring. What we should have done is dedicate a team
 to refactor the code after each iteration, ensuring that the refactoring occurs
-regularly. This would also be more in line with the Unified Process way of
-thinking, making the refactoring part of the development process, instead of
-just doing it when feel it is necessary.
+regularly. However, the code was only refactored when it was deemed necessary.
+% This would also be more in line with the Unified Process way of
+% thinking, making the refactoring part of the development process, instead of
+% just doing it when deemed necessary.
 
-\section{Programming language}
+\section{Programming Language}
 For programming the NXT we went with the C-like language NXC, if however we were
 to make a similar project, it would be beneficial to choose another language
 along with better firmware. This would be the case since the NXC language is not
 that well documented, and we did not observe any larger community behind
 the language. This meant that finding solutions to weird issues was not that
-easy. Therefore, choosing another language, as for example LeJos \cite{LeJos},
-which has better documentation and better functionality. \nl
+easy. Therefore, choosing another language, as for example leJOS \cite{LeJos},
+which has better documentation and better functionality, might have
+alleviated some of the issues encountered.\nl
 
-LeJos also has the advantage of being object oriented, which is highly
-advantageous when several persons are working on the same program. Furthermore,
-the ability to create objects gives the option to divide the responsibilities of
-different methods.\nl
+LeJOS also has the advantage of being object oriented, which is highly
+advantageous when several persons are working on the same program, as the
+program can be divided into more files. Furthermore, the ability to create
+classes gives a better option to distribute the responsibilities of the
+program.\nl
 
-Another issue with using NXC, was we did not have access to a debugger. This
-would not be a problem when using LeJos, which can be run in the JVM on the
+Another issue with using NXC, was that we did not have access to a debugger.
+This would not be a problem when using leJOS, which can be run in the JVM on the
 computer. The only problem with doing it like this, is the ability to get sensor
-input and send outputs to the motors. Thus, this part would still have been run
-on the NXT itself, which is not that big of an issue.\\
+input and send outputs to the motors. Thus, this part would still have to be
+run on the NXT itself, which is not that big of an issue.\\
 To conclude, using a different programming language, along with different
 firmware, could have helped us in developing the program, along with having
 better opportunities for involving all the group members in the process.
 
 
 \subsection{Scheduling}
-Another aspect of choosing which language to write in and the associated
+Another aspect of choosing a language and the associated
 firmware is scheduling. Since the firmware from NXC is not very well documented
 we do not know how the scheduler works, thus we do not have any control over how
-the task are scheduled. If we had chosen another language we would have had more
-options in terms of scheduling. For example if we had chosen LeJos it would have
-been possible to create periodic tasks, this has the advantage of giving more
-control of the flow in the program. The LeJos also has support for choosing when
+the tasks are scheduled. If we had chosen another language we would have had
+more options in terms of scheduling. For example if we had chosen leJOS it would have
+been possible to create periodic threads, this has the advantage of giving more
+control over the flow in the program. LeJOS also has support for choosing when
 threads are started, this in terms gives us the option to have a lot more
 control over the scheduler \cite{lejosTimer}.
 
@@ -213,14 +216,14 @@ busy wait, while it is waiting for a signal from \textc{Track}.\nl
 
 This problem could have been solved by implementing the use of mutexes in order
 to set one task to sleep while it waits for the other to finish. An alternate
-solution whould be to have \textc{Track} running for the entirety of the program
+solution would be to have \textc{Track} running for the entirety of the program
 execution, and then when it observed the target, it would start another task
-called \textc{GetData}, which whould only collect one set of data. This would
-allow the gathering of data to complete without stopping the tracking. When it
-has enough data it will start the \textc{GetDataAndCalculate} task, such that
-the turret will calculate the future position and shoot at the target.\nl
+called \textc{GetData}, which would only collect one set of data. This would
+allow the gathering of data to complete without stopping the tracking. When
+enough data has been collected it will start the \textc{Calculate} task, such
+that the turret will calculate the future position and shoot at the target.\nl
 
 While we are uncertain that this is a real problem, we can conclude that having
-a task busy-wait will take up some amount of processing resources. As this is
-the case, if the \name software were to be developed further, this would
-definitely be changed.
+a task doing busy-wait will use some system resources. As this is the case, if
+the \name software were to be developed further, this would definitely be
+changed.
