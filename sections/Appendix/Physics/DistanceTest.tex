@@ -1,9 +1,8 @@
 \chapter{Distance Test}\label{AppendixDistTest}
-During development of the autonomous turret, a test was made in order to
-determine how far the turret can shoot its projectiles. In addition, video
-recordings of the tests will be used to determine the muzzle velocity of the
-projectile. This appendix will be used to present this test and the resulting
-conclusions.
+The following test was made in order to determine the range of turret. In
+addition, video recordings of the tests will be used to determine the muzzle
+velocity of the projectile. This appendix will be used to present this test and
+the resulting conclusions.
 
 \section{Test Setup}
 In this test, the turret is placed next to a wall which has been marked with
@@ -11,12 +10,12 @@ distance indicators. The turret is facing right, and all tests are video
 recorded. This setup can be seen in \autoref{DistanceTestSetup.JPG}.
 \figx[0.1]{DistanceTestSetup.JPG}{Experiment setup for testing projectile
 distance.} In \autoref{DistanceTestSetup.JPG} the turret's muzzle is placed exactly 1 meter
-from the distance markings. As such, full line on the wall represent a
-distance of 1 meter. In addition, a piece of paper has been placed in the
+from the first distance marking. As such, each full line on the wall represents
+a distance of 1 meter. In addition, a piece of paper has been placed in the
 background in order to identify the recorded test when evaluating the videos. 
 
 \subsection{Test Execution}
-In each test, the turret starts in its resting position at an angle of ~5
+In each test, the turret starts in its resting position at an angle of $\sim$5
 degrees. The turret then angles itself to the given position and fires a single
 projectile. This procedure is video recorded in order to accurate determine
 exactly where the projectile landed. This is done a number of times for each
@@ -49,13 +48,13 @@ Using the formula results in the following data:
 \dataTable{DistanceTestTheoretical}{Theoretical Angle/Distance
 realationship}{AngDistTheo}
 From this data we can see a large difference between the theoretical distance
-and the measured distance. While the differences exist, a pattern can still be
-recognized, where the maximum distance is recorded at 45 degrees, and the
+and the measured distance. Although these differences exist, a pattern can still
+be recognized, where the maximum distance is recorded at 45 degrees, and the
 distance depends on the angle of fire. 
 
 \section{Conclusion}
 The results from this test indicates that there is a difference between the
-theoretical method for determining the angle, and the actual resulting angle. As
+theoretical angle, and the actual angle. As
 we have been unable to identify the problem, we have determined to use a
 different approach for determining the angle, which is presented below in
 \autoref{aCalc}. In addition, by analyzing the video recordings of the tests, it
@@ -73,5 +72,4 @@ Angle\ =\ abs(0.2573 * distance - 22.85)
 
 While this approach is theoretically more inaccurate, it should be
 accurate as long as the distance to the target does not exceed the projectiles
-maximum range. In addition, as the turret does not need to shoot a target over a
-longer distance, this approach should be satisfactory for this project.
+maximum range. 

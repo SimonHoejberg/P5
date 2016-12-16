@@ -1,6 +1,6 @@
-\chapter{Hit-Accuracy Test}\label{AppendixAccTest}
+\chapter{Spread Test}\label{AppendixAccTest}
 After developing the design for the turret, a test was made in order to
-determine how accurate the turret could shoot at a target location. That is,
+determine how accurate the turret at hitting a target location. That is,
 given a number of shots at the same location, what is the chance that the turret
 hits the specified location. This test differs from the one in
 \autoref{AppendixDistTest}, as this test focuses on the chance to hit, instead
@@ -14,25 +14,25 @@ where the projectile landed.
 
 \subsection{Test Execution}
 At the beginning of a test, the turret is set to angle itself to the designated
-angle. The button is then manually pressed on order to set the turret to fire a
-single projectile. The location, in which the projectile hit, is clearly
-indicated in the flour. This is repeated 5 times for each angle, and for 6
-different angles. The whole test has been done twice, such that the resulting
-data is split into two different sets.
+angle. A button is then pressed in order to manually fire a single projectile.
+This could introduce errors as there is an interaction with the turret. The
+location, in which the projectile hit, is clearly indicated in the flour. This
+is repeated 5 times for each angle, and for 6 different angles. The test
+was done twice, such that the resulting data is split into two different sets.
 
 \section{Resulting Data}
-The resulting data consists of a number of tests. Each test results in an angle
-coupled with all the respective distances. Each test is also complemented with
-width between the middle of the turret, and the point the projectile hit. This
-is done in order to show the difference in width and length between hit
-locations.
+The resulting data consists of a number of tests. Each test resulted in an
+angle coupled with the respective distances. Each test is also complemented
+with a width between the middle of the turret, and the location the projectile
+hit.
+This is done in order to show the spread in two dimensions.
 
 \subsection{Set 1}
-The data from the first data set can be seen below in \autoref{table:FTest1}. 
+The data from the first set can be seen below in \autoref{table:FTest1}. 
 \dataTable{FlourTest1}{Angle/Distance relationship coupled with spread.}{FTest1} 
 
 \subsection{Set 2}
-The data from the second data set can be seen below in \autoref{table:FTest2}. 
+The data from the second set can be seen below in \autoref{table:FTest2}. 
 \dataTable{FlourTest2}{Angle/Distance relationship coupled with
 spread.}{FTest2}
 
@@ -44,8 +44,8 @@ each set is shown below in \autoref{table:AVGSpread}.
 \dataTable{AVGSpread}{Average spread recorded in the two data sets.}{AVGSpread}
 
 While it is not a linear increase in spread, the locations further away had
-considerably more spread that those which were closer. Assuming we ignore the
-data from the misfired shots, we get the following average width-spreads. 
+considerably more spread than those which were closer. Assuming we
+ignore the data from the misfired shots, we get the following average width-spreads. 
 
 \begin{table}[H]
 \centering
@@ -61,8 +61,8 @@ Spread (cm) & 3.357 & 1.583 & 2.917 & 3.861 & 6.607 & 3.583 \\ \hline
 Another problem with the accuracy of the turret lies in the fact that there is a
 variety in the distance the projectile will travel at a given angle. This is shown below in
 \autoref{table:AngleVsDistSpread}, where the average spread in distance
-increases the farther the projectile is fired. In addition it has also been noted that
-the turret has a chance to misfire. When this happens, the projectile will not
+increases the further the projectile is fired. In addition it has also been
+noted that the turret has a chance to misfire. When this happens, the projectile will not
 follow its usual arch, and will travel a considerately shorter distance. This
 misfire chance was found to be 15\% on average.
 
@@ -95,8 +95,8 @@ By looking at this test we can conclude the following:
   
 \end{itemize}
 
-This test has shown a large possible difference between points for the
+This test has shown a large difference between results for the
 same angle. While this does pose a problem for the turret, we have been unable
 to identify which factors causes this behaviour. As there is no clear
 correlation between the angle of fire and the spread, we assume that the problem
-lies with the fireing mechanic itself. 
+lies with the firing mechanic itself. 

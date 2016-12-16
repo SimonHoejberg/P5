@@ -4,15 +4,15 @@ the requirements in \autoref{FeatAndReq} and the ideal scenario in \autoref{Prob
 and the test of the turret's accuracy presented in \autoref{TurretAcc}. \nl
 
 Throughout this project the group has been designing and developing an embedded
-system in the form of an automatic turret, which is capable of hitting a target
-in motion. The physical design of the turret was chosen to be made with LEGO,
+system in the form of an autonomous turret, which is capable of hitting a target
+in motion. The physical design of the turret was chosen to be made using LEGO,
 and likewise the hardware and software for the turret has been based on the LEGO
-NXT platform.\\
-To make an initial conclusion on the succes of the project, there are some
-points from the requirements which have not been met while other points are.
+Mindstorms NXT.\\
+To make an initial conclusion on the success of the project, there are some
+parts of the requirements which have not been met while others have.
 As we have been unable to satisfy all needed requirements, we deem that \name
 is not a satisfactory product, but given better sensors and more time for
-calibration, it would be able to satisfy all the set requirements. 
+optimizing the program, it would be able to satisfy all the set requirements. 
 The requirements, and their level of completion, can be
 seen below in \autoref{RequirementTable}.
 
@@ -20,55 +20,56 @@ seen below in \autoref{RequirementTable}.
 \centering
 \begin{tabular}{|p{\textwidth/2}|p{\textwidth/2}|}
 \hline
-Requirements & Fulfilled\\ \hline
- The system needs to use the Lego NXT as the embedded system. & This
+Feature/Requirement & Evaluation\\ \hline
+ The system needs to use the NXT as the embedded system. & This
  requirement was met.\\
  \hline 
  The system must be an intelligent agent. & This requirement was not met
- since there is no Machine Intelligence implemented.\\ \hline
+ since there is no belief network implemented.\\ \hline
  Since the turret should monitor an area and be able to hit a moving target,
-it needs to be able to turn. If it is not able to turn, line of sight as well
+it needs to be able to turn. If it is not able to turn, the line of sight as well
 as the timing in order to hit a target will be severely limited. In regards
 to how far it should be able to turn, a minimum is set to 90 degrees, as
-this will provide a decent sized area in front of the turret. & This requirement
-was met, since the turret is able to turn 360 degrees. \\ \hline
-In order to perceive the target without receiving information from an
-outside source, the turret will need to be able to sense the target. Based
-on the results from the sensor tests, see \autoref{SensorTest}, the sensors will
-be able to see approximately 200 cm. & This requirement was only partially met,
-this is due to the fact that the quality of the measurements was of varying
-quality. \\ \hline
- The turret needs to be able to shoot in order to hit a target. This has to
-be done within a range of 200 cm as it is the max capability of the sensors. &
-This requirements was met as the turret is able to shoot approcimately 2.5 m. \\
-\hline
- In addition to the target moving fast enough to require a firing offset, the
-target also needs to move on an even plane and with a constant speed. & This
-requirement was met. \\ \hline
+this will provide a decently sized area in front of the turret.
+& This requirement was met, since the turret is able to turn 360 degrees. \\
+\hline 
+In order to perceive the target, the turret will need to make use of sensors.
+& This requirement was met since the turret uses sensors to gather data. \\
+\hline The turret needs to be able to shoot in order to hit a target. This has to
+be done within a range of 200cm as it is the max capability of the sensors
+see \autoref{SensorTest}.
+& This requirements was met as the turret is able to shoot approximately 250cm.
+\\ \hline
+The target needs to move fast enough to require a firing offset, the
+target also needs to move on an even plane and with a constant speed.
+These two additional requirements are needed to ensure that there are as
+few factors as possible that are not accounted for in the scenario.
+& This requirement was met. \\ \hline
 The turret needs to be able to calculate the firing offset to ensure a high
 accuracy. It is not enough to hit the target sometimes, the turret should
 be able to hit it reliably. It should be able to hit a moving target at least
-80\% of the time. & This requirement was not met since the turret only has a hit
-accuracy 12.5\%, see \autoref{TurretAcc}. However, the hit accuracy was higher
-when the target was 50 cm away. This was due to the fact that the offset was not
-properly calculated or the data from the sensor was bad. \\ \hline
+80\% of the time.
+& This requirement was not met since the turret only has a hit
+accuracy of 12.5\%, see \autoref{TurretAcc}. However, the hit accuracy was
+higher when the target was 50cm away and moving at a speed of 40\%.\\ \hline
 \end{tabular}
 \caption{Requirements}
 \label{RequirementTable}
 \end{table}
 \section{Final Conclusion}
 Based on the partial completion of the requirements, we conclude that, while
-\name is not a satisfactory product, it is still partially succesful, as we have
-been able to build and implement an autonomous turret, which is capable of
+\name is not a satisfactory product, it is still partially successful. We
+have been able to build and implement an autonomous turret, which is capable of
 hitting a moving target, albeit with a very low chance to hit.\nl
 
-In addition, while we have been unsuccesful in implementing a machine
-intelligence model, we conclude, that enough of the groundwork has been done, in
-order to allow us to be able to implement it, given more time for future
-development.\nl
+In addition, while we have been unsuccessful in implementing a belief network,
+we conclude, that enough of the network has been modeled, in order to allow us
+to be able to implement it, given more time for further development.\nl
 
-Furthermore, in the current implementation, the turret is limited to waiting for
-a target to appear, instead of scanning an area and searching for it. While this
-is not satisfactory, this is a limitation imposed by the quality of the sensors,
-and as such, given better sensors and more time for future development, the
-turret could be made able to realize the ideal operational scenario.
+Furthermore, while the turret is designed to scan in 360 degrees and handle
+targets in all possible directions, the turret is limited to waiting for a
+target to appear, instead of scanning an area and searching for it. While this
+is not satisfactory, this is a limitation imposed by the quality of the sensors.
+Thus given better sensors and time for further development, the turret could be
+able to realize the ideal operational scenario. \nl
+
