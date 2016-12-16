@@ -12,7 +12,7 @@ the variables.
 %must be very simple}
 
 \section{Network Structure}
-\autoref{BNDone} displays the final version of the network. In this network the
+\autoref{BNDone} displays the final version of the network. In this network, the
 nodes \texttt{SA\_0-2} represent angle observations while \texttt{SD\_0-2}
 represent the distance observations.
 
@@ -36,7 +36,7 @@ vectors the target can have. The edges moving from \texttt{Vector\_1} to
 that all of these nodes are dependent on \texttt{Vector\_1}. Since the sensor
 nodes are comprised of distance and angle, we need two of such sets in order to
 reliably determine a vector. \texttt{Vector\_2} has edges to \texttt{SA\_1},
-\texttt{SD\_1}, \texttt{SA\_2} and \texttt{SD\_2}, this represent that the we
+\texttt{SD\_1}, \texttt{SA\_2} and \texttt{SD\_2}, this represents that we
 use the previous observation to determine a new direction vector. The edge
 going from \texttt{Vector\_1} to \texttt{Vector\_2} represents that the new
 vector is dependent on the old, in the sense that the vector should not change wildly,

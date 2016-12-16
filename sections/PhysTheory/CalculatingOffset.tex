@@ -1,15 +1,15 @@
 \section{Firing Offset}
 As described in \autoref{InitialProblem} the cannon needs to calculate an
-offset to be able to hit a target in motion. In order to calculate this we will
+offset to be able to hit a target in motion. In order to calculate this, we will
 need the air time for the projectile and the velocity of the target\nl
 
 The offset can be calculated using \autoref{FinEq} and \autoref{TimeEq} which
 was derived in \autoref{ProjMotion}. By first using \autoref{FinEq} to
 calculate the distance to the target, then inputting the result into
-\autoref{TimeEq} to get the air time for the projectile. With these calculations
-it is possible to determine the distance the target has travelled in the time it
+\autoref{TimeEq} to get the air time for the projectile. With these
+calculations, it is possible to determine the distance the target has travelled in the time it
 takes the projectile to get to it, simply by multiplying the air time with the
-velocity of the target. With this information it is then possible to use
+velocity of the target. With this information, it is then possible to use
 Pythagoras theorem to calculate the length from the turret to the current
 position of the target. All of this can be used together with the
 cosine relation to calculate how much the turret should turn to be able to hit

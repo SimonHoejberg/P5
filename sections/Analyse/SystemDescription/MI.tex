@@ -107,13 +107,13 @@ which represents how much the cannon is angled as a value between 0 and
 
 \subsubsection{Planning Horizon}
 The planning horizon for an intelligent agent governs how far ahead it plans
-when it comes to the consequences of its actions. For example a child might
+when it comes to the consequences of its actions. For example, a child might
 only do something if there is an immediate reward, whereas an adult might have
 the foresight to do something for a future reward. There
 exist the following types of planning horizons \citep[ch.1.5.3]{MIBook}:
 \begin{itemize}
 	\item \textbf{Non-planning} - The agent either does not consider the
-	future when making decisions, or doesn't use time as a factor.
+	future when making decisions or it doesn't use time as a factor.
 	\item \textbf{Finite horizon} - The agent considers the future for a fixed
 	finite set of steps. 
 	\item \textbf{Indefinite horizon} - The agent considers the future for a
@@ -163,7 +163,7 @@ the actions can be determined by what it can observe.
  
 \subsubsection{Preferences}
 For an agent to be able to make good decisions it is necessary to provide an
-idea of the goals we are trying to accomplish. Furthermore there are certain
+idea of the goals, we are trying to accomplish. Furthermore, there are certain
 preferences concerning the trade-off between different solutions
 \citep[ch.1.5.5]{MIBook}:
 
@@ -259,8 +259,8 @@ distributions for each variable given its parents \citep[ch.6.3]{MIBook}.\nl
 
 The belief networks is made from the variables and are connected via either a
 \textbf{serial}, \textbf{convergent} or \textbf{divergent} connection. These
-connections dictate how information is able to flow through the network given
-evidence on a node. Evidence occurs when a specific value in a node is observed,
+connections dictate how information is able to flow through the network, if
+given evidence on a node. Evidence occurs when a specific value in a node is observed,
 which allows the probability of that value to be set to 1, while the others in
 that node are set to 0.
 \begin{itemize}
@@ -274,8 +274,8 @@ that node are set to 0.
  \figx[0.8]{Serial2}{An example of a serial connection}
   \item A \textbf{convergent} connection consists of a child node with two or
   more parents. This kind of connection represents that one node is affected by
-  more than one node. In this connection the absence of evidence on the child
-  node, \textit{Node3}, or one of its descendants makes it impossible to
+  more than one node. In this connection, the absence of evidence on the child
+  node, \textit{Node3} or one of its descendants makes it impossible to
   transmit information between the parent nodes. If however evidence is present
   on \textit{Node3}, or one of its descendants, it is possible to transmit
   evidence between the parent nodes. An example of a convergent connection can
@@ -319,11 +319,11 @@ For a Markov chain, it means that when we want to consider a variable at time
 \textit{t}. The same principle applies to an HMM, if the node has few parents,
 the number of variables that affects it directly are few.\nl
 
-A Markov chain and by extension an HMM, can be extended endlessly, meaning
+A Markov chain, and by extension an HMM, can be extended endlessly, meaning
 that a small number of parameters can provide an infinite network
 \citep[ch.6.5.1]{MIBook}. For example: A man observes an airplane taking off
-northbound therefore, adding evidence at random variable $O_0$, then at $O_1$ he
-observes that the airplane has turned eastward, at $O_2$ he observes that it
+northbound, therefore, adding evidence at random variable $O_0$, then at $O_1$
+he observes that the airplane has turned eastward, at $O_2$ he observes that it
 has turned southward and at $O_3$ he sees that it continues south. This allows
 him to guess the position of the plane at $P_4$, see \autoref{HMM}. 
 

@@ -42,7 +42,7 @@ This setup can be seen in \autoref{SensorCamSetupV2}.
 
 \subsection{Camera Test Results - Colours}\label{CamTestColours}
 In order to determine which colour is the easiest to detect, the target is
-wrapped with a piece of coloured paper, and is then placed at a distance of
+wrapped with a piece of coloured paper and is then placed at a distance of
 200cm from the turret. The camera is then used to search for the specified
 colour. As explained in \autoref{SensorTheory} this data consists of rectangular
 segments of the identified colour, and these segments sizes and colours. The
@@ -53,7 +53,7 @@ at different distances.\nl
 
 The first test investigates the consistency of the recorded data. To do this we
 look at three main points. The maximum and minimum measured areas, the difference
-between these points, and the average measured area. In addition each colour is
+between these points, and the average measured area. In addition, each colour is
 given a rating based on the amount of frames where a colour was recognized.
 These ratings are: Ok (~70-100\%), bad (~40-69\%), very bad (~20-39\%) and Null
 (No data). It should also be noted that the results from this test have been
@@ -76,7 +76,7 @@ following:
 \end{itemize} 
 
 Based on these conclusions we can determine that the best colours would be
-either red or orange. In order to verify this assumption the test is repeated
+either red or orange. In order to verify this assumption, the test is repeated
 without the contrasting background. The results from the second test can be seen
 in \autoref{table:CamTest2}.
 
@@ -85,7 +85,7 @@ in \autoref{table:CamTest2}.
 From the data presented in \autoref{table:CamTest2} we can conclude the
 following:
 \begin{itemize}
-  \item For some colours the contrasting background results in worse data
+  \item For some colours, the contrasting background results in worse data
   \item Given no contrasting background 'yellow' can be seen, but the data is
   'bad'
   \item Given no contrasting background 'orange' has no variance in data
@@ -111,10 +111,10 @@ seen in \autoref{table:CamTest3}.
 \dataTable{SensorCamTest3}{Quality of data at different distances.}{CamTest3}
 
 The data presented in \autoref{table:CamTest3} represents the camera's ability
-to recognize the target at different distances, but during the testing a major
+to recognize the target at different distances, but during the testing, a major
 flaw was identified. It was found that the measured colour of the target
 changes based on its distance from the turret and the light levels at its
-current location. In effect this means that no single colour can be used to
+current location. In effect, this means that no single colour can be used to
 recognize the target at all distances, but instead multiple colours need to be
 specified based on the distance to the target. This problem has two identified
 solutions, either to program the camera to recognize a number of different
@@ -122,7 +122,7 @@ shades of red, or limiting the turret to only operate in well and consistently
 lit areas.
 
 \section{Conclusion}
-During this chapter the two sensors were tested, and it was determined how best
+During this chapter, the two sensors were tested, and it was determined how best
 to use them to gather the most accurate data. In order to determine the distance
 to the target, two ultrasonic distance sensors are being used. The reason for
 using two sensors is to increase the chance of at least one sensor to receive

@@ -21,8 +21,8 @@ meet its deadlines.}
 \end{center} 
 
 %\subsection{Tasks}
-Real-time systems often consists of several tasks or threads, which work
-together in tandem. These tasks can be run at set intervals, or might have
+Real-time systems often consist of several tasks or threads, which work
+together in tandem. These tasks can be run at set intervals or might have
 individual deadlines for when they must have finished their execution. When a
 task is executed, it works by gathering information about the surrounding
 environment, performing a computation and deciding whether or not to react to
@@ -30,7 +30,7 @@ the input by changing the system state. An example of a task in a real-time
 system, such as the Anti-Lock Braking system (ABS), could be a task which
 monitors the applied pressure on the brakes and the individual speed of the wheels. It
 then performs a computation to see whether or not the brakes have locked, and
-depending on the outcome it will change the state of the system (the brakes) in
+depending on the outcome, it will change the state of the system (the brakes) in
 order to prevent locking of the brakes. Tasks can generally be divided into two
 different groups, \textbf{periodic} and \textbf{aperiodic} depending on the
 circumstance of their execution \citep[ch.1A]{Realtime}:
@@ -48,7 +48,7 @@ An example of the tasks that could be implemented in \name are:
 \begin{itemize}
   \item The turret will need a function that takes data from the sensors and
   converts it to the variables needed in order to calculate a position. This
-  task is periodic, since it should do it continuously.
+  task is periodic since it should do it continuously.
   \item An example of an aperiodic task is a function that should give the
   turret an order to shoot. This function should only be called once enough data has
   been gathered in order to calculate a vector for the target.

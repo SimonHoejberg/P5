@@ -22,8 +22,8 @@ the sensors are determined by what they can output. As such the domain for
 distance has values between 0 and 255cm, as this is what the ultrasonic sensor
 can sense. This domain is divided into 5 intervals, with the first and the last
 intervals being the biggest. This ensures that we can have improved precision
-for the remaining 3 intervals. The domain for angle is determined by how far the
-turret can turn, which is 360 degrees. It should be noted that the angle is set
+for the remaining 3 intervals. The domain for angles is determined by how far
+the turret can turn, which is 360 degrees. It should be noted that the angle is set
 as 0 at the start of the program, which results in a negative angle if it turns
 towards the target in the beginning, instead of following it. This means the
 domain for sensing the angle is adjusted to be between -30 and 330 degrees. The
@@ -44,7 +44,7 @@ State & Angle (deg) & Distance (cm) \\ \hline
 \end{table}
 
 The states for the vectors consist of the perceived speed of the target, that
-is, how far along the x and y-axis it has moved per millisecond. These vectors
+is, how far along the x- and y-axis it has moved per millisecond. These vectors
 were determined as an average of vectors which were within a 40\% margin of
 error of the expected speed. They are simply denoted by how fast
 the target is moving, \textbf{41cm/s}, \textbf{57cm/s} and when it is a 'bad
@@ -75,7 +75,7 @@ Using this simplified approach means the model lose some precision, but it
 allows us to work around the limit of 500 cases. Instead of having only a few
 nodes with a continuous set of values, we can consider additional variables,
 which can make up for the loss of accuracy. It also allows us to group the
-values that seem unlikely to be used often into big intervals.
+values, that seem unlikely to be used often, into big intervals.
 
 \subsection{Constructing the Probability Tables}
 

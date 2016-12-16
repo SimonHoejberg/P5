@@ -44,16 +44,17 @@ of memory.\nl
 
 A possible way to implement the network on the NXT would be to choose another
 programming language for the brick. If for example a programming language such
-as leJOS was used on the NXT it would in theory be possible to implement the
+as leJOS was used on the NXT it would, in theory, be possible to implement the
 Hugin API directly on the NXT. This language could potentially be used as it
 runs in a tiny Java Virtual Machine (JVM) on the NXT \cite{LeJos}. One of the
 advantages of using the JVM is that it is platform independent, this means that
-the JVM uses the same instruction set on the PC and on the brick. This solution
-however does present some issues, the first being the amount of flash memory on
+the JVM uses the same instruction set on the PC and on the brick. This solution,
+however, does present some issues, the first being the amount of flash memory on
 the NXT as the Hugin API takes up 129KB of memory and the second being the
 runtime. This is an issue since the processor on the NXT is not very powerful
 compared to a PC.
-The third issue is that there are no guaranties that the Hugin API will work with it.
+The third issue is that there are no guarantees that the Hugin API will work
+with it.
 
 \figx[1]{BNGrouped}{The finished grouped belief network}
 
@@ -77,18 +78,19 @@ In order to establish a serial connection between the NXT and the PC, there are
 two alternatives. The NXT is capable of communicating with the PC either
 via either USB or Bluetooth. The USB approach would require a cable connecting
 the NXT to the PC.
-This could complicate certain things like the horizontal rotation, since the
+This could complicate certain things like the horizontal rotation since the
 cable could potentially restrict the movement by adding more resistance.
 Another issue that complicates it even further is how fast we will be able to
 send the data to and from the NXT.\nl
 
-Using Bluetooth for communication would have been preferred, since there are
+Using Bluetooth for communication would have been preferred since there are
 no cables to restrict the turret when it turns.
 This approach would require a PC with Bluetooth connectivity. Once a connection
 has been established, it uses the NXT built-in mailbox system for transferring
 messages between the brick and the PC.\nl
 
-Next step would be to figure out in what format the communication should occur.
+The next step would be to figure out in what format the communication should
+occur.
 The NXT should send the sensor input needed for evidence to the PC. Since our
 sensor values are defined in the model in intervals, we need to convert the
 sensor value to the corresponding interval in the node. This can be achieved two ways. Either the NXT does the conversion and sends the modified value to the PC, or the NXT

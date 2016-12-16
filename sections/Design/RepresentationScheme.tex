@@ -35,7 +35,7 @@ x=sin(a)*dist
 y=cos(a)*dist
 \end{equation} 
 
-In this equation the angle \textc{a} is given in radians, and the distance
+In this equation, the angle \textc{a} is given in radians, and the distance
 \textc{dist} is given in centimeters. Contrary to what might be expected, sine
 is used to find the x-coordinate and cosine is used to determine the
 y-coordinate. This is because the turrets coordinate system is rotated 90
@@ -53,8 +53,8 @@ vector is then multiplied by a given number of milliseconds, in order to
 calculate a point in the coordinate system where the target is going to be in
 the future. Normally the tangent could be used to calculate the distance
 to this point, but because our co-ordinate system is rotated 90 degrees, we need
-two different equations. For this purpose \autoref{locEq4} is used if the angle is
-negative, or \autoref{locEq3} if positive.
+two different equations. For this purpose, \autoref{locEq4} is used if the angle
+is negative, or \autoref{locEq3} if positive.
 \begin{equation}\label{locEq3}
 a_{positive}=90+(tan^{-1}(\frac{y_{pos}}{x_{pos}}))*(-1)
 \end{equation} 

@@ -1,35 +1,35 @@
 \section{Target Design}\label{targetDesign}
-In this section the design decisions of the target will be explained. Then the
-different design aspects of the target will be discussed along with the
-reasoning for choosing them.
+In this section, the design decisions of the target will be explained.
+Following this, the different design aspects of the target will be
+discussed along with the reasoning for choosing them.
 
 \subsection{Tracking the Target}
 Since the primary method of tracking is recognizing colours using the camera,
 the tests in \autoref{CamTest} were conducted in order to find the most suitable
-colour for the target. From these tests we reached the conclusion that the
-target needs to be orange in order to get the best results from the camera. However it
-was also determined that orange produces to many false positives and therefore,
+colour for the target. From these tests, we reached the conclusion that the
+target needs to be orange in order to get the best results from the camera.
+However, it was also determined that orange produces to many false positives and therefore,
 red was chosen as the colour for the target since it performed second best in
 the camera test.
 \nl
 
 Both a flat and cylindrical design for the target have been considered. The
 advantage of the flat design is that it is large and therefore easy for the ultrasonic
-sensors to sense when they are pointed directly at the target. The disadvantage
-is that if it is at an angle to the ultrasonic sensors line of sight it
+sensors to sense when they are pointed directly at he target. The disadvantage
+is, that if it is at an angle to the ultrasonic sensors line of sight it
 becomes less likely that the sound waves are caught by the sensor when they
 bounce back. The disadvantage of this design is that if the target not
 perpendicular with the camera's line of sight, it appears smaller to
 the camera.\nl
 
-The cylindrical design should in theory counteract the problem with the
+The cylindrical design should, in theory, counteract the problem with the
 ultrasonic sensors needing to be pointed directly at the target, due to the
 fact that the angle is the same all around the target. The cylindrical design
 also ensures that the camera always sees the target as the same size.\nl
 
 \subsection{Moving the Target}
 Since our problem statement states that the target is always travelling in the
-same direction and at a constant speed, there is no need for the target to be
+same direction and at a constant speed there is no need for the target to be
 able to turn. This allows for a simple design of the vehicle, using only 3
 wheels, fixed in place. The cart is powered by an NXT brick used to control the
 motors. The target can move at a speed between 0\% and 100\% in intervals of
