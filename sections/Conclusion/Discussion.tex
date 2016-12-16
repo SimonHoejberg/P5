@@ -96,52 +96,55 @@ Due to problems with the management of the project, the belief network has
 not been implemented. Several problems were identified during our construction
 of the intelligent agent. Our planning of the design activity was inadequate.
 This means, that at first it was not planned when the belief network should be
-implemented. This resulted in us to start designing the intelligent agent
+implemented. This resulted in us designing the intelligent agent
 too late. 
 % Which means that at first we didn't really plan the MI resulting in
 % us starting the design of the intelligent agent way too late. 
-This complicated other things in the project for example the serial
-communication, which resulted in us not having time to get the USB connection to work. Another consequence of our late
-planning, was that the MI-agent was built around our NXT code, and not in
-conjunction with. This resulted in some oddities and simplifications regarding our design of the network.
+This further complicated the design process of the intelligent agent. Which
+resulted in us not having enough time to get the serial connection to work.
+Another consequence of our late design, was that the intelligent agent was built
+around our NXT code, and not in conjunction with. This resulted in some oddities and
+complications regarding our design of the network.
 
 
-\section{MI-Model Design}
-One of the inconsistencies of our belief network is the probability tables that
-we are operating on, which are based on a limited amount of learning data. That
-means that we have certain states where the probabilities are quite uncertain. A
-simple solution for this would have been more training data, as that would
+\section{Model Design}%I HOPE SOMEONE READS THIS COMMENT AND SAVES ME
+One of the inconsistencies of our belief network, is that the probability tables
+that we constructed, are based on a limited amount of training data. This
+means that we have certain states where we are uncertain of the probabilities
+due to the limit amount of occurrences in the training data.
+A simple solution for this would have been more training data, as this should
 increase the precision of our probabilities. Another factor that could have
 increased our precision is modeling more possible states on our features,
-although the hardware did restrict us.
+although the hardware and software did restrict us.
 
 \section{Serial Communication to the NXT}
-When trying to implement the machine intelligence, we found that an complex
-machine intelligence model would require more processing power and memory than
-what was available on the NXT. As such, as a part of the machine intelligence,
-we would have liked to implement communication via either bluetooth or USB, such
-that the NXT could gather data, which it then sent to a PC, which would compute
-all complex calculations, and then simply send the results to the NXT.
+When trying to implement the belief network, we found that a complex
+network would require more processing power and memory than
+what is available on the NXT. In order to implement the belief network,
+we would have liked to establish a serial connection via either Bluetooth or
+USB, such that the NXT could gather data, which is sent to a PC, the PC is then
+used to compute all complex calculations, and the result is sent to the
+NXT.
 
 \subsection{Bluetooth}
 In an attempt to implement serial communication to the NXT, we tried to
-establish a bluetooth connection between the NXT and a PC. This implementation
-never succeded as none of the bluetooth enabled PCs in the group were able to
-establish a conncetion to the NXT.\nl
-One of the likely reasons we never succeded to implement bluetooth
-communications are beacuse we did not devote enough time to research and test
-methods for doing so. In an alternate project, it would be a good idea to focus
-on this functionality early on, as is alleviates some of the problems we
-encountered during the project. One such problem is, that all transfer of files
-between the NXT and the PC was done using a USB cable. This posed a problem, as
-the turret rotates during its operation, which means that the cable can not
-always be connected. This resulted in a lot of annoyances, as we needed a
-connection to read the NXT screen, upload new software and download data logs,
-which could all be done using a bluetooth connection.
+establish a Bluetooth connection between the NXT and a PC. This implementation
+never succeeded as none of the Bluetooth enabled PCs in the group were able to
+establish a connection to the NXT.\nl
+
+One of the likely reasons we never succeeded to implement Bluetooth
+communication is because we did not devote enough time to research and test
+methods for doing so. In retrospect, it would have been a good idea to focus
+on this functionality early on, as this alleviates some of the problems we
+encountered. One such problem is, that all file transfers between the NXT and
+the PC was done using a USB cable. 
+This resulted in a lot of annoyances, as we needed a USB connection to read the
+NXT screen, upload new software and download data logs, which could all be done
+using a Bluetooth connection.
 
 \subsection{USB}
 While we were able to use a USB connection to share files between the NXT and a
-PC, we were never able to share a continious stream of information between the
+PC, we were never able to share a continuous stream of information between the
 two. We tried to implement a communication system by using the NXT's mailbox
 system, which is basically a set of variables or strings, which can be read
 through a serial connection. Our attempt was done using MonoBrick
@@ -149,7 +152,7 @@ through a serial connection. Our attempt was done using MonoBrick
 reading and writing to the NXT's mailbox. Our attempt to implement a serial
 connection consisted of having 3 group members try to use their individual
 understanding and implementation of MonoBrick, to establish a connection to the
-NXT mailbox. While we succeded in writing data from a PC to the NXT, we were
+NXT mailbox. While we succeeded in writing data from a PC to the NXT, we were
 unable to read data from the NXT.
 
 \section{Code Refactoring}
