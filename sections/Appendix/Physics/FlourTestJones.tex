@@ -44,7 +44,18 @@ each set is shown below in \autoref{table:AVGSpread}.
 \dataTable{AVGSpread}{Average spread recorded in the two data sets.}{AVGSpread}
 
 While it is not a linear increase in spread, the locations further away had
-considerably more spread that those which were closer. 
+considerably more spread that those which were closer. Assuming we ignore the
+data from the misfired shots, we get the following average width-spreads. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Angle (deg) & 4     & 13    & 22    & 31    & 40    & 49    \\ \hline
+Spread (cm) & 3.357 & 1.583 & 2.917 & 3.861 & 6.607 & 3.583 \\ \hline
+\end{tabular}
+\caption{Average width-spread for the different angles.}
+\end{table}
 
 \section{Data Interpretation: Length Spread}
 Another problem with the accuracy of the turret lies in the fact that there is a
@@ -53,23 +64,35 @@ variety in the distance the projectile will travel at a given angle. This is sho
 increases the farther the projectile is fired. In addition it has also been noted that
 the turret has a chance to misfire. When this happens, the projectile will not
 follow its usual arch, and will travel a considerately shorter distance. This
-misfire chance was found to be 3.3\% in the first set, and 23.3\% in the second
-set.
+misfire chance was found to be 15\% on average.
 
 \dataTable{AngleVsDistSpread}{Average spread recorded in the two data
 sets.}{AngleVsDistSpread}
 
 The data shown in \autoref{table:AngleVsDistSpread} was calculated by looking at
-all of the recorded distances. 
+all of the recorded distances. Assuming we ignore data from misfired shots, the
+average length-spread for the different angles are:
+
+\begin{table}[H]
+\centering
+\caption{Average length-spread for the different angles.}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Angle (deg) & 4 & 13 & 22   & 31   & 40 & 49 \\ \hline
+Spread (cm) & 4 & 5  & 13.5 & 12.5 & 20 & 9  \\ \hline
+\end{tabular}
+\end{table}
+
 
 \section{Conclusion}
 By looking at this test we can conclude the following:
 \begin{itemize}
-  \item The turret has an average chance to misfire of 13.3\%.
-  \item In the recorded lengths, the hit location has a spread of between 9cm
-  and 107cm.
-  \item In the recorded widths, the hit location has a spread of between 0.25cm
-  and 8.55cm.
+  \item The turret has an average chance to misfire of 15\%.
+  \item If we disregard the misfires, the turret has a average width-spread of
+  3.357cm at 4 degrees, and up to 6.607cm at 40 degrees.
+  \item If we disregard the misfires, the turret has an average length-spread of
+  4cm at 4 degrees, and up to 20cm at 40 degrees.
+  
 \end{itemize}
 
 This test has shown a large possible difference between points for the
